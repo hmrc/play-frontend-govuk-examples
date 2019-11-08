@@ -23,8 +23,9 @@ import play.twirl.api.Html
 import uk.gov.hmrc.govukfrontend.views.html.components._
 import NunjucksParser._
 import fastparse.Parsed
+import scala.collection.mutable.ArrayBuffer
 
-class ParserSpec extends WordSpec with Matchers {
+class NunjucksParserSpec extends WordSpec with Matchers {
 
 //  "A parser for a Nunjucks template" should {
 //    "parse successfully" in {
@@ -105,6 +106,23 @@ class ParserSpec extends WordSpec with Matchers {
 
        parsedValue shouldBe
         Import("govuk/components/error-summary/macro.njk", "govukErrorSummary")
+    }
+  }
+
+  "imports parser" should {
+    "parse" in {
+      val s =
+        """
+          |{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+          |{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+          |""".stripMargin
+
+      fastparse.parse(s, imports(_)) shouldBe Success(
+        Seq(
+          Import("govuk/components/error-summary/macro.njk", "govukErrorSummary"),
+          Import("govuk/components/date-input/macro.njk", "govukDateInput")
+        ), 100
+      )
     }
   }
 }

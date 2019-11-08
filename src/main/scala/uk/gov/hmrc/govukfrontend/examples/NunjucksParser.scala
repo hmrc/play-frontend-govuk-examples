@@ -34,13 +34,13 @@ object NunjucksParser {
 
 //  def nunjucksParser[_: P] = P(imports ~ ws ~ templateBody)
 
-  def ws[_: P] = P( (" " | "\n").rep(1) )
+  def ws[_: P]: P[Unit] = P( (" " | "\n").rep(1) )
 
-//  def imports[_: P] = P(importParser ~ ws).rep
+  def imports[_: P]: P[Seq[Import]] = P((importParser ~ ws).rep)
 
-  def doubleQuotedString[_: P] = P("\"" ~ (!"\"" ~ AnyChar).rep.! ~ "\"")
+  def doubleQuotedString[_: P]: P[String] = P("\"" ~ (!"\"" ~ AnyChar).rep.! ~ "\"")
 
-  def importParser[_: P] = P( "{%" ~ ws ~ "from" ~ ws ~ doubleQuotedString ~ ws ~ "import" ~ ws ~ (!" " ~ AnyChar).rep.! ~ ws ~ "%}").map {
+  def importParser[_: P]: P[Import] = P( "{%" ~ ws ~ "from" ~ ws ~ doubleQuotedString ~ ws ~ "import" ~ ws ~ (!" " ~ AnyChar).rep.! ~ ws ~ "%}").map {
     case (importStatement, macroName) => Import(from = importStatement, macroName = macroName)
   }
 
