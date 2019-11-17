@@ -19,8 +19,10 @@ package uk.gov.hmrc.govukfrontend.examples
 import fastparse.Parsed.Success
 import fastparse._
 import org.scalatest.{Matchers, WordSpec}
+import play.twirl.api.Html
 import uk.gov.hmrc.govukfrontend.examples.NunjucksParser._
 import uk.gov.hmrc.govukfrontend.views.html.components._
+
 import scala.collection.mutable.ArrayBuffer
 
 class NunjucksParserSpec extends WordSpec with Matchers {
@@ -133,6 +135,8 @@ class NunjucksParserSpec extends WordSpec with Matchers {
       val s =
         """{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
           |
+          |<div class="govuk-grid-row">
+          |
           |{{ govukErrorSummary({
           |  titleText: "There is a problem",
           |  errorList: [
@@ -145,7 +149,10 @@ class NunjucksParserSpec extends WordSpec with Matchers {
           |      href: "#postcode-error"
           |    }
           |  ]
-          |}) }}""".stripMargin
+          |}) }}
+          |
+          |</div>
+          |""".stripMargin
 
       fastparse.parse(s, nunjucksParser(_)) shouldBe Success(
         NunjucksTemplate(
@@ -153,6 +160,9 @@ class NunjucksParserSpec extends WordSpec with Matchers {
             Import(from = "govuk/components/error-summary/macro.njk", macroName = "govukErrorSummary")
           ),
           body = List(
+            TemplateHtml(Html("""<div class="govuk-grid-row">
+           |
+           |""".stripMargin)),
             MacroCall(
               macroName = "govukErrorSummary",
               args = ErrorSummary(
@@ -168,9 +178,12 @@ class NunjucksParserSpec extends WordSpec with Matchers {
                   )
                 )
               )
-            ))
+            ),
+            TemplateHtml(Html("""</div>
+      |""".stripMargin))
+          )
         ),
-        369
+        408
       )
     }
 
@@ -487,5 +500,4 @@ class NunjucksParserSpec extends WordSpec with Matchers {
 
     }
   }
-
 }

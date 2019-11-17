@@ -119,7 +119,9 @@ object NunjucksParser {
     MacroCall(macroName = macroName, args = templateParams)
   }
 
-  def templateBody[_: P]: P[Seq[NunjucksTemplateBody]] =
-    P(macroCall.rep)
+  def html[_: P]: P[TemplateHtml] =
+    P(ws ~ "<" ~ (!"{{" ~ AnyChar).rep.! ~ ws).map(html => TemplateHtml(Html(s"<$html")))
 
+  def templateBody[_: P]: P[Seq[NunjucksTemplateBody]] =
+    P((macroCall | html).rep(1))
 }
