@@ -62,7 +62,7 @@ package object examples {
           .map(_.valueTreeString)
           .map(indent)
           .filterNot(_ == "")
-          .mkString(",")
+          .mkString(", ")
 
       case a: Product =>
         val b = currentMirror

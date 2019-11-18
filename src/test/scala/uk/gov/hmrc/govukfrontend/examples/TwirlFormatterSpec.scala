@@ -22,13 +22,38 @@ import org.scalatest.{Matchers, WordSpec}
 class TwirlFormatterSpec extends WordSpec with Matchers {
 
   "Formatter" should {
+
+    "format GovukBackLink " in {
+
+      val gouvukBackLinkNunjucks =
+        """{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+          |
+          |{{ govukBackLink({
+          |  text: "Back",
+          |  href: "#"
+          |}) }}""".stripMargin
+
+      val govukBackLinkTwirlExpected =
+        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+          |
+          |@this()
+          |
+          |@()
+          |@GovukBackLink(BackLink(href = "#", content = Text(value = "Back")))""".stripMargin
+
+      val gouvukBackLinkParsed: Parsed[NunjucksTemplate] =
+        fastparse.parse(gouvukBackLinkNunjucks, NunjucksParser.nunjucksParser(_))
+
+      TwirlFormatter.format(gouvukBackLinkParsed.get.value) shouldBe govukBackLinkTwirlExpected
+    }
+
     "format GovukButton " in {
 
       val gouvukButtonNunjucks = """{% from "govuk/components/button/macro.njk" import govukButton %}
-        |
-        |{{ govukButton({
-        |text: "Save and continue"
-        |}) }}""".stripMargin
+                                   |
+                                   |{{ govukButton({
+                                   |text: "Save and continue"
+                                   |}) }}""".stripMargin
 
       val govukButtonTwirlExpected =
         """@import uk.gov.hmrc.govukfrontend.views.html.components._
@@ -43,6 +68,52 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
 
       TwirlFormatter.format(gouvukButtonParsed.get.value) shouldBe govukButtonTwirlExpected
     }
+
+    "format GovukErrorSummary " ignore {
+
+      val gouvukErrorSummaryNunjucks = """{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+                                         |
+                                         |{{ govukErrorSummary({
+                                         |  titleText: "There is a problem",
+                                         |  errorList: [
+                                         |    {
+                                         |      text: "The date your passport was issued must be in the past",
+                                         |      href: "#passport-issued-error"
+                                         |    },
+                                         |    {
+                                         |      text: "Enter a postcode, like AA1 1AA",
+                                         |      href: "#postcode-error"
+                                         |    }
+                                         |  ]
+                                         |}) }}""".stripMargin
+
+      val govukErrorSummaryTwirlExpected =
+        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+          |
+          |@this()
+          |
+          |@()
+          |@GovukErrorSummary(ErrorSummary(
+          |  errorList =
+          |    Seq(
+          |      ErrorLink(
+          |        href = Some("#passport-issued-error"),
+          |        content = Text(value = "The date your passport was issued must be in the past")
+          |      ),
+          |      ErrorLink(
+          |        href = Some("#postcode-error"),
+          |        content = Text(value = "Enter a postcode, like AA1 1AA")
+          |      )
+          |    ),
+          |  title = Text("There is a problem")
+          |))""".stripMargin
+
+      val gouvukErrorSummaryParsed: Parsed[NunjucksTemplate] =
+        fastparse.parse(gouvukErrorSummaryNunjucks, NunjucksParser.nunjucksParser(_))
+
+      TwirlFormatter.format(gouvukErrorSummaryParsed.get.value) shouldBe govukErrorSummaryTwirlExpected
+    }
+
   }
 
 }
