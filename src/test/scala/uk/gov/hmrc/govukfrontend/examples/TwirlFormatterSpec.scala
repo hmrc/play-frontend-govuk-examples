@@ -188,12 +188,12 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  @govukInput(Input(
           |    id = "address-line-1",
           |    name = "address-line-1",
-          |    label = Label(content = HtmlContent(value = "Building and street <span class="govuk-visually-hidden">line 1 of 2</span>"))
+          |    label = Label(content = HtmlContent(value = \"\"\"Building and street <span class="govuk-visually-hidden">line 1 of 2</span>\"\"\"))
           |  ))
           |  @govukInput(Input(
           |    id = "address-line-2",
           |    name = "address-line-2",
-          |    label = Label(content = HtmlContent(value = "<span class="govuk-visually-hidden">Building and street line 2 of 2</span>"))
+          |    label = Label(content = HtmlContent(value = \"\"\"<span class="govuk-visually-hidden">Building and street line 2 of 2</span>\"\"\"))
           |  ))
           |  @govukInput(Input(
           |    id = "address-town",
@@ -2877,7 +2877,8 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    SummaryListRow(
           |      key = Key(content = Text(value = "Contact details")),
           |      value = Value(content = HtmlContent(
-          |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>")),
+          |        \"\"\"<p class="govuk-body">07700 900457</p>
+          |          |<p class="govuk-body">sarah.phillips@example.com</p>\"\"\".stripMargin)),
           |      actions = Some(Actions(items = Seq(
           |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("contact details"))
           |      )))
@@ -3001,7 +3002,8 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    SummaryListRow(
           |      key = Key(content = Text(value = "Contact details")),
           |      value = Value(content = HtmlContent(
-          |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>")),
+          |        \"\"\"<p class="govuk-body">07700 900457</p>
+          |          |<p class="govuk-body">sarah.phillips@example.com</p>\"\"\".stripMargin)),
           |      actions = Some(Actions(items = Seq(
           |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("contact details"))
           |      )))
@@ -3080,7 +3082,8 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    SummaryListRow(
           |      key = Key(content = Text(value = "Contact details")),
           |      value = Value(content = HtmlContent(
-          |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>"))
+          |        \"\"\"<p class="govuk-body">07700 900457</p>
+          |          |<p class="govuk-body">sarah.phillips@example.com</p>\"\"\".stripMargin))
           |    )
           |  )
           |))""".stripMargin
@@ -3158,7 +3161,8 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    SummaryListRow(
           |      key = Key(content = Text(value = "Contact details")),
           |      value = Value(content = HtmlContent(
-          |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>"))
+          |        \"\"\"<p class="govuk-body">07700 900457</p>
+          |          |<p class="govuk-body">sarah.phillips@example.com</p>\"\"\".stripMargin))
           |    )
           |  )
           |))""".stripMargin
