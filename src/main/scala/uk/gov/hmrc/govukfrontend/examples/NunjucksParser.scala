@@ -23,15 +23,6 @@ import play.twirl.api.Html
 import uk.gov.hmrc.govukfrontend.examples.AsJson._
 import uk.gov.hmrc.govukfrontend.views.html.components._
 
-case class NunjucksTemplate(imports: List[Import], body: List[NunjucksTemplateBody])
-case class Import(from: String, macroName: String)
-
-sealed trait NunjucksTemplateBody
-
-case class MacroCall(macroName: String, args: Any) extends NunjucksTemplateBody
-case class TemplateHtml(content: Html) extends NunjucksTemplateBody
-case class WhiteSpace(ws: String) extends NunjucksTemplateBody
-
 object NunjucksParser {
 
   def nunjucksParser[_: P] = P(imports ~ ws ~ templateBody ~ End).map {
