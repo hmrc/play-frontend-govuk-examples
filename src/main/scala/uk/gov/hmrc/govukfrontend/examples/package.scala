@@ -59,6 +59,9 @@ package object examples {
           v.valueTreeString(showKey)
         else ""
 
+      case Some(value) =>
+        s"Some(${value.valueTreeString(showKey = false)})"
+
       case a: TraversableOnce[_] =>
         val b = a.toStream
           .map(_.valueTreeString())
@@ -66,8 +69,8 @@ package object examples {
           .filterNot(_ == "")
           .mkString(", ")
 
-        if (Seq("scala.collection.Seq").contains(currentMirror.reflect(a).symbol.fullName))
-          s"""${currentMirror.reflect(a).symbol.name}($b)"""
+        if (Seq("scala.collection.immutable.$colon$colon").contains(currentMirror.reflect(a).symbol.fullName))
+          s"Seq($b)"
         else b
 
       case a: Product =>
@@ -91,8 +94,6 @@ package object examples {
         else ""
 
       case null => ""
-
-      case option: Option[_] => if (option.isDefined) s"Some(${option.get.valueTreeString(showKey = false)})" else ""
 
       case boolean: Boolean => if (boolean) s"$boolean" else ""
 
