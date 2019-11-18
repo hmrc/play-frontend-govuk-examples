@@ -28,7 +28,7 @@ package object examples {
   sealed trait NunjucksTemplateBody
 
   case class MacroCall(macroName: String, args: Any) extends NunjucksTemplateBody {
-    override def toString: String = s"""@${macroName.capitalize}(${args.valueTreeString})"""
+    override def toString: String = s"""@${macroName.capitalize}(${args.valueTreeString()})"""
   }
   case class TemplateHtml(content: Html) extends NunjucksTemplateBody {
     override def toString: String = content.toString()
@@ -51,18 +51,24 @@ package object examples {
     /**
       * @return A readable string representation of this value of a different format to `treeString`
       */
-    def valueTreeString: String = a match {
+    def valueTreeString(showKey: Boolean = true): String = a match {
       case (k, v) =>
-        if ("" != v.valueTreeString)
-          s"$k = " + v.valueTreeString
+        if ("" != v.valueTreeString() && showKey)
+          s"$k = " + v.valueTreeString()
+        else if ("" != v.valueTreeString(showKey))
+          v.valueTreeString(showKey)
         else ""
 
       case a: TraversableOnce[_] =>
-        a.toStream
-          .map(_.valueTreeString)
+        val b = a.toStream
+          .map(_.valueTreeString())
           .map(indent)
           .filterNot(_ == "")
           .mkString(", ")
+
+        if (Seq("scala.collection.Seq").contains(currentMirror.reflect(a).symbol.fullName))
+          s"""${currentMirror.reflect(a).symbol.name}($b)"""
+        else b
 
       case a: Product =>
         val b = currentMirror
@@ -78,14 +84,15 @@ package object examples {
           .map(currentMirror.reflect(a).reflectField)
           .map(f => f.symbol.name.toString.trim -> f.get)
           .reverse
-        if (currentMirror.reflect(a).symbol.fullName != "scala.None")
-          s"""${currentMirror.reflect(a).symbol.name}(${collection.immutable.ListMap(b: _*).valueTreeString})"""
-        else
-          ""
+
+        if (!Seq("scala.None", "uk.gov.hmrc.govukfrontend.views.viewmodels.content.Empty")
+              .contains(currentMirror.reflect(a).symbol.fullName))
+          s"""${currentMirror.reflect(a).symbol.name}(${collection.immutable.ListMap(b: _*).valueTreeString()})"""
+        else ""
 
       case null => ""
 
-      case option: Option[_] => if (option.isDefined) s"Some(${option.get.valueTreeString})" else ""
+      case option: Option[_] => if (option.isDefined) s"Some(${option.get.valueTreeString(showKey = false)})" else ""
 
       case boolean: Boolean => if (boolean) s"$boolean" else ""
 

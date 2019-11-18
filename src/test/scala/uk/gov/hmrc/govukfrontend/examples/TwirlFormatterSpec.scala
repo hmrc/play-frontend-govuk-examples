@@ -105,7 +105,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |        content = Text(value = "Enter a postcode, like AA1 1AA")
           |      )
           |    ),
-          |  title = Text("There is a problem")
+          |  title = Text(value = "There is a problem")
           |))""".stripMargin
 
       val gouvukErrorSummaryParsed: Parsed[NunjucksTemplate] =
