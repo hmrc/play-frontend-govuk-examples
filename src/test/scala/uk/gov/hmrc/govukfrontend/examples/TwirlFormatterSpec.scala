@@ -2877,8 +2877,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    SummaryListRow(
           |      key = Key(content = Text(value = "Contact details")),
           |      value = Value(content = HtmlContent(
-          |        \"\"\"<p class="govuk-body">07700 900457</p>
-          |          |<p class="govuk-body">sarah.phillips@example.com</p>\"\"\".stripMargin)),
+          |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>")),
           |      actions = Some(Actions(items = Seq(
           |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("contact details"))
           |      )))
@@ -3002,8 +3001,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    SummaryListRow(
           |      key = Key(content = Text(value = "Contact details")),
           |      value = Value(content = HtmlContent(
-          |        \"\"\"<p class="govuk-body">07700 900457</p>
-          |          |<p class="govuk-body">sarah.phillips@example.com</p>\"\"\".stripMargin)),
+          |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>")),
           |      actions = Some(Actions(items = Seq(
           |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("contact details"))
           |      )))
@@ -3082,8 +3080,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    SummaryListRow(
           |      key = Key(content = Text(value = "Contact details")),
           |      value = Value(content = HtmlContent(
-          |        \"\"\"<p class="govuk-body">07700 900457</p>
-          |          |<p class="govuk-body">sarah.phillips@example.com</p>\"\"\".stripMargin))
+          |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>"))
           |    )
           |  )
           |))""".stripMargin
@@ -3161,8 +3158,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    SummaryListRow(
           |      key = Key(content = Text(value = "Contact details")),
           |      value = Value(content = HtmlContent(
-          |        \"\"\"<p class="govuk-body">07700 900457</p>
-          |          |<p class="govuk-body">sarah.phillips@example.com</p>\"\"\".stripMargin))
+          |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>"))
           |    )
           |  )
           |))""".stripMargin
