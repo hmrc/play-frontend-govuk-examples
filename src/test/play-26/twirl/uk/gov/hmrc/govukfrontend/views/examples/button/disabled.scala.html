@@ -1,9 +1,9 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this()
+@this(govukButton: GovukButton)
 
 @()
-@GovukButton(Button(
+@govukButton(Button(
   disabled = true,
   content = Text("Disabled button")
 ))

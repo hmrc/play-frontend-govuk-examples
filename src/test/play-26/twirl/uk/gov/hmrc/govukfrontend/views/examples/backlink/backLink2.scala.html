@@ -2,10 +2,10 @@
 @* this example is not in the Design System, it is just for illustrating how to use Html snippets with the components *@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this()
+@this(govukBackLink: GovukBackLink)
 
 @()
-@GovukBackLink(BackLink(href = "#", content = HtmlContent(content)))
+@govukBackLink(BackLink(href = "#", content = HtmlContent(content)))
 
 @* if this HTML snippet is inlined on the call to HtmlContent the Twirl compiler will not be able to cast it as Html
 so a good pattern to follow is to define HTML snippets as reusable code blocks or in '@defining' constructs.
