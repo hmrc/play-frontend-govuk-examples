@@ -1,7 +1,5 @@
 import GenerateExamplesManifest.generateExamplesManifest
-import GeneratePlay25Twirl.generatePlay25Templates
 import PlayCrossCompilation.{dependencies, playVersion}
-import de.heikoseeberger.sbtheader.HeaderKey
 import play.sbt.PlayImport.PlayKeys._
 import uk.gov.hmrc.playcrosscompilation.PlayVersion.{Play25, Play26}
 
@@ -36,35 +34,6 @@ lazy val root = Project(libName, file("."))
       baseDirectory.value / "src" / "main" / playDir / "twirl",
     (sourceDirectories in (Test, TwirlKeys.compileTemplates)) +=
       baseDirectory.value / "src" / "test" / playDir / "twirl",
-    (generatePlay25TemplatesTask in Compile) := {
-      val cachedFun: Set[File] => Set[File] =
-        FileFunction.cached(
-          cacheBaseDirectory = streams.value.cacheDirectory / "compile-generate-play-25-templates-task",
-          inStyle            = FilesInfo.lastModified,
-          outStyle           = FilesInfo.exists) { (in: Set[File]) =>
-          println("Generating Play 2.5 templates")
-          generatePlay25Templates(in)
-        }
-
-      val play26TemplatesDir         = baseDirectory.value / "src/main/play-26/twirl"
-      val play26Templates: Set[File] = (play26TemplatesDir ** ("*.scala.html")).get.toSet
-      cachedFun(play26Templates).toSeq
-    },
-    // FIXME: refactor to remove task implementation duplication
-    (generatePlay25TemplatesTask in Test) := {
-      val cachedFun: Set[File] => Set[File] =
-        FileFunction.cached(
-          cacheBaseDirectory = streams.value.cacheDirectory / "test-generate-play-25-templates-task",
-          inStyle            = FilesInfo.lastModified,
-          outStyle           = FilesInfo.exists) { (in: Set[File]) =>
-          println("Generating Play 2.5 test templates")
-          generatePlay25Templates(in)
-        }
-
-      val play26TemplatesDir         = baseDirectory.value / "src/test/play-26/twirl"
-      val play26Templates: Set[File] = (play26TemplatesDir ** ("*.scala.html")).get.toSet
-      cachedFun(play26Templates).toSeq
-    },
     generateExamplesManifestTask := {
       val cachedFun: Set[File] => Set[File] =
         FileFunction.cached(
@@ -80,10 +49,6 @@ lazy val root = Project(libName, file("."))
       val play26Examples: Set[File] = (play26ExamplesDir ** ("*.scala.html")).get.toSet
       cachedFun(play26Examples).toSeq
     },
-    (TwirlKeys.compileTemplates in Compile) :=
-      ((TwirlKeys.compileTemplates in Compile) dependsOn (generatePlay25TemplatesTask in Compile)).value,
-    (TwirlKeys.compileTemplates in Test) :=
-      ((TwirlKeys.compileTemplates in Test) dependsOn (generatePlay25TemplatesTask in Test)).value,
     parallelExecution in sbt.Test := false,
     playMonitoredFiles ++= (sourceDirectories in (Compile, TwirlKeys.compileTemplates)).value,
     routesGenerator := {
@@ -184,13 +149,11 @@ lazy val templateImports: Seq[String] = {
   allImports ++ specificImports
 }
 
-lazy val generatePlay25TemplatesTask = taskKey[Seq[File]]("Generate Play 2.5 templates")
-
 /**
   * Generates the manifest.json file in the [[src/test/resources]] folder, used by the Design System browser
   * extension to display Twirl examples for the library's components.
   *
   * To generate the manifest.json implement the examples in the folder [[src/test/play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples]]
-  * (the corresponding play-25 examples will be auto-generated automatically) and run the task at the sbt console <code>generateExamplesManifestTask</code>
+  * and [[src/test/play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples]], then run the task at the sbt console <code>generateExamplesManifestTask</code>
   */
 lazy val generateExamplesManifestTask = taskKey[Seq[File]]("Generate Twirl examples manifest.json file")
