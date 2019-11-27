@@ -1,9 +1,10 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this(govukDateInput: GovukDateInput)
+@this(govukDateInput: GovukDateInput,
+      govukErrorSummary: GovukErrorSummary)
 
 @()
-@GovukErrorSummary(ErrorSummary(
+@govukErrorSummary(ErrorSummary(
   title = Text("There is a problem"),
   errorList =
     Seq(
