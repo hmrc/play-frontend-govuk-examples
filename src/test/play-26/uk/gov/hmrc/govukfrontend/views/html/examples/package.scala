@@ -21,36 +21,36 @@ import uk.gov.hmrc.govukfrontend.views.html.components._
 
 package object examples {
 
-  lazy val BackLinkDefault = new backlink.default()
+  lazy val BackLinkDefault = new backlink.default(GovukBackLink)
 
-  lazy val ButtonDefault = new button.default()
+  lazy val ButtonDefault = new button.default(GovukButton)
 
-  lazy val ButtonStart = new button.start()
+  lazy val ButtonStart = new button.start(GovukButton)
 
-  lazy val ButtonSecondary = new button.secondary()
+  lazy val ButtonSecondary = new button.secondary(GovukButton)
 
-  lazy val ButtonSecondaryCombo = new button.secondaryCombo()
+  lazy val ButtonSecondaryCombo = new button.secondaryCombo(GovukButton)
 
-  lazy val ButtonWarning = new button.warning()
+  lazy val ButtonWarning = new button.warning(GovukButton)
 
-  lazy val ButtonDisabled = new button.disabled()
+  lazy val ButtonDisabled = new button.disabled(GovukButton)
 
-  lazy val ButtonPreventDoubleClick = new button.preventDoubleClick()
+  lazy val ButtonPreventDoubleClick = new button.preventDoubleClick(GovukButton)
 
-  lazy val ErrorSummaryDefault = new errorsummary.default()
+  lazy val ErrorSummaryDefault = new errorsummary.default(GovukErrorSummary)
 
-  lazy val ErrorSummaryLinking = new errorsummary.linking(GovukInput, GovukErrorSummary)
+  lazy val ErrorSummaryLinking = new errorsummary.linking(GovukErrorSummary, GovukInput)
 
-  lazy val ErrorSummaryLinkingMultipleFields = new errorsummary.linkingMultipleFields(GovukDateInput)
+  lazy val ErrorSummaryLinkingMultipleFields = new errorsummary.linkingMultipleFields(GovukDateInput, GovukErrorSummary)
 
-  lazy val ErrorSummaryLinkingCheckboxesRadios = new errorsummary.linkingCheckboxesRadios(GovukCheckboxes)
+  lazy val ErrorSummaryLinkingCheckboxesRadios = new errorsummary.linkingCheckboxesRadios(GovukCheckboxes, GovukErrorSummary)
 
   lazy val ErrorSummaryFullPageExample =
     new errorsummary.fullPageExample(GovukBackLink, GovukButton, GovukDateInput, GovukErrorSummary)
 
-  lazy val FieldsetAddressGroup = new fieldset.addressGroup(GovukInput)
+  lazy val FieldsetAddressGroup = new fieldset.addressGroup(GovukFieldset, GovukInput)
 
-  lazy val FieldsetDefault = new fieldset.default()
+  lazy val FieldsetDefault = new fieldset.default(GovukFieldset)
 
   lazy val ErrorMessageDefault = new errormessage.default(GovukDateInput)
 
@@ -58,57 +58,57 @@ package object examples {
 
   lazy val ErrorMessageLabel = new errormessage.label(GovukInput)
 
-  lazy val FooterDefault = new footer.default()
+  lazy val FooterDefault = new footer.default(GovukFooter)
 
-  lazy val FooterWithNavigation = new footer.withNavigation()
+  lazy val FooterWithNavigation = new footer.withNavigation(GovukFooter)
 
-  lazy val FooterWithMeta = new footer.withMeta()
+  lazy val FooterWithMeta = new footer.withMeta(GovukFooter)
 
-  lazy val FooterFull = new footer.full()
+  lazy val FooterFull = new footer.full(GovukFooter)
 
-  lazy val HeaderDefault = new header.default()
+  lazy val HeaderDefault = new header.default(GovukHeader)
 
-  lazy val HeaderWithServiceName = new header.withServiceName()
+  lazy val HeaderWithServiceName = new header.withServiceName(GovukHeader)
 
-  lazy val HeaderWithServiceNameAndNavigation = new header.withServiceNameAndNavigation()
+  lazy val HeaderWithServiceNameAndNavigation = new header.withServiceNameAndNavigation(GovukHeader)
 
-  lazy val PanelDefault = new panel.default()
+  lazy val PanelDefault = new panel.default(GovukPanel)
 
-  lazy val DetailsDefault = new details.default()
+  lazy val DetailsDefault = new details.default(GovukDetails)
 
-  lazy val InputDefault = new textinput.default()
+  lazy val InputDefault = new textinput.default(GovukInput)
 
-  lazy val InputFixedWidth = new textinput.inputFixedWidth()
+  lazy val InputFixedWidth = new textinput.inputFixedWidth(GovukInput)
 
-  lazy val InputFluidWidth = new textinput.inputFluidWidth()
+  lazy val InputFluidWidth = new textinput.inputFluidWidth(GovukInput)
 
-  lazy val InputHintText = new textinput.inputHintText()
+  lazy val InputHintText = new textinput.inputHintText(GovukInput)
 
-  lazy val InputError = new textinput.error()
+  lazy val InputError = new textinput.error(GovukInput)
 
-  lazy val TextareaDefault = new textarea.default()
+  lazy val TextareaDefault = new textarea.default(GovukTextarea)
 
-  lazy val TextareaError = new textarea.error()
+  lazy val TextareaError = new textarea.error(GovukTextarea)
 
-  lazy val TextareaSpecifyingRows = new textarea.specifyingRows()
+  lazy val TextareaSpecifyingRows = new textarea.specifyingRows(GovukTextarea)
 
-  lazy val RadiosDefault = new radios.default()
+  lazy val RadiosDefault = new radios.default(GovukRadios)
 
-  lazy val RadiosConditionalReveal = new radios.conditionalReveal(GovukInput)
+  lazy val RadiosConditionalReveal = new radios.conditionalReveal(GovukInput, GovukRadios)
 
-  lazy val RadiosDivider = new radios.divider()
+  lazy val RadiosDivider = new radios.divider(GovukRadios)
 
-  lazy val RadiosError = new radios.error()
+  lazy val RadiosError = new radios.error(GovukRadios)
 
-  lazy val RadiosHint = new radios.hint()
+  lazy val RadiosHint = new radios.hint(GovukRadios)
 
-  lazy val RadiosSmall = new radios.small()
+  lazy val RadiosSmall = new radios.small(GovukRadios)
 
-  lazy val RadiosStacked = new radios.stacked()
+  lazy val RadiosStacked = new radios.stacked(GovukRadios)
 
-  lazy val SummaryListDefault = new summarylist.default()
+  lazy val SummaryListDefault = new summarylist.default(GovukSummaryList)
 
-  lazy val SummaryListWithoutActions = new summarylist.withoutActions()
+  lazy val SummaryListWithoutActions = new summarylist.withoutActions(GovukSummaryList)
 
-  lazy val SummaryListWithoutBorders = new summarylist.withoutBorders()
+  lazy val SummaryListWithoutBorders = new summarylist.withoutBorders(GovukSummaryList)
 }

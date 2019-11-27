@@ -1,9 +1,10 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this(govukInput: GovukInput)
+@this(govukFieldset: GovukFieldset,
+      govukInput: GovukInput)
 
 @()
-@GovukFieldset(Fieldset(
+@govukFieldset(Fieldset(
   legend =
     Some(
       Legend(

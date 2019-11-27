@@ -1,7 +1,5 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-
-
 @()
 @GovukRadios(Radios(
   idPrefix = Some("how-contacted-conditional"),
@@ -24,7 +22,7 @@
 ))
 
 @emailHtml = {
-  @govukInput(Input(
+  @GovukInput(Input(
     id = "contact-by-email",
     name = "contact-by-email",
     inputType = "email",
@@ -37,7 +35,7 @@
 }
 
 @phoneHtml = {
-  @govukInput(Input(
+  @GovukInput(Input(
     id = "contact-by-phone",
     name = "contact-by-phone",
     inputType = "tel",
@@ -49,7 +47,7 @@
 }
 
 @textHtml = {
-  @govukInput(Input(
+  @GovukInput(Input(
     id = "contact-by-text",
     name = "contact-by-text",
     inputType = "tel",

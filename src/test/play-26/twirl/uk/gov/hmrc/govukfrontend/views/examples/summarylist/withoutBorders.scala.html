@@ -1,9 +1,9 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this()
+@this(govukSummaryList: GovukSummaryList)
 
 @()
-@GovukSummaryList(SummaryList(
+@govukSummaryList(SummaryList(
   classes = "govuk-summary-list--no-border",
   rows = Seq(
     SummaryListRow(

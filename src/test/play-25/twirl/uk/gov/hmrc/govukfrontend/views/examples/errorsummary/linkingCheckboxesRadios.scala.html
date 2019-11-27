@@ -1,7 +1,5 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-
-
 @()
 @GovukErrorSummary(ErrorSummary(
   errorList =
@@ -14,7 +12,7 @@
   title = Text("There is a problem")
 ))
 
-@govukCheckboxes(Checkboxes(
+@GovukCheckboxes(Checkboxes(
   idPrefix = Some("nationality"),
   name = "nationality",
   fieldset = Some(Fieldset(
