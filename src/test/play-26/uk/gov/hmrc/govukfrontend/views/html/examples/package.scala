@@ -39,16 +39,16 @@ package object examples {
 
   lazy val ErrorSummaryDefault = new errorsummary.default(GovukErrorSummary)
 
-  lazy val ErrorSummaryLinking = new errorsummary.linking(GovukInput, GovukErrorSummary)
+  lazy val ErrorSummaryLinking = new errorsummary.linking(GovukErrorSummary, GovukInput)
 
-  lazy val ErrorSummaryLinkingMultipleFields = new errorsummary.linkingMultipleFields(GovukDateInput)
+  lazy val ErrorSummaryLinkingMultipleFields = new errorsummary.linkingMultipleFields(GovukDateInput, GovukErrorSummary)
 
-  lazy val ErrorSummaryLinkingCheckboxesRadios = new errorsummary.linkingCheckboxesRadios(GovukCheckboxes)
+  lazy val ErrorSummaryLinkingCheckboxesRadios = new errorsummary.linkingCheckboxesRadios(GovukCheckboxes, GovukErrorSummary)
 
   lazy val ErrorSummaryFullPageExample =
     new errorsummary.fullPageExample(GovukBackLink, GovukButton, GovukDateInput, GovukErrorSummary)
 
-  lazy val FieldsetAddressGroup = new fieldset.addressGroup(GovukInput)
+  lazy val FieldsetAddressGroup = new fieldset.addressGroup(GovukFieldset, GovukInput)
 
   lazy val FieldsetDefault = new fieldset.default(GovukFieldset)
 
