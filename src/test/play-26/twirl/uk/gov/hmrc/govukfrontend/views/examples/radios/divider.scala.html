@@ -1,9 +1,9 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this()
+@this(govukRadios: GovukRadios)
 
 @()
-@GovukRadios(Radios(
+@govukRadios(Radios(
   idPrefix = Some("where-do-you-live"),
   name = "where-do-you-live",
   fieldset = Some(Fieldset(
