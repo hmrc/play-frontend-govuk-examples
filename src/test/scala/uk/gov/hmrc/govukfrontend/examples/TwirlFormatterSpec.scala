@@ -23,7 +23,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
 
   "Play 2.5 formatter" should {
 
-    "format GovukBackLink " ignore {
+    "format GovukBackLink " in {
 
       val gouvukBackLinkNunjucks =
         """{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
@@ -42,10 +42,10 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
       val gouvukBackLinkParsed: Parsed[NunjucksTemplate] =
         fastparse.parse(gouvukBackLinkNunjucks, NunjucksParser.nunjucksParser(_))
 
-      TwirlFormatter.format(gouvukBackLinkParsed.get.value) shouldBe govukBackLinkTwirlExpected
+      TwirlFormatter.formatPlay25(gouvukBackLinkParsed.get.value) shouldBe govukBackLinkTwirlExpected
     }
 
-    "format GovukButton " ignore {
+    "format GovukButton " in {
 
       val gouvukButtonNunjucks = """{% from "govuk/components/button/macro.njk" import govukButton %}
                                    |
@@ -62,7 +62,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
       val gouvukButtonParsed: Parsed[NunjucksTemplate] =
         fastparse.parse(gouvukButtonNunjucks, NunjucksParser.nunjucksParser(_))
 
-      TwirlFormatter.format(gouvukButtonParsed.get.value) shouldBe govukButtonTwirlExpected
+      TwirlFormatter.formatPlay25(gouvukButtonParsed.get.value) shouldBe govukButtonTwirlExpected
     }
 
     "format GovukErrorSummary " ignore {
@@ -105,7 +105,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
       val gouvukErrorSummaryParsed: Parsed[NunjucksTemplate] =
         fastparse.parse(gouvukErrorSummaryNunjucks, NunjucksParser.nunjucksParser(_))
 
-      TwirlFormatter.format(gouvukErrorSummaryParsed.get.value) shouldBe govukErrorSummaryTwirlExpected
+      TwirlFormatter.formatPlay25(gouvukErrorSummaryParsed.get.value) shouldBe govukErrorSummaryTwirlExpected
     }
 
     "format GovukFieldset " ignore {

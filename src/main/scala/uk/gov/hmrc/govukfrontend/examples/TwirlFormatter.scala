@@ -24,7 +24,14 @@ object TwirlFormatter {
       |
       |@()""".stripMargin
 
+  val play25ParameterList =
+    """
+      |@()""".stripMargin
+
   def format(parsed: NunjucksTemplate): String =
     (parsed.imports.head :: play26ParameterList :: parsed.body).map(_.toString).mkString("\n")
+
+  def formatPlay25(parsed: NunjucksTemplate): String =
+    (parsed.imports.head :: play25ParameterList :: parsed.body).map(_.toString).mkString("\n")
 
 }
