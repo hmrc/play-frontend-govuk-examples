@@ -1,9 +1,10 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this(govukCheckboxes: GovukCheckboxes)
+@this(govukCheckboxes: GovukCheckboxes,
+      govukErrorSummary: GovukErrorSummary)
 
 @()
-@GovukErrorSummary(ErrorSummary(
+@govukErrorSummary(ErrorSummary(
   errorList =
     Seq(
       ErrorLink(

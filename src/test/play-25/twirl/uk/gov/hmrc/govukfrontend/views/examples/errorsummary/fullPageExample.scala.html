@@ -1,7 +1,4 @@
-
 @import uk.gov.hmrc.govukfrontend.views.html.components._
-
-
 
 @(beforeContent: Option[Html] = None, content: Option[Html] = None)
 <div class="govuk-width-container">
@@ -16,7 +13,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <form action="/form-handler" method="post" novalidate>
-          @govukErrorSummary(ErrorSummary(
+          @GovukErrorSummary(ErrorSummary(
             title = Text("There is a problem"),
             errorList = Seq(
               ErrorLink(
@@ -26,7 +23,7 @@
             )
           ))
 
-          @govukDateInput(DateInput(
+          @GovukDateInput(DateInput(
             fieldset = Some(Fieldset(
               legend = Some(Legend(
                 isPageHeading = true,
@@ -45,12 +42,12 @@
             ))
           ))
 
-          @govukButton(Button(content = Text("Continue")))
+          @GovukButton(Button(content = Text("Continue")))
         </form>
       </div>
     </div>
   }
 }
 
-@beforeContentBlock = {@beforeContent.getOrElse {@govukBackLink(BackLink(content = Text("Back")))}}
+@beforeContentBlock = {@beforeContent.getOrElse {@GovukBackLink(BackLink(content = Text("Back")))}}
 

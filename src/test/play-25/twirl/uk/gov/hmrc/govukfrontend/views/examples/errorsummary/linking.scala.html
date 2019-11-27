@@ -1,9 +1,7 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-
-
 @()
-@govukErrorSummary(ErrorSummary(
+@GovukErrorSummary(ErrorSummary(
   errorList =
     Seq(
       ErrorLink(
@@ -16,7 +14,7 @@
 
 <h1 class="govuk-heading-xl">Your details</h1>
 
-@govukInput(Input(
+@GovukInput(Input(
   label = Label(
     content = Text("Full name")
   ),
