@@ -42,22 +42,24 @@ package object examples {
 
   implicit class SextAnyTreeString[A](a: A) {
 
-    private def indent(s: String) = s.lines.toStream match {
-      case h +: t =>
-        (("" + h) +: t.map { "," + _ }) mkString " "
-      case _ => ""
-    }
-
     /**
       * @return A readable string representation of this value of a different format to `treeString`
       */
     def valueTreeString(showKey: Boolean = true): String = a match {
+
       case (k, v) =>
-        if ("" != v.valueTreeString() && showKey)
-          s"$k = " + v.valueTreeString()
-        else if ("" != v.valueTreeString(showKey))
-          v.valueTreeString(showKey)
-        else ""
+        val valueWithKey = v.valueTreeString()
+        if (!("""[\s]+|^$""" matches valueWithKey) && showKey) {
+          if (s"$valueWithKey" matches """.*[\r\n]+.*""")
+            s"$k = \n$valueWithKey"
+          else
+            s"$k = $valueWithKey"
+        } else {
+          val valueWithoutKey = v.valueTreeString(showKey)
+          if (!("""[\s]+|^$""" matches valueWithoutKey))
+            s"\n$valueWithoutKey"
+          else ""
+        }
 
       case Some(value) =>
         s"Some(${value.valueTreeString(showKey = false)})"
@@ -65,12 +67,11 @@ package object examples {
       case a: TraversableOnce[_] =>
         val b = a.toStream
           .map(_.valueTreeString())
-          .map(indent)
-          .filterNot(_ == "")
-          .mkString(", ")
+          .filterNot(_ matches """[\s]+|^$|[\s]*.*=[\r\n\s]+$""")
+          .mkString(s",\n")
 
         if (Seq("scala.collection.immutable.$colon$colon").contains(currentMirror.reflect(a).symbol.fullName))
-          s"Seq($b)"
+          s"\nSeq($b)"
         else b
 
       case a: Product =>
@@ -88,10 +89,13 @@ package object examples {
           .map(f => f.symbol.name.toString.trim -> f.get)
           .reverse
 
-        if (!Seq("scala.None", "uk.gov.hmrc.govukfrontend.views.viewmodels.content.Empty")
-              .contains(currentMirror.reflect(a).symbol.fullName))
+        if (Seq("scala.None", "uk.gov.hmrc.govukfrontend.views.viewmodels.content.Empty")
+              .contains(currentMirror.reflect(a).symbol.fullName)) ""
+        else if (Seq("scala.Some", "uk.gov.hmrc.govukfrontend.views.viewmodels.content.Text")
+                   .contains(currentMirror.reflect(a).symbol.fullName))
           s"""${currentMirror.reflect(a).symbol.name}(${collection.immutable.ListMap(b: _*).valueTreeString()})"""
-        else ""
+        else
+          s"""\n${currentMirror.reflect(a).symbol.name}(${collection.immutable.ListMap(b: _*).valueTreeString()})"""
 
       case null => ""
 
