@@ -23,6 +23,7 @@ package object examples {
   case class NunjucksTemplate(imports: List[Import], body: List[NunjucksTemplateBody])
   case class Import(from: String, macroName: String) {
     override def toString: String = "@import uk.gov.hmrc.govukfrontend.views.html.components._"
+    def toDependencyInjectionString: String = s"$macroName : ${macroName.capitalize}"
   }
 
   sealed trait NunjucksTemplateBody

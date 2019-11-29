@@ -18,12 +18,14 @@ package uk.gov.hmrc.govukfrontend.examples
 
 object TwirlFormatter {
 
-  val play26ParameterList =
-    """
-      |@this()
+  def play26ParameterList(imports: List[Import]) = {
+    val dependencyInjections = imports.map(_.toDependencyInjectionString).mkString("'\n")
+    s"""
+      |@this($dependencyInjections)
       |
       |@()
       |""".stripMargin
+  }
 
   val play25ParameterList =
     """
@@ -31,7 +33,7 @@ object TwirlFormatter {
       |""".stripMargin
 
   def format(parsed: NunjucksTemplate): String =
-    (parsed.imports.head :: play26ParameterList :: parsed.body).map(_.toString).mkString("\n")
+    (parsed.imports.head :: play26ParameterList(parsed.imports) :: parsed.body).map(_.toString).mkString("\n")
 
   def formatPlay25(parsed: NunjucksTemplate): String =
     (parsed.imports.head :: play25ParameterList :: parsed.body).map(_.toString).mkString("\n")
