@@ -29,6 +29,10 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
     def print: Unit = println(string)
   }
 
+  val htmlAddress = "HtmlContent(\"\"\"72 Guild Street<br>London<br>SE23 6FH\"\"\")"
+  val htmlContentBegin = "HtmlContent(\"\"\""
+  val htmlContentEnd = "\"\"\")"
+
   "Play 2.5 formatter" should {
 
     "format GovukBackLink " in {
@@ -46,12 +50,12 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |
           |@()
           |
-          |@GovukBackLink(BackLink(href = "#", content = Text(value = "Back")))""".stripMargin
+          |@GovukBackLink(BackLink(href = "#", content = Text("Back")))""".stripMargin
 
       val gouvukBackLinkParsed = fastparse.parse(gouvukBackLinkNunjucks, NunjucksParser.nunjucksParser(_))
       val gouvukBackLinkTwirl  = formatPlay25(gouvukBackLinkParsed.get.value)
-      gouvukBackLinkTwirl.trimSpaces shouldBe govukBackLinkTwirlExpected.trimSpaces
       gouvukBackLinkTwirl.print
+      gouvukBackLinkTwirl.trimSpaces shouldBe govukBackLinkTwirlExpected.trimSpaces
     }
 
     "format GovukButton " in {
@@ -67,12 +71,12 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |
           |@()
           |
-          |@GovukButton(Button(content = Text(value = "Save and continue")))""".stripMargin
+          |@GovukButton(Button(content = Text("Save and continue")))""".stripMargin
 
       val gouvukButtonParsed = fastparse.parse(gouvukButtonNunjucks, NunjucksParser.nunjucksParser(_))
       val gouvukButtonTwirl  = formatPlay25(gouvukButtonParsed.get.value)
-      gouvukButtonTwirl.trimSpaces shouldBe govukButtonTwirlExpected.trimSpaces
       gouvukButtonTwirl.print
+      gouvukButtonTwirl.trimSpaces shouldBe govukButtonTwirlExpected.trimSpaces
     }
 
     "format GovukErrorSummary " in {
@@ -103,20 +107,20 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    Seq(
           |      ErrorLink(
           |        href = Some("#passport-issued-error"),
-          |        content = Text(value = "The date your passport was issued must be in the past")
+          |        content = Text("The date your passport was issued must be in the past")
           |      ),
           |      ErrorLink(
           |        href = Some("#postcode-error"),
-          |        content = Text(value = "Enter a postcode, like AA1 1AA")
+          |        content = Text("Enter a postcode, like AA1 1AA")
           |      )
           |    ),
-          |  title = Text(value = "There is a problem")
+          |  title = Text("There is a problem")
           |))""".stripMargin
 
       val gouvukErrorSummaryParsed = fastparse.parse(gouvukErrorSummaryNunjucks, NunjucksParser.nunjucksParser(_))
       val govukErrorSummaryTwirl   = formatPlay25(gouvukErrorSummaryParsed.get.value)
-      govukErrorSummaryTwirl.trimSpaces shouldBe govukErrorSummaryTwirlExpected.trimSpaces
       govukErrorSummaryTwirl.print
+      govukErrorSummaryTwirl.trimSpaces shouldBe govukErrorSummaryTwirlExpected.trimSpaces
     }
 
     "format GovukFieldset " ignore {
@@ -188,7 +192,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  legend =
           |    Some(
           |      Legend(
-          |        content = Text(value = "What is your address?"),
+          |        content = Text( "What is your address?"),
           |        classes = "govuk-fieldset__legend--xl",
           |        isPageHeading = true
           |      )),
@@ -199,37 +203,37 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  @govukInput(Input(
           |    id = "address-line-1",
           |    name = "address-line-1",
-          |    label = Label(content = HtmlContent(value = \"\"\"Building and street <span class="govuk-visually-hidden">line 1 of 2</span>\"\"\"))
+          |    label = Label(content = HtmlContent(\"\"\"Building and street <span class="govuk-visually-hidden">line 1 of 2</span>\"\"\"))
           |  ))
           |  @govukInput(Input(
           |    id = "address-line-2",
           |    name = "address-line-2",
-          |    label = Label(content = HtmlContent(value = \"\"\"<span class="govuk-visually-hidden">Building and street line 2 of 2</span>\"\"\"))
+          |    label = Label(content = HtmlContent(\"\"\"<span class="govuk-visually-hidden">Building and street line 2 of 2</span>\"\"\"))
           |  ))
           |  @govukInput(Input(
           |    id = "address-town",
           |    name = "address-town",
           |    classes = "govuk-!-width-two-thirds",
-          |    label = Label(content = Text(value = "Town or city"))
+          |    label = Label(content = Text( "Town or city"))
           |  ))
           |  @govukInput(Input(
           |    id = "address-county",
           |    name = "address-county",
           |    classes = "govuk-!-width-two-thirds",
-          |    label = Label(content = Text(value = "County"))
+          |    label = Label(content = Text( "County"))
           |  ))
           |  @govukInput(Input(
           |    id = "address-postcode",
           |    name = "address-postcode",
           |    classes = "govuk-input--width-10",
-          |    label = Label(content = Text(value = "Postcode"))
+          |    label = Label(content = Text( "Postcode"))
           |  ))
           |}""".stripMargin
 
       val gouvukFieldsetParsed = fastparse.parse(gouvukFieldsetNunjucks, NunjucksParser.nunjucksParser(_))
       val govukFieldsetTwirl   = formatPlay25(gouvukFieldsetParsed.get.value)
-      govukFieldsetTwirl.trimSpaces shouldBe govukFieldsetTwirlExpected.trimSpaces
       govukFieldsetTwirl.print
+      govukFieldsetTwirl.trimSpaces shouldBe govukFieldsetTwirlExpected.trimSpaces
     }
 
     "format GovukFooter " in {
@@ -270,8 +274,8 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
 
       val gouvukHeaderParsed = fastparse.parse(gouvukHeaderNunjucks, NunjucksParser.nunjucksParser(_))
       val gouvukHeaderTwirl  = formatPlay25(gouvukHeaderParsed.get.value)
-      gouvukHeaderTwirl.trimSpaces shouldBe govukHeaderTwirlExpected.trimSpaces
       gouvukHeaderTwirl.print
+      gouvukHeaderTwirl.trimSpaces shouldBe govukHeaderTwirlExpected.trimSpaces
     }
 
     "format GovukPanel " in {
@@ -284,13 +288,14 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  html: "Your reference number<br><strong>HDJ2123F</strong>"
           |}) }}""".stripMargin
 
+      val htmlContent = "\"\"\"Your reference number<br><strong>HDJ2123F</strong>\"\"\""
       val govukPanelTwirlExpected =
-        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+        s"""@import uk.gov.hmrc.govukfrontend.views.html.components._
           |
           |@()
           |@GovukPanel(Panel(
-          |  title = Text(value = "Application complete"),
-          |  content = HtmlContent(value = "Your reference number<br><strong>HDJ2123F</strong>")
+          |  title = Text( "Application complete"),
+          |  content = HtmlContent($htmlContent)
           |))""".stripMargin
 
       val gouvukPanelParsed = fastparse.parse(gouvukPanelNunjucks, NunjucksParser.nunjucksParser(_))
@@ -337,27 +342,27 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@GovukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
-          |      content = Text(value = "Have you changed your name?"),
+          |      content = Text( "Have you changed your name?"),
           |      classes = "govuk-fieldset__legend--xl",
           |      isPageHeading = true
           |    ))
           |  )),
           |  hint = Some(Hint(
-          |    content = Text(value = "This includes changing your last name or spelling your name differently.")
+          |    content = Text( "This includes changing your last name or spelling your name differently.")
           |  )),
           |  idPrefix = Some("changed-name"),
           |  name = "changed-name",
           |  items = Seq(
-          |    RadioItem(content = Text(value = "Yes"), value = Some("yes")),
-          |    RadioItem(content = Text(value = "No"), value = Some("no"))
+          |    RadioItem(content = Text( "Yes"), value = Some("yes")),
+          |    RadioItem(content = Text( "No"), value = Some("no"))
           |  ),
           |  classes = "govuk-radios--inline"
           |))""".stripMargin
 
       val gouvukRadiosParsed = fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
       val gouvukRadiosTwirl  = formatPlay25(gouvukRadiosParsed.get.value)
-      gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
       gouvukRadiosTwirl.print
+      gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
     }
 
     "format GovukRadios1 " in {
@@ -402,7 +407,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@GovukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
-          |      content = Text(value = "Where do you live?"),
+          |      content = Text( "Where do you live?"),
           |      classes = "govuk-fieldset__legend--xl",
           |      isPageHeading = true
           |    ))
@@ -410,17 +415,17 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  idPrefix = Some("where-do-you-live"),
           |  name = "where-do-you-live",
           |  items = Seq(
-          |    RadioItem(content = Text(value = "England"), value = Some("england")),
-          |    RadioItem(content = Text(value = "Scotland"), value = Some("scotland")),
-          |    RadioItem(content = Text(value = "Wales"), value = Some("wales")),
-          |    RadioItem(content = Text(value = "Northern Ireland"), value = Some("northern-ireland"))
+          |    RadioItem(content = Text( "England"), value = Some("england")),
+          |    RadioItem(content = Text( "Scotland"), value = Some("scotland")),
+          |    RadioItem(content = Text( "Wales"), value = Some("wales")),
+          |    RadioItem(content = Text( "Northern Ireland"), value = Some("northern-ireland"))
           |  )
           |))""".stripMargin
 
       val gouvukRadiosParsed = fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
       val gouvukRadiosTwirl  = formatPlay25(gouvukRadiosParsed.get.value)
-      gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
       gouvukRadiosTwirl.print
+      gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
     }
 
     "format GovukRadios2 " in {
@@ -461,27 +466,27 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@GovukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
-          |      content = Text(value = "Have you changed your name?"),
+          |      content = Text( "Have you changed your name?"),
           |      classes = "govuk-fieldset__legend--xl",
           |      isPageHeading = true
           |    ))
           |  )),
           |  hint = Some(Hint(
-          |    content = Text(value = "This includes changing your last name or spelling your name differently.")
+          |    content = Text( "This includes changing your last name or spelling your name differently.")
           |  )),
           |  idPrefix = Some("changed-name"),
           |  name = "changed-name",
           |  items = Seq(
-          |    RadioItem(content = Text(value = "Yes"), value = Some("yes")),
-          |    RadioItem(content = Text(value = "No"), value = Some("no"))
+          |    RadioItem(content = Text( "Yes"), value = Some("yes")),
+          |    RadioItem(content = Text( "No"), value = Some("no"))
           |  ),
           |  classes = "govuk-radios--inline"
           |))""".stripMargin
 
       val gouvukRadiosParsed = fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
       val gouvukRadios       = formatPlay25(gouvukRadiosParsed.get.value)
-      gouvukRadios.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
       gouvukRadios.print
+      gouvukRadios.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
     }
 
     "format GovukRadios3 " in {
@@ -533,31 +538,31 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@GovukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
-          |      content = Text(value = "How do you want to sign in?"),
+          |      content = Text( "How do you want to sign in?"),
           |      classes = "govuk-fieldset__legend--xl",
           |      isPageHeading = true
           |    ))
           |  )),
           |  hint = Some(Hint(
-          |    content = Text(value = "You’ll need an account to prove your identity and complete your Self Assessment.")
+          |    content = Text( "You’ll need an account to prove your identity and complete your Self Assessment.")
           |  )),
           |  idPrefix = Some("sign-in"),
           |  name = "sign-in",
           |  items = Seq(
           |    RadioItem(
-          |      content = Text(value = "Sign in with Government Gateway"),
+          |      content = Text( "Sign in with Government Gateway"),
           |      value = Some("government-gateway"),
           |      label = Some(Label(classes = "govuk-label--s")),
           |      hint = Some(Hint(
-          |        content = Text(value = "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before.")
+          |        content = Text( "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before.")
           |      ))
           |    ),
           |    RadioItem(
-          |      content = Text(value = "Sign in with GOV.UK Verify"),
+          |      content = Text( "Sign in with GOV.UK Verify"),
           |      value = Some("govuk-verify"),
           |      label = Some(Label(classes = "govuk-label--s")),
           |      hint = Some(Hint(
-          |        content = Text(value = "You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.")
+          |        content = Text( "You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.")
           |      ))
           |    )
           |  )
@@ -565,8 +570,8 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
 
       val gouvukRadiosParsed = fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
       val gouvukRadiosTwirl  = formatPlay25(gouvukRadiosParsed.get.value)
-      gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
       gouvukRadiosTwirl.print
+      gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
     }
 
     "format GovukRadios4 " in {
@@ -618,7 +623,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@GovukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
-          |      content = Text(value = "Where do you live?"),
+          |      content = Text( "Where do you live?"),
           |      classes = "govuk-fieldset__legend--xl",
           |      isPageHeading = true
           |    ))
@@ -626,12 +631,12 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  idPrefix = Some("where-do-you-live"),
           |  name = "where-do-you-live",
           |  items = Seq(
-          |    RadioItem(content = Text(value = "England"), value = Some("england")),
-          |    RadioItem(content = Text(value = "Scotland"), value = Some("scotland")),
-          |    RadioItem(content = Text(value = "Wales"), value = Some("wales")),
-          |    RadioItem(content = Text(value = "Northern Ireland"), value = Some("northern-ireland")),
+          |    RadioItem(content = Text( "England"), value = Some("england")),
+          |    RadioItem(content = Text( "Scotland"), value = Some("scotland")),
+          |    RadioItem(content = Text( "Wales"), value = Some("wales")),
+          |    RadioItem(content = Text( "Northern Ireland"), value = Some("northern-ireland")),
           |    RadioItem(divider = Some("or")),
-          |    RadioItem(content = Text(value = "I am a British citizen living abroad"), value = Some("abroad"))
+          |    RadioItem(content = Text( "I am a British citizen living abroad"), value = Some("abroad"))
           |  )
           |))""".stripMargin
 
@@ -733,20 +738,20 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@GovukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
-          |      content = Text(value = "How would you prefer to be contacted?"),
+          |      content = Text( "How would you prefer to be contacted?"),
           |      isPageHeading = true,
           |      classes = "govuk-fieldset__legend--xl"
           |    ))
           |  )),
           |  hint = Some(Hint(
-          |    content = Text(value = "Select one option.")
+          |    content = Text( "Select one option.")
           |  )),
           |  idPrefix = Some("how-contacted-conditional"),
           |  name = "how-contacted",
           |  items = Seq(
-          |    RadioItem(content = Text(value = "Email", value = Some("email")), conditionalHtml = Some(emailHtml)),
-          |    RadioItem(content = Text(value = "Phone", value = Some("phone")), conditionalHtml = Some(phoneHtml)),
-          |    RadioItem(content = Text(value = "Text message", value = Some("text")), conditionalHtml = Some(textHtml))
+          |    RadioItem(content = Text( "Email", value = Some("email")), conditionalHtml = Some(emailHtml)),
+          |    RadioItem(content = Text( "Phone", value = Some("phone")), conditionalHtml = Some(phoneHtml)),
+          |    RadioItem(content = Text( "Text message", value = Some("text")), conditionalHtml = Some(textHtml))
           |  )
           |))
           |
@@ -757,7 +762,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    inputType = "email",
           |    classes = "govuk-!-width-one-third",
           |    label = Label(
-          |      content = Text(value = "Email address")
+          |      content = Text( "Email address")
           |    ),
           |    attributes = Map("spellcheck" -> "false")
           |  ))
@@ -770,7 +775,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    inputType = "tel",
           |    classes = "govuk-!-width-one-third",
           |    label = Label(
-          |      content = Text(value = "Phone number")
+          |      content = Text( "Phone number")
           |    )
           |  ))
           |}
@@ -782,15 +787,15 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    inputType = "tel",
           |    classes = "govuk-!-width-one-third",
           |    label = Label(
-          |      content = Text(value = "Mobile phone number")
+          |      content = Text( "Mobile phone number")
           |    )
           |  ))
           |}""".stripMargin
 
       val gouvukRadiosParsed = fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
       val gouvukRadiosTwirl  = formatPlay25(gouvukRadiosParsed.get.value)
-      gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
       gouvukRadiosTwirl.print
+      gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
     }
 
     "format GovukRadios6 " in {
@@ -828,7 +833,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@GovukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
-          |      content = Text(value = "Filter"),
+          |      content = Text( "Filter"),
           |      classes = "govuk-fieldset__legend--m",
           |      isPageHeading = true
           |    ))
@@ -837,11 +842,11 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "changed-name",
           |  items = Seq(
           |    RadioItem(
-          |      content = Text(value = "Monthly"),
+          |      content = Text( "Monthly"),
           |      value = Some("month")
           |    ),
           |    RadioItem(
-          |      content = Text(value = "Yearly"),
+          |      content = Text( "Yearly"),
           |      value = Some("year")
           |    )
           |  ),
@@ -850,8 +855,8 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
 
       val gouvukRadiosParsed = fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
       val gouvukRadiosTwirl  = formatPlay25(gouvukRadiosParsed.get.value)
-      gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
       gouvukRadiosTwirl.print
+      gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
     }
 
     "format GovukRadios7 " in {
@@ -895,26 +900,26 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@GovukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
-          |      content = Text(value = "Have you changed your name?"),
+          |      content = Text( "Have you changed your name?"),
           |      classes = "govuk-fieldset__legend--xl",
           |      isPageHeading = true
           |    ))
           |  )),
           |  hint = Some(Hint(
-          |    content = Text(value = "This includes changing your last name or spelling your name differently.")
+          |    content = Text( "This includes changing your last name or spelling your name differently.")
           |  )),
           |  errorMessage = Some(ErrorMessage(
-          |    content = Text(value = "Select yes if you have changed your name")
+          |    content = Text( "Select yes if you have changed your name")
           |  )),
           |  idPrefix = Some("changed-name"),
           |  name = "changed-name",
           |  items = Seq(
           |    RadioItem(
-          |      content = Text(value = "Yes"),
+          |      content = Text( "Yes"),
           |      value = Some("yes")
           |    ),
           |    RadioItem(
-          |      content = Text(value = "No"),
+          |      content = Text( "No"),
           |      value = Some("no")
           |    )
           |  ),
@@ -1006,38 +1011,38 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |}) }}""".stripMargin
 
       val govukSummaryListTwirlExpected =
-        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+        s"""@import uk.gov.hmrc.govukfrontend.views.html.components._
           |
           |@()
           |@GovukSummaryList(SummaryList(
           |  rows = Seq(
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Name")),
-          |      value = Value(content = Text(value = "Sarah Philips")),
+          |      key = Key(content = Text( "Name")),
+          |      value = Value(content = Text( "Sarah Philips")),
           |      actions = Some(Actions(items = Seq(
-          |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("name"))
+          |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("name"))
           |      )))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Date of birth")),
-          |      value = Value(content = Text(value = "5 January 1978")),
+          |      key = Key(content = Text( "Date of birth")),
+          |      value = Value(content = Text( "5 January 1978")),
           |      actions = Some(Actions(items = Seq(
-          |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("date of birth"))
+          |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("date of birth"))
           |      )))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Contact information")),
-          |      value = Value(content = HtmlContent(value = "72 Guild Street<br>London<br>SE23 6FH")),
+          |      key = Key(content = Text( "Contact information")),
+          |      value = Value(content = $htmlAddress),
           |      actions = Some(Actions(items = Seq(
-          |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("contact information"))
+          |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("contact information"))
           |      )))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Contact details")),
-          |      value = Value(content = HtmlContent(
-          |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>")),
+          |      key = Key(content = Text( "Contact details")),
+          |      value = Value(content =
+          |      $htmlContentBegin<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>$htmlContentEnd),
           |      actions = Some(Actions(items = Seq(
-          |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("contact details"))
+          |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("contact details"))
           |      )))
           |    )
           |  )
@@ -1128,38 +1133,38 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |}) }}""".stripMargin
 
       val govukSummaryListTwirlExpected =
-        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+        s"""@import uk.gov.hmrc.govukfrontend.views.html.components._
           |
           |@()
           |@GovukSummaryList(SummaryList(
           |  rows = Seq(
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Name")),
-          |      value = Value(content = Text(value = "Sarah Philips")),
+          |      key = Key(content = Text( "Name")),
+          |      value = Value(content = Text( "Sarah Philips")),
           |      actions = Some(Actions(items = Seq(
-          |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("name"))
+          |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("name"))
           |      )))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Date of birth")),
-          |      value = Value(content = Text(value = "5 January 1978")),
+          |      key = Key(content = Text( "Date of birth")),
+          |      value = Value(content = Text( "5 January 1978")),
           |      actions = Some(Actions(items = Seq(
-          |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("date of birth"))
+          |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("date of birth"))
           |      )))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Contact information")),
-          |      value = Value(content = HtmlContent(value = "72 Guild Street<br>London<br>SE23 6FH")),
+          |      key = Key(content = Text( "Contact information")),
+          |      value = Value(content = $htmlAddress),
           |      actions = Some(Actions(items = Seq(
-          |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("contact information"))
+          |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("contact information"))
           |      )))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Contact details")),
-          |      value = Value(content = HtmlContent(
-          |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>")),
+          |      key = Key(content = Text( "Contact details")),
+          |      value = Value(content =
+          |      $htmlContentBegin<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>$htmlContentEnd),
           |      actions = Some(Actions(items = Seq(
-          |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("contact details"))
+          |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("contact details"))
           |      )))
           |    )
           |  )
@@ -1214,27 +1219,26 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |}) }}""".stripMargin
 
       val govukSummaryListTwirlExpected =
-        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+        s"""@import uk.gov.hmrc.govukfrontend.views.html.components._
           |
           |@()
           |@GovukSummaryList(SummaryList(
           |  rows = Seq(
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Name")),
-          |      value = Value(content = Text(value = "Sarah Philips"))
+          |      key = Key(content = Text( "Name")),
+          |      value = Value(content = Text( "Sarah Philips"))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Date of birth")),
-          |      value = Value(content = Text(value = "5 January 1978"))
+          |      key = Key(content = Text( "Date of birth")),
+          |      value = Value(content = Text( "5 January 1978"))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Contact information")),
-          |      value = Value(content = HtmlContent(value = "72 Guild Street<br>London<br>SE23 6FH"))
+          |      key = Key(content = Text( "Contact information")),
+          |      value = Value(content = $htmlAddress)
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Contact details")),
-          |      value = Value(content = HtmlContent(
-          |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>"))
+          |      key = Key(content = Text( "Contact details")),
+          |      value = Value(content = $htmlContentBegin<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>$htmlContentEnd)
           |    )
           |  )
           |))""".stripMargin
@@ -1289,30 +1293,29 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |}) }}""".stripMargin
 
       val govukSummaryListTwirlExpected =
-        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+        s"""@import uk.gov.hmrc.govukfrontend.views.html.components._
           |
           |@()
           |@GovukSummaryList(SummaryList(
-          |  classes = "govuk-summary-list--no-border",
           |  rows = Seq(
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Name")),
-          |      value = Value(content = Text(value = "Sarah Philips"))
+          |      key = Key(content = Text( "Name")),
+          |      value = Value(content = Text( "Sarah Philips"))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Date of birth")),
-          |      value = Value(content = Text(value = "5 January 1978"))
+          |      key = Key(content = Text( "Date of birth")),
+          |      value = Value(content = Text( "5 January 1978"))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Contact information")),
-          |      value = Value(content = HtmlContent(value = "72 Guild Street<br>London<br>SE23 6FH"))
+          |      key = Key(content = Text( "Contact information")),
+          |      value = Value(content = $htmlAddress)
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Contact details")),
-          |      value = Value(content = HtmlContent(
-          |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>"))
+          |      key = Key(content = Text( "Contact details")),
+          |      value = Value(content = $htmlContentBegin<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>$htmlContentEnd)
           |    )
-          |  )
+          |  ),
+          |  classes = "govuk-summary-list--no-border"
           |))""".stripMargin
 
       val gouvukSummaryListParsed = fastparse.parse(gouvukSummaryListNunjucks, NunjucksParser.nunjucksParser(_))
@@ -1342,7 +1345,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  id = "event-name",
           |  name = "event-name",
           |  label = Label(
-          |    content = Text(value = "Event name")
+          |    content = Text( "Event name")
           |  )
           |))""".stripMargin
 
@@ -1373,7 +1376,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  id = "event-name",
           |  name = "event-name",
           |  label = Label(
-          |    content = Text(value = "Event name")
+          |    content = Text( "Event name")
           |  )
           |))""".stripMargin
 
@@ -1449,50 +1452,50 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@GovukInput(Input(
           |  id = "width-20",
           |  name = "width-20",
-          |  classes = "govuk-input--width-20",
           |  label = Label(
-          |    content = Text(value = "20 character width")
-          |  )
+          |    content = Text( "20 character width")
+          |  ),
+          |  classes = "govuk-input--width-20"
           |))
           |@GovukInput(Input(
           |  id = "width-10",
           |  name = "width-10",
-          |  classes = "govuk-input--width-10",
           |  label = Label(
-          |    content = Text(value = "10 character width")
-          |  )
+          |    content = Text( "10 character width")
+          |  ),
+          |  classes = "govuk-input--width-10"
           |))
           |@GovukInput(Input(
           |  id = "width-5",
           |  name = "width-5",
-          |  classes = "govuk-input--width-5",
           |  label = Label(
-          |    content = Text(value = "5 character width")
-          |  )
+          |    content = Text( "5 character width")
+          |  ),
+          |  classes = "govuk-input--width-5"
           |))
           |@GovukInput(Input(
           |  id = "width-4",
           |  name = "width-4",
-          |  classes = "govuk-input--width-4",
           |  label = Label(
-          |    content = Text(value = "4 character width")
-          |  )
+          |    content = Text( "4 character width")
+          |  ),
+          |  classes = "govuk-input--width-4"
           |))
           |@GovukInput(Input(
           |  id = "width-3",
           |  name = "width-3",
-          |  classes = "govuk-input--width-3",
           |  label = Label(
-          |    content = Text(value = "3 character width")
-          |  )
+          |    content = Text( "3 character width")
+          |  ),
+          |  classes = "govuk-input--width-3"
           |))
           |@GovukInput(Input(
           |  id = "width-2",
           |  name = "width-2",
-          |  classes = "govuk-input--width-2",
           |  label = Label(
-          |    content = Text(value = "2 character width")
-          |  )
+          |    content = Text( "2 character width")
+          |  ),
+          |  classes = "govuk-input--width-2"
           |))""".stripMargin
 
       val gouvukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
@@ -1567,50 +1570,50 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@GovukInput(Input(
           |  id = "full",
           |  name = "full",
-          |  classes = "govuk-!-width-full",
           |  label = Label(
-          |    content = Text(value = "Full width")
-          |  )
+          |    content = Text( "Full width")
+          |  ),
+          |  classes = "govuk-!-width-full"
           |))
           |@GovukInput(Input(
           |  id = "three-quarters",
           |  name = "three-quarters",
-          |  classes = "govuk-!-width-three-quarters",
           |  label = Label(
-          |    content = Text(value = "Three-quarters width")
-          |  )
+          |    content = Text( "Three-quarters width")
+          |  ),
+          |  classes = "govuk-!-width-three-quarters"
           |))
           |@GovukInput(Input(
           |  id = "two-thirds",
           |  name = "two-thirds",
-          |  classes = "govuk-!-width-two-thirds",
           |  label = Label(
-          |    content = Text(value = "Two-thirds width")
-          |  )
+          |    content = Text( "Two-thirds width")
+          |  ),
+          |  classes = "govuk-!-width-two-thirds"
           |))
           |@GovukInput(Input(
           |  id = "one-half",
           |  name = "one-half",
-          |  classes = "govuk-!-width-one-half",
           |  label = Label(
-          |    content = Text(value = "One-half width")
-          |  )
+          |    content = Text( "One-half width")
+          |  ),
+          |  classes = "govuk-!-width-one-half"
           |))
           |@GovukInput(Input(
           |  id = "one-third",
           |  name = "one-third",
-          |  classes = "govuk-!-width-one-third",
           |  label = Label(
-          |    content = Text(value = "One-third width")
-          |  )
+          |    content = Text( "One-third width")
+          |  ),
+          |  classes = "govuk-!-width-one-third"
           |))
           |@GovukInput(Input(
           |  id = "one-quarter",
           |  name = "one-quarter",
-          |  classes = "govuk-!-width-one-quarter",
           |  label = Label(
-          |    content = Text(value = "One-quarter width")
-          |  )
+          |    content = Text( "One-quarter width")
+          |  ),
+          |  classes = "govuk-!-width-one-quarter"
           |))""".stripMargin
 
       val gouvukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
@@ -1643,10 +1646,10 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  id = "event-name",
           |  name = "event-name",
           |  label = Label(
-          |    content = Text(value = "Event name")
+          |    content = Text( "Event name")
           |  ),
           |  hint = Some(Hint(
-          |    content = Text(value = "The name you’ll use on promotional material.")
+          |    content = Text( "The name you’ll use on promotional material.")
           |  ))
           |))""".stripMargin
 
@@ -1683,13 +1686,13 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  id = "event-name",
           |  name = "event-name",
           |  label = Label(
-          |    content = Text(value = "Event name")
+          |    content = Text( "Event name")
           |  ),
           |  hint = Some(Hint(
-          |    content = Text(value = "The name you’ll use on promotional material.")
+          |    content = Text( "The name you’ll use on promotional material.")
           |  )),
           |  errorMessage = Some(ErrorMessage(
-          |    content = Text(value = "Enter an event name")
+          |    content = Text( "Enter an event name")
           |  ))
           |))""".stripMargin
 
@@ -1723,10 +1726,10 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  id = "more-detail",
           |  name = "more-detail",
           |  label = Label(
-          |    content = Text(value = "Can you provide more detail?")
+          |    content = Text( "Can you provide more detail?")
           |  ),
           |  hint = Some(Hint(
-          |    content = Text(value = "Do not include personal or financial information, like your National Insurance number or credit card details.")
+          |    content = Text( "Do not include personal or financial information, like your National Insurance number or credit card details.")
           |  ))
           |))""".stripMargin
 
@@ -1760,10 +1763,10 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  id = "more-detail",
           |  name = "more-detail",
           |  label = Label(
-          |    content = Text(value = "Can you provide more detail?")
+          |    content = Text( "Can you provide more detail?")
           |  ),
           |  hint = Some(Hint(
-          |    content = Text(value = "Do not include personal or financial information, like your National Insurance number or credit card details.")
+          |    content = Text( "Do not include personal or financial information, like your National Insurance number or credit card details.")
           |  ))
           |))""".stripMargin
 
@@ -1799,10 +1802,10 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  id = "more-detail",
           |  rows = 8,
           |  label = Label(
-          |    content = Text(value = "Can you provide more detail?")
+          |    content = Text( "Can you provide more detail?")
           |  ),
           |  hint = Some(Hint(
-          |    content = Text(value = "Do not include personal or financial information, like your National Insurance number or credit card details.")
+          |    content = Text( "Do not include personal or financial information, like your National Insurance number or credit card details.")
           |  ))
           |))""".stripMargin
 
@@ -1839,13 +1842,13 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "more-detail",
           |  id = "more-detail",
           |  label = Label(
-          |    content = Text(value = "Can you provide more detail?")
+          |    content = Text( "Can you provide more detail?")
           |  ),
           |  hint = Some(Hint(
-          |    content = Text(value = "Do not include personal or financial information, like your National Insurance number or credit card details.")
+          |    content = Text( "Do not include personal or financial information, like your National Insurance number or credit card details.")
           |  )),
           |  errorMessage = Some(ErrorMessage(
-          |    content = Text(value = "Enter more detail")
+          |    content = Text( "Enter more detail")
           |  ))
           |))""".stripMargin
 
@@ -1875,7 +1878,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@this(govukBackLink: GovukBackLink)
           |
           |@()
-          |@govukBackLink(BackLink(href = "#", content = Text(value = "Back")))""".stripMargin
+          |@govukBackLink(BackLink(href = "#", content = Text( "Back")))""".stripMargin
 
       val gouvukBackLinkParsed = fastparse.parse(gouvukBackLinkNunjucks, NunjucksParser.nunjucksParser(_))
       val gouvukBackLinkTwirl  = format(gouvukBackLinkParsed.get.value)
@@ -1897,7 +1900,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@this(govukButton: GovukButton)
           |
           |@()
-          |@govukButton(Button(content = Text(value = "Save and continue")))""".stripMargin
+          |@govukButton(Button(content = Text( "Save and continue")))""".stripMargin
 
       val gouvukButtonParsed: Parsed[NunjucksTemplate] =
         fastparse.parse(gouvukButtonNunjucks, NunjucksParser.nunjucksParser(_))
@@ -1934,14 +1937,14 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    Seq(
           |      ErrorLink(
           |        href = Some("#passport-issued-error"),
-          |        content = Text(value = "The date your passport was issued must be in the past")
+          |        content = Text( "The date your passport was issued must be in the past")
           |      ),
           |      ErrorLink(
           |        href = Some("#postcode-error"),
-          |        content = Text(value = "Enter a postcode, like AA1 1AA")
+          |        content = Text( "Enter a postcode, like AA1 1AA")
           |      )
           |    ),
-          |  title = Text(value = "There is a problem")
+          |  title = Text( "There is a problem")
           |))""".stripMargin
 
       val gouvukErrorSummaryParsed: Parsed[NunjucksTemplate] =
@@ -2019,7 +2022,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  legend =
           |    Some(
           |      Legend(
-          |        content = Text(value = "What is your address?"),
+          |        content = Text( "What is your address?"),
           |        classes = "govuk-fieldset__legend--xl",
           |        isPageHeading = true
           |      )),
@@ -2030,30 +2033,30 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  @govukInput(Input(
           |    id = "address-line-1",
           |    name = "address-line-1",
-          |    label = Label(content = HtmlContent(value = "Building and street <span class="govuk-visually-hidden">line 1 of 2</span>"))
+          |    label = Label(content = HtmlContent("Building and street <span class="govuk-visually-hidden">line 1 of 2</span>"))
           |  ))
           |  @govukInput(Input(
           |    id = "address-line-2",
           |    name = "address-line-2",
-          |    label = Label(content = HtmlContent(value = "<span class="govuk-visually-hidden">Building and street line 2 of 2</span>"))
+          |    label = Label(content = HtmlContent("<span class="govuk-visually-hidden">Building and street line 2 of 2</span>"))
           |  ))
           |  @govukInput(Input(
           |    id = "address-town",
           |    name = "address-town",
           |    classes = "govuk-!-width-two-thirds",
-          |    label = Label(content = Text(value = "Town or city"))
+          |    label = Label(content = Text( "Town or city"))
           |  ))
           |  @govukInput(Input(
           |    id = "address-county",
           |    name = "address-county",
           |    classes = "govuk-!-width-two-thirds",
-          |    label = Label(content = Text(value = "County"))
+          |    label = Label(content = Text( "County"))
           |  ))
           |  @govukInput(Input(
           |    id = "address-postcode",
           |    name = "address-postcode",
           |    classes = "govuk-input--width-10",
-          |    label = Label(content = Text(value = "Postcode"))
+          |    label = Label(content = Text( "Postcode"))
           |  ))
           |}""".stripMargin
 
@@ -2126,8 +2129,8 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |
           |@()
           |@govukPanel(Panel(
-          |  title = Text(value = "Application complete"),
-          |  content = HtmlContent(value = "Your reference number<br><strong>HDJ2123F</strong>")
+          |  title = Text( "Application complete"),
+          |  content = HtmlContent("Your reference number<br><strong>HDJ2123F</strong>")
           |))""".stripMargin
 
       val gouvukPanelParsed: Parsed[NunjucksTemplate] =
@@ -2176,19 +2179,19 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@govukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
-          |      content = Text(value = "Have you changed your name?"),
+          |      content = Text( "Have you changed your name?"),
           |      classes = "govuk-fieldset__legend--xl",
           |      isPageHeading = true
           |    ))
           |  )),
           |  hint = Some(Hint(
-          |    content = Text(value = "This includes changing your last name or spelling your name differently.")
+          |    content = Text( "This includes changing your last name or spelling your name differently.")
           |  )),
           |  idPrefix = Some("changed-name"),
           |  name = "changed-name",
           |  items = Seq(
-          |    RadioItem(content = Text(value = "Yes"), value = Some("yes")),
-          |    RadioItem(content = Text(value = "No"), value = Some("no"))
+          |    RadioItem(content = Text( "Yes"), value = Some("yes")),
+          |    RadioItem(content = Text( "No"), value = Some("no"))
           |  ),
           |  classes = "govuk-radios--inline"
           |))""".stripMargin
@@ -2243,7 +2246,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@govukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
-          |      content = Text(value = "Where do you live?"),
+          |      content = Text( "Where do you live?"),
           |      classes = "govuk-fieldset__legend--xl",
           |      isPageHeading = true
           |    ))
@@ -2251,10 +2254,10 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  idPrefix = Some("where-do-you-live"),
           |  name = "where-do-you-live",
           |  items = Seq(
-          |    RadioItem(content = Text(value = "England"), value = Some("england")),
-          |    RadioItem(content = Text(value = "Scotland"), value = Some("scotland")),
-          |    RadioItem(content = Text(value = "Wales"), value = Some("wales")),
-          |    RadioItem(content = Text(value = "Northern Ireland"), value = Some("northern-ireland"))
+          |    RadioItem(content = Text( "England"), value = Some("england")),
+          |    RadioItem(content = Text( "Scotland"), value = Some("scotland")),
+          |    RadioItem(content = Text( "Wales"), value = Some("wales")),
+          |    RadioItem(content = Text( "Northern Ireland"), value = Some("northern-ireland"))
           |  )
           |))""".stripMargin
 
@@ -2304,19 +2307,19 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@govukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
-          |      content = Text(value = "Have you changed your name?"),
+          |      content = Text( "Have you changed your name?"),
           |      classes = "govuk-fieldset__legend--xl",
           |      isPageHeading = true
           |    ))
           |  )),
           |  hint = Some(Hint(
-          |    content = Text(value = "This includes changing your last name or spelling your name differently.")
+          |    content = Text( "This includes changing your last name or spelling your name differently.")
           |  )),
           |  idPrefix = Some("changed-name"),
           |  name = "changed-name",
           |  items = Seq(
-          |    RadioItem(content = Text(value = "Yes"), value = Some("yes")),
-          |    RadioItem(content = Text(value = "No"), value = Some("no"))
+          |    RadioItem(content = Text( "Yes"), value = Some("yes")),
+          |    RadioItem(content = Text( "No"), value = Some("no"))
           |  ),
           |  classes = "govuk-radios--inline",
           |))""".stripMargin
@@ -2378,31 +2381,31 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@govukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
-          |      content = Text(value = "How do you want to sign in?"),
+          |      content = Text( "How do you want to sign in?"),
           |      classes = "govuk-fieldset__legend--xl",
           |      isPageHeading = true
           |    ))
           |  )),
           |  hint = Some(Hint(
-          |    content = Text(value = "You’ll need an account to prove your identity and complete your Self Assessment.")
+          |    content = Text( "You’ll need an account to prove your identity and complete your Self Assessment.")
           |  )),
           |  idPrefix = Some("sign-in"),
           |  name = "sign-in",
           |  items = Seq(
           |    RadioItem(
-          |      content = Text(value = "Sign in with Government Gateway"),
+          |      content = Text( "Sign in with Government Gateway"),
           |      value = Some("government-gateway"),
           |      label = Some(Label(classes = "govuk-label--s")),
           |      hint = Some(Hint(
-          |        content = Text(value = "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before.")
+          |        content = Text( "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before.")
           |      ))
           |    ),
           |    RadioItem(
-          |      content = Text(value = "Sign in with GOV.UK Verify"),
+          |      content = Text( "Sign in with GOV.UK Verify"),
           |      value = Some("govuk-verify"),
           |      label = Some(Label(classes = "govuk-label--s")),
           |      hint = Some(Hint(
-          |        content = Text(value = "You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.")
+          |        content = Text( "You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.")
           |      ))
           |    )
           |  )
@@ -2465,7 +2468,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@govukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
-          |      content = Text(value = "Where do you live?"),
+          |      content = Text( "Where do you live?"),
           |      classes = "govuk-fieldset__legend--xl",
           |      isPageHeading = true
           |    ))
@@ -2473,12 +2476,12 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  idPrefix = Some("where-do-you-live"),
           |  name = "where-do-you-live",
           |  items = Seq(
-          |    RadioItem(content = Text(value = "England"), value = Some("england")),
-          |    RadioItem(content = Text(value = "Scotland"), value = Some("scotland")),
-          |    RadioItem(content = Text(value = "Wales"), value = Some("wales")),
-          |    RadioItem(content = Text(value = "Northern Ireland"), value = Some("northern-ireland")),
+          |    RadioItem(content = Text( "England"), value = Some("england")),
+          |    RadioItem(content = Text( "Scotland"), value = Some("scotland")),
+          |    RadioItem(content = Text( "Wales"), value = Some("wales")),
+          |    RadioItem(content = Text( "Northern Ireland"), value = Some("northern-ireland")),
           |    RadioItem(divider = Some("or")),
-          |    RadioItem(content = Text(value = "I am a British citizen living abroad"), value = Some("abroad"))
+          |    RadioItem(content = Text( "I am a British citizen living abroad"), value = Some("abroad"))
           |  )
           |))""".stripMargin
 
@@ -2580,20 +2583,20 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@GovukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
-          |      content = Text(value = "How would you prefer to be contacted?"),
+          |      content = Text( "How would you prefer to be contacted?"),
           |      isPageHeading = true,
           |      classes = "govuk-fieldset__legend--xl"
           |    ))
           |  )),
           |  hint = Some(Hint(
-          |    content = Text(value = "Select one option.")
+          |    content = Text( "Select one option.")
           |  )),
           |  idPrefix = Some("how-contacted-conditional"),
           |  name = "how-contacted",
           |  items = Seq(
-          |    RadioItem(content = Text(value = "Email", value = Some("email")), conditionalHtml = Some(emailHtml)),
-          |    RadioItem(content = Text(value = "Phone", value = Some("phone")), conditionalHtml = Some(phoneHtml)),
-          |    RadioItem(content = Text(value = "Text message", value = Some("text")), conditionalHtml = Some(textHtml))
+          |    RadioItem(content = Text( "Email", value = Some("email")), conditionalHtml = Some(emailHtml)),
+          |    RadioItem(content = Text( "Phone", value = Some("phone")), conditionalHtml = Some(phoneHtml)),
+          |    RadioItem(content = Text( "Text message", value = Some("text")), conditionalHtml = Some(textHtml))
           |  )
           |))
           |
@@ -2604,7 +2607,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    inputType = "email",
           |    classes = "govuk-!-width-one-third",
           |    label = Label(
-          |      content = Text(value = "Email address")
+          |      content = Text( "Email address")
           |    ),
           |    attributes = Map("spellcheck" -> "false")
           |  ))
@@ -2617,7 +2620,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    inputType = "tel",
           |    classes = "govuk-!-width-one-third",
           |    label = Label(
-          |      content = Text(value = "Phone number")
+          |      content = Text( "Phone number")
           |    )
           |  ))
           |}
@@ -2629,7 +2632,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    inputType = "tel",
           |    classes = "govuk-!-width-one-third",
           |    label = Label(
-          |      content = Text(value = "Mobile phone number")
+          |      content = Text( "Mobile phone number")
           |    )
           |  ))
           |}""".stripMargin
@@ -2677,7 +2680,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@govukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
-          |      content = Text(value = "Filter"),
+          |      content = Text( "Filter"),
           |      classes = "govuk-fieldset__legend--m",
           |      isPageHeading = true
           |    ))
@@ -2686,11 +2689,11 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "changed-name",
           |  items = Seq(
           |    RadioItem(
-          |      content = Text(value = "Monthly"),
+          |      content = Text( "Monthly"),
           |      value = Some("month")
           |    ),
           |    RadioItem(
-          |      content = Text(value = "Yearly"),
+          |      content = Text( "Yearly"),
           |      value = Some("year")
           |    )
           |  ),
@@ -2746,26 +2749,26 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@govukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
-          |      content = Text(value = "Have you changed your name?"),
+          |      content = Text( "Have you changed your name?"),
           |      classes = "govuk-fieldset__legend--xl",
           |      isPageHeading = true
           |    ))
           |  )),
           |  hint = Some(Hint(
-          |    content = Text(value = "This includes changing your last name or spelling your name differently.")
+          |    content = Text( "This includes changing your last name or spelling your name differently.")
           |  )),
           |  errorMessage = Some(ErrorMessage(
-          |    content = Text(value = "Select yes if you have changed your name")
+          |    content = Text( "Select yes if you have changed your name")
           |  )),
           |  idPrefix = Some("changed-name"),
           |  name = "changed-name",
           |  items = Seq(
           |    RadioItem(
-          |      content = Text(value = "Yes"),
+          |      content = Text( "Yes"),
           |      value = Some("yes")
           |    ),
           |    RadioItem(
-          |      content = Text(value = "No"),
+          |      content = Text( "No"),
           |      value = Some("no")
           |    )
           |  ),
@@ -2865,32 +2868,32 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@govukSummaryList(SummaryList(
           |  rows = Seq(
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Name")),
-          |      value = Value(content = Text(value = "Sarah Philips")),
+          |      key = Key(content = Text( "Name")),
+          |      value = Value(content = Text( "Sarah Philips")),
           |      actions = Some(Actions(items = Seq(
-          |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("name"))
+          |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("name"))
           |      )))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Date of birth")),
-          |      value = Value(content = Text(value = "5 January 1978")),
+          |      key = Key(content = Text( "Date of birth")),
+          |      value = Value(content = Text( "5 January 1978")),
           |      actions = Some(Actions(items = Seq(
-          |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("date of birth"))
+          |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("date of birth"))
           |      )))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Contact information")),
-          |      value = Value(content = HtmlContent(value = "72 Guild Street<br>London<br>SE23 6FH")),
+          |      key = Key(content = Text( "Contact information")),
+          |      value = Value(content = HtmlContent("72 Guild Street<br>London<br>SE23 6FH")),
           |      actions = Some(Actions(items = Seq(
-          |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("contact information"))
+          |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("contact information"))
           |      )))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Contact details")),
+          |      key = Key(content = Text( "Contact details")),
           |      value = Value(content = HtmlContent(
           |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>")),
           |      actions = Some(Actions(items = Seq(
-          |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("contact details"))
+          |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("contact details"))
           |      )))
           |    )
           |  )
@@ -2989,32 +2992,32 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@govukSummaryList(SummaryList(
           |  rows = Seq(
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Name")),
-          |      value = Value(content = Text(value = "Sarah Philips")),
+          |      key = Key(content = Text( "Name")),
+          |      value = Value(content = Text( "Sarah Philips")),
           |      actions = Some(Actions(items = Seq(
-          |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("name"))
+          |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("name"))
           |      )))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Date of birth")),
-          |      value = Value(content = Text(value = "5 January 1978")),
+          |      key = Key(content = Text( "Date of birth")),
+          |      value = Value(content = Text( "5 January 1978")),
           |      actions = Some(Actions(items = Seq(
-          |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("date of birth"))
+          |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("date of birth"))
           |      )))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Contact information")),
-          |      value = Value(content = HtmlContent(value = "72 Guild Street<br>London<br>SE23 6FH")),
+          |      key = Key(content = Text( "Contact information")),
+          |      value = Value(content = HtmlContent("72 Guild Street<br>London<br>SE23 6FH")),
           |      actions = Some(Actions(items = Seq(
-          |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("contact information"))
+          |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("contact information"))
           |      )))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Contact details")),
+          |      key = Key(content = Text( "Contact details")),
           |      value = Value(content = HtmlContent(
           |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>")),
           |      actions = Some(Actions(items = Seq(
-          |        ActionItem(href = "#", content = Text(value = "Change"), visuallyHiddenText = Some("contact details"))
+          |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("contact details"))
           |      )))
           |    )
           |  )
@@ -3077,19 +3080,19 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@govukSummaryList(SummaryList(
           |  rows = Seq(
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Name")),
-          |      value = Value(content = Text(value = "Sarah Philips"))
+          |      key = Key(content = Text( "Name")),
+          |      value = Value(content = Text( "Sarah Philips"))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Date of birth")),
-          |      value = Value(content = Text(value = "5 January 1978"))
+          |      key = Key(content = Text( "Date of birth")),
+          |      value = Value(content = Text( "5 January 1978"))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Contact information")),
-          |      value = Value(content = HtmlContent(value = "72 Guild Street<br>London<br>SE23 6FH"))
+          |      key = Key(content = Text( "Contact information")),
+          |      value = Value(content = HtmlContent("72 Guild Street<br>London<br>SE23 6FH"))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Contact details")),
+          |      key = Key(content = Text( "Contact details")),
           |      value = Value(content = HtmlContent(
           |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>"))
           |    )
@@ -3155,19 +3158,19 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  classes = "govuk-summary-list--no-border",
           |  rows = Seq(
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Name")),
-          |      value = Value(content = Text(value = "Sarah Philips"))
+          |      key = Key(content = Text( "Name")),
+          |      value = Value(content = Text( "Sarah Philips"))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Date of birth")),
-          |      value = Value(content = Text(value = "5 January 1978"))
+          |      key = Key(content = Text( "Date of birth")),
+          |      value = Value(content = Text( "5 January 1978"))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Contact information")),
-          |      value = Value(content = HtmlContent(value = "72 Guild Street<br>London<br>SE23 6FH"))
+          |      key = Key(content = Text( "Contact information")),
+          |      value = Value(content = HtmlContent("72 Guild Street<br>London<br>SE23 6FH"))
           |    ),
           |    SummaryListRow(
-          |      key = Key(content = Text(value = "Contact details")),
+          |      key = Key(content = Text( "Contact details")),
           |      value = Value(content = HtmlContent(
           |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>"))
           |    )
@@ -3203,7 +3206,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  id = "event-name",
           |  name = "event-name",
           |  label = Label(
-          |    content = Text(value = "Event name")
+          |    content = Text( "Event name")
           |  )
           |))""".stripMargin
 
@@ -3236,7 +3239,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  id = "event-name",
           |  name = "event-name",
           |  label = Label(
-          |    content = Text(value = "Event name")
+          |    content = Text( "Event name")
           |  )
           |))""".stripMargin
 
@@ -3316,7 +3319,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "width-20",
           |  classes = "govuk-input--width-20",
           |  label = Label(
-          |    content = Text(value = "20 character width")
+          |    content = Text( "20 character width")
           |  )
           |))
           |@GovukInput(Input(
@@ -3324,7 +3327,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "width-10",
           |  classes = "govuk-input--width-10",
           |  label = Label(
-          |    content = Text(value = "10 character width")
+          |    content = Text( "10 character width")
           |  )
           |))
           |@GovukInput(Input(
@@ -3332,7 +3335,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "width-5",
           |  classes = "govuk-input--width-5",
           |  label = Label(
-          |    content = Text(value = "5 character width")
+          |    content = Text( "5 character width")
           |  )
           |))
           |@GovukInput(Input(
@@ -3340,7 +3343,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "width-4",
           |  classes = "govuk-input--width-4",
           |  label = Label(
-          |    content = Text(value = "4 character width")
+          |    content = Text( "4 character width")
           |  )
           |))
           |@GovukInput(Input(
@@ -3348,7 +3351,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "width-3",
           |  classes = "govuk-input--width-3",
           |  label = Label(
-          |    content = Text(value = "3 character width")
+          |    content = Text( "3 character width")
           |  )
           |))
           |@GovukInput(Input(
@@ -3356,7 +3359,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "width-2",
           |  classes = "govuk-input--width-2",
           |  label = Label(
-          |    content = Text(value = "2 character width")
+          |    content = Text( "2 character width")
           |  )
           |))""".stripMargin
 
@@ -3436,7 +3439,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "full",
           |  classes = "govuk-!-width-full",
           |  label = Label(
-          |    content = Text(value = "Full width")
+          |    content = Text( "Full width")
           |  )
           |))
           |@GovukInput(Input(
@@ -3444,7 +3447,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "three-quarters",
           |  classes = "govuk-!-width-three-quarters",
           |  label = Label(
-          |    content = Text(value = "Three-quarters width")
+          |    content = Text( "Three-quarters width")
           |  )
           |))
           |@GovukInput(Input(
@@ -3452,7 +3455,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "two-thirds",
           |  classes = "govuk-!-width-two-thirds",
           |  label = Label(
-          |    content = Text(value = "Two-thirds width")
+          |    content = Text( "Two-thirds width")
           |  )
           |))
           |@GovukInput(Input(
@@ -3460,7 +3463,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "one-half",
           |  classes = "govuk-!-width-one-half",
           |  label = Label(
-          |    content = Text(value = "One-half width")
+          |    content = Text( "One-half width")
           |  )
           |))
           |@GovukInput(Input(
@@ -3468,7 +3471,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "one-third",
           |  classes = "govuk-!-width-one-third",
           |  label = Label(
-          |    content = Text(value = "One-third width")
+          |    content = Text( "One-third width")
           |  )
           |))
           |@GovukInput(Input(
@@ -3476,7 +3479,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "one-quarter",
           |  classes = "govuk-!-width-one-quarter",
           |  label = Label(
-          |    content = Text(value = "One-quarter width")
+          |    content = Text( "One-quarter width")
           |  )
           |))""".stripMargin
 
@@ -3512,10 +3515,10 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  id = "event-name",
           |  name = "event-name",
           |  label = Label(
-          |    content = Text(value = "Event name")
+          |    content = Text( "Event name")
           |  ),
           |  hint = Some(Hint(
-          |    content = Text(value = "The name you’ll use on promotional material.")
+          |    content = Text( "The name you’ll use on promotional material.")
           |  ))
           |))""".stripMargin
 
@@ -3554,13 +3557,13 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  id = "event-name",
           |  name = "event-name",
           |  label = Label(
-          |    content = Text(value = "Event name")
+          |    content = Text( "Event name")
           |  ),
           |  hint = Some(Hint(
-          |    content = Text(value = "The name you’ll use on promotional material.")
+          |    content = Text( "The name you’ll use on promotional material.")
           |  )),
           |  errorMessage = Some(ErrorMessage(
-          |    content = Text(value = "Enter an event name")
+          |    content = Text( "Enter an event name")
           |  ))
           |))""".stripMargin
 
@@ -3596,10 +3599,10 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "more-detail",
           |  id = "more-detail",
           |  label = Label(
-          |    content = Text(value = "Can you provide more detail?")
+          |    content = Text( "Can you provide more detail?")
           |  ),
           |  hint = Some(Hint(
-          |    content = Text(value = "Do not include personal or financial information, like your National Insurance number or credit card details.")
+          |    content = Text( "Do not include personal or financial information, like your National Insurance number or credit card details.")
           |  ))
           |))""".stripMargin
 
@@ -3635,10 +3638,10 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "more-detail",
           |  id = "more-detail",
           |  label = Label(
-          |    content = Text(value = "Can you provide more detail?")
+          |    content = Text( "Can you provide more detail?")
           |  ),
           |  hint = Some(Hint(
-          |    content = Text(value = "Do not include personal or financial information, like your National Insurance number or credit card details.")
+          |    content = Text( "Do not include personal or financial information, like your National Insurance number or credit card details.")
           |  ))
           |))""".stripMargin
 
@@ -3676,10 +3679,10 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  id = "more-detail",
           |  rows = 8,
           |  label = Label(
-          |    content = Text(value = "Can you provide more detail?")
+          |    content = Text( "Can you provide more detail?")
           |  ),
           |  hint = Some(Hint(
-          |    content = Text(value = "Do not include personal or financial information, like your National Insurance number or credit card details.")
+          |    content = Text( "Do not include personal or financial information, like your National Insurance number or credit card details.")
           |  ))
           |))""".stripMargin
 
@@ -3718,13 +3721,13 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  name = "more-detail",
           |  id = "more-detail",
           |  label = Label(
-          |    content = Text(value = "Can you provide more detail?")
+          |    content = Text( "Can you provide more detail?")
           |  ),
           |  hint = Some(Hint(
-          |    content = Text(value = "Do not include personal or financial information, like your National Insurance number or credit card details.")
+          |    content = Text( "Do not include personal or financial information, like your National Insurance number or credit card details.")
           |  )),
           |  errorMessage = Some(ErrorMessage(
-          |    content = Text(value = "Enter more detail")
+          |    content = Text( "Enter more detail")
           |  ))
           |))""".stripMargin
 
