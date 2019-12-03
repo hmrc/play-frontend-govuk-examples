@@ -127,6 +127,7 @@ package object examples {
 
   case class MacroCall(macroName: String, args: Any) extends NunjucksTemplateBody {
     override def toString: String = s"""@${macroName.capitalize}(${prettyPrint(args)})""".replaceAll("\\sList", " Seq")
+    def toDependencyInjectionString: String = s"""@${macroName}(${prettyPrint(args)})""".replaceAll("\\sList", " Seq")
   }
 
   case class TemplateHtml(content: Html) extends NunjucksTemplateBody {

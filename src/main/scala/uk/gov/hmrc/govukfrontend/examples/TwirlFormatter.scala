@@ -32,8 +32,13 @@ object TwirlFormatter {
       |@()
       |""".stripMargin
 
+  def injectingDependencies(body: List[NunjucksTemplateBody]): List[String] = body.collect {
+    case m: MacroCall => m.toDependencyInjectionString
+    case o => o.toString
+  }
+
   def format(parsed: NunjucksTemplate): String =
-    (parsed.imports.head :: play26ParameterList(parsed.imports) :: parsed.body).map(_.toString).mkString("\n")
+    (parsed.imports.head :: play26ParameterList(parsed.imports) :: injectingDependencies(parsed.body)).map(_.toString).mkString("\n")
 
   def formatPlay25(parsed: NunjucksTemplate): String =
     (parsed.imports.head :: play25ParameterList :: parsed.body).map(_.toString).mkString("\n")
