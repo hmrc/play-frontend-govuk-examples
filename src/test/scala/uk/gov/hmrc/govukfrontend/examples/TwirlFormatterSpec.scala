@@ -16,7 +16,6 @@
 
 package uk.gov.hmrc.govukfrontend.examples
 
-import fastparse.Parsed
 import org.scalatest.{Matchers, WordSpec}
 import uk.gov.hmrc.govukfrontend.examples.TwirlFormatter._
 
@@ -2267,7 +2266,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
       gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
     }
 
-    "format GovukRadios2 " ignore {
+    "format GovukRadios2 " in {
 
       val gouvukRadiosNunjucks =
         """{% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -2321,16 +2320,16 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    RadioItem(content = Text( "Yes"), value = Some("yes")),
           |    RadioItem(content = Text( "No"), value = Some("no"))
           |  ),
-          |  classes = "govuk-radios--inline",
+          |  classes = "govuk-radios--inline"
           |))""".stripMargin
 
-      val gouvukRadiosParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukRadiosParsed.get.value) shouldBe govukRadiosTwirlExpected
+      val gouvukRadiosParsed = fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukRadiosTwirl  = format(gouvukRadiosParsed.get.value)
+      gouvukRadiosTwirl.print
+      gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
     }
 
-    "format GovukRadios3 " ignore {
+    "format GovukRadios3 " in {
 
       val gouvukRadiosNunjucks =
         """{% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -2411,13 +2410,13 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  )
           |))""".stripMargin
 
-      val gouvukRadiosParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukRadiosParsed.get.value) shouldBe govukRadiosTwirlExpected
+      val gouvukRadiosParsed = fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukRadiosTwirl  = format(gouvukRadiosParsed.get.value)
+      gouvukRadiosTwirl.print
+      gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
     }
 
-    "format GovukRadios4 " ignore {
+    "format GovukRadios4 " in {
 
       val gouvukRadiosNunjucks =
         """{% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -2485,10 +2484,10 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  )
           |))""".stripMargin
 
-      val gouvukRadiosParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukRadiosParsed.get.value) shouldBe govukRadiosTwirlExpected
+      val gouvukRadiosParsed = fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukRadiosTwirl  = format(gouvukRadiosParsed.get.value)
+      gouvukRadiosTwirl.print
+      gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
     }
 
     "format GovukRadios5 " ignore {
@@ -2637,13 +2636,13 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  ))
           |}""".stripMargin
 
-      val gouvukRadiosParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukRadiosParsed.get.value) shouldBe govukRadiosTwirlExpected
+      val gouvukRadiosParsed = fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukRadiosTwirl  = format(gouvukRadiosParsed.get.value)
+      gouvukRadiosTwirl.print
+      gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
     }
 
-    "format GovukRadios6 " ignore {
+    "format GovukRadios6 " in {
 
       val gouvukRadiosNunjucks =
         """{% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -2700,13 +2699,13 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  classes = "govuk-radios--small"
           |))""".stripMargin
 
-      val gouvukRadiosParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukRadiosParsed.get.value) shouldBe govukRadiosTwirlExpected
+      val gouvukRadiosParsed = fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukRadiosTwirl  = format(gouvukRadiosParsed.get.value)
+      gouvukRadiosTwirl.print
+      gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
     }
 
-    "format GovukRadios7 " ignore {
+    "format GovukRadios7 " in {
 
       val gouvukRadiosNunjucks =
         """{% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -2775,13 +2774,13 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  classes = "govuk-radios--inline"
           |))""".stripMargin
 
-      val gouvukRadiosParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukRadiosParsed.get.value) shouldBe govukRadiosTwirlExpected
+      val gouvukRadiosParsed = fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukRadiosTwirl  = format(gouvukRadiosParsed.get.value)
+      gouvukRadiosTwirl.print
+      gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
     }
 
-    "format GovukSummaryList " ignore {
+    "format GovukSummaryList " in {
 
       val gouvukSummaryListNunjucks =
         """{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
@@ -2860,7 +2859,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |}) }}""".stripMargin
 
       val govukSummaryListTwirlExpected =
-        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+        s"""@import uk.gov.hmrc.govukfrontend.views.html.components._
           |
           |@this(govukSummaryList: GovukSummaryList)
           |
@@ -2883,15 +2882,14 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    ),
           |    SummaryListRow(
           |      key = Key(content = Text( "Contact information")),
-          |      value = Value(content = HtmlContent("72 Guild Street<br>London<br>SE23 6FH")),
+          |      value = Value(content = $htmlAddress),
           |      actions = Some(Actions(items = Seq(
           |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("contact information"))
           |      )))
           |    ),
           |    SummaryListRow(
           |      key = Key(content = Text( "Contact details")),
-          |      value = Value(content = HtmlContent(
-          |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>")),
+          |      value = Value(content = $htmlContentBegin<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>$htmlContentEnd),
           |      actions = Some(Actions(items = Seq(
           |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("contact details"))
           |      )))
@@ -2899,13 +2897,13 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  )
           |))""".stripMargin
 
-      val gouvukSummaryListParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukSummaryListNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukSummaryListParsed.get.value) shouldBe govukSummaryListTwirlExpected
+      val gouvukSummaryListParsed = fastparse.parse(gouvukSummaryListNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukSummaryListTwirl  = format(gouvukSummaryListParsed.get.value)
+      gouvukSummaryListTwirl.print
+      gouvukSummaryListTwirl.trimSpaces shouldBe govukSummaryListTwirlExpected.trimSpaces
     }
 
-    "format GovukSummaryList1 " ignore {
+    "format GovukSummaryList1 " in {
 
       val gouvukSummaryListNunjucks =
         """{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
@@ -2984,7 +2982,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |}) }}""".stripMargin
 
       val govukSummaryListTwirlExpected =
-        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+        s"""@import uk.gov.hmrc.govukfrontend.views.html.components._
           |
           |@this(govukSummaryList: GovukSummaryList)
           |
@@ -3007,15 +3005,14 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    ),
           |    SummaryListRow(
           |      key = Key(content = Text( "Contact information")),
-          |      value = Value(content = HtmlContent("72 Guild Street<br>London<br>SE23 6FH")),
+          |      value = Value(content = $htmlAddress),
           |      actions = Some(Actions(items = Seq(
           |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("contact information"))
           |      )))
           |    ),
           |    SummaryListRow(
           |      key = Key(content = Text( "Contact details")),
-          |      value = Value(content = HtmlContent(
-          |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>")),
+          |      value = Value(content = $htmlContentBegin<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>$htmlContentEnd),
           |      actions = Some(Actions(items = Seq(
           |        ActionItem(href = "#", content = Text( "Change"), visuallyHiddenText = Some("contact details"))
           |      )))
@@ -3023,13 +3020,13 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  )
           |))""".stripMargin
 
-      val gouvukSummaryListParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukSummaryListNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukSummaryListParsed.get.value) shouldBe govukSummaryListTwirlExpected
+      val gouvukSummaryListParsed = fastparse.parse(gouvukSummaryListNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukSummaryListTwirl  = format(gouvukSummaryListParsed.get.value)
+      gouvukSummaryListTwirl.print
+      gouvukSummaryListTwirl.trimSpaces shouldBe govukSummaryListTwirlExpected.trimSpaces
     }
 
-    "format GovukSummaryList2 " ignore {
+    "format GovukSummaryList2 " in {
 
       val gouvukSummaryListNunjucks =
         """{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
@@ -3072,7 +3069,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |}) }}""".stripMargin
 
       val govukSummaryListTwirlExpected =
-        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+        s"""@import uk.gov.hmrc.govukfrontend.views.html.components._
           |
           |@this(govukSummaryList: GovukSummaryList)
           |
@@ -3089,23 +3086,22 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    ),
           |    SummaryListRow(
           |      key = Key(content = Text( "Contact information")),
-          |      value = Value(content = HtmlContent("72 Guild Street<br>London<br>SE23 6FH"))
+          |      value = Value(content = $htmlAddress)
           |    ),
           |    SummaryListRow(
           |      key = Key(content = Text( "Contact details")),
-          |      value = Value(content = HtmlContent(
-          |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>"))
+          |      value = Value(content = $htmlContentBegin<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>$htmlContentEnd)
           |    )
           |  )
           |))""".stripMargin
 
-      val gouvukSummaryListParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukSummaryListNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukSummaryListParsed.get.value) shouldBe govukSummaryListTwirlExpected
+      val gouvukSummaryListParsed = fastparse.parse(gouvukSummaryListNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukSummaryListTwirl  = format(gouvukSummaryListParsed.get.value)
+      gouvukSummaryListTwirl.print
+      gouvukSummaryListTwirl.trimSpaces shouldBe govukSummaryListTwirlExpected.trimSpaces
     }
 
-    "format GovukSummaryList3 " ignore {
+    "format GovukSummaryList3 " in {
 
       val gouvukSummaryListNunjucks =
         """{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
@@ -3149,13 +3145,12 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |}) }}""".stripMargin
 
       val govukSummaryListTwirlExpected =
-        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+        s"""@import uk.gov.hmrc.govukfrontend.views.html.components._
           |
           |@this(govukSummaryList: GovukSummaryList)
           |
           |@()
           |@govukSummaryList(SummaryList(
-          |  classes = "govuk-summary-list--no-border",
           |  rows = Seq(
           |    SummaryListRow(
           |      key = Key(content = Text( "Name")),
@@ -3167,23 +3162,23 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    ),
           |    SummaryListRow(
           |      key = Key(content = Text( "Contact information")),
-          |      value = Value(content = HtmlContent("72 Guild Street<br>London<br>SE23 6FH"))
+          |      value = Value(content = $htmlAddress)
           |    ),
           |    SummaryListRow(
           |      key = Key(content = Text( "Contact details")),
-          |      value = Value(content = HtmlContent(
-          |        value = "<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>"))
+          |      value = Value(content = $htmlContentBegin<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>$htmlContentEnd)
           |    )
-          |  )
+          |  ),
+          |  classes = "govuk-summary-list--no-border"
           |))""".stripMargin
 
-      val gouvukSummaryListParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukSummaryListNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukSummaryListParsed.get.value) shouldBe govukSummaryListTwirlExpected
+      val gouvukSummaryListParsed = fastparse.parse(gouvukSummaryListNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukSummaryListTwirl  = format(gouvukSummaryListParsed.get.value)
+      gouvukSummaryListTwirl.print
+      gouvukSummaryListTwirl.trimSpaces shouldBe govukSummaryListTwirlExpected.trimSpaces
     }
 
-    "format GovukInput " ignore {
+    "format GovukInput " in {
 
       val gouvukInputNunjucks =
         """{% from "govuk/components/input/macro.njk" import govukInput %}
@@ -3210,13 +3205,13 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  )
           |))""".stripMargin
 
-      val gouvukInputParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukInputParsed.get.value) shouldBe govukInputTwirlExpected
+      val govukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
+      val govukInputTwirl  = format(govukInputParsed.get.value)
+      govukInputTwirl.print
+      govukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
     }
 
-    "format GovukInput1 " ignore {
+    "format GovukInput1 " in {
 
       val gouvukInputNunjucks =
         """{% from "govuk/components/input/macro.njk" import govukInput %}
@@ -3243,13 +3238,13 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  )
           |))""".stripMargin
 
-      val gouvukInputParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukInputParsed.get.value) shouldBe govukInputTwirlExpected
+      val govukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
+      val govukInputTwirl  = format(govukInputParsed.get.value)
+      govukInputTwirl.print
+      govukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
     }
 
-    "format GovukInput2 " ignore {
+    "format GovukInput2 " in {
 
       val gouvukInputNunjucks =
         """{% from "govuk/components/input/macro.njk" import govukInput %}
@@ -3317,59 +3312,59 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@govukInput(Input(
           |  id = "width-20",
           |  name = "width-20",
-          |  classes = "govuk-input--width-20",
           |  label = Label(
           |    content = Text( "20 character width")
-          |  )
+          |  ),
+          |  classes = "govuk-input--width-20"
           |))
-          |@GovukInput(Input(
+          |@govukInput(Input(
           |  id = "width-10",
           |  name = "width-10",
-          |  classes = "govuk-input--width-10",
           |  label = Label(
           |    content = Text( "10 character width")
-          |  )
+          |  ),
+          |  classes = "govuk-input--width-10"
           |))
-          |@GovukInput(Input(
+          |@govukInput(Input(
           |  id = "width-5",
           |  name = "width-5",
-          |  classes = "govuk-input--width-5",
           |  label = Label(
           |    content = Text( "5 character width")
-          |  )
+          |  ),
+          |  classes = "govuk-input--width-5"
           |))
-          |@GovukInput(Input(
+          |@govukInput(Input(
           |  id = "width-4",
           |  name = "width-4",
-          |  classes = "govuk-input--width-4",
           |  label = Label(
           |    content = Text( "4 character width")
-          |  )
+          |  ),
+          |  classes = "govuk-input--width-4"
           |))
-          |@GovukInput(Input(
+          |@govukInput(Input(
           |  id = "width-3",
           |  name = "width-3",
-          |  classes = "govuk-input--width-3",
           |  label = Label(
           |    content = Text( "3 character width")
-          |  )
+          |  ),
+          |  classes = "govuk-input--width-3"
           |))
-          |@GovukInput(Input(
+          |@govukInput(Input(
           |  id = "width-2",
           |  name = "width-2",
-          |  classes = "govuk-input--width-2",
           |  label = Label(
           |    content = Text( "2 character width")
-          |  )
+          |  ),
+          |  classes = "govuk-input--width-2"
           |))""".stripMargin
 
-      val gouvukInputParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukInputParsed.get.value) shouldBe govukInputTwirlExpected
+      val govukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
+      val govukInputTwirl  = format(govukInputParsed.get.value)
+      govukInputTwirl.print
+      govukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
     }
 
-    "format GovukInput3 " ignore {
+    "format GovukInput3 " in {
 
       val gouvukInputNunjucks =
         """{% from "govuk/components/input/macro.njk" import govukInput %}
@@ -3437,59 +3432,59 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |@govukInput(Input(
           |  id = "full",
           |  name = "full",
-          |  classes = "govuk-!-width-full",
           |  label = Label(
           |    content = Text( "Full width")
-          |  )
+          |  ),
+          |  classes = "govuk-!-width-full"
           |))
-          |@GovukInput(Input(
+          |@govukInput(Input(
           |  id = "three-quarters",
           |  name = "three-quarters",
-          |  classes = "govuk-!-width-three-quarters",
           |  label = Label(
           |    content = Text( "Three-quarters width")
-          |  )
+          |  ),
+          |  classes = "govuk-!-width-three-quarters"
           |))
-          |@GovukInput(Input(
+          |@govukInput(Input(
           |  id = "two-thirds",
           |  name = "two-thirds",
-          |  classes = "govuk-!-width-two-thirds",
           |  label = Label(
           |    content = Text( "Two-thirds width")
-          |  )
+          |  ),
+          |  classes = "govuk-!-width-two-thirds"
           |))
-          |@GovukInput(Input(
+          |@govukInput(Input(
           |  id = "one-half",
           |  name = "one-half",
-          |  classes = "govuk-!-width-one-half",
           |  label = Label(
           |    content = Text( "One-half width")
-          |  )
+          |  ),
+          |  classes = "govuk-!-width-one-half"
           |))
-          |@GovukInput(Input(
+          |@govukInput(Input(
           |  id = "one-third",
           |  name = "one-third",
-          |  classes = "govuk-!-width-one-third",
           |  label = Label(
           |    content = Text( "One-third width")
-          |  )
+          |  ),
+          |  classes = "govuk-!-width-one-third"
           |))
-          |@GovukInput(Input(
+          |@govukInput(Input(
           |  id = "one-quarter",
           |  name = "one-quarter",
-          |  classes = "govuk-!-width-one-quarter",
           |  label = Label(
           |    content = Text( "One-quarter width")
-          |  )
+          |  ),
+          |  classes = "govuk-!-width-one-quarter"
           |))""".stripMargin
 
-      val gouvukInputParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukInputParsed.get.value) shouldBe govukInputTwirlExpected
+      val govukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
+      val govukInputTwirl  = format(govukInputParsed.get.value)
+      govukInputTwirl.print
+      govukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
     }
 
-    "format GovukInput4 " ignore {
+    "format GovukInput4 " in {
 
       val gouvukInputNunjucks =
         """{% from "govuk/components/input/macro.njk" import govukInput %}
@@ -3522,13 +3517,13 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  ))
           |))""".stripMargin
 
-      val gouvukInputParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukInputParsed.get.value) shouldBe govukInputTwirlExpected
+      val govukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
+      val govukInputTwirl  = format(govukInputParsed.get.value)
+      govukInputTwirl.print
+      govukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
     }
 
-    "format GovukInput5 " ignore {
+    "format GovukInput5 " in {
 
       val gouvukInputNunjucks =
         """{% from "govuk/components/input/macro.njk" import govukInput %}
@@ -3567,13 +3562,13 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  ))
           |))""".stripMargin
 
-      val gouvukInputParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukInputParsed.get.value) shouldBe govukInputTwirlExpected
+      val govukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
+      val govukInputTwirl  = format(govukInputParsed.get.value)
+      govukInputTwirl.print
+      govukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
     }
 
-    "format GovukTextarea " ignore {
+    "format GovukTextarea " in {
 
       val gouvukTextareaNunjucks =
         """{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
@@ -3596,8 +3591,8 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |
           |@()
           |@govukTextarea(Textarea(
-          |  name = "more-detail",
           |  id = "more-detail",
+          |  name = "more-detail",
           |  label = Label(
           |    content = Text( "Can you provide more detail?")
           |  ),
@@ -3606,13 +3601,13 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  ))
           |))""".stripMargin
 
-      val gouvukTextareaParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukTextareaNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukTextareaParsed.get.value) shouldBe govukTextareaTwirlExpected
+      val gouvukTextareaParsed = fastparse.parse(gouvukTextareaNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukTextareaTwirl  = format(gouvukTextareaParsed.get.value)
+      gouvukTextareaTwirl.print
+      gouvukTextareaTwirl.trimSpaces shouldBe govukTextareaTwirlExpected.trimSpaces
     }
 
-    "format GovukTextarea1 " ignore {
+    "format GovukTextarea1 " in {
 
       val gouvukTextareaNunjucks =
         """{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
@@ -3635,8 +3630,8 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |
           |@()
           |@govukTextarea(Textarea(
+            |  id = "more-detail",
           |  name = "more-detail",
-          |  id = "more-detail",
           |  label = Label(
           |    content = Text( "Can you provide more detail?")
           |  ),
@@ -3645,10 +3640,10 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  ))
           |))""".stripMargin
 
-      val gouvukTextareaParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukTextareaNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukTextareaParsed.get.value) shouldBe govukTextareaTwirlExpected
+      val gouvukTextareaParsed = fastparse.parse(gouvukTextareaNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukTextareaTwirl  = format(gouvukTextareaParsed.get.value)
+      gouvukTextareaTwirl.print
+      gouvukTextareaTwirl.trimSpaces shouldBe govukTextareaTwirlExpected.trimSpaces
     }
 
     "format GovukTextarea2 " ignore {
@@ -3686,13 +3681,13 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  ))
           |))""".stripMargin
 
-      val gouvukTextareaParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukTextareaNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukTextareaParsed.get.value) shouldBe govukTextareaTwirlExpected
+      val gouvukTextareaParsed = fastparse.parse(gouvukTextareaNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukTextareaTwirl  = format(gouvukTextareaParsed.get.value)
+      gouvukTextareaTwirl.print
+      gouvukTextareaTwirl.trimSpaces shouldBe govukTextareaTwirlExpected.trimSpaces
     }
 
-    "format GovukTextarea3 " ignore {
+    "format GovukTextarea3 " in {
 
       val gouvukTextareaNunjucks =
         """{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
@@ -3718,8 +3713,8 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |
           |@()
           |@govukTextarea(Textarea(
-          |  name = "more-detail",
           |  id = "more-detail",
+          |  name = "more-detail",
           |  label = Label(
           |    content = Text( "Can you provide more detail?")
           |  ),
@@ -3731,10 +3726,10 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  ))
           |))""".stripMargin
 
-      val gouvukTextareaParsed: Parsed[NunjucksTemplate] =
-        fastparse.parse(gouvukTextareaNunjucks, NunjucksParser.nunjucksParser(_))
-
-      TwirlFormatter.format(gouvukTextareaParsed.get.value) shouldBe govukTextareaTwirlExpected
+      val gouvukTextareaParsed = fastparse.parse(gouvukTextareaNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukTextareaTwirl  = format(gouvukTextareaParsed.get.value)
+      gouvukTextareaTwirl.print
+      gouvukTextareaTwirl.trimSpaces shouldBe govukTextareaTwirlExpected.trimSpaces
     }
 
   }
