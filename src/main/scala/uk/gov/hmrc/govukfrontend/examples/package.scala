@@ -16,10 +16,33 @@
 
 package uk.gov.hmrc.govukfrontend
 
+import java.lang.reflect.Method
+
 import play.twirl.api.Html
 import uk.gov.hmrc.govukfrontend.views.viewmodels.content.HtmlContent
 
 package object examples {
+
+  private def getCompanionObj[T <: Product](caseClassObj: T): Any = {
+    val caseClass: Class[_ <: T] = caseClassObj.getClass
+    val classLoader = caseClass.getClassLoader
+    val companionObj = classLoader.loadClass(s"${caseClass.getName}$$")
+    companionObj.getDeclaredField("MODULE$").get(true)
+  }
+
+  private def getDefaults[T <: Product](caseClassObj: T): Array[(String, Any)]  = {
+    val compObj = getCompanionObj(caseClassObj)
+    val compMethods: Array[Method] = compObj.getClass.getDeclaredMethods
+    val fields = caseClassObj.getClass.getDeclaredFields.map(_.getName)
+
+    for {
+      method: Method <- compMethods
+      javaMethodName: String = method.getName
+      defaultParamIndex <- """\$lessinit\$greater\$default\$(\d)""".r.findFirstMatchIn(javaMethodName).toIterable.flatMap(_.subgroups).map(_.toInt - 1)
+      field: String = fields(defaultParamIndex)
+      default: Any = method.invoke(compObj)
+    } yield field -> default
+  }
 
   def prettyPrint(a: Any, indentSize: Int = 2, maxElementWidth: Int = 30, depth: Int = 1): String = {
     val indent      = " " * depth * indentSize
@@ -66,7 +89,9 @@ package object examples {
             s"$prefix(${thisDepth(value)})"
           // If there is more than one field, build up the field names and values.
           case kvps =>
+            val defaults: Array[(String, Any)] = getDefaults(p)
             val prettyFields = kvps
+              .filterNot(kvp => defaults.contains(kvp))
               .map {
                 case (k, v) =>
                   val value = nextDepth(v)
@@ -76,10 +101,14 @@ package object examples {
               }
               .filterNot(_ matches """^[\s]+$|^$|Empty|\"\"|Map\(\)|None|false|1""")
             // If the result is not too long, pretty print on one line.
-            val resultOneLine = s"$prefix(${prettyFields.mkString(", ")})"
-            if (resultOneLine.length <= maxElementWidth) return resultOneLine
-            // Otherwise, build it with newlines and proper field indents.
-            s"$prefix(\n${prettyFields.mkString(",\n")}\n$indent)"
+            if (prettyFields.nonEmpty) {
+              val resultOneLine = s"$prefix(${prettyFields.mkString(", ")})"
+              if (resultOneLine.length <= maxElementWidth) return resultOneLine
+              // Otherwise, build it with newlines and proper field indents.
+              s"$prefix(\n${prettyFields.mkString(",\n")}\n$indent)"
+            } else {
+              ""
+            }
         }
 
       // If we haven't specialized this type, just use its toString.

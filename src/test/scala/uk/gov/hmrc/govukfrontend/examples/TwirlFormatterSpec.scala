@@ -1839,8 +1839,8 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |
           |@()
           |@GovukTextarea(Textarea(
-          |  name = "more-detail",
           |  id = "more-detail",
+          |  name = "more-detail",
           |  label = Label(
           |    content = Text( "Can you provide more detail?")
           |  ),
