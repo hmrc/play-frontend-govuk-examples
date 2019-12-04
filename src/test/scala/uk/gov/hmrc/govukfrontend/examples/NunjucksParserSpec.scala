@@ -561,13 +561,13 @@ class NunjucksParserSpec extends WordSpec with Matchers {
       fastparse.parse(s, nunjucksParser(_)) shouldBe Success(
         NunjucksTemplate(
           imports = List(
-            Import(from = "govuk/components/footer/macro.njk", macroName = "govukInput"),
-            Import(from = "govuk/components/footer/macro.njk", macroName = "govukFieldset")
+            Import(from = "govuk/components/input/macro.njk", macroName = "govukInput"),
+            Import(from = "govuk/components/fieldset/macro.njk", macroName = "govukFieldset")
           ),
           body = List(
             CallMacro(
               callMacro = MacroCall(
-                "GovukFieldset",
+                "govukFieldset",
                 Fieldset(
                   legend = Some(
                     Legend(
@@ -578,7 +578,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
                 )),
               macroCalls = List(
                 MacroCall(
-                  "GovukInput",
+                  "govukInput",
                   Input(
                     id   = "address-line-1",
                     name = "address-line-1",
@@ -589,7 +589,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
                   )
                 ),
                 MacroCall(
-                  "GovukInput",
+                  "govukInput",
                   Input(
                     id   = "address-line-2",
                     name = "address-line-2",
@@ -600,7 +600,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
                   )
                 ),
                 MacroCall(
-                  "GovukInput",
+                  "govukInput",
                   Input(
                     id   = "address-town",
                     name = "address-town",
@@ -610,7 +610,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
                     classes = "govuk-!-width-two-thirds"
                   )),
                 MacroCall(
-                  "GovukInput",
+                  "govukInput",
                   Input(
                     id   = "address-county",
                     name = "address-county",
@@ -620,7 +620,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
                     classes = "govuk-!-width-two-thirds"
                   )),
                 MacroCall(
-                  "GovukInput",
+                  "govukInput",
                   Input(
                     id   = "address-postcode",
                     name = "address-postcode",
