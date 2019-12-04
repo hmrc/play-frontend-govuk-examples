@@ -20,29 +20,9 @@ import java.lang.reflect.Method
 
 import play.twirl.api.Html
 import uk.gov.hmrc.govukfrontend.views.viewmodels.content.HtmlContent
+import uk.gov.hmrc.govukfrontend.views.viewmodels.fieldset.Fieldset
 
 package object examples {
-
-  private def getCompanionObj[T <: Product](caseClassObj: T): Any = {
-    val caseClass: Class[_ <: T] = caseClassObj.getClass
-    val classLoader = caseClass.getClassLoader
-    val companionObj = classLoader.loadClass(s"${caseClass.getName}$$")
-    companionObj.getDeclaredField("MODULE$").get(true)
-  }
-
-  private def getDefaults[T <: Product](caseClassObj: T): Array[(String, Any)]  = {
-    val compObj = getCompanionObj(caseClassObj)
-    val compMethods: Array[Method] = compObj.getClass.getDeclaredMethods
-    val fields = caseClassObj.getClass.getDeclaredFields.map(_.getName)
-
-    for {
-      method: Method <- compMethods
-      javaMethodName: String = method.getName
-      defaultParamIndex <- """\$lessinit\$greater\$default\$(\d)""".r.findFirstMatchIn(javaMethodName).toIterable.flatMap(_.subgroups).map(_.toInt - 1)
-      field: String = fields(defaultParamIndex)
-      default: Any = method.invoke(compObj)
-    } yield field -> default
-  }
 
   def prettyPrint(a: Any, indentSize: Int = 2, maxElementWidth: Int = 30, depth: Int = 1): String = {
     val indent      = " " * depth * indentSize
@@ -116,6 +96,31 @@ package object examples {
     }
   }
 
+  private def getCompanionObj[T <: Product](caseClassObj: T): Any = {
+    val caseClass: Class[_ <: T] = caseClassObj.getClass
+    val classLoader              = caseClass.getClassLoader
+    val companionObj             = classLoader.loadClass(s"${caseClass.getName}$$")
+    companionObj.getDeclaredField("MODULE$").get(true)
+  }
+
+  private def getDefaults[T <: Product](caseClassObj: T): Array[(String, Any)] = {
+    val compObj                    = getCompanionObj(caseClassObj)
+    val compMethods: Array[Method] = compObj.getClass.getDeclaredMethods
+    val fields                     = caseClassObj.getClass.getDeclaredFields.map(_.getName)
+
+    for {
+      method: Method <- compMethods
+      javaMethodName: String = method.getName
+      defaultParamIndex <- """\$lessinit\$greater\$default\$(\d)""".r
+                            .findFirstMatchIn(javaMethodName)
+                            .toIterable
+                            .flatMap(_.subgroups)
+                            .map(_.toInt - 1)
+      field: String = fields(defaultParamIndex)
+      default: Any  = method.invoke(compObj)
+    } yield field -> default
+  }
+
   sealed trait NunjucksTemplateBody
 
   case class NunjucksTemplate(imports: List[Import], body: List[NunjucksTemplateBody])
@@ -126,8 +131,26 @@ package object examples {
   }
 
   case class MacroCall(macroName: String, args: Any) extends NunjucksTemplateBody {
-    override def toString: String = s"""@${macroName.capitalize}(${prettyPrint(args)})""".replaceAll("\\sList", " Seq")
-    def toDependencyInjectionString: String = s"""@${macroName}(${prettyPrint(args)})""".replaceAll("\\sList", " Seq")
+    override def toString: String           = s"""@${macroName.capitalize}(${prettyPrint(args)})""".replaceAll("\\sList", " Seq")
+    def toDependencyInjectionString: String = s"""@$macroName(${prettyPrint(args)})""".replaceAll("\\sList", " Seq")
+  }
+
+  case class CallMacro(callMacro: MacroCall, macroCalls: List[MacroCall]) extends NunjucksTemplateBody {
+    override def toString: String =
+      callMacro.args match {
+        case fieldset: Fieldset =>
+          val fieldsetWithHtml = fieldset.copy(html = Html("html"))
+          val macroCallsHtml = macroCalls.map(_.toString).mkString("\n")
+          s"""@${callMacro.macroName.capitalize}(${prettyPrint(fieldsetWithHtml)})
+             |
+             |@html = {
+             |$macroCallsHtml
+             |}
+             |""".stripMargin
+            .replaceAll("\\sList", " Seq")
+        case _ => ""
+      }
+
   }
 
   case class TemplateHtml(content: Html) extends NunjucksTemplateBody {

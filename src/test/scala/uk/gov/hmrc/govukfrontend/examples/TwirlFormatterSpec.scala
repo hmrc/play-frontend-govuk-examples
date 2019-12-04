@@ -122,7 +122,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
       govukErrorSummaryTwirl.trimSpaces shouldBe govukErrorSummaryTwirlExpected.trimSpaces
     }
 
-    "format GovukFieldset " ignore {
+    "format GovukFieldset " in {
 
       val gouvukFieldsetNunjucks =
         """{% from "govuk/components/input/macro.njk" import govukInput %}
@@ -182,9 +182,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |{% endcall %}""".stripMargin
 
       val govukFieldsetTwirlExpected =
-        """@import uk.gov.hmrc.govukfrontend.views.html.components._
-          |
-          |@this(govukInput: GovukInput)
+        s"""@import uk.gov.hmrc.govukfrontend.views.html.components._
           |
           |@()
           |@GovukFieldset(Fieldset(
@@ -199,33 +197,33 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |))
           |
           |@html = {
-          |  @govukInput(Input(
+          |  @GovukInput(Input(
           |    id = "address-line-1",
           |    name = "address-line-1",
-          |    label = Label(content = HtmlContent(\"\"\"Building and street <span class="govuk-visually-hidden">line 1 of 2</span>\"\"\"))
+          |    label = Label(content = $htmlContentBegin Building and street <span class="govuk-visually-hidden">line 1 of 2</span>$htmlContentEnd)
           |  ))
-          |  @govukInput(Input(
+          |  @GovukInput(Input(
           |    id = "address-line-2",
           |    name = "address-line-2",
-          |    label = Label(content = HtmlContent(\"\"\"<span class="govuk-visually-hidden">Building and street line 2 of 2</span>\"\"\"))
+          |    label = Label(content = $htmlContentBegin <span class="govuk-visually-hidden">Building and street line 2 of 2</span>$htmlContentEnd)
           |  ))
-          |  @govukInput(Input(
+          |  @GovukInput(Input(
           |    id = "address-town",
           |    name = "address-town",
-          |    classes = "govuk-!-width-two-thirds",
-          |    label = Label(content = Text( "Town or city"))
+          |    label = Label(content = Text( "Town or city")),
+          |    classes = "govuk-!-width-two-thirds"
           |  ))
-          |  @govukInput(Input(
+          |  @GovukInput(Input(
           |    id = "address-county",
           |    name = "address-county",
-          |    classes = "govuk-!-width-two-thirds",
-          |    label = Label(content = Text( "County"))
+          |    label = Label(content = Text( "County")),
+          |    classes = "govuk-!-width-two-thirds"
           |  ))
-          |  @govukInput(Input(
+          |  @GovukInput(Input(
           |    id = "address-postcode",
           |    name = "address-postcode",
-          |    classes = "govuk-input--width-10",
-          |    label = Label(content = Text( "Postcode"))
+          |    label = Label(content = Text( "Postcode")),
+          |    classes = "govuk-input--width-10"
           |  ))
           |}""".stripMargin
 
@@ -1797,8 +1795,8 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |
           |@()
           |@GovukTextarea(Textarea(
-          |  name = "more-detail",
           |  id = "more-detail",
+          |  name = "more-detail",
           |  rows = 8,
           |  label = Label(
           |    content = Text( "Can you provide more detail?")

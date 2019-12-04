@@ -108,7 +108,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
           |  ]
           |}) }}""".stripMargin
 
-      fastparse.parse(s, macroCall(_)) shouldBe Success(
+      fastparse.parse(s, macroCall()(_)) shouldBe Success(
         MacroCall(
           macroName = "govukErrorSummary",
           args = ErrorSummary(
@@ -496,6 +496,143 @@ class NunjucksParserSpec extends WordSpec with Matchers {
           )
         ),
         2522
+      )
+
+    }
+
+    "parse fieldset full example" in {
+      val s =
+        """{% from "govuk/components/input/macro.njk" import govukInput %}
+          |{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+          |
+          |{% call govukFieldset({
+          |  legend: {
+          |    text: "What is your address?",
+          |    classes: "govuk-fieldset__legend--xl",
+          |    isPageHeading: true
+          |  }
+          |}) %}
+          |
+          |  {{ govukInput({
+          |    label: {
+          |      html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+          |    },
+          |    id: "address-line-1",
+          |    name: "address-line-1"
+          |  }) }}
+          |
+          |  {{ govukInput({
+          |    label: {
+          |      html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+          |    },
+          |    id: "address-line-2",
+          |    name: "address-line-2"
+          |  }) }}
+          |
+          |  {{ govukInput({
+          |    label: {
+          |      text: "Town or city"
+          |    },
+          |    classes: "govuk-!-width-two-thirds",
+          |    id: "address-town",
+          |    name: "address-town"
+          |  }) }}
+          |
+          |  {{ govukInput({
+          |    label: {
+          |      text: "County"
+          |    },
+          |    classes: "govuk-!-width-two-thirds",
+          |    id: "address-county",
+          |    name: "address-county"
+          |  }) }}
+          |
+          |  {{ govukInput({
+          |    label: {
+          |      text: "Postcode"
+          |    },
+          |    classes: "govuk-input--width-10",
+          |    id: "address-postcode",
+          |    name: "address-postcode"
+          |  }) }}
+          |
+          |{% endcall %}""".stripMargin
+
+      fastparse.parse(s, nunjucksParser(_)) shouldBe Success(
+        NunjucksTemplate(
+          imports = List(
+            Import(from = "govuk/components/footer/macro.njk", macroName = "govukInput"),
+            Import(from = "govuk/components/footer/macro.njk", macroName = "govukFieldset")
+          ),
+          body = List(
+            CallMacro(
+              callMacro = MacroCall(
+                "GovukFieldset",
+                Fieldset(
+                  legend = Some(
+                    Legend(
+                      content       = Text("What is your address?"),
+                      classes       = "govuk-fieldset__legend--xl",
+                      isPageHeading = true
+                    ))
+                )),
+              macroCalls = List(
+                MacroCall(
+                  "GovukInput",
+                  Input(
+                    id   = "address-line-1",
+                    name = "address-line-1",
+                    label = Label(
+                      content =
+                        HtmlContent("""Building and street <span class="govuk-visually-hidden">line 1 of 2</span>""")
+                    )
+                  )
+                ),
+                MacroCall(
+                  "GovukInput",
+                  Input(
+                    id   = "address-line-2",
+                    name = "address-line-2",
+                    label = Label(
+                      content =
+                        HtmlContent("""<span class="govuk-visually-hidden">Building and street line 2 of 2</span>""")
+                    )
+                  )
+                ),
+                MacroCall(
+                  "GovukInput",
+                  Input(
+                    id   = "address-town",
+                    name = "address-town",
+                    label = Label(
+                      content = Text("Town or city")
+                    ),
+                    classes = "govuk-!-width-two-thirds"
+                  )),
+                MacroCall(
+                  "GovukInput",
+                  Input(
+                    id   = "address-county",
+                    name = "address-county",
+                    label = Label(
+                      content = Text("County")
+                    ),
+                    classes = "govuk-!-width-two-thirds"
+                  )),
+                MacroCall(
+                  "GovukInput",
+                  Input(
+                    id   = "address-postcode",
+                    name = "address-postcode",
+                    label = Label(
+                      content = Text("Postcode")
+                    ),
+                    classes = "govuk-input--width-10"
+                  ))
+              )
+            ))
+        ),
+        1166
       )
 
     }
