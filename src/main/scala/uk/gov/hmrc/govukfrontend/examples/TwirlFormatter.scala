@@ -18,8 +18,18 @@ package uk.gov.hmrc.govukfrontend.examples
 
 object TwirlFormatter {
 
-  def play26ParameterList(imports: List[Import]) = {
-    val dependencyInjections = imports.map(_.toDependencyInjectionString).mkString("'\n")
+  val play25ParameterList =
+    """
+      |@()
+      |""".stripMargin
+
+  def format(parsed: NunjucksTemplate): String =
+    (parsed.imports.head :: play26ParameterList(parsed.imports) :: injectingDependencies(parsed.body))
+      .map(_.toString)
+      .mkString("\n")
+
+  private def play26ParameterList(imports: List[Import]) = {
+    val dependencyInjections = imports.map(_.toDependencyInjectionString).mkString(",\n")
     s"""
       |@this($dependencyInjections)
       |
@@ -27,20 +37,12 @@ object TwirlFormatter {
       |""".stripMargin
   }
 
-  val play25ParameterList =
-    """
-      |@()
-      |""".stripMargin
-
-  def injectingDependencies(body: List[NunjucksTemplateBody]): List[String] = body.collect {
+  private def injectingDependencies(body: List[NunjucksTemplateBody]): List[String] = body.collect {
     case m: MacroCall => m.toDependencyInjectionString
-    case o => o.toString
+    case m: CallMacro => m.toDependencyInjectionString
+    case o            => o.toString
   }
-
-  def format(parsed: NunjucksTemplate): String =
-    (parsed.imports.head :: play26ParameterList(parsed.imports) :: injectingDependencies(parsed.body)).map(_.toString).mkString("\n")
 
   def formatPlay25(parsed: NunjucksTemplate): String =
     (parsed.imports.head :: play25ParameterList :: parsed.body).map(_.toString).mkString("\n")
-
 }

@@ -136,12 +136,22 @@ package object examples {
   }
 
   case class CallMacro(callMacro: MacroCall, macroCalls: List[MacroCall]) extends NunjucksTemplateBody {
-    override def toString: String =
+    override def toString: String = {
+      val toStringFunction: MacroCall => String = _.toString
+      stringify(toStringFunction, callMacro.macroName.capitalize)
+    }
+
+    def toDependencyInjectionString: String = {
+      val toStringFunction: MacroCall => String = _.toDependencyInjectionString
+      stringify(toStringFunction, callMacro.macroName)
+    }
+
+    private def stringify(toStringFunction: MacroCall => String, callMacroName: String) =
       callMacro.args match {
         case fieldset: Fieldset =>
           val fieldsetWithHtml = fieldset.copy(html = Html("html"))
-          val macroCallsHtml = macroCalls.map(_.toString).mkString("\n")
-          s"""@${callMacro.macroName.capitalize}(${prettyPrint(fieldsetWithHtml)})
+          val macroCallsHtml   = macroCalls.map(toStringFunction).mkString("\n")
+          s"""@$callMacroName(${prettyPrint(fieldsetWithHtml)})
              |
              |@html = {
              |$macroCallsHtml
@@ -150,7 +160,6 @@ package object examples {
             .replaceAll("\\sList", " Seq")
         case _ => ""
       }
-
   }
 
   case class TemplateHtml(content: Html) extends NunjucksTemplateBody {
