@@ -643,7 +643,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
       gouvukRadiosTwirl.print
     }
 
-    "format GovukRadios5 " ignore {
+    "format GovukRadios5 " in {
 
       val gouvukRadiosNunjucks =
         """{% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -706,21 +706,21 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |      value: "email",
           |      text: "Email",
           |      conditional: {
-          |        html: emailHtml
+          |        html: "emailHtml"
           |      }
           |    },
           |    {
           |      value: "phone",
           |      text: "Phone",
           |      conditional: {
-          |        html: phoneHtml
+          |        html: "phoneHtml"
           |      }
           |    },
           |    {
           |      value: "text",
           |      text: "Text message",
           |      conditional: {
-          |        html: textHtml
+          |        html: "textHtml"
           |      }
           |    }
           |  ]
@@ -729,15 +729,51 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
       val govukRadiosTwirlExpected =
         """@import uk.gov.hmrc.govukfrontend.views.html.components._
           |
-          |@this(govukInput: GovukInput)
-          |
           |@()
+          |
+          |@emailHtml = {
+          |  @GovukInput(Input(
+          |    id = "contact-by-email",
+          |    name = "contact-by-email",
+          |    inputType = "email",
+          |    label = Label(
+          |      content = Text( "Email address")
+          |    ),
+          |    classes = "govuk-!-width-one-third",
+          |    attributes = Map("spellcheck" -> "false")
+          |  ))
+          |}
+          |
+          |@phoneHtml = {
+          |  @GovukInput(Input(
+          |    id = "contact-by-phone",
+          |    name = "contact-by-phone",
+          |    inputType = "tel",
+          |    label = Label(
+          |      content = Text( "Phone number")
+          |    ),
+          |    classes = "govuk-!-width-one-third"
+          |  ))
+          |}
+          |
+          |@textHtml = {
+          |  @GovukInput(Input(
+          |    id = "contact-by-text",
+          |    name = "contact-by-text",
+          |    inputType = "tel",
+          |    label = Label(
+          |      content = Text( "Mobile phone number")
+          |    ),
+          |    classes = "govuk-!-width-one-third"
+          |  ))
+          |}
+          |
           |@GovukRadios(Radios(
           |  fieldset = Some(Fieldset(
           |    legend = Some(Legend(
           |      content = Text( "How would you prefer to be contacted?"),
-          |      isPageHeading = true,
-          |      classes = "govuk-fieldset__legend--xl"
+          |      classes = "govuk-fieldset__legend--xl",
+          |      isPageHeading = true
           |    ))
           |  )),
           |  hint = Some(Hint(
@@ -746,48 +782,12 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  idPrefix = Some("how-contacted-conditional"),
           |  name = "how-contacted",
           |  items = Seq(
-          |    RadioItem(content = Text( "Email", value = Some("email")), conditionalHtml = Some(emailHtml)),
-          |    RadioItem(content = Text( "Phone", value = Some("phone")), conditionalHtml = Some(phoneHtml)),
-          |    RadioItem(content = Text( "Text message", value = Some("text")), conditionalHtml = Some(textHtml))
+          |    RadioItem(content = Text("Email"), value = Some("email"), conditionalHtml = Some(emailHtml)),
+          |    RadioItem(content = Text("Phone"), value = Some("phone"), conditionalHtml = Some(phoneHtml)),
+          |    RadioItem(content = Text("Text message"), value = Some("text"), conditionalHtml = Some(textHtml))
           |  )
           |))
-          |
-          |@emailHtml = {
-          |  @govukInput(Input(
-          |    id = "contact-by-email",
-          |    name = "contact-by-email",
-          |    inputType = "email",
-          |    classes = "govuk-!-width-one-third",
-          |    label = Label(
-          |      content = Text( "Email address")
-          |    ),
-          |    attributes = Map("spellcheck" -> "false")
-          |  ))
-          |}
-          |
-          |@phoneHtml = {
-          |  @govukInput(Input(
-          |    id = "contact-by-phone",
-          |    name = "contact-by-phone",
-          |    inputType = "tel",
-          |    classes = "govuk-!-width-one-third",
-          |    label = Label(
-          |      content = Text( "Phone number")
-          |    )
-          |  ))
-          |}
-          |
-          |@textHtml = {
-          |  @govukInput(Input(
-          |    id = "contact-by-text",
-          |    name = "contact-by-text",
-          |    inputType = "tel",
-          |    classes = "govuk-!-width-one-third",
-          |    label = Label(
-          |      content = Text( "Mobile phone number")
-          |    )
-          |  ))
-          |}""".stripMargin
+          |""".stripMargin
 
       val gouvukRadiosParsed = fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
       val gouvukRadiosTwirl  = formatPlay25(gouvukRadiosParsed.get.value)
@@ -2489,7 +2489,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
       gouvukRadiosTwirl.trimSpaces shouldBe govukRadiosTwirlExpected.trimSpaces
     }
 
-    "format GovukRadios5 " ignore {
+    "format GovukRadios5 " in {
 
       val gouvukRadiosNunjucks =
         """{% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -2552,21 +2552,21 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |      value: "email",
           |      text: "Email",
           |      conditional: {
-          |        html: emailHtml
+          |        html: "emailHtml"
           |      }
           |    },
           |    {
           |      value: "phone",
           |      text: "Phone",
           |      conditional: {
-          |        html: phoneHtml
+          |        html: "phoneHtml"
           |      }
           |    },
           |    {
           |      value: "text",
           |      text: "Text message",
           |      conditional: {
-          |        html: textHtml
+          |        html: "textHtml"
           |      }
           |    }
           |  ]
@@ -2575,38 +2575,20 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
       val govukRadiosTwirlExpected =
         """@import uk.gov.hmrc.govukfrontend.views.html.components._
           |
-          |@this(govukInput: GovukInput)
+          |@this(govukRadios : GovukRadios,
+          |      govukInput : GovukInput)
           |
           |@()
-          |@GovukRadios(Radios(
-          |  fieldset = Some(Fieldset(
-          |    legend = Some(Legend(
-          |      content = Text( "How would you prefer to be contacted?"),
-          |      isPageHeading = true,
-          |      classes = "govuk-fieldset__legend--xl"
-          |    ))
-          |  )),
-          |  hint = Some(Hint(
-          |    content = Text( "Select one option.")
-          |  )),
-          |  idPrefix = Some("how-contacted-conditional"),
-          |  name = "how-contacted",
-          |  items = Seq(
-          |    RadioItem(content = Text( "Email", value = Some("email")), conditionalHtml = Some(emailHtml)),
-          |    RadioItem(content = Text( "Phone", value = Some("phone")), conditionalHtml = Some(phoneHtml)),
-          |    RadioItem(content = Text( "Text message", value = Some("text")), conditionalHtml = Some(textHtml))
-          |  )
-          |))
           |
           |@emailHtml = {
           |  @govukInput(Input(
           |    id = "contact-by-email",
           |    name = "contact-by-email",
           |    inputType = "email",
-          |    classes = "govuk-!-width-one-third",
           |    label = Label(
           |      content = Text( "Email address")
           |    ),
+          |    classes = "govuk-!-width-one-third",
           |    attributes = Map("spellcheck" -> "false")
           |  ))
           |}
@@ -2616,10 +2598,10 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    id = "contact-by-phone",
           |    name = "contact-by-phone",
           |    inputType = "tel",
-          |    classes = "govuk-!-width-one-third",
           |    label = Label(
           |      content = Text( "Phone number")
-          |    )
+          |    ),
+          |    classes = "govuk-!-width-one-third"
           |  ))
           |}
           |
@@ -2628,12 +2610,33 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    id = "contact-by-text",
           |    name = "contact-by-text",
           |    inputType = "tel",
-          |    classes = "govuk-!-width-one-third",
           |    label = Label(
           |      content = Text( "Mobile phone number")
-          |    )
+          |    ),
+          |    classes = "govuk-!-width-one-third"
           |  ))
-          |}""".stripMargin
+          |}
+          |
+          |@govukRadios(Radios(
+          |  fieldset = Some(Fieldset(
+          |    legend = Some(Legend(
+          |      content = Text( "How would you prefer to be contacted?"),
+          |      classes = "govuk-fieldset__legend--xl",
+          |      isPageHeading = true
+          |    ))
+          |  )),
+          |  hint = Some(Hint(
+          |    content = Text( "Select one option.")
+          |  )),
+          |  idPrefix = Some("how-contacted-conditional"),
+          |  name = "how-contacted",
+          |  items = Seq(
+          |    RadioItem(content = Text("Email"), value = Some("email"), conditionalHtml = Some(emailHtml)),
+          |    RadioItem(content = Text("Phone"), value = Some("phone"), conditionalHtml = Some(phoneHtml)),
+          |    RadioItem(content = Text("Text message"), value = Some("text"), conditionalHtml = Some(textHtml))
+          |  )
+          |))
+          |""".stripMargin
 
       val gouvukRadiosParsed = fastparse.parse(gouvukRadiosNunjucks, NunjucksParser.nunjucksParser(_))
       val gouvukRadiosTwirl  = format(gouvukRadiosParsed.get.value)

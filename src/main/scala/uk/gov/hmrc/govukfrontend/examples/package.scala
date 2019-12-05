@@ -135,6 +135,13 @@ package object examples {
     def toDependencyInjectionString: String = s"""@$macroName(${prettyPrint(args)})""".replaceAll("\\sList", " Seq")
   }
 
+  case class SetBlock(blockName: String, macroCall: MacroCall) extends NunjucksTemplateBody {
+    override def toString: String =
+      s"""@$blockName = {\n${macroCall.toString}\n}""".replaceAll("\\sList", " Seq")
+    def toDependencyInjectionString: String =
+      s"""@$blockName = {\n${macroCall.toDependencyInjectionString}\n}""".replaceAll("\\sList", " Seq")
+  }
+
   case class CallMacro(callMacro: MacroCall, macroCalls: List[MacroCall]) extends NunjucksTemplateBody {
     override def toString: String = {
       val toStringFunction: MacroCall => String = _.toString

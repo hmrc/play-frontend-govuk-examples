@@ -40,6 +40,7 @@ object TwirlFormatter {
   private def injectingDependencies(body: List[NunjucksTemplateBody]): List[String] = body.collect {
     case m: MacroCall => m.toDependencyInjectionString
     case m: CallMacro => m.toDependencyInjectionString
+    case m: SetBlock  => m.toDependencyInjectionString
     case o            => o.toString
   }
 

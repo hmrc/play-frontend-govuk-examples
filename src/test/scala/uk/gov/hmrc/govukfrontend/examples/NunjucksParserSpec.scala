@@ -561,7 +561,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
       fastparse.parse(s, nunjucksParser(_)) shouldBe Success(
         NunjucksTemplate(
           imports = List(
-            Import(from = "govuk/components/input/macro.njk", macroName = "govukInput"),
+            Import(from = "govuk/components/input/macro.njk", macroName    = "govukInput"),
             Import(from = "govuk/components/fieldset/macro.njk", macroName = "govukFieldset")
           ),
           body = List(
@@ -635,6 +635,185 @@ class NunjucksParserSpec extends WordSpec with Matchers {
         1166
       )
 
+    }
+
+    "parse radios full example" in {
+      val s =
+        """{% from "govuk/components/radios/macro.njk" import govukRadios %}
+          |{% from "govuk/components/input/macro.njk" import govukInput %}
+          |
+          |{% set emailHtml %}
+          |{{ govukInput({
+          |  id: "contact-by-email",
+          |  name: "contact-by-email",
+          |  type: "email",
+          |  classes: "govuk-!-width-one-third",
+          |  label: {
+          |    text: "Email address"
+          |  },
+          |  attributes: {
+          |    spellcheck: "false"
+          |  }
+          |}) }}
+          |{% endset -%}
+          |
+          |{% set phoneHtml %}
+          |{{ govukInput({
+          |  id: "contact-by-phone",
+          |  name: "contact-by-phone",
+          |  type: "tel",
+          |  classes: "govuk-!-width-one-third",
+          |  label: {
+          |    text: "Phone number"
+          |  }
+          |}) }}
+          |{% endset -%}
+          |
+          |{% set textHtml %}
+          |{{ govukInput({
+          |  id: "contact-by-text",
+          |  name: "contact-by-text",
+          |  type: "tel",
+          |  classes: "govuk-!-width-one-third",
+          |  label: {
+          |    text: "Mobile phone number"
+          |  }
+          |}) }}
+          |{% endset -%}
+          |
+          |{{ govukRadios({
+          |  idPrefix: "how-contacted-conditional",
+          |  name: "how-contacted",
+          |  fieldset: {
+          |    legend: {
+          |      text: "How would you prefer to be contacted?",
+          |      isPageHeading: true,
+          |      classes: "govuk-fieldset__legend--xl"
+          |    }
+          |  },
+          |  hint: {
+          |    text: "Select one option."
+          |  },
+          |  items: [
+          |    {
+          |      value: "email",
+          |      text: "Email",
+          |      conditional: {
+          |        html: "emailHtml"
+          |      }
+          |    },
+          |    {
+          |      value: "phone",
+          |      text: "Phone",
+          |      conditional: {
+          |        html: "phoneHtml"
+          |      }
+          |    },
+          |    {
+          |      value: "text",
+          |      text: "Text message",
+          |      conditional: {
+          |        html: "textHtml"
+          |      }
+          |    }
+          |  ]
+          |}) }}""".stripMargin
+
+      val parsed = fastparse.parse(s, nunjucksParser(_))
+      parsed shouldBe Success(
+        NunjucksTemplate(
+          imports = List(
+            Import(from = "govuk/components/radios/macro.njk", macroName = "govukRadios"),
+            Import(from = "govuk/components/input/macro.njk", macroName  = "govukInput")
+          ),
+          body = List(
+            SetBlock(
+              blockName = "emailHtml",
+              macroCall = MacroCall(
+                "govukInput",
+                Input(
+                  id        = "contact-by-email",
+                  name      = "contact-by-email",
+                  inputType = "email",
+                  label = Label(
+                    content = Text("Email address")
+                  ),
+                  classes    = "govuk-!-width-one-third",
+                  attributes = Map("spellcheck" -> "false")
+                )
+              )
+            ),
+            SetBlock(
+              blockName = "phoneHtml",
+              macroCall = MacroCall(
+                "govukInput",
+                Input(
+                  id        = "contact-by-phone",
+                  name      = "contact-by-phone",
+                  inputType = "tel",
+                  label = Label(
+                    content = Text("Phone number")
+                  ),
+                  classes = "govuk-!-width-one-third"
+                )
+              )
+            ),
+            SetBlock(
+              blockName = "textHtml",
+              macroCall = MacroCall(
+                "govukInput",
+                Input(
+                  id        = "contact-by-text",
+                  name      = "contact-by-text",
+                  inputType = "tel",
+                  label = Label(
+                    content = Text("Mobile phone number")
+                  ),
+                  classes = "govuk-!-width-one-third"
+                )
+              )
+            ),
+            MacroCall(
+              macroName = "govukRadios",
+              args = Radios(
+                fieldset = Some(
+                  Fieldset(
+                    legend = Some(
+                      Legend(
+                        content       = Text("How would you prefer to be contacted?"),
+                        classes       = "govuk-fieldset__legend--xl",
+                        isPageHeading = true
+                      ))
+                  )),
+                hint = Some(
+                  Hint(
+                    content = Text("Select one option.")
+                  )),
+                idPrefix = Some("how-contacted-conditional"),
+                name     = "how-contacted",
+                items = Seq(
+                  RadioItem(
+                    content         = Text("Email"),
+                    value           = Some("email"),
+                    conditionalHtml = Some(Html("emailHtml"))
+                  ),
+                  RadioItem(
+                    content         = Text("Phone"),
+                    value           = Some("phone"),
+                    conditionalHtml = Some(Html("phoneHtml"))
+                  ),
+                  RadioItem(
+                    content         = Text("Text message"),
+                    value           = Some("text"),
+                    conditionalHtml = Some(Html("textHtml"))
+                  )
+                )
+              )
+            )
+          )
+        ),
+        1444
+      )
     }
   }
 }

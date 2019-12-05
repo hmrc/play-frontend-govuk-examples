@@ -29,6 +29,8 @@ object NunjucksParser {
     case (imports, templateBody) => NunjucksTemplate(imports = imports.toList, body = templateBody.toList)
   }
 
+  def ws[_: P] = P(CharsWhileIn(" \r\n", 0))
+
   def imports[_: P]: P[Seq[Import]] = P((importParser ~ ws).rep)
 
   def importParser[_: P]: P[Import] =
@@ -39,10 +41,26 @@ object NunjucksParser {
 
   def doubleQuotedString[_: P]: P[String] = P("\"" ~ (!"\"" ~ AnyChar).rep.! ~ "\"")
 
-  def ws[_: P] = P(CharsWhileIn(" \r\n", 0))
-
   def templateBody[_: P]: P[Seq[NunjucksTemplateBody]] =
-    P((callMacro | macroCall() | html).rep(1))
+    P((macroCall() | callMacro | setBlock | html).rep(1))
+
+  def html[_: P]: P[TemplateHtml] =
+    P(ws ~ "<" ~ (!"{{" ~ AnyChar).rep.! ~ ws).map(html => TemplateHtml(Html(s"<$html")))
+
+  def setBlock[_: P]: P[SetBlock] =
+    P(blockName ~ ws ~ macroCall() ~ ws ~ "{% endset -%}" ~ ws).map {
+      case (blockName, macroCall) =>
+        SetBlock(blockName, macroCall)
+    }
+
+  def blockName[_: P]: P[String] = P("{% set" ~ ws ~ (!"%}" ~ CharIn("a-zA-Z")).rep.! ~ ws ~ "%}" ~ ws)
+
+  def callMacro[_: P]: P[CallMacro] =
+    P(macroCall("{% call", "%}") ~ ws ~ macroCall().rep ~ ws ~ "{% endcall %}").map {
+      case (callMacro, macroCalls) => CallMacro(callMacro, macroCalls.toList)
+    }
+
+  def macroName[_: P] = P(("govuk" ~ (!"(" ~ AnyChar).rep).!)
 
   def macroCall[_: P](starting: String = "{{", terminating: String = "}}"): P[MacroCall] =
     P(ws ~ starting ~ ws ~ macroName ~ "(" ~ ("{" ~ ws ~ (!"})" ~ AnyChar).rep ~ ws ~ "}").! ~ ")" ~ ws ~ terminating)
@@ -107,18 +125,8 @@ object NunjucksParser {
           jsonToMacroCall[WarningText](m, args)
       }
 
-  def macroName[_: P] = P(("govuk" ~ (!"(" ~ AnyChar).rep).!)
-
   def jsonToMacroCall[T: Reads](macroName: String, args: String): MacroCall = {
     val templateParams = asJson(args).as[T]
     MacroCall(macroName = macroName, args = templateParams)
   }
-
-  def html[_: P]: P[TemplateHtml] =
-    P(ws ~ "<" ~ (!"{{" ~ AnyChar).rep.! ~ ws).map(html => TemplateHtml(Html(s"<$html")))
-
-  def callMacro[_: P]: P[CallMacro] =
-    P(macroCall("{% call", "%}") ~ ws ~ macroCall().rep ~ ws ~ "{% endcall %}").map {
-      case (callMacro, macroCalls) => CallMacro(callMacro, macroCalls.toList)
-    }
 }
