@@ -30,6 +30,7 @@ package object examples {
     val thisDepth   = prettyPrint(_: Any, indentSize, maxElementWidth, depth)
     val nextDepth   = prettyPrint(_: Any, indentSize, maxElementWidth, depth + 1)
     a match {
+      case (k: String, v: String)   => s""""$k" -> "$v""""
       case Some(value: String)      => s"""Some("$value")"""
       case HtmlContent(value: Html) => s"""HtmlContent(\"\"\"$value\"\"\")"""
       // Make Strings look similar to their literal form.
@@ -50,6 +51,16 @@ package object examples {
           return resultOneLine
         // Otherwise, build it with newlines and proper field indents.
         val result = xs.map(x => s"\n$fieldIndent${nextDepth(x)}").toString()
+        result.substring(0, result.length - 1) + "\n" + indent + ")"
+      // For an empty Map just use its normal String representation.
+      case xs: Map[_, _] if xs.isEmpty => ""
+      case xs: Map[_, _]               =>
+        // If the Seq is not too long, pretty print on one line.
+        val resultOneLine = s"Map(${xs.map(nextDepth)})"
+        if (resultOneLine.length <= maxElementWidth)
+          return resultOneLine
+        // Otherwise, build it with newlines and proper field indents.
+        val result = s"""Map(${xs.map(x => s"\n$fieldIndent${nextDepth(x)}").toString().replaceFirst("List\\(", "")}"""
         result.substring(0, result.length - 1) + "\n" + indent + ")"
       // Product should cover case classes.
       case p: Product =>
