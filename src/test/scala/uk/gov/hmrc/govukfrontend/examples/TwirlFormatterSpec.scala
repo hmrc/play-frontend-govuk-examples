@@ -1773,7 +1773,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
       gouvukTextareaTwirl.trimSpaces shouldBe govukTextareaTwirlExpected.trimSpaces
     }
 
-    "format GovukTextarea2 " ignore {
+    "format GovukTextarea2 " in {
 
       val gouvukTextareaNunjucks =
         """{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
@@ -3648,7 +3648,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
       gouvukTextareaTwirl.trimSpaces shouldBe govukTextareaTwirlExpected.trimSpaces
     }
 
-    "format GovukTextarea2 " ignore {
+    "format GovukTextarea2 " in {
 
       val gouvukTextareaNunjucks =
         """{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
@@ -3672,8 +3672,8 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |
           |@()
           |@govukTextarea(Textarea(
-          |  name = "more-detail",
           |  id = "more-detail",
+          |  name = "more-detail",
           |  rows = 8,
           |  label = Label(
           |    content = Text( "Can you provide more detail?")

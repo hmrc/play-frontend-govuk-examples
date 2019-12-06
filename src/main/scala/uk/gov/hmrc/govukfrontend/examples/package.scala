@@ -101,7 +101,6 @@ package object examples {
               ""
             }
         }
-
       // If we haven't specialized this type, just use its toString.
       case _ => a.toString
     }
