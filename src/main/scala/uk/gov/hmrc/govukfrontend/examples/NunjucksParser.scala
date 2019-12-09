@@ -25,7 +25,7 @@ import uk.gov.hmrc.govukfrontend.views.html.components._
 
 object NunjucksParser {
 
-  def nunjucksParser[_: P] = P(imports ~ ws ~ templateBody ~ End).map {
+  def nunjucksParser[_: P]: P[NunjucksTemplate] = P(imports ~ ws ~ templateBody ~ End).map {
     case (imports, templateBody) => NunjucksTemplate(imports = imports.toList, body = templateBody.toList)
   }
 
@@ -60,7 +60,7 @@ object NunjucksParser {
       case (callMacro, macroCalls) => CallMacro(callMacro, macroCalls.toList)
     }
 
-  def macroName[_: P] = P(("govuk" ~ (!"(" ~ AnyChar).rep).!)
+  def macroName[_: P]: P[String] = P(("govuk" ~ (!"(" ~ AnyChar).rep).!)
 
   def macroCall[_: P](starting: String = "{{", terminating: String = "}}"): P[MacroCall] =
     P(ws ~ starting ~ ws ~ macroName ~ "(" ~ ("{" ~ ws ~ (!"})" ~ AnyChar).rep ~ ws ~ "}").! ~ ")" ~ ws ~ terminating)
@@ -126,7 +126,15 @@ object NunjucksParser {
       }
 
   def jsonToMacroCall[T: Reads](macroName: String, args: String): MacroCall = {
-    val templateParams = asJson(args).as[T]
+    val argsWithQuotes = args.lines.toStream
+      .map { line =>
+        if (line matches """\s*html\s*:\s*([^"][A-z])+\s*$""") {
+          val splits = line.split("\\s*:\\s*")
+          splits(0) + ": \'" + splits(1) + "\'"
+        } else line
+      }
+      .mkString("\n")
+    val templateParams = asJson(argsWithQuotes).as[T]
     MacroCall(macroName = macroName, args = templateParams)
   }
 }

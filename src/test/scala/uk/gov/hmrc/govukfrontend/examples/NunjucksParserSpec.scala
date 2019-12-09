@@ -699,21 +699,21 @@ class NunjucksParserSpec extends WordSpec with Matchers {
           |      value: "email",
           |      text: "Email",
           |      conditional: {
-          |        html: "emailHtml"
+          |        html: emailHtml
           |      }
           |    },
           |    {
           |      value: "phone",
           |      text: "Phone",
           |      conditional: {
-          |        html: "phoneHtml"
+          |        html: phoneHtml
           |      }
           |    },
           |    {
           |      value: "text",
           |      text: "Text message",
           |      conditional: {
-          |        html: "textHtml"
+          |        html: textHtml
           |      }
           |    }
           |  ]
@@ -812,7 +812,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
             )
           )
         ),
-        1444
+        1438
       )
     }
   }

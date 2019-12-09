@@ -706,21 +706,21 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |      value: "email",
           |      text: "Email",
           |      conditional: {
-          |        html: "emailHtml"
+          |        html: emailHtml
           |      }
           |    },
           |    {
           |      value: "phone",
           |      text: "Phone",
           |      conditional: {
-          |        html: "phoneHtml"
+          |        html: phoneHtml
           |      }
           |    },
           |    {
           |      value: "text",
           |      text: "Text message",
           |      conditional: {
-          |        html: "textHtml"
+          |        html: textHtml
           |      }
           |    }
           |  ]
@@ -2552,21 +2552,21 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |      value: "email",
           |      text: "Email",
           |      conditional: {
-          |        html: "emailHtml"
+          |        html: emailHtml
           |      }
           |    },
           |    {
           |      value: "phone",
           |      text: "Phone",
           |      conditional: {
-          |        html: "phoneHtml"
+          |        html: phoneHtml
           |      }
           |    },
           |    {
           |      value: "text",
           |      text: "Text message",
           |      conditional: {
-          |        html: "textHtml"
+          |        html: textHtml
           |      }
           |    }
           |  ]
