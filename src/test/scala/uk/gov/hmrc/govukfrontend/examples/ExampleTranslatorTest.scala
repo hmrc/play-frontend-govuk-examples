@@ -15,24 +15,23 @@
  */
 
 package uk.gov.hmrc.govukfrontend.examples
-import java.io.File
 
 import org.scalatest._
 
-import scala.concurrent.{Await, Future}
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.duration._
 import scala.reflect.io.Directory
 
-class ExampleTranslatorTest extends WordSpec with Matchers {
+class ExampleTranslatorTest extends AsyncWordSpec with Matchers {
 
   "ExampleTranslator" should {
 
     "generate Twirl examples" in {
 
-      val eventualEventualFiles: List[File] = ExampleTranslator.translateTwirlExamples(
-        Directory("govuk-design-system/src/components").jfile,
-        Directory("target/destTwirlExamples").jfile)
+      val currentDir: String = System.getProperty("user.dir")
+
+      ExampleTranslator.translateTwirlExamples(
+        Directory(s"$currentDir/govuk-design-system/src/components").jfile,
+        Directory(s"$currentDir/target/destTwirlExamples").jfile
+      ).flatMap(s => assert(1 == 1))
     }
   }
 }
