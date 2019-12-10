@@ -145,11 +145,13 @@ package object examples {
     def toDependencyInjectionString: String = s"""@$macroName(${prettyPrint(args)})""".replaceAll("\\sList", " Seq")
   }
 
-  case class SetBlock(blockName: String, macroCall: MacroCall) extends NunjucksTemplateBody {
+  case class SetBlock(blockName: String, html: Option[TemplateHtml] = None, macroCall: MacroCall)
+      extends NunjucksTemplateBody {
+    val htmlContent = html.fold("")(_.toString + "\n")
     override def toString: String =
-      s"""@$blockName = {\n${macroCall.toString}\n}""".replaceAll("\\sList", " Seq")
+      s"""@$blockName = {\n$htmlContent${macroCall.toString}\n}""".replaceAll("\\sList", " Seq")
     def toDependencyInjectionString: String =
-      s"""@$blockName = {\n${macroCall.toDependencyInjectionString}\n}""".replaceAll("\\sList", " Seq")
+      s"""@$blockName = {\n$htmlContent${macroCall.toDependencyInjectionString}\n}""".replaceAll("\\sList", " Seq")
   }
 
   case class CallMacro(callMacro: MacroCall, macroCalls: List[MacroCall]) extends NunjucksTemplateBody {

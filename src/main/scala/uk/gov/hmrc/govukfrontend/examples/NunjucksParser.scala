@@ -25,9 +25,11 @@ import uk.gov.hmrc.govukfrontend.views.html.components._
 
 object NunjucksParser {
 
-  def nunjucksParser[_: P]: P[NunjucksTemplate] = P(imports ~ ws ~ templateBody ~ End).map {
+  def nunjucksParser[_: P]: P[NunjucksTemplate] = P(comments ~ imports ~ ws ~ templateBody ~ End).map {
     case (imports, templateBody) => NunjucksTemplate(imports = imports.toList, body = templateBody.toList)
   }
+
+  def comments[_: P] = P("---" ~ ws ~ (!"---" ~ AnyChar).rep ~ "---" ~ ws)
 
   def ws[_: P] = P(CharsWhileIn(" \r\n", 0))
 
@@ -48,9 +50,9 @@ object NunjucksParser {
     P(ws ~ "<" ~ (!"{{" ~ AnyChar).rep.! ~ ws).map(html => TemplateHtml(Html(s"<$html")))
 
   def setBlock[_: P]: P[SetBlock] =
-    P(blockName ~ ws ~ macroCall() ~ ws ~ "{% endset -%}" ~ ws).map {
-      case (blockName, macroCall) =>
-        SetBlock(blockName, macroCall)
+    P(blockName ~ ws ~ html.? ~ macroCall() ~ ws ~ "{% endset -%}" ~ ws).map {
+      case (blockName, html, macroCall) =>
+        SetBlock(blockName, html, macroCall)
     }
 
   def blockName[_: P]: P[String] = P("{% set" ~ ws ~ (!"%}" ~ CharIn("a-zA-Z")).rep.! ~ ws ~ "%}" ~ ws)
