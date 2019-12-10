@@ -29,7 +29,7 @@ import scala.io.Source
 import scala.reflect.io.Directory
 import scala.util.{Failure, Success, Try}
 
-class ExampleTranslator {
+object ExampleTranslator {
 
   trait InvalidNunjucksExamplePath { self: Throwable =>
   }
@@ -44,7 +44,7 @@ class ExampleTranslator {
   trait UnexpectedNunjucksExampleNamingConvention { self: Throwable =>
   }
 
-  def translateTwirlExamples(srcNjksExamplesDirPath: JFile, destTwirlExamplesDirPath: JFile)(
+  def translateTwirlExamples(srcNunjucksExamplesDir: JFile, destTwirlExamplesDirPath: JFile)(
     implicit ec: ExecutionContext): Future[Unit] = Future {
 
     def createEmptyDestTwirlExamplesFolder(): Future[Unit] = Future {
@@ -67,7 +67,7 @@ class ExampleTranslator {
 
     def getNunjucksExamples: Future[Iterator[JFile]] = Future {
       for {
-        file <- new Directory(srcNjksExamplesDirPath).deepFiles
+        file <- new Directory(srcNunjucksExamplesDir).deepFiles
         path = file.path
         if path.contains(".njk") && !path.contains(".md.njk")
       } yield file.jfile
@@ -75,7 +75,7 @@ class ExampleTranslator {
 
     def allocateTwirlExamplePath(srcNjksExampleFilePath: JFile, playVersion: PlayVersion): Future[JFile] = Future {
       val absPath: String = srcNjksExampleFilePath.getPath
-      val relPath: String = absPath.replace(srcNjksExamplesDirPath.getAbsolutePath, "")
+      val relPath: String = absPath.replace(srcNunjucksExamplesDir.getAbsolutePath, "")
 
       def subDirP[_: P]: P[String]                       = P(CharsWhile(_ != '/').! ~ "/")
       def nunjucksFileP[_: P]: P[String]                 = P((!".njk" ~ AnyChar).rep ~ ".njk").!
@@ -135,8 +135,8 @@ class ExampleTranslator {
       example.get
     }
 
-    if (!srcNjksExamplesDirPath.exists())
-      throw new Exception(s"Failed to find source of Nunjucks examples at [${srcNjksExamplesDirPath.getAbsolutePath}].")
+    if (!srcNunjucksExamplesDir.exists())
+      throw new Exception(s"Failed to find source of Nunjucks examples at [${srcNunjucksExamplesDir.getAbsolutePath}].")
       with InvalidNunjucksExamplePath
     else {
       val dirCreation: Future[Unit]         = createEmptyDestTwirlExamplesFolder()

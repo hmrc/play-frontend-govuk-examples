@@ -17,4 +17,18 @@
 package uk.gov.hmrc.govukfrontend.examples
 import org.scalatest._
 
-class ExampleTranslatorTest extends WordSpec with Matchers {}
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.reflect.io.Directory
+
+class ExampleTranslatorTest extends WordSpec with Matchers {
+
+  "ExampleTranslator" should {
+
+    "generate Twirl examples" in {
+
+      ExampleTranslator.translateTwirlExamples(
+        Directory("govuk-design-system/src/components").jfile,
+        Directory("target/destTwirlExamples").jfile)
+    }
+  }
+}
