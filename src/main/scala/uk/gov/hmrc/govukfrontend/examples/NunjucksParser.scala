@@ -133,20 +133,39 @@ object NunjucksParser {
   def jsonToMacroCall[T: Reads: TypeTag](macroName: String, args: String): MacroCall = {
     val typeOfT = typeOf[T] match { case TypeRef(_, symbol, _) => symbol.toString.replace("type ", "").trim }
 
-    val argsWithQuotes = args.lines.toStream
+    var argsWithQuotes = args.lines.toStream
       .map { line =>
-        if (line matches """\s*html\s*:\s*([^"][A-z])+\s*$""") {
+        if ((line matches """\s*html\s*:\s*([^"][A-z])+\s*$""") ||
+            (typeOfT == "DateInput" && (line matches """\s*value\s*:\s*([^"][A-z0-9])+\s*$"""))) {
           val splits = line.split("\\s*:\\s*")
           splits(0) + ": \'" + splits(1) + "\'"
         } else line
       }
       .map { line =>
-        if (typeOfT == "DateInput" && (line matches """\s*value\s*:\s*([^"][A-z0-9])+\s*$""")) {
-          val splits = line.split("\\s*:\\s*")
-          splits(0) + ": \'" + splits(1) + "\'"
+        if (line matches """\s*'[A-z"</>\s-=]+$""") {
+          val splits = line.split("'")
+          splits(0) + "MULTI_LINE_STRING>" + splits(1)
+        } else line
+      }
+      .map { line =>
+        if (line matches """\s*([^"'][A-z\s</>])+'\s*$""") {
+          val splits = line.split("'")
+          splits(0) + "<MULTI_LINE_STRING"
         } else line
       }
       .mkString("\n")
+
+    if (argsWithQuotes contains "MULTI_LINE_STRING") {
+      argsWithQuotes = argsWithQuotes
+        .split("MULTI_LINE_STRING")
+        .toStream
+        .map { split =>
+          if (split.startsWith(">") && split.endsWith("<")) {
+            "'" + split.substring(1, split.length - 1).lines.toStream.mkString(" ") + "'"
+          } else split
+        }
+        .mkString("\n")
+    }
 
     val templateParams = asJson(argsWithQuotes).as[T]
     MacroCall(macroName = macroName, args = templateParams)
