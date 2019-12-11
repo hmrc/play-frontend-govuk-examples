@@ -23,23 +23,21 @@ object TwirlFormatter {
       |@()
       |""".stripMargin
 
-  def format(parsed: NunjucksTemplate): String =
-    if (parsed.imports.isEmpty)
-      (play26ParameterList(parsed.imports) :: injectingDependencies(parsed.body))
-        .map(_.toString)
-        .mkString("\n")
-    else
-      (parsed.imports.head :: play26ParameterList(parsed.imports) :: injectingDependencies(parsed.body))
-        .map(_.toString)
-        .mkString("\n")
+  def format(parsed: NunjucksTemplate): String = {
+    val firstImport = if (parsed.imports.isEmpty) Import else parsed.imports.head
+
+    (firstImport :: play26ParameterList(parsed.imports) :: injectingDependencies(parsed.body))
+      .map(_.toString)
+      .mkString("\n")
+  }
 
   private def play26ParameterList(imports: List[Import]) = {
     val dependencyInjections = imports.map(_.toDependencyInjectionString).mkString(",\n")
     s"""
-      |@this($dependencyInjections)
-      |
-      |@()
-      |""".stripMargin
+       |@this($dependencyInjections)
+       |
+       |@()
+       |""".stripMargin
   }
 
   private def injectingDependencies(body: List[NunjucksTemplateBody]): List[String] = body.collect {
@@ -49,9 +47,9 @@ object TwirlFormatter {
     case o            => o.toString
   }
 
-  def formatPlay25(parsed: NunjucksTemplate): String =
-    if (parsed.imports.isEmpty)
-      (play25ParameterList :: parsed.body).map(_.toString).mkString("\n")
-    else
-      (parsed.imports.head :: play25ParameterList :: parsed.body).map(_.toString).mkString("\n")
+  def formatPlay25(parsed: NunjucksTemplate): String = {
+    val firstImport = if (parsed.imports.isEmpty) Import else parsed.imports.head
+
+    (firstImport :: play25ParameterList :: parsed.body).map(_.toString).mkString("\n")
+  }
 }
