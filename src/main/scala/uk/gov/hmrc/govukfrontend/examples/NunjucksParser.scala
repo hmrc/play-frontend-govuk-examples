@@ -36,10 +36,11 @@ object NunjucksParser {
   def imports[_: P]: P[Seq[Import]] = P((importParser ~ ws).rep)
 
   def importParser[_: P]: P[Import] =
-    P("{%" ~ ws ~ "from" ~ ws ~ doubleQuotedString ~ ws ~ "import" ~ ws ~ (!" " ~ AnyChar).rep.! ~ ws ~ "%}").map {
-      case (importStatement, macroName) =>
-        Import(from = importStatement, macroName = macroName)
-    }
+    P("{%" ~ "-".? ~ ws ~ "from" ~ ws ~ doubleQuotedString ~ ws ~ "import" ~ ws ~ (!" " ~ AnyChar).rep.! ~ ws ~ "-".? ~ "%}")
+      .map {
+        case (importStatement, macroName) =>
+          Import(from = importStatement, macroName = macroName)
+      }
 
   def doubleQuotedString[_: P]: P[String] = P("\"" ~ (!"\"" ~ AnyChar).rep.! ~ "\"")
 
@@ -130,7 +131,7 @@ object NunjucksParser {
   import scala.reflect.runtime.universe._
 
   def jsonToMacroCall[T: Reads: TypeTag](macroName: String, args: String): MacroCall = {
-    val typeOfT = typeOf[T] match { case TypeRef(typeT, symbol, args) => symbol.toString.replace("type ", "").trim }
+    val typeOfT = typeOf[T] match { case TypeRef(_, symbol, _) => symbol.toString.replace("type ", "").trim }
 
     val argsWithQuotes = args.lines.toStream
       .map { line =>
