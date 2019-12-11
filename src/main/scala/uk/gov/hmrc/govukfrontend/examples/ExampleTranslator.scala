@@ -107,7 +107,7 @@ object ExampleTranslator {
       }
     }
 
-    def translateToTwirlExample(srcNjksExampleFilePath: JFile, playVersion: PlayVersion): Future[String] = Future {
+    def translateToTwirlExample(srcNjksExampleFilePath: JFile, playVersion: PlayVersion): Future[Try[String]] = Future {
 
       val template: Try[NunjucksTemplate] = Try(
         parse(readFile(srcNjksExampleFilePath), nunjucksParser(_)).get.value
@@ -129,14 +129,14 @@ object ExampleTranslator {
               }
           ),
           e => {
-            e.printStackTrace()
-            Failure(new Exception(
-              s"Failed to convert parsed Nunjucks example code at [${srcNjksExampleFilePath.getPath}] to a Twirl example. Details: [${e.getMessage}]")
-            with FailedToConvertNunjucksCodeToTwirl)
+            val errorMessage =
+              s"Failed to convert parsed Nunjucks example code at [${srcNjksExampleFilePath.getPath}] to a Twirl example.\nDetails: [${e.getMessage}]\n"
+            println(errorMessage)
+            Failure(new Exception(errorMessage) with FailedToConvertNunjucksCodeToTwirl)
           }
         )
 
-      example.get
+      example
     }
 
     def writeToDestDir(twirlExample: String, destFile: JFile): Unit = {
@@ -171,7 +171,7 @@ object ExampleTranslator {
               for {
                 destContent <- destContentToBe
                 destPath    <- destPathToBe
-              } yield writeToDestDir(destContent, destPath)
+              } yield writeToDestDir(destContent.getOrElse(""), destPath)
 
             Future.sequence(writeOps)
           }

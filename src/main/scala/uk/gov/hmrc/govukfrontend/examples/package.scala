@@ -136,25 +136,32 @@ package object examples {
   case class NunjucksTemplate(imports: List[Import], body: List[NunjucksTemplateBody])
 
   case class Import(from: String = "", macroName: String = "") {
-    override def toString: String           = "@import uk.gov.hmrc.govukfrontend.views.html.components._"
+
+    override def toString: String = "@import uk.gov.hmrc.govukfrontend.views.html.components._"
+
     def toDependencyInjectionString: String = s"$macroName : ${macroName.capitalize}"
   }
 
   case class MacroCall(macroName: String, args: Any) extends NunjucksTemplateBody {
-    override def toString: String           = s"""@${macroName.capitalize}(${prettyPrint(args)})""".replaceAll("\\sList", " Seq")
+
+    override def toString: String = s"""@${macroName.capitalize}(${prettyPrint(args)})""".replaceAll("\\sList", " Seq")
+
     def toDependencyInjectionString: String = s"""@$macroName(${prettyPrint(args)})""".replaceAll("\\sList", " Seq")
   }
 
   case class SetBlock(blockName: String, html: Option[TemplateHtml] = None, macroCall: MacroCall)
       extends NunjucksTemplateBody {
     val htmlContent = html.fold("")(_.toString + "\n")
+
     override def toString: String =
       s"""@$blockName = {\n$htmlContent${macroCall.toString}\n}""".replaceAll("\\sList", " Seq")
+
     def toDependencyInjectionString: String =
       s"""@$blockName = {\n$htmlContent${macroCall.toDependencyInjectionString}\n}""".replaceAll("\\sList", " Seq")
   }
 
   case class CallMacro(callMacro: MacroCall, macroCalls: List[MacroCall]) extends NunjucksTemplateBody {
+
     override def toString: String = {
       val toStringFunction: MacroCall => String = _.toString
       stringify(toStringFunction, callMacro.macroName.capitalize)
@@ -182,6 +189,7 @@ package object examples {
   }
 
   case class TemplateHtml(content: Html) extends NunjucksTemplateBody {
+
     override def toString: String = content.toString()
   }
 
