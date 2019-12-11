@@ -151,7 +151,8 @@ package object examples {
 
   case class SetBlock(blockName: String, html: Option[TemplateHtml] = None, macroCall: MacroCall)
       extends NunjucksTemplateBody {
-    val htmlContent = html.fold("")(_.toString + "\n")
+
+    private val htmlContent = html.fold("")(_.toString + "\n")
 
     override def toString: String =
       s"""@$blockName = {\n$htmlContent${macroCall.toString}\n}""".replaceAll("\\sList", " Seq")

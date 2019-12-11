@@ -119,7 +119,7 @@ object ExampleTranslator {
           with FailedToParseNunjucksExample)
       )
 
-      val example: Try[String] = template
+      template
         .transform(
           ex =>
             Success(
@@ -130,13 +130,11 @@ object ExampleTranslator {
           ),
           e => {
             val errorMessage =
-              s"Failed to convert parsed Nunjucks example code at [${srcNjksExampleFilePath.getPath}] to a Twirl example.\nDetails: [${e.getMessage}]\n"
+              s"Failed to convert parsed Nunjucks example code at [${srcNjksExampleFilePath.getPath}] to a Twirl example for $playVersion.\nDetails: [${e.getMessage}]\n"
             println(errorMessage)
             Failure(new Exception(errorMessage) with FailedToConvertNunjucksCodeToTwirl)
           }
         )
-
-      example
     }
 
     def writeToDestDir(twirlExample: String, destFile: JFile): Unit = {
