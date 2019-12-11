@@ -29,7 +29,7 @@ object NunjucksParser {
     case (imports, templateBody) => NunjucksTemplate(imports = imports.toList, body = templateBody.toList)
   }
 
-  def comments[_: P] = P("---" ~ ws ~ (!"---" ~ AnyChar).rep ~ "---" ~ ws)
+  def comments[_: P] = P("---" ~ ws ~ (!"---" ~ AnyChar).rep ~ "---" ~ ws).rep
 
   def ws[_: P] = P(CharsWhileIn(" \r\n", 0))
 
@@ -65,7 +65,7 @@ object NunjucksParser {
   def macroName[_: P]: P[String] = P(("govuk" ~ (!"(" ~ AnyChar).rep).!)
 
   def macroCall[_: P](starting: String = "{{", terminating: String = "}}"): P[MacroCall] =
-    P(ws ~ starting ~ ws ~ macroName ~ "(" ~ ("{" ~ ws ~ (!"})" ~ AnyChar).rep ~ ws ~ "}").! ~ ")" ~ ws ~ terminating)
+    P(ws ~ starting ~ ws ~ macroName ~ "(" ~ ("{" ~ ws ~ (!"})" ~ AnyChar).rep ~ ws ~ "}").! ~ ")" ~ ws ~ terminating ~ ws)
       .map {
         case (m @ "govukAccordion", args) =>
           jsonToMacroCall[Accordion](m, args)
@@ -127,7 +127,11 @@ object NunjucksParser {
           jsonToMacroCall[WarningText](m, args)
       }
 
-  def jsonToMacroCall[T: Reads](macroName: String, args: String): MacroCall = {
+  import scala.reflect.runtime.universe._
+
+  def jsonToMacroCall[T: Reads: TypeTag](macroName: String, args: String): MacroCall = {
+    val typeOfT = typeOf[T] match { case TypeRef(typeT, symbol, args) => symbol.toString.replace("type ", "").trim }
+
     val argsWithQuotes = args.lines.toStream
       .map { line =>
         if (line matches """\s*html\s*:\s*([^"][A-z])+\s*$""") {
@@ -135,7 +139,14 @@ object NunjucksParser {
           splits(0) + ": \'" + splits(1) + "\'"
         } else line
       }
+      .map { line =>
+        if (typeOfT == "DateInput" && (line matches """\s*value\s*:\s*([^"][A-z0-9])+\s*$""")) {
+          val splits = line.split("\\s*:\\s*")
+          splits(0) + ": \'" + splits(1) + "\'"
+        } else line
+      }
       .mkString("\n")
+
     val templateParams = asJson(argsWithQuotes).as[T]
     MacroCall(macroName = macroName, args = templateParams)
   }

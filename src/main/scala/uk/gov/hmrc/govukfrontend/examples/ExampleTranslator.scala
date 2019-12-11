@@ -54,14 +54,14 @@ object ExampleTranslator {
           case e: Exception =>
             throw new Exception(
               s"Failed to delete existing Twirl examples directory at [${destTwirlExamplesDirPath.getAbsolutePath}] to replace with new examples. Details: [${e.getMessage}].")
-              with FailedToDeletePriorTwirlExamplesPath
+            with FailedToDeletePriorTwirlExamplesPath
         }
       try destTwirlExamplesDirPath.mkdirs
       catch {
         case e: Exception =>
           throw new Exception(
             s"Failed to create new Twirl examples directory at [${destTwirlExamplesDirPath.getAbsolutePath}] in which to generate examples. Details: [${e.getMessage}].")
-            with FailedToCreateDestinationTwirlExamplesPath
+          with FailedToCreateDestinationTwirlExamplesPath
       }
     }
 
@@ -88,11 +88,12 @@ object ExampleTranslator {
 
       val e = new Exception(
         s"Expected Nunjucks example path to be of format '(pathToExamples)/componentName/scenario/index.njk'. Instead found: [$absPath].")
-        with UnexpectedNunjucksExampleNamingConvention
+      with UnexpectedNunjucksExampleNamingConvention
 
       parse(relPath, nunjucksPathP(_)) match {
         case PSuccess((component :: scenario :: Nil, "index.njk"), _) =>
-          new JFile(s"${destTwirlExamplesDirPath.getAbsolutePath}/play-${playVersion.version}/$component/$scenario.scala.html")
+          new JFile(
+            s"${destTwirlExamplesDirPath.getAbsolutePath}/play-${playVersion.version}/$component/$scenario.scala.html")
         case _ => throw e
       }
     }
@@ -115,22 +116,23 @@ object ExampleTranslator {
         e =>
           Failure(new Exception(
             s"Failed to interpret Nunjucks example at [${srcNjksExampleFilePath.getPath}]. Details: [${e.getMessage}]")
-            with FailedToParseNunjucksExample)
+          with FailedToParseNunjucksExample)
       )
 
       val example: Try[String] = template
-        .transform(ex =>
-          Success(
-            playVersion match {
-              case Play25() => TwirlFormatter.formatPlay25(ex)
-              case Play26() => TwirlFormatter.format(ex)
-            }
+        .transform(
+          ex =>
+            Success(
+              playVersion match {
+                case Play25() => TwirlFormatter.formatPlay25(ex)
+                case Play26() => TwirlFormatter.format(ex)
+              }
           ),
           e => {
             e.printStackTrace()
             Failure(new Exception(
               s"Failed to convert parsed Nunjucks example code at [${srcNjksExampleFilePath.getPath}] to a Twirl example. Details: [${e.getMessage}]")
-              with FailedToConvertNunjucksCodeToTwirl)
+            with FailedToConvertNunjucksCodeToTwirl)
           }
         )
 
@@ -152,24 +154,24 @@ object ExampleTranslator {
 
     if (!srcNunjucksExamplesDir.exists())
       throw new Exception(s"Failed to find source of Nunjucks examples at [${srcNunjucksExamplesDir.getAbsolutePath}].")
-        with InvalidNunjucksExamplePath
+      with InvalidNunjucksExamplePath
     else {
-      val dirCreationToBe: Future[Unit] = createEmptyDestTwirlExamplesFolder()
-
-      val njksExamplesToBe: Future[List[JFile]] = getNunjucksExamples.map(_.toList)
+      val dirCreationToBe: Future[Unit]         = createEmptyDestTwirlExamplesFolder()
+      val njksExamplesToBe: Future[List[JFile]] = getNunjucksExamples
 
       def writeTwirls(): Future[Unit] = {
         val writeOpsToBe: Future[List[Unit]] = njksExamplesToBe
           .flatMap { njksExamples =>
             val writeOps = for {
-              srcExample <- njksExamples
+              srcExample  <- njksExamples
               playVersion <- PlayVersions.implementedPlayVersions
               destContentToBe = translateToTwirlExample(srcExample, playVersion)
-              destPathToBe = allocateTwirlExamplePath(srcExample, playVersion)
-            } yield for {
-              destContent <- destContentToBe
-              destPath <- destPathToBe
-            } yield writeToDestDir(destContent, destPath)
+              destPathToBe    = allocateTwirlExamplePath(srcExample, playVersion)
+            } yield
+              for {
+                destContent <- destContentToBe
+                destPath    <- destPathToBe
+              } yield writeToDestDir(destContent, destPath)
 
             Future.sequence(writeOps)
           }
