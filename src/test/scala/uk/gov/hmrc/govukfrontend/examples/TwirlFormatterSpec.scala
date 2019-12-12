@@ -25,7 +25,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
 
     def trimSpaces = string.replaceAll("""\s+""", "")
 
-    def print: Unit = println(string)
+    val print: Unit = println(string)
   }
 
   val htmlAddress      = "HtmlContent(\"\"\"72 Guild Street<br>London<br>SE23 6FH\"\"\")"

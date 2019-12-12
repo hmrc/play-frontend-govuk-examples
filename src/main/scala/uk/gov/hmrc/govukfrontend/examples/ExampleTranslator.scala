@@ -92,8 +92,12 @@ object ExampleTranslator {
 
       parse(relPath, nunjucksPathP(_)) match {
         case PSuccess((component :: scenario :: Nil, "index.njk"), _) =>
+          var filename = scenario.split("-").toList.map(_.capitalize).mkString("")
+          filename = filename.substring(0, 1).toLowerCase + filename.substring(1)
           new JFile(
-            s"${destTwirlExamplesDirPath.getAbsolutePath}/play-${playVersion.version}/$component/$scenario.scala.html")
+            s"${destTwirlExamplesDirPath.getAbsolutePath}/play-${playVersion.version}/twirl/uk/gov/hmrc/govukfrontend/views/examples/${component
+              .replaceAll("-", "")}/$filename.scala.html")
+
         case _ => throw e
       }
     }

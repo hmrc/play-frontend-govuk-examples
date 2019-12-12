@@ -27,11 +27,15 @@ class ExampleTranslatorTest extends AsyncWordSpec with Matchers {
     "generate Twirl examples" in {
 
       val currentDir: String = System.getProperty("user.dir")
+      val srcDir             = s"$currentDir/govuk-design-system/src/components"
+      val destDir            = s"$currentDir/target/destTwirlExamples"
 
-      ExampleTranslator.translateTwirlExamples(
-        Directory(s"$currentDir/govuk-design-system/src/components").jfile,
-        Directory(s"$currentDir/target/destTwirlExamples").jfile
-      ).flatMap(s => assert(1 == 1))
+      ExampleTranslator
+        .translateTwirlExamples(
+          Directory(srcDir).jfile,
+          Directory(destDir).jfile
+        )
+        .flatMap(s => assert(Directory(destDir).exists))
     }
   }
 }
