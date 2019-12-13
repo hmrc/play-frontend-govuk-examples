@@ -16,21 +16,19 @@
 
 package uk.gov.hmrc.govukfrontend.examples
 
-object PlayVersions {
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration._
+import scala.concurrent.{Await, Future}
+import scala.reflect.io.Directory
 
-  sealed trait PlayVersion {
-    val version: Int
-    override def toString: String = version.toString
-  }
+object ExampleGenerator extends App {
 
-  case class Play25() extends PlayVersion {
-    val version: Int              = 25
-    override def toString: String = "play-25"
-  }
-  case class Play26() extends PlayVersion {
-    val version: Int              = 26
-    override def toString: String = "play-26"
-  }
+  val currentDir: String = System.getProperty("user.dir")
+  val srcDir             = s"$currentDir/govuk-design-system/src/components"
+  val destDir            = s"$currentDir/target/destTwirlExamples"
 
-  val implementedPlayVersions: Iterable[PlayVersion] = Iterable(Play25(), Play26())
+  private val future: Future[Unit] =
+    ExampleTranslator.translateTwirlExamples(Directory(srcDir).jfile, Directory(destDir).jfile)
+
+  Await.result(future, 10.second)
 }

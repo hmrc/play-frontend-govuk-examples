@@ -26,42 +26,33 @@ import uk.gov.hmrc.govukfrontend.examples.PlayVersions.{Play25, Play26, PlayVers
 
 import scala.concurrent.{ExecutionContext, Future}
 import scala.io.Source
-import scala.reflect.io.Directory
+import scala.reflect.io.{Directory, Path}
 import scala.util.{Failure, Success, Try}
 
 object ExampleTranslator {
 
-  trait InvalidNunjucksExamplePath { self: Throwable =>
-  }
-  trait FailedToDeletePriorTwirlExamplesPath { self: Throwable =>
-  }
-  trait FailedToCreateDestinationTwirlExamplesPath { self: Throwable =>
-  }
-  trait FailedToParseNunjucksExample { self: Throwable =>
-  }
-  trait FailedToConvertNunjucksCodeToTwirl { self: Throwable =>
-  }
-  trait UnexpectedNunjucksExampleNamingConvention { self: Throwable =>
-  }
-
   def translateTwirlExamples(srcNunjucksExamplesDir: JFile, destTwirlExamplesDirPath: JFile)(
     implicit ec: ExecutionContext): Future[Unit] = {
 
-    def createEmptyDestTwirlExamplesFolder(): Future[Unit] = Future {
-      if (destTwirlExamplesDirPath.exists())
-        try destTwirlExamplesDirPath.delete()
-        catch {
+    def createEmptyDestTwirlExamplesFolder(playVersion: PlayVersion): Future[Boolean] = Future {
+      val destTwirlExamplesFolder = new JFile(new JFile(destTwirlExamplesDirPath, playVersion.toString), "twirl")
+      if (destTwirlExamplesFolder.exists())
+        try {
+          Directory(destTwirlExamplesFolder).deleteRecursively()
+        } catch {
           case e: Exception =>
             throw new Exception(
-              s"Failed to delete existing Twirl examples directory at [${destTwirlExamplesDirPath.getAbsolutePath}] to replace with new examples. Details: [${e.getMessage}].")
-            with FailedToDeletePriorTwirlExamplesPath
+              s"""Failed to delete existing Twirl examples directory at [${destTwirlExamplesDirPath.getAbsolutePath}] to replace with new examples.
+                  |Details: [${e.getMessage}].""".stripMargin)
         }
-      try destTwirlExamplesDirPath.mkdirs
-      catch {
+
+      try {
+        destTwirlExamplesFolder.mkdirs
+      } catch {
         case e: Exception =>
           throw new Exception(
-            s"Failed to create new Twirl examples directory at [${destTwirlExamplesDirPath.getAbsolutePath}] in which to generate examples. Details: [${e.getMessage}].")
-          with FailedToCreateDestinationTwirlExamplesPath
+            s"""Failed to create new Twirl examples directory at [${destTwirlExamplesDirPath.getAbsolutePath}] in which to generate examples.
+               |Details: [${e.getMessage}].""".stripMargin)
       }
     }
 
@@ -71,9 +62,12 @@ object ExampleTranslator {
         if file.path.contains(".njk") && !file.path.contains(".md.njk")
       } yield file.jfile
 
-      if (nunjucksExamples.isEmpty) throw new Exception("No Nunjucks examples files found")
-      else
+      if (nunjucksExamples.isEmpty)
+        throw new Exception("No Nunjucks examples files found")
+      else {
+        println(s"\nFound ${nunjucksExamples.length} Nunjucks examples to translate\n")
         nunjucksExamples
+      }
     }
 
     def allocateTwirlExamplePath(srcNunjucksExampleFilePath: JFile, playVersion: PlayVersion): Future[JFile] = Future {
@@ -86,11 +80,8 @@ object ExampleTranslator {
 
       def nunjucksPathP[_: P]: P[(List[String], String)] = P(subDirP.rep(1).map(_.toList) ~ nunjucksFileP ~ End)
 
-      val e = new Exception(
-        s"Expected Nunjucks example path to be of format '(pathToExamples)/componentName/scenario/index.njk'. Instead found: [$absPath].")
-      with UnexpectedNunjucksExampleNamingConvention
-
       parse(relPath, nunjucksPathP(_)) match {
+
         case PSuccess((component :: scenario :: Nil, "index.njk"), _) =>
           var filename = scenario.split("-").toList.map(_.capitalize).mkString("")
           filename = filename.substring(0, 1).toLowerCase + filename.substring(1)
@@ -98,7 +89,10 @@ object ExampleTranslator {
             s"${destTwirlExamplesDirPath.getAbsolutePath}/play-${playVersion.version}/twirl/uk/gov/hmrc/govukfrontend/views/examples/${component
               .replaceAll("-", "")}/$filename.scala.html")
 
-        case _ => throw e
+        case _ =>
+          throw new Exception(
+            s"""Expected Nunjucks example path to be of format '(pathToExamples)/componentName/scenario/index.njk'. 
+               |Instead found: [$absPath].""".stripMargin)
       }
     }
 
@@ -117,10 +111,8 @@ object ExampleTranslator {
         parse(readFile(srcNjksExampleFilePath), nunjucksParser(_)).get.value
       ).transform(
         Success.apply,
-        e =>
-          Failure(new Exception(
-            s"Failed to interpret Nunjucks example at [${srcNjksExampleFilePath.getPath}]. Details: [${e.getMessage}]")
-          with FailedToParseNunjucksExample)
+        e => Failure(new Exception(s"""Failed to interpret Nunjucks example at [${srcNjksExampleFilePath.getPath}].
+               |Details: [${e.getMessage}]""".stripMargin))
       )
 
       template
@@ -134,9 +126,10 @@ object ExampleTranslator {
           ),
           e => {
             val errorMessage =
-              s"Failed to convert parsed Nunjucks example code at [${srcNjksExampleFilePath.getPath}] to a Twirl example for $playVersion.\nDetails: [${e.getMessage}]\n"
+              s"""Failed to convert parsed Nunjucks example code at [${srcNjksExampleFilePath.getPath}] to a Twirl example for $playVersion.
+                 |Details: [${e.getMessage}]\n""".stripMargin
             println(errorMessage)
-            Failure(new Exception(errorMessage) with FailedToConvertNunjucksCodeToTwirl)
+            Failure(new Exception(errorMessage))
           }
         )
     }
@@ -156,23 +149,21 @@ object ExampleTranslator {
 
     if (!srcNunjucksExamplesDir.exists())
       throw new Exception(s"Failed to find source of Nunjucks examples at [${srcNunjucksExamplesDir.getAbsolutePath}].")
-      with InvalidNunjucksExamplePath
     else {
-      val dirCreationToBe: Future[Unit]         = createEmptyDestTwirlExamplesFolder()
-      val njksExamplesToBe: Future[List[JFile]] = getNunjucksExamples
-
       def writeTwirls(): Future[Unit] = {
-        val writeOpsToBe: Future[List[Unit]] = njksExamplesToBe
+        val writeOpsToBe: Future[List[Unit]] = getNunjucksExamples
           .flatMap { njksExamples =>
             val writeOps = for {
               srcExample  <- njksExamples
               playVersion <- PlayVersions.implementedPlayVersions
-              destContentToBe = translateToTwirlExample(srcExample, playVersion)
+              destDirToBe     = createEmptyDestTwirlExamplesFolder(playVersion)
               destPathToBe    = allocateTwirlExamplePath(srcExample, playVersion)
+              destContentToBe = translateToTwirlExample(srcExample, playVersion)
             } yield
               for {
-                destContent <- destContentToBe
-                destPath    <- destPathToBe
+                destDirCreated <- destDirToBe
+                destPath       <- destPathToBe if destDirCreated
+                destContent    <- destContentToBe
               } yield writeToDestDir(destContent.getOrElse(""), destPath)
 
             Future.sequence(writeOps)
@@ -182,7 +173,6 @@ object ExampleTranslator {
       }
 
       for {
-        _ <- dirCreationToBe
         _ <- writeTwirls()
       } yield ()
     }
