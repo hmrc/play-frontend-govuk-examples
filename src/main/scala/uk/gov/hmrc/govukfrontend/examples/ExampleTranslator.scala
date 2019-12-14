@@ -168,8 +168,9 @@ object ExampleTranslator {
                 destPath    <- destPathToBe
                 destContent <- destContentToBe
               } yield {
-                writeToDestDir(destContent.getOrElse(""), destPath)
-                count += 1
+                val content = destContent.getOrElse("")
+                writeToDestDir(content, destPath)
+                if (content != "") count += 1
               }
 
             Future.sequence(writeOps)
