@@ -136,8 +136,10 @@ object ExampleTranslator {
 
     def writeToDestDir(twirlExample: String, destFile: JFile): Unit = {
       val parentDirMaybe = destFile.getParentFile
-      if (parentDirMaybe != null)
-        destFile.getParentFile.mkdirs
+      while (parentDirMaybe != null && !parentDirMaybe.exists()) {
+        parentDirMaybe.mkdirs
+        Thread.sleep(100)
+      }
 
       val pw = new PrintWriter(destFile)
       try {
@@ -150,6 +152,7 @@ object ExampleTranslator {
     if (!srcNunjucksExamplesDir.exists())
       throw new Exception(s"Failed to find source of Nunjucks examples at [${srcNunjucksExamplesDir.getAbsolutePath}].")
     else {
+      var count = 0
       def writeTwirls(): Future[Unit] = {
         val writeOpsToBe: Future[List[Unit]] = getNunjucksExamples
           .flatMap { njksExamples =>
@@ -161,10 +164,13 @@ object ExampleTranslator {
               destContentToBe = translateToTwirlExample(srcExample, playVersion)
             } yield
               for {
-                destDirCreated <- destDirToBe
-                destPath       <- destPathToBe if destDirCreated
-                destContent    <- destContentToBe
-              } yield writeToDestDir(destContent.getOrElse(""), destPath)
+                _           <- destDirToBe
+                destPath    <- destPathToBe
+                destContent <- destContentToBe
+              } yield {
+                writeToDestDir(destContent.getOrElse(""), destPath)
+                count += 1
+              }
 
             Future.sequence(writeOps)
           }
@@ -174,7 +180,7 @@ object ExampleTranslator {
 
       for {
         _ <- writeTwirls()
-      } yield ()
+      } yield (println(s"\nTranslated $count Twirl examples generated\n"))
     }
 
   }

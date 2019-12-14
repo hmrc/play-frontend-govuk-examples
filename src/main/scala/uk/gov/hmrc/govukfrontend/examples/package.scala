@@ -133,7 +133,10 @@ package object examples {
 
   sealed trait NunjucksTemplateBody
 
-  case class NunjucksTemplate(imports: List[Import], body: List[NunjucksTemplateBody])
+  case class NunjucksTemplate(
+    prelim: Option[TemplateHtml] = None,
+    imports: List[Import],
+    body: List[NunjucksTemplateBody])
 
   case class Import(from: String = "", macroName: String = "") {
 

@@ -1,0 +1,72 @@
+
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@()
+
+@emailHtml = {
+@GovukInput(Input(
+    id = "contact-by-email",
+    name = "contact-by-email",
+    inputType = "email",
+    label = Label(
+      content = Text("Email address")
+    ),
+    classes = "govuk-!-width-one-third",
+    attributes = Map(
+      "spellcheck" -> "false"
+    )
+  ))
+}
+@phoneHtml = {
+@GovukInput(Input(
+    id = "contact-by-phone",
+    name = "contact-by-phone",
+    inputType = "tel",
+    label = Label(
+      content = Text("Phone number")
+    ),
+    classes = "govuk-!-width-one-third"
+  ))
+}
+@textHtml = {
+@GovukInput(Input(
+    id = "contact-by-text",
+    name = "contact-by-text",
+    inputType = "tel",
+    label = Label(
+      content = Text("Mobile phone number")
+    ),
+    classes = "govuk-!-width-one-third"
+  ))
+}
+@GovukCheckboxes(Checkboxes(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("How would you like to be contacted?"),
+        classes = "govuk-fieldset__legend--xl",
+        isPageHeading = true
+      ))
+    )),
+    hint = Some(Hint(
+      content = Text("Select all options that are relevant to you.")
+    )),
+    idPrefix = Some("citizenship-conditional"),
+    name = "citizen",
+    items = Seq(
+      CheckboxItem(
+        content = Text("Email"),
+        value = "email",
+        conditionalHtml = Some(emailHtml)
+      ), 
+      CheckboxItem(
+        content = Text("Phone"),
+        value = "phone",
+        conditionalHtml = Some(phoneHtml)
+      ), 
+      CheckboxItem(
+        content = Text("Text message"),
+        value = "text message",
+        conditionalHtml = Some(textHtml)
+      )
+    )
+  ))

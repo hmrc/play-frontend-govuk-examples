@@ -1,14 +1,29 @@
+
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
 @()
+
 @GovukHeader(Header(
-  homepageUrl = Some("#"),
-  serviceName = Some("Service name"),
-  serviceUrl = Some("#"),
-  navigation = Some(Seq(
-    HeaderNavigation(href = Some("#1"), text = Some("Navigation item 1"), active = true),
-    HeaderNavigation(href = Some("#2"), text = Some("Navigation item 2")),
-    HeaderNavigation(href = Some("#3"), text = Some("Navigation item 3")),
-    HeaderNavigation(href = Some("#4"), text = Some("Navigation item 4"))
+    homepageUrl = Some("#"),
+    serviceName = Some("Service name"),
+    serviceUrl = Some("#"),
+    navigation = Some(List(
+      HeaderNavigation(
+        text = Some("Navigation item 1"),
+        href = Some("#1"),
+        active = true
+      ), 
+      HeaderNavigation(
+        text = Some("Navigation item 2"),
+        href = Some("#2")
+      ), 
+      HeaderNavigation(
+        text = Some("Navigation item 3"),
+        href = Some("#3")
+      ), 
+      HeaderNavigation(
+        text = Some("Navigation item 4"),
+        href = Some("#4")
+      )
+    ))
   ))
-))

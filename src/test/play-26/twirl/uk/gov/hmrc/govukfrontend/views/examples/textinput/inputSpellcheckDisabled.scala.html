@@ -1,0 +1,17 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukInput : GovukInput)
+
+@()
+
+
+@govukInput(Input(
+    id = "name",
+    name = "name",
+    label = Label(
+      content = Text("Reference number")
+    ),
+    attributes = Map(
+      "spellcheck" -> "false"
+    )
+  ))

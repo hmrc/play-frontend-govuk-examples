@@ -1,0 +1,16 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukInput : GovukInput)
+
+@()
+
+
+@govukInput(Input(
+    id = "postcode",
+    name = "postcode",
+    label = Label(
+      content = Text("Postcode")
+    ),
+    classes = "govuk-input--width-10",
+    autocomplete = Some("postal-code")
+  ))

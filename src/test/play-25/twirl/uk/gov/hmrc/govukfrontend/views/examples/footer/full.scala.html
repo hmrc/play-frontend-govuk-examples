@@ -1,50 +1,133 @@
+
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
 @()
+
 @GovukFooter(Footer(
-  navigation = Some(Seq(
-    FooterNavigation(
-      title = Some("Services and information"),
-      columns = Some(2),
-      items = Some(Seq(
-        FooterItem(href = Some("#"), text = Some("Benefits")),
-        FooterItem(href = Some("#"), text = Some("Births, deaths, marriages and care")),
-        FooterItem(href = Some("#"), text = Some("Business and self-employed")),
-        FooterItem(href = Some("#"), text = Some("Childcare and parenting")),
-        FooterItem(href = Some("#"), text = Some("Citizenship and living in the UK")),
-        FooterItem(href = Some("#"), text = Some("Crime, justice and the law")),
-        FooterItem(href = Some("#"), text = Some("Disabled people")),
-        FooterItem(href = Some("#"), text = Some("Driving and transport")),
-        FooterItem(href = Some("#"), text = Some("Education and learning")),
-        FooterItem(href = Some("#"), text = Some("Employing people")),
-        FooterItem(href = Some("#"), text = Some("Environment and countryside")),
-        FooterItem(href = Some("#"), text = Some("Housing and local services")),
-        FooterItem(href = Some("#"), text = Some("Money and tax")),
-        FooterItem(href = Some("#"), text = Some("Passports, travel and living abroad")),
-        FooterItem(href = Some("#"), text = Some("Visas and immigration")),
-        FooterItem(href = Some("#"), text = Some("Working, jobs and pensions"))
+    meta = Some(Meta(
+      content = HtmlContent("""Built by the <a href="#" class="govuk-footer__link">Government Digital Service</a>"""),
+      items = Some(List(
+        FooterItem(
+          text = Some("Help"),
+          href = Some("#")
+        ), 
+        FooterItem(
+          text = Some("Cookies"),
+          href = Some("#")
+        ), 
+        FooterItem(
+          text = Some("Contact"),
+          href = Some("#")
+        ), 
+        FooterItem(
+          text = Some("Terms and conditions"),
+          href = Some("#")
+        ), 
+        FooterItem(
+          text = Some("Rhestr o Wasanaethau Cymraeg"),
+          href = Some("#")
+        )
       ))
-    ),
-    FooterNavigation(
-      title = Some("Departments and policy"),
-      items = Some(Seq(
-        FooterItem(href = Some("#"), text = Some("How government works")),
-        FooterItem(href = Some("#"), text = Some("Departments")),
-        FooterItem(href = Some("#"), text = Some("Worldwide")),
-        FooterItem(href = Some("#"), text = Some("Policies")),
-        FooterItem(href = Some("#"), text = Some("Publications")),
-        FooterItem(href = Some("#"), text = Some("Announcements"))
-      ))
-    )
-  )),
-  meta = Some(Meta(
-    items = Some(Seq(
-      FooterItem(href = Some("#"), text = Some("Help")),
-      FooterItem(href = Some("#"), text = Some("Cookies")),
-      FooterItem(href = Some("#"), text = Some("Contact")),
-      FooterItem(href = Some("#"), text = Some("Terms and conditions")),
-      FooterItem(href = Some("#"), text = Some("Rhestr o Wasanaethau Cymraeg"))
     )),
-    content = HtmlContent("""Built by the <a href="#" class="govuk-footer__link">Government Digital Service</a>""")
+    navigation = Some(List(
+      FooterNavigation(
+        title = Some("Services and information"),
+        columns = Some(2),
+        items = Some(List(
+          FooterItem(
+            text = Some("Benefits"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Births, deaths, marriages and care"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Business and self-employed"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Childcare and parenting"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Citizenship and living in the UK"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Crime, justice and the law"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Disabled people"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Driving and transport"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Education and learning"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Employing people"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Environment and countryside"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Housing and local services"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Money and tax"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Passports, travel and living abroad"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Visas and immigration"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Working, jobs and pensions"),
+            href = Some("#")
+          )
+        ))
+      ), 
+      FooterNavigation(
+        title = Some("Departments and policy"),
+        items = Some(List(
+          FooterItem(
+            text = Some("How government works"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Departments"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Worldwide"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Policies"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Publications"),
+            href = Some("#")
+          ), 
+          FooterItem(
+            text = Some("Announcements"),
+            href = Some("#")
+          )
+        ))
+      )
+    ))
   ))
-))

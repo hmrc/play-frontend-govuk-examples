@@ -1,12 +1,14 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this(govukFieldset: GovukFieldset)
+@this(govukFieldset : GovukFieldset)
 
 @()
+
+
 @govukFieldset(Fieldset(
-  legend = Some(Legend(
-    content = Text("Legend as page heading"),
-    classes = "govuk-fieldset__legend--xl",
-    isPageHeading = true
+    legend = Some(Legend(
+      content = Text("Legend as page heading"),
+      classes = "govuk-fieldset__legend--xl",
+      isPageHeading = true
+    ))
   ))
-))

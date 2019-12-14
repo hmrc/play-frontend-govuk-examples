@@ -25,10 +25,20 @@ object ExampleGenerator extends App {
 
   val currentDir: String = System.getProperty("user.dir")
   val srcDir             = s"$currentDir/govuk-design-system/src/components"
-  val destDir            = s"$currentDir/target/destTwirlExamples"
+  val destDir            = s"$currentDir/src/test"
 
   private val future: Future[Unit] =
     ExampleTranslator.translateTwirlExamples(Directory(srcDir).jfile, Directory(destDir).jfile)
 
-  Await.result(future, 10.second)
+  retry() { () =>
+    Await.result(future, 1.second)
+  }
+
+  private def retry(times: Int = 15)(fn: () => Unit): Unit =
+    if (times > 0)
+      try {
+        fn.apply()
+      } catch {
+        case error: Throwable => retry(times - 1)(fn)
+      }
 }

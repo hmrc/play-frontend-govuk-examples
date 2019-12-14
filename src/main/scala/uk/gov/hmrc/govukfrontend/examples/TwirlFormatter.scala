@@ -24,9 +24,10 @@ object TwirlFormatter {
       |""".stripMargin
 
   def format(parsed: NunjucksTemplate): String = {
-    val firstImport = if (parsed.imports.isEmpty) Import else parsed.imports.head
+    val firstImport: Import = if (parsed.imports.isEmpty) Import() else parsed.imports.head
 
-    (firstImport :: play26ParameterList(parsed.imports) :: injectingDependencies(parsed.body))
+    (firstImport :: play26ParameterList(parsed.imports) :: parsed.prelim.fold("")(_.toString) :: injectingDependencies(
+      parsed.body))
       .map(_.toString)
       .mkString("\n")
   }
@@ -48,8 +49,10 @@ object TwirlFormatter {
   }
 
   def formatPlay25(parsed: NunjucksTemplate): String = {
-    val firstImport = if (parsed.imports.isEmpty) Import else parsed.imports.head
+    val firstImport: Import = if (parsed.imports.isEmpty) Import() else parsed.imports.head
 
-    (firstImport :: play25ParameterList :: parsed.body).map(_.toString).mkString("\n")
+    (parsed.prelim.fold("")(_.toString) :: firstImport :: play25ParameterList :: parsed.body)
+      .map(_.toString)
+      .mkString("\n")
   }
 }
