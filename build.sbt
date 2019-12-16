@@ -59,7 +59,9 @@ lazy val root = Project(libName, file("."))
     buildInfoKeys ++= Seq[BuildInfoKey](
       "playVersion" -> PlayCrossCompilation.playVersion,
       sources in (Compile, TwirlKeys.compileTemplates)
-    )
+    ),
+    mainClass in (Compile, run) := Some("uk.gov.hmrc.govukfrontend.examples.ExampleGenerator"),
+    mainClass in (Compile, packageBin) := Some("uk.gov.hmrc.govukfrontend.examples.ExampleGenerator")
   )
 
 lazy val libDependencies: Seq[ModuleID] = dependencies(

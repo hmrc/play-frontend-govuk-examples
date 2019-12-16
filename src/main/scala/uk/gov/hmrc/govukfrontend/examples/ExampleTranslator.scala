@@ -138,7 +138,7 @@ object ExampleTranslator {
       val parentDirMaybe = destFile.getParentFile
       while (parentDirMaybe != null && !parentDirMaybe.exists()) {
         parentDirMaybe.mkdirs
-        Thread.sleep(100)
+        Thread.sleep(300)
       }
 
       val pw = new PrintWriter(destFile)
@@ -170,7 +170,10 @@ object ExampleTranslator {
               } yield {
                 val content = destContent.getOrElse("")
                 writeToDestDir(content, destPath)
-                if (content != "") count += 1
+                if (content != "")
+                  count += 1
+                else
+                  println(s"Twirl not generated for $destPath")
               }
 
             Future.sequence(writeOps)
