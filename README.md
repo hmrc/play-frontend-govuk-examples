@@ -51,10 +51,10 @@ Once the examples have been created, an `sbt` task is manually run to generate a
 file that is consumed by the [Chrome extension]((https://github.com/hmrc/play-frontend-govuk-extension)) to display the examples
 in the [GOV.UK Design System](https://design-system.service.gov.uk/components/).
 
-Ideally we the following processes would be automated:
-1. Generate the examples from the `Nunjucks` automatically (DONE
-2. Run the tests (TODO)
-3. Generate the `manifest.json` for the `Chrome` extension
+Ideally the following processes would be automated and wired up to run as one process:
+1. Generate the examples from the `Nunjucks` automatically (DONE)
+2. Write automated tests using html from Template Service (TODO)
+3. Generate the `manifest.json` for the `Chrome` extension (DONE)
 
 ![example generation](docs/images/example-generation.svg)
 
