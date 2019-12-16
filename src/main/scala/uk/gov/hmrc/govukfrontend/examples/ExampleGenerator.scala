@@ -16,9 +16,9 @@
 
 package uk.gov.hmrc.govukfrontend.examples
 
+import scala.concurrent.Await
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
-import scala.concurrent.{Await, Future}
 import scala.reflect.io.Directory
 
 object ExampleGenerator extends App {
@@ -27,18 +27,6 @@ object ExampleGenerator extends App {
   val srcDir             = s"$currentDir/govuk-design-system/src/components"
   val destDir            = s"$currentDir/src/test"
 
-  private val future: Future[Unit] =
-    ExampleTranslator.translateTwirlExamples(Directory(srcDir).jfile, Directory(destDir).jfile)
-
-  retry() { () =>
-    Await.result(future, 1.second)
-  }
-
-  private def retry(times: Int = 15)(fn: () => Unit): Unit =
-    if (times > 0)
-      try {
-        fn.apply()
-      } catch {
-        case error: Throwable => retry(times - 1)(fn)
-      }
+  private val future = ExampleTranslator.translateTwirlExamples(Directory(srcDir).jfile, Directory(destDir).jfile)
+  Await.result(future, 15.second)
 }
