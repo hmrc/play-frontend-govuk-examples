@@ -34,34 +34,26 @@ You can do this by running the below:
 sbt clean generateExamplesManifestTask
 ```
 
-You will find changes are made to `manifest.json` - you should Git add this and commit it to master when you are ready to deploy changes.
+You will find that changes made to `manifest.json` - you should Git add this and commit it to master when you are ready to deploy changes.
 
 ### Generating Example Templates (Future Work)
-_Note: Currently there are examples only for the following components:_
+You can do this by running the below:
+```
+sbt 'run-main uk.gov.hmrc.govukfrontend.examples.ExampleGenerator'
+```
 
-* [Back link](https://design-system.service.gov.uk/components/back-link/) 
-* [Button](https://design-system.service.gov.uk/components/button/)
-* [Details](https://design-system.service.gov.uk/components/details/)
-* [Error message](https://design-system.service.gov.uk/components/error-message/)
-* [Error summary](https://design-system.service.gov.uk/components/error-summary/)
-* [Fieldset](https://design-system.service.gov.uk/components/fieldset/)
-* [Footer](https://design-system.service.gov.uk/components/footer/)
-* [Header](https://design-system.service.gov.uk/components/header/)
-* [Panel](https://design-system.service.gov.uk/components/panel/)
-* [Radios](https://design-system.service.gov.uk/components/radios/)
-* [Summary list](https://design-system.service.gov.uk/components/summary-list/)
-* [Textarea](https://design-system.service.gov.uk/components/textarea/)
-* [Text input](https://design-system.service.gov.uk/components/text-input/)
+### Generating & testing Example Templates
+The examples need to be unit tested against the expected output `HTML` accompanying each example in the [GOV.UK Design System](https://design-system.service.gov.uk/components/)
+to ensure the `Twirl` examples produce the same markup as the `Nunjucks` ones. <br/>
+**_`Todo`_**: Use GET from /examples-output/$$COMPONENT_NAME$$ endpoint call in [template-service-spike](https://github.com/hmrc/template-service-spike) to retrieve html equivalent and compare
 
-The examples are unit tested against the expected output `HTML` accompanying each example in the [GOV.UK Design System](https://design-system.service.gov.uk/components/)
-to ensure the `Twirl` examples produce the same markup as the `Nunjucks` ones.
-Once the examples are created, an `sbt` task is manually run to generate a [manifest.json](src/test/resources/manifest.json)
+Once the examples have been created, an `sbt` task is manually run to generate a [manifest.json](src/test/resources/manifest.json)
 file that is consumed by the [Chrome extension]((https://github.com/hmrc/play-frontend-govuk-extension)) to display the examples
 in the [GOV.UK Design System](https://design-system.service.gov.uk/components/).
 
-We plan to automate the example generation to achieve the following goals:
-1. Generate the examples from the `Nunjucks` ones
-2. Run the tests
+Ideally we the following processes would be automated:
+1. Generate the examples from the `Nunjucks` automatically (DONE
+2. Run the tests (TODO)
 3. Generate the `manifest.json` for the `Chrome` extension
 
 ![example generation](docs/images/example-generation.svg)
