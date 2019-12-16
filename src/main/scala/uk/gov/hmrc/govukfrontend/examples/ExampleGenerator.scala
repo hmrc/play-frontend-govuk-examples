@@ -20,10 +20,9 @@ import java.nio.file.Paths
 
 import uk.gov.hmrc.govukfrontend.examples.FileSystem.TrueDir
 
+import scala.concurrent.Await
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
-import scala.concurrent.{Await, Future}
-
 
 object ExampleGenerator extends App {
 
@@ -31,8 +30,6 @@ object ExampleGenerator extends App {
   val srcDir             = s"$currentDir/govuk-design-system/src/components"
   val destDir            = s"$currentDir/src/test"
 
-  private val future: Future[Unit] =
-    ExampleTranslator.translateTwirlExamples(TrueDir(Paths.get(srcDir)), TrueDir(Paths.get(destDir)))
-
+  private val future = ExampleTranslator.translateTwirlExamples(TrueDir(Paths.get(srcDir)), TrueDir(Paths.get(destDir)))
   Await.result(future, 120.second)
 }

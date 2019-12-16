@@ -21,7 +21,7 @@ import java.nio.file.Paths
 import fastparse.NoWhitespace._
 import fastparse.Parsed.{Success => PSuccess}
 import fastparse._
-import uk.gov.hmrc.govukfrontend.examples.FileSystem.{prepareDirStructure, TrueDir, TrueFile}
+import uk.gov.hmrc.govukfrontend.examples.FileSystem.{TrueDir, TrueFile, prepareDirStructure}
 import uk.gov.hmrc.govukfrontend.examples.NunjucksParser.nunjucksParser
 import uk.gov.hmrc.govukfrontend.examples.PlayVersions.{Play25, Play26, PlayVersion}
 
@@ -49,86 +49,93 @@ object ExampleTranslator {
       }
     }
 
-    def allocateTwirlExamplePath(srcNunjucksExampleFilePath: TrueFile, playVersion: PlayVersion): Future[TrueFile] = Future {
-      val absPath: String = srcNunjucksExampleFilePath.path.toAbsolutePath.toString
-      val relPath: String = absPath.replace(s"${srcNunjucksExamplesDir.path.toAbsolutePath}/", "")
+    def allocateTwirlExamplePath(srcNunjucksExampleFilePath: TrueFile, playVersion: PlayVersion): Future[TrueFile] =
+      Future {
+        val absPath: String = srcNunjucksExampleFilePath.path.toAbsolutePath.toString
+        val relPath: String = absPath.replace(s"${srcNunjucksExamplesDir.path.toAbsolutePath}/", "")
 
-      def subDirP[_: P]: P[String] = P(CharsWhile(_ != '/').! ~ "/")
+        def subDirP[_: P]: P[String] = P(CharsWhile(_ != '/').! ~ "/")
 
-      def nunjucksFileP[_: P]: P[String] = P((!".njk" ~ AnyChar).rep ~ ".njk").!
+        def nunjucksFileP[_: P]: P[String] = P((!".njk" ~ AnyChar).rep ~ ".njk").!
 
-      def nunjucksPathP[_: P]: P[(List[String], String)] = P(subDirP.rep(1).map(_.toList) ~ nunjucksFileP ~ End)
+        def nunjucksPathP[_: P]: P[(List[String], String)] = P(subDirP.rep(1).map(_.toList) ~ nunjucksFileP ~ End)
 
-      parse(relPath, nunjucksPathP(_)) match {
+        parse(relPath, nunjucksPathP(_)) match {
 
-        case PSuccess((component :: scenario :: Nil, "index.njk"), _) =>
-          var filename = scenario.split("-").toList.map(_.capitalize).mkString("")
-          filename = filename.substring(0, 1).toLowerCase + filename.substring(1)
-          TrueFile(
-            Paths.get(s"${destTwirlExamplesDirPath.path}/play-${playVersion.version}/twirl/uk/gov/hmrc/govukfrontend/views/examples/${component
-              .replaceAll("-", "")}/$filename.scala.html")
-          )
+          case PSuccess((component :: scenario :: Nil, "index.njk"), _) =>
+            var filename = scenario.split("-").toList.map(_.capitalize).mkString("")
+            filename = filename.substring(0, 1).toLowerCase + filename.substring(1)
+            TrueFile(
+              Paths.get(
+                s"${destTwirlExamplesDirPath.path}/play-${playVersion.version}/twirl/uk/gov/hmrc/govukfrontend/views/examples/${component
+                  .replaceAll("-", "")}/$filename.scala.html")
+            )
 
-        case _ =>
-          throw new Exception(
-            s"""Expected Nunjucks example path to be of format '(pathToExamples)/componentName/scenario/index.njk'.
+          case _ =>
+            throw new Exception(
+              s"""Expected Nunjucks example path to be of format '(pathToExamples)/componentName/scenario/index.njk'.
                |Instead found: [$absPath].""".stripMargin)
+        }
       }
-    }
 
-    def translateToTwirlExample(srcNjksExampleFilePath: TrueFile, playVersion: PlayVersion): Future[Try[String]] = Future {
+    def translateToTwirlExample(srcNjksExampleFilePath: TrueFile, playVersion: PlayVersion): Future[Try[String]] =
+      Future {
 
-      val template: Try[NunjucksTemplate] = Try(
-        parse(srcNjksExampleFilePath.read(), nunjucksParser(_)).get.value
-      ).transform(
-        Success.apply,
-        e => Failure(new Exception(s"""Failed to interpret Nunjucks example at [${srcNjksExampleFilePath.path}].
+        val template: Try[NunjucksTemplate] = Try(
+          parse(srcNjksExampleFilePath.read(), nunjucksParser(_)).get.value
+        ).transform(
+          Success.apply,
+          e => Failure(new Exception(s"""Failed to interpret Nunjucks example at [${srcNjksExampleFilePath.path}].
                |Details: [${e.getMessage}]""".stripMargin))
-      )
-
-      template
-        .transform(
-          ex =>
-            Success(
-              playVersion match {
-                case Play25() => TwirlFormatter.formatPlay25(ex)
-                case Play26() => TwirlFormatter.format(ex)
-              }
-          ),
-          e => {
-            val errorMessage =
-              s"""Failed to convert parsed Nunjucks example code at [${srcNjksExampleFilePath.path}] to a Twirl example for $playVersion.
-                 |Details: [${e.getMessage}]\n""".stripMargin
-            println(errorMessage)
-            Failure(new Exception(errorMessage))
-          }
         )
-    }
+
+        template
+          .transform(
+            ex =>
+              Success(
+                playVersion match {
+                  case Play25() => TwirlFormatter.formatPlay25(ex)
+                  case Play26() => TwirlFormatter.format(ex)
+                }
+            ),
+            e => {
+              val errorMessage =
+                s"""Failed to convert parsed Nunjucks example code at [${srcNjksExampleFilePath.path}] to a Twirl example for $playVersion.
+                 |Details: [${e.getMessage}]\n""".stripMargin
+              println(errorMessage)
+              Failure(new Exception(errorMessage))
+            }
+          )
+      }
 
     if (!srcNunjucksExamplesDir.exists())
       throw new Exception(s"Failed to find source of Nunjucks examples at [${srcNunjucksExamplesDir.path}].")
     else {
 
-      val draftsToBe: Future[List[Draft]] = getNunjucksExamples.flatMap {
-        njksExamples => Future.sequence {
+      val draftsToBe: Future[List[Draft]] = getNunjucksExamples.flatMap { njksExamples =>
+        Future.sequence {
           for {
-              srcExample <- njksExamples
-              playVersion <- PlayVersions.implementedPlayVersions
-              destPathToBe = allocateTwirlExamplePath(srcExample, playVersion)
-              destContentToBe = translateToTwirlExample(srcExample, playVersion)
-            } yield
-              for {
-                destPath <- destPathToBe
-                destContent <- destContentToBe
-                content = destContent.getOrElse {
-                  println(s"Twirl not generated for $destPath")
-                  ""
-                }
-              } yield Draft(content, destPath)
+            srcExample  <- njksExamples
+            playVersion <- PlayVersions.implementedPlayVersions
+            destPathToBe    = allocateTwirlExamplePath(srcExample, playVersion)
+            destContentToBe = translateToTwirlExample(srcExample, playVersion)
+          } yield
+            for {
+              destPath    <- destPathToBe
+              destContent <- destContentToBe
+              content = destContent.getOrElse {
+                println(s"Twirl not generated for $destPath")
+                ""
+              }
+            } yield Draft(content, destPath)
         }
       }
 
-      val dirClearing: Future[Unit] = Future(destTwirlExamplesDirPath.del())
+      val dirClearing: Future[Unit] =
+        Future {
+          TrueDir(destTwirlExamplesDirPath.path.resolve(Play25.toString())).del()
+          TrueDir(destTwirlExamplesDirPath.path.resolve(Play26.toString())).del()
+        }
       val dirCreation: Future[Unit] = draftsToBe.flatMap(files => prepareDirStructure(files.map(_.path)))
 
       val writeOpsToBe: Future[List[Unit]] = for {
