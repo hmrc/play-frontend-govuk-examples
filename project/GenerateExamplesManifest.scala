@@ -5,7 +5,6 @@ import scalaj.http._
 
 object GenerateExamplesManifest {
 
-  //FIXME: To be moved to a separate project with automatic Twirl example generation, test and manifest creation.
   /**
     *
     * sbt task implementation that generates a <code>manifest.json</code> with references to the example files which can be used by the
@@ -26,7 +25,8 @@ object GenerateExamplesManifest {
     * @param play26Examples
     * @return
     */
-  def generateExamplesManifest(play26Examples: Set[File], manifestFile: File): Set[File] =
+  def generateExamplesManifest(play26Examples: Set[File], manifestFile: File): Set[File] = {
+    println(s">>>>>>>>>>>>>>>> Generating manifest examples for ${play26Examples.size} files")
     removeExcludes(play26Examples).toList match {
       case Nil => Set.empty
       case examples =>
@@ -34,6 +34,7 @@ object GenerateExamplesManifest {
         IO.write(content = content, file = manifestFile, append = false)
         Set(manifestFile)
     }
+  }
 
   private def removeExcludes(examples: Set[File]): Set[File] = {
     val excludesRegex = """@\*exclude-from-manifest\*@"""
@@ -156,7 +157,8 @@ object GenerateExamplesManifest {
       Json.parse(response).as[Seq[TemplateServiceResponse]]
     }
 
-    val componentNames = files.map(exampleToComponentMap)
+    val componentNames = files.map(exampleToComponentMap).toSet.toSeq
+    println(s">>>>>>>>>>>>>>>> Retrieving Template Service examples for ${componentNames.size} components")
     componentNames.flatMap(retrieveExample)
   }
 }
