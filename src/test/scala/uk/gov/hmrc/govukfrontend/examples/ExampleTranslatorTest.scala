@@ -16,9 +16,13 @@
 
 package uk.gov.hmrc.govukfrontend.examples
 
+import java.nio.file.Paths
+
 import org.scalatest._
+import uk.gov.hmrc.govukfrontend.examples.FileSystem.TrueDir
 
 import scala.reflect.io.Directory
+
 
 class ExampleTranslatorTest extends AsyncWordSpec with Matchers {
 
@@ -32,10 +36,10 @@ class ExampleTranslatorTest extends AsyncWordSpec with Matchers {
 
       ExampleTranslator
         .translateTwirlExamples(
-          Directory(srcDir).jfile,
-          Directory(destDir).jfile
+          TrueDir(Paths.get(srcDir)),
+          TrueDir(Paths.get(destDir))
         )
-        .flatMap(s => assert(Directory(destDir).exists))
+        .flatMap(_ => assert(Directory(destDir).exists))
     }
   }
 }
