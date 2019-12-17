@@ -1,0 +1,248 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukTabs : GovukTabs,
+govukTable : GovukTable)
+
+@()
+
+
+@pastDayHtml = {
+<h2 class="govuk-heading-l">Past day</h2>
+
+@govukTable(Table(
+    rows = Seq(
+      Seq(
+        TableRow(
+          content = Text("David Francis")
+        ), 
+        TableRow(
+          content = Text("3")
+        ), 
+        TableRow(
+          content = Text("0")
+        )
+      ), 
+      Seq(
+        TableRow(
+          content = Text("Paul Farmer")
+        ), 
+        TableRow(
+          content = Text("1")
+        ), 
+        TableRow(
+          content = Text("0")
+        )
+      ), 
+      Seq(
+        TableRow(
+          content = Text("Rita Patel")
+        ), 
+        TableRow(
+          content = Text("2")
+        ), 
+        TableRow(
+          content = Text("0")
+        )
+      )
+    ),
+    head = Some(List(
+      HeadCell(
+        content = Text("Case manager")
+      ), 
+      HeadCell(
+        content = Text("Cases opened")
+      ), 
+      HeadCell(
+        content = Text("Cases closed")
+      )
+    ))
+  ))
+}
+@pastWeekHtml = {
+<h2 class="govuk-heading-l">Past week</h2>
+
+@govukTable(Table(
+    rows = Seq(
+      Seq(
+        TableRow(
+          content = Text("David Francis")
+        ), 
+        TableRow(
+          content = Text("24")
+        ), 
+        TableRow(
+          content = Text("18")
+        )
+      ), 
+      Seq(
+        TableRow(
+          content = Text("Paul Farmer")
+        ), 
+        TableRow(
+          content = Text("16")
+        ), 
+        TableRow(
+          content = Text("20")
+        )
+      ), 
+      Seq(
+        TableRow(
+          content = Text("Rita Patel")
+        ), 
+        TableRow(
+          content = Text("24")
+        ), 
+        TableRow(
+          content = Text("27")
+        )
+      )
+    ),
+    head = Some(List(
+      HeadCell(
+        content = Text("Case manager")
+      ), 
+      HeadCell(
+        content = Text("Cases opened")
+      ), 
+      HeadCell(
+        content = Text("Cases closed")
+      )
+    ))
+  ))
+}
+@pastMonthHtml = {
+<h2 class="govuk-heading-l">Past month</h2>
+
+@govukTable(Table(
+    rows = Seq(
+      Seq(
+        TableRow(
+          content = Text("David Francis")
+        ), 
+        TableRow(
+          content = Text("98")
+        ), 
+        TableRow(
+          content = Text("95")
+        )
+      ), 
+      Seq(
+        TableRow(
+          content = Text("Paul Farmer")
+        ), 
+        TableRow(
+          content = Text("122")
+        ), 
+        TableRow(
+          content = Text("131")
+        )
+      ), 
+      Seq(
+        TableRow(
+          content = Text("Rita Patel")
+        ), 
+        TableRow(
+          content = Text("126")
+        ), 
+        TableRow(
+          content = Text("142")
+        )
+      )
+    ),
+    head = Some(List(
+      HeadCell(
+        content = Text("Case manager")
+      ), 
+      HeadCell(
+        content = Text("Cases opened")
+      ), 
+      HeadCell(
+        content = Text("Cases closed")
+      )
+    ))
+  ))
+}
+@pastYearHtml = {
+<h2 class="govuk-heading-l">Past year</h2>
+
+@govukTable(Table(
+    rows = Seq(
+      Seq(
+        TableRow(
+          content = Text("David Francis")
+        ), 
+        TableRow(
+          content = Text("1380")
+        ), 
+        TableRow(
+          content = Text("1472")
+        )
+      ), 
+      Seq(
+        TableRow(
+          content = Text("Paul Farmer")
+        ), 
+        TableRow(
+          content = Text("1129")
+        ), 
+        TableRow(
+          content = Text("1083")
+        )
+      ), 
+      Seq(
+        TableRow(
+          content = Text("Rita Patel")
+        ), 
+        TableRow(
+          content = Text("1539")
+        ), 
+        TableRow(
+          content = Text("1265")
+        )
+      )
+    ),
+    head = Some(List(
+      HeadCell(
+        content = Text("Case manager")
+      ), 
+      HeadCell(
+        content = Text("Cases opened")
+      ), 
+      HeadCell(
+        content = Text("Cases closed")
+      )
+    ))
+  ))
+}
+@govukTabs(Tabs(
+    items = Some(List(
+      TabItem(
+        id = Some("past-day"),
+        label = "Past day",
+        panel = TabPanel(
+          content = HtmlContent("""pastDayHtml""")
+        )
+      ), 
+      TabItem(
+        id = Some("past-week"),
+        label = "Past week",
+        panel = TabPanel(
+          content = HtmlContent("""pastWeekHtml""")
+        )
+      ), 
+      TabItem(
+        id = Some("past-month"),
+        label = "Past month",
+        panel = TabPanel(
+          content = HtmlContent("""pastMonthHtml""")
+        )
+      ), 
+      TabItem(
+        id = Some("past-year"),
+        label = "Past year",
+        panel = TabPanel(
+          content = HtmlContent("""pastYearHtml""")
+        )
+      )
+    ))
+  ))

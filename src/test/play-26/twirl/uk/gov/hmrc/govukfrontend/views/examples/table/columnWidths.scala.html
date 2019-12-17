@@ -1,0 +1,60 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukTable : GovukTable)
+
+@()
+
+
+@govukTable(Table(
+    rows = Seq(
+      Seq(
+        TableRow(
+          content = Text("First 6 weeks")
+        ), 
+        TableRow(
+          content = Text("£109.80 per week")
+        ), 
+        TableRow(
+          content = Text("59.10 per week")
+        )
+      ), 
+      Seq(
+        TableRow(
+          content = Text("Next 33 weeks")
+        ), 
+        TableRow(
+          content = Text("£159.80 per week")
+        ), 
+        TableRow(
+          content = Text("£89.10 per week")
+        )
+      ), 
+      Seq(
+        TableRow(
+          content = Text("Total estimated pay")
+        ), 
+        TableRow(
+          content = Text("£4,282.20")
+        ), 
+        TableRow(
+          content = Text("£2,182.20")
+        )
+      )
+    ),
+    head = Some(List(
+      HeadCell(
+        content = Text("Date"),
+        classes = "govuk-!-width-one-half"
+      ), 
+      HeadCell(
+        content = Text("Rate for vehicles"),
+        classes = "govuk-!-width-one-quarter"
+      ), 
+      HeadCell(
+        content = Text("Rate for bicycles"),
+        classes = "govuk-!-width-one-quarter"
+      )
+    )),
+    caption = Some("Month you apply"),
+    firstCellIsHeader = true
+  ))

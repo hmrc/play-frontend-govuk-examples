@@ -1,0 +1,3 @@
+[submodule "govuk-design-system"]
+	path = govuk-design-system
+	url = https://github.com/alphagov/govuk-design-system.git

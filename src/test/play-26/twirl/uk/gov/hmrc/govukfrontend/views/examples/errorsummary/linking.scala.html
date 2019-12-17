@@ -1,29 +1,30 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this(govukErrorSummary: GovukErrorSummary,
-      govukInput: GovukInput)
+@this(govukErrorSummary : GovukErrorSummary,
+govukInput : GovukInput)
 
 @()
+
+
 @govukErrorSummary(ErrorSummary(
-  errorList =
-    Seq(
+    errorList = Seq(
       ErrorLink(
         href = Some("#name"),
         content = Text("Enter your full name")
       )
     ),
-  title = Text("There is a problem")
-))
-
+    title = Text("There is a problem")
+  ))
 <h1 class="govuk-heading-xl">Your details</h1>
 
+
 @govukInput(Input(
-  label = Label(
-    content = Text("Full name")
-  ),
-  id = "name",
-  name = "name",
-  errorMessage = Some(ErrorMessage(
-    content = Text("Enter your full name")
+    id = "name",
+    name = "name",
+    label = Label(
+      content = Text("Full name")
+    ),
+    errorMessage = Some(ErrorMessage(
+      content = Text("Enter your full name")
+    ))
   ))
-))

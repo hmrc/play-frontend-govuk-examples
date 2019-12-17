@@ -1,59 +1,72 @@
+
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
 @()
-@GovukRadios(Radios(
-  idPrefix = Some("how-contacted-conditional"),
-  name = "how-contacted",
-  fieldset = Some(Fieldset(
-    legend = Some(Legend(
-      content = Text("How would you prefer to be contacted?"),
-      isPageHeading = true,
-      classes = "govuk-fieldset__legend--xl"
-    ))
-  )),
-  hint = Some(Hint(
-    content = Text("Select one option.")
-  )),
-  items = Seq(
-    RadioItem(value = Some("email"), content = Text("Email"), conditionalHtml = Some(emailHtml)),
-    RadioItem(value = Some("phone"), content = Text("Phone"), conditionalHtml = Some(phoneHtml)),
-    RadioItem(value = Some("text"), content = Text("Text message"), conditionalHtml = Some(textHtml))
-  )
-))
 
 @emailHtml = {
-  @GovukInput(Input(
+@GovukInput(Input(
     id = "contact-by-email",
     name = "contact-by-email",
     inputType = "email",
-    classes = "govuk-!-width-one-third",
     label = Label(
       content = Text("Email address")
     ),
-    attributes = Map("spellcheck" -> "false")
+    classes = "govuk-!-width-one-third",
+    attributes = Map(
+      "spellcheck" -> "false"
+    )
   ))
 }
-
 @phoneHtml = {
-  @GovukInput(Input(
+@GovukInput(Input(
     id = "contact-by-phone",
     name = "contact-by-phone",
     inputType = "tel",
-    classes = "govuk-!-width-one-third",
     label = Label(
       content = Text("Phone number")
-    )
+    ),
+    classes = "govuk-!-width-one-third"
   ))
 }
-
 @textHtml = {
-  @GovukInput(Input(
+@GovukInput(Input(
     id = "contact-by-text",
     name = "contact-by-text",
     inputType = "tel",
-    classes = "govuk-!-width-one-third",
     label = Label(
       content = Text("Mobile phone number")
-    )
+    ),
+    classes = "govuk-!-width-one-third"
   ))
 }
+@GovukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("How would you prefer to be contacted?"),
+        classes = "govuk-fieldset__legend--xl",
+        isPageHeading = true
+      ))
+    )),
+    hint = Some(Hint(
+      content = Text("Select one option.")
+    )),
+    idPrefix = Some("how-contacted-conditional"),
+    name = "how-contacted",
+    items = Seq(
+      RadioItem(
+        content = Text("Email"),
+        value = Some("email"),
+        conditionalHtml = Some(emailHtml)
+      ), 
+      RadioItem(
+        content = Text("Phone"),
+        value = Some("phone"),
+        conditionalHtml = Some(phoneHtml)
+      ), 
+      RadioItem(
+        content = Text("Text message"),
+        value = Some("text"),
+        conditionalHtml = Some(textHtml)
+      )
+    )
+  ))

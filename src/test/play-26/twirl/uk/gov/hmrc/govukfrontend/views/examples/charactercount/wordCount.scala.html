@@ -1,0 +1,15 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukCharacterCount : GovukCharacterCount)
+
+@()
+
+
+@govukCharacterCount(CharacterCount(
+    id = "word-count",
+    name = "word-count",
+    maxWords = Some(150),
+    label = Label(
+      content = Text("Enter a job description")
+    )
+  ))

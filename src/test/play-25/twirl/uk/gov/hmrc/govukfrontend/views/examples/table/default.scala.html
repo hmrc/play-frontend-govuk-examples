@@ -1,0 +1,43 @@
+
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@()
+
+@GovukTable(Table(
+    rows = Seq(
+      Seq(
+        TableRow(
+          content = Text("First 6 weeks")
+        ), 
+        TableRow(
+          content = Text("£109.80 per week")
+        )
+      ), 
+      Seq(
+        TableRow(
+          content = Text("Next 33 weeks")
+        ), 
+        TableRow(
+          content = Text("£109.80 per week")
+        )
+      ), 
+      Seq(
+        TableRow(
+          content = Text("Total estimated pay")
+        ), 
+        TableRow(
+          content = Text("£4,282.20")
+        )
+      )
+    ),
+    head = Some(List(
+      HeadCell(
+        content = Text("Date")
+      ), 
+      HeadCell(
+        content = Text("Amount")
+      )
+    )),
+    caption = Some("Dates and amounts"),
+    firstCellIsHeader = true
+  ))

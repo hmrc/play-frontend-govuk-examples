@@ -21,7 +21,8 @@ import play.api.libs.json.{JsValue, Json}
 
 object AsJson {
 
-  lazy val engine: ScriptEngine = new ScriptEngineManager().getEngineByMimeType("text/javascript")
+  lazy val engine: ScriptEngine =
+    new ScriptEngineManager(getClass.getClassLoader).getEngineByMimeType("text/javascript")
 
   /**
     * Converts Javascript like arguments to Nunjucks templates to Json.

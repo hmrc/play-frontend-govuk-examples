@@ -1,0 +1,20 @@
+
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@()
+
+@GovukBreadcrumbs(Breadcrumbs(
+    items = Seq(
+      BreadcrumbsItem(
+        content = Text("Home"),
+        href = Some("#")
+      ), 
+      BreadcrumbsItem(
+        content = Text("Passports, travel and living abroad"),
+        href = Some("#")
+      ), 
+      BreadcrumbsItem(
+        content = Text("Travel abroad")
+      )
+    )
+  ))

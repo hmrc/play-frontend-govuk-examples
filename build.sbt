@@ -59,7 +59,9 @@ lazy val root = Project(libName, file("."))
     buildInfoKeys ++= Seq[BuildInfoKey](
       "playVersion" -> PlayCrossCompilation.playVersion,
       sources in (Compile, TwirlKeys.compileTemplates)
-    )
+    ),
+    mainClass in (Compile, run) := Some("uk.gov.hmrc.govukfrontend.examples.ExampleGenerator"),
+    mainClass in (Compile, packageBin) := Some("uk.gov.hmrc.govukfrontend.examples.ExampleGenerator")
   )
 
 lazy val libDependencies: Seq[ModuleID] = dependencies(
@@ -91,7 +93,7 @@ lazy val libDependencies: Seq[ModuleID] = dependencies(
   },
   play25 = {
     val compile = Seq(
-      "uk.gov.hmrc" %% "play-frontend-govuk" % "0.22.0-play-25"
+      "uk.gov.hmrc" %% "play-frontend-govuk" % "0.32.0-play-25"
     )
 
     val test = Seq(
@@ -102,7 +104,7 @@ lazy val libDependencies: Seq[ModuleID] = dependencies(
   },
   play26 = {
     val compile = Seq(
-      "uk.gov.hmrc" %% "play-frontend-govuk" % "0.22.0-play-26"
+      "uk.gov.hmrc" %% "play-frontend-govuk" % "0.32.0-play-26"
     )
 
     val test = Seq(

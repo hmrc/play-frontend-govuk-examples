@@ -1,0 +1,38 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukDateInput : GovukDateInput)
+
+@()
+
+
+@govukDateInput(DateInput(
+    id = Some("dob"),
+    namePrefix = Some("dob"),
+    items = Some(List(
+      InputItem(
+        name = "day",
+        autocomplete = Some("bday-day"),
+        classes = "govuk-input--width-2"
+      ), 
+      InputItem(
+        name = "month",
+        autocomplete = Some("bday-month"),
+        classes = "govuk-input--width-2"
+      ), 
+      InputItem(
+        name = "year",
+        autocomplete = Some("bday-year"),
+        classes = "govuk-input--width-4"
+      )
+    )),
+    hint = Some(Hint(
+      content = Text("For example, 31 3 1980")
+    )),
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("What is your date of birth?"),
+        classes = "govuk-fieldset__legend--xl",
+        isPageHeading = true
+      ))
+    ))
+  ))

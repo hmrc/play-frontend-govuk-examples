@@ -1,0 +1,31 @@
+
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@()
+
+@GovukSelect(Select(
+    id = "sort",
+    name = "sort",
+    items = Seq(
+      SelectItem(
+        value = Some("published"),
+        text = "Recently published"
+      ), 
+      SelectItem(
+        value = Some("updated"),
+        text = "Recently updated",
+        selected = true
+      ), 
+      SelectItem(
+        value = Some("views"),
+        text = "Most views"
+      ), 
+      SelectItem(
+        value = Some("comments"),
+        text = "Most comments"
+      )
+    ),
+    label = Label(
+      content = Text("Sort by")
+    )
+  ))
