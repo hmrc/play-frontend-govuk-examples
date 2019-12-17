@@ -53,10 +53,10 @@ object FileSystem extends Retryable {
 
     def toPathAncestry: PathAncestry = PathAncestry(this, getParent.map(_.toPathAncestry))
 
-    def write(twirlExample: String)(implicit ec: ExecutionContext): Future[Unit] = Future {
+    def write(content: String)(implicit ec: ExecutionContext): Future[Unit] = Future {
         val pw = new PrintWriter(path.toFile)
         try {
-          pw.write(twirlExample)
+          pw.write(content)
         } finally {
           pw.close()
         }
@@ -100,7 +100,7 @@ object FileSystem extends Retryable {
     def toAncestorCounter: AncestorCounter = AncestorCounter(this, treeMembers.toList.length - 1)
   }
 
-  def ensure(paths: Iterable[TruePath])(implicit ec: ExecutionContext): Future[Unit] = {
+  private def ensure(paths: Iterable[TruePath])(implicit ec: ExecutionContext): Future[Unit] = {
     val ensures: Iterable[Future[Unit]] = for (path <- paths) yield path.ensure
     val sequenced: Future[Iterable[Unit]] = Future.sequence(ensures)
 
