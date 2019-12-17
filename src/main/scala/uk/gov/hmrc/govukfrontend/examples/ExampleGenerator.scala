@@ -31,5 +31,6 @@ object ExampleGenerator extends App {
   val destDir            = s"$currentDir/src/test"
 
   private val future = ExampleTranslator.translateTwirlExamples(TrueDir(Paths.get(srcDir)), TrueDir(Paths.get(destDir)))
-  Await.result(future, 120.second)
+  Await.result(future, 30.second)
+
 }

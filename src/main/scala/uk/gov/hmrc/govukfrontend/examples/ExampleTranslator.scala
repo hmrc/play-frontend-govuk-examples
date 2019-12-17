@@ -79,33 +79,41 @@ object ExampleTranslator {
       }
 
     def translateToTwirlExample(srcNjksExampleFilePath: TrueFile, playVersion: PlayVersion): Future[Try[String]] =
-      Future {
+      {
+        val njksContentToBe: Future[String] = srcNjksExampleFilePath.read
 
-        val template: Try[NunjucksTemplate] = Try(
-          parse(srcNjksExampleFilePath.read(), nunjucksParser(_)).get.value
-        ).transform(
-          Success.apply,
-          e => Failure(new Exception(s"""Failed to interpret Nunjucks example at [${srcNjksExampleFilePath.path}].
-               |Details: [${e.getMessage}]""".stripMargin))
-        )
+        njksContentToBe.flatMap {
+          njksContent =>
+            Future {
 
-        template
-          .transform(
-            ex =>
-              Success(
-                playVersion match {
-                  case Play25() => TwirlFormatter.formatPlay25(ex)
-                  case Play26() => TwirlFormatter.format(ex)
-                }
-            ),
-            e => {
-              val errorMessage =
-                s"""Failed to convert parsed Nunjucks example code at [${srcNjksExampleFilePath.path}] to a Twirl example for $playVersion.
-                 |Details: [${e.getMessage}]\n""".stripMargin
-              println(errorMessage)
-              Failure(new Exception(errorMessage))
+              val template: Try[NunjucksTemplate] = Try(
+                parse(njksContent, nunjucksParser(_)).get.value
+              ).transform(
+                Success.apply,
+                e => Failure(new Exception(
+                  s"""Failed to interpret Nunjucks example at [${srcNjksExampleFilePath.path}].
+                     |Details: [${e.getMessage}]""".stripMargin))
+              )
+
+              template
+                .transform(
+                  ex =>
+                    Success(
+                      playVersion match {
+                        case Play25() => TwirlFormatter.formatPlay25(ex)
+                        case Play26() => TwirlFormatter.format(ex)
+                      }
+                    ),
+                  e => {
+                    val errorMessage =
+                      s"""Failed to convert parsed Nunjucks example code at [${srcNjksExampleFilePath.path}] to a Twirl example for $playVersion.
+                         |Details: [${e.getMessage}]\n""".stripMargin
+                    println(errorMessage)
+                    Failure(new Exception(errorMessage))
+                  }
+                )
             }
-          )
+        }
       }
 
     if (!srcNunjucksExamplesDir.exists())
