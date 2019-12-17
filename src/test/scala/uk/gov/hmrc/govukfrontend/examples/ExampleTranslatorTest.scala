@@ -16,13 +16,13 @@
 
 package uk.gov.hmrc.govukfrontend.examples
 
-import java.nio.file.Paths
+import java.nio.file.{Files, Path, Paths}
 
 import org.scalatest._
 import uk.gov.hmrc.govukfrontend.examples.FileSystem.TrueDir
 
+import scala.collection.JavaConverters._
 import scala.reflect.io.Directory
-
 
 class ExampleTranslatorTest extends AsyncWordSpec with Matchers {
 
@@ -39,7 +39,16 @@ class ExampleTranslatorTest extends AsyncWordSpec with Matchers {
           TrueDir(Paths.get(srcDir)),
           TrueDir(Paths.get(destDir))
         )
-        .flatMap(_ => assert(Directory(destDir).exists))
+        .flatMap { _ =>
+          assert(Directory(destDir).exists)
+
+          val noOfNunjucksFiles = countFiles(Paths.get(srcDir), "index.njk")
+          val noOfTwirlFiles    = countFiles(Paths.get(destDir, PlayVersions.Play26().toString), ".*.scala.html")
+          noOfNunjucksFiles shouldBe noOfTwirlFiles
+        }
     }
   }
+
+  private def countFiles(path: Path, file: String) =
+    Files.walk(path).iterator().asScala.filter(Files.isRegularFile(_)).count(_.getFileName.toString matches file)
 }
