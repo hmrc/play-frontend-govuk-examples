@@ -33,8 +33,8 @@ package object examples {
       case (k: String, v: String) => s""""$k" -> "$v""""
       case Some(value: String)    => s"""Some("$value")"""
       case HtmlContent(value: Html) =>
-        if (value.body matches ".*[\'\"</>\\s]+.*") s"""HtmlContent(\"\"\"$value\"\"\")"""
-        else s"""HtmlContent($value)"""
+        if (value.body matches "\\w+") s"""HtmlContent($value)"""
+        else s"""HtmlContent(\"\"\"$value\"\"\")"""
       // Make Strings look similar to their literal form.
       case s: String =>
         val replaceMap = Seq(
