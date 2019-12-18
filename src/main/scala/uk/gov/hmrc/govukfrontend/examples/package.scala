@@ -30,9 +30,11 @@ package object examples {
     val thisDepth   = prettyPrint(_: Any, indentSize, maxElementWidth, depth)
     val nextDepth   = prettyPrint(_: Any, indentSize, maxElementWidth, depth + 1)
     a match {
-      case (k: String, v: String)   => s""""$k" -> "$v""""
-      case Some(value: String)      => s"""Some("$value")"""
-      case HtmlContent(value: Html) => s"""HtmlContent(\"\"\"$value\"\"\")"""
+      case (k: String, v: String) => s""""$k" -> "$v""""
+      case Some(value: String)    => s"""Some("$value")"""
+      case HtmlContent(value: Html) =>
+        if (value.body matches "\\w+") s"""HtmlContent($value)"""
+        else s"""HtmlContent(\"\"\"$value\"\"\")"""
       // Make Strings look similar to their literal form.
       case s: String =>
         val replaceMap = Seq(

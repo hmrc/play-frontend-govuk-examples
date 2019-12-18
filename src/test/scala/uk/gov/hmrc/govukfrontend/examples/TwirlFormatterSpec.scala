@@ -275,6 +275,384 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
       gouvukHeaderTwirl.trimSpaces shouldBe govukHeaderTwirlExpected.trimSpaces
     }
 
+    "format GovukInput " in {
+
+      val gouvukInputNunjucks =
+        """{% from "govuk/components/input/macro.njk" import govukInput %}
+          |
+          |{{ govukInput({
+          |  label: {
+          |    text: "Event name"
+          |  },
+          |  id: "event-name",
+          |  name: "event-name"
+          |}) }}""".stripMargin
+
+      val govukInputTwirlExpected =
+        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+          |
+          |@()
+          |@GovukInput(Input(
+          |  id = "event-name",
+          |  name = "event-name",
+          |  label = Label(
+          |    content = Text( "Event name")
+          |  )
+          |))""".stripMargin
+
+      val gouvukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukInputTwirl  = formatPlay25(gouvukInputParsed.get.value)
+      gouvukInputTwirl.print
+      gouvukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
+    }
+
+    "format GovukInput1 " in {
+
+      val gouvukInputNunjucks =
+        """{% from "govuk/components/input/macro.njk" import govukInput %}
+          |
+          |{{ govukInput({
+          |  label: {
+          |    text: "Event name"
+          |  },
+          |  id: "event-name",
+          |  name: "event-name"
+          |}) }}""".stripMargin
+
+      val govukInputTwirlExpected =
+        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+          |
+          |@()
+          |@GovukInput(Input(
+          |  id = "event-name",
+          |  name = "event-name",
+          |  label = Label(
+          |    content = Text( "Event name")
+          |  )
+          |))""".stripMargin
+
+      val gouvukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukInputTwirl  = formatPlay25(gouvukInputParsed.get.value)
+      gouvukInputTwirl.print
+      gouvukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
+    }
+
+    "format GovukInput2 " in {
+
+      val gouvukInputNunjucks =
+        """{% from "govuk/components/input/macro.njk" import govukInput %}
+          |
+          |{{ govukInput({
+          |  label: {
+          |    text: "20 character width"
+          |  },
+          |  classes: "govuk-input--width-20",
+          |  id: "width-20",
+          |  name: "width-20"
+          |}) }}
+          |
+          |{{ govukInput({
+          |  label: {
+          |    text: "10 character width"
+          |  },
+          |  classes: "govuk-input--width-10",
+          |  id: "width-10",
+          |  name: "width-10"
+          |}) }}
+          |
+          |{{ govukInput({
+          |  label: {
+          |    text: "5 character width"
+          |  },
+          |  classes: "govuk-input--width-5",
+          |  id: "width-5",
+          |  name: "width-5"
+          |}) }}
+          |
+          |{{ govukInput({
+          |  label: {
+          |    text: "4 character width"
+          |  },
+          |  classes: "govuk-input--width-4",
+          |  id: "width-4",
+          |  name: "width-4"
+          |}) }}
+          |
+          |{{ govukInput({
+          |  label: {
+          |    text: "3 character width"
+          |  },
+          |  classes: "govuk-input--width-3",
+          |  id: "width-3",
+          |  name: "width-3"
+          |}) }}
+          |
+          |{{ govukInput({
+          |  label: {
+          |    text: "2 character width"
+          |  },
+          |  classes: "govuk-input--width-2",
+          |  id: "width-2",
+          |  name: "width-2"
+          |}) }}""".stripMargin
+
+      val govukInputTwirlExpected =
+        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+          |
+          |@()
+          |@GovukInput(Input(
+          |  id = "width-20",
+          |  name = "width-20",
+          |  label = Label(
+          |    content = Text( "20 character width")
+          |  ),
+          |  classes = "govuk-input--width-20"
+          |))
+          |@GovukInput(Input(
+          |  id = "width-10",
+          |  name = "width-10",
+          |  label = Label(
+          |    content = Text( "10 character width")
+          |  ),
+          |  classes = "govuk-input--width-10"
+          |))
+          |@GovukInput(Input(
+          |  id = "width-5",
+          |  name = "width-5",
+          |  label = Label(
+          |    content = Text( "5 character width")
+          |  ),
+          |  classes = "govuk-input--width-5"
+          |))
+          |@GovukInput(Input(
+          |  id = "width-4",
+          |  name = "width-4",
+          |  label = Label(
+          |    content = Text( "4 character width")
+          |  ),
+          |  classes = "govuk-input--width-4"
+          |))
+          |@GovukInput(Input(
+          |  id = "width-3",
+          |  name = "width-3",
+          |  label = Label(
+          |    content = Text( "3 character width")
+          |  ),
+          |  classes = "govuk-input--width-3"
+          |))
+          |@GovukInput(Input(
+          |  id = "width-2",
+          |  name = "width-2",
+          |  label = Label(
+          |    content = Text( "2 character width")
+          |  ),
+          |  classes = "govuk-input--width-2"
+          |))""".stripMargin
+
+      val gouvukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukInputTwirl  = formatPlay25(gouvukInputParsed.get.value)
+      gouvukInputTwirl.print
+      gouvukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
+    }
+
+    "format GovukInput3 " in {
+
+      val gouvukInputNunjucks =
+        """{% from "govuk/components/input/macro.njk" import govukInput %}
+          |
+          |{{ govukInput({
+          |  label: {
+          |    text: "Full width"
+          |  },
+          |  classes: "govuk-!-width-full",
+          |  id: "full",
+          |  name: "full"
+          |}) }}
+          |
+          |{{ govukInput({
+          |  label: {
+          |    text: "Three-quarters width"
+          |  },
+          |  classes: "govuk-!-width-three-quarters",
+          |  id: "three-quarters",
+          |  name: "three-quarters"
+          |}) }}
+          |
+          |{{ govukInput({
+          |  label: {
+          |    text: "Two-thirds width"
+          |  },
+          |  classes: "govuk-!-width-two-thirds",
+          |  id: "two-thirds",
+          |  name: "two-thirds"
+          |}) }}
+          |
+          |{{ govukInput({
+          |  label: {
+          |    text: "One-half width"
+          |  },
+          |  classes: "govuk-!-width-one-half",
+          |  id: "one-half",
+          |  name: "one-half"
+          |}) }}
+          |
+          |{{ govukInput({
+          |  label: {
+          |    text: "One-third width"
+          |  },
+          |  classes: "govuk-!-width-one-third",
+          |  id: "one-third",
+          |  name: "one-third"
+          |}) }}
+          |
+          |{{ govukInput({
+          |  label: {
+          |    text: "One-quarter width"
+          |  },
+          |  classes: "govuk-!-width-one-quarter",
+          |  id: "one-quarter",
+          |  name: "one-quarter"
+          |}) }}""".stripMargin
+
+      val govukInputTwirlExpected =
+        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+          |
+          |@()
+          |@GovukInput(Input(
+          |  id = "full",
+          |  name = "full",
+          |  label = Label(
+          |    content = Text( "Full width")
+          |  ),
+          |  classes = "govuk-!-width-full"
+          |))
+          |@GovukInput(Input(
+          |  id = "three-quarters",
+          |  name = "three-quarters",
+          |  label = Label(
+          |    content = Text( "Three-quarters width")
+          |  ),
+          |  classes = "govuk-!-width-three-quarters"
+          |))
+          |@GovukInput(Input(
+          |  id = "two-thirds",
+          |  name = "two-thirds",
+          |  label = Label(
+          |    content = Text( "Two-thirds width")
+          |  ),
+          |  classes = "govuk-!-width-two-thirds"
+          |))
+          |@GovukInput(Input(
+          |  id = "one-half",
+          |  name = "one-half",
+          |  label = Label(
+          |    content = Text( "One-half width")
+          |  ),
+          |  classes = "govuk-!-width-one-half"
+          |))
+          |@GovukInput(Input(
+          |  id = "one-third",
+          |  name = "one-third",
+          |  label = Label(
+          |    content = Text( "One-third width")
+          |  ),
+          |  classes = "govuk-!-width-one-third"
+          |))
+          |@GovukInput(Input(
+          |  id = "one-quarter",
+          |  name = "one-quarter",
+          |  label = Label(
+          |    content = Text( "One-quarter width")
+          |  ),
+          |  classes = "govuk-!-width-one-quarter"
+          |))""".stripMargin
+
+      val gouvukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukInputTwirl  = formatPlay25(gouvukInputParsed.get.value)
+      gouvukInputTwirl.print
+      gouvukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
+    }
+
+    "format GovukInput4 " in {
+
+      val gouvukInputNunjucks =
+        """{% from "govuk/components/input/macro.njk" import govukInput %}
+          |
+          |{{ govukInput({
+          |  label: {
+          |    text: "Event name"
+          |  },
+          |  hint: {
+          |    text: "The name you’ll use on promotional material."
+          |  },
+          |  id: "event-name",
+          |  name: "event-name"
+          |}) }}""".stripMargin
+
+      val govukInputTwirlExpected =
+        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+          |
+          |@()
+          |@GovukInput(Input(
+          |  id = "event-name",
+          |  name = "event-name",
+          |  label = Label(
+          |    content = Text( "Event name")
+          |  ),
+          |  hint = Some(Hint(
+          |    content = Text( "The name you’ll use on promotional material.")
+          |  ))
+          |))""".stripMargin
+
+      val gouvukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukInputTwirl  = formatPlay25(gouvukInputParsed.get.value)
+      gouvukInputTwirl.print
+      gouvukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
+    }
+
+    "format GovukInput5 " in {
+
+      val gouvukInputNunjucks =
+        """{% from "govuk/components/input/macro.njk" import govukInput %}
+          |
+          |{{ govukInput({
+          |  label: {
+          |    text: "Event name"
+          |  },
+          |  id: "event-name",
+          |  name: "event-name",
+          |  hint: {
+          |    text: "The name you’ll use on promotional material."
+          |  },
+          |  errorMessage: {
+          |    text: "Enter an event name"
+          |  }
+          |}) }}""".stripMargin
+
+      val govukInputTwirlExpected =
+        """@import uk.gov.hmrc.govukfrontend.views.html.components._
+          |
+          |@()
+          |@GovukInput(Input(
+          |  id = "event-name",
+          |  name = "event-name",
+          |  label = Label(
+          |    content = Text( "Event name")
+          |  ),
+          |  hint = Some(Hint(
+          |    content = Text( "The name you’ll use on promotional material.")
+          |  )),
+          |  errorMessage = Some(ErrorMessage(
+          |    content = Text( "Enter an event name")
+          |  ))
+          |))""".stripMargin
+
+      val gouvukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukInputTwirl  = formatPlay25(gouvukInputParsed.get.value)
+      gouvukInputTwirl.print
+      gouvukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
+    }
+
     "format GovukPanel " in {
 
       val gouvukPanelNunjucks =
@@ -1321,382 +1699,503 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
       gouvukSummaryListTwirl.trimSpaces shouldBe govukSummaryListTwirlExpected.trimSpaces
     }
 
-    "format GovukInput " in {
+    "format GovukTabs " in {
 
-      val gouvukInputNunjucks =
-        """{% from "govuk/components/input/macro.njk" import govukInput %}
-          |
-          |{{ govukInput({
-          |  label: {
-          |    text: "Event name"
-          |  },
-          |  id: "event-name",
-          |  name: "event-name"
-          |}) }}""".stripMargin
+      val gouvukTabsNunjucks =
+        """|{% from "govuk/components/tabs/macro.njk" import govukTabs %}
+           |{% from "govuk/components/table/macro.njk" import govukTable %}
+           |
+           |{% set pastDayHtml %}
+           |<h2 class="govuk-heading-l">Past day</h2>
+           |{{ govukTable({
+           |  head: [
+           |    {
+           |      text: "Case manager"
+           |    },
+           |    {
+           |      text: "Cases opened"
+           |    },
+           |    {
+           |      text: "Cases closed"
+           |    }
+           |  ],
+           |  rows: [
+           |    [
+           |      {
+           |        text: "David Francis"
+           |      },
+           |      {
+           |        text: "3"
+           |      },
+           |      {
+           |        text: "0"
+           |      }
+           |    ],
+           |    [
+           |      {
+           |        text: "Paul Farmer"
+           |      },
+           |      {
+           |        text: "1"
+           |      },
+           |      {
+           |        text: "0"
+           |      }
+           |    ],
+           |    [
+           |      {
+           |        text: "Rita Patel"
+           |      },
+           |      {
+           |        text: "2"
+           |      },
+           |      {
+           |        text: "0"
+           |      }
+           |    ]
+           |  ]
+           |}) }}
+           |{% endset -%}
+           |
+           |{% set pastWeekHtml %}
+           |<h2 class="govuk-heading-l">Past week</h2>
+           |{{ govukTable({
+           |  head: [
+           |    {
+           |      text: "Case manager"
+           |    },
+           |    {
+           |      text: "Cases opened"
+           |    },
+           |    {
+           |      text: "Cases closed"
+           |    }
+           |  ],
+           |  rows: [
+           |    [
+           |      {
+           |        text: "David Francis"
+           |      },
+           |      {
+           |        text: "24"
+           |      },
+           |      {
+           |        text: "18"
+           |      }
+           |    ],
+           |    [
+           |      {
+           |        text: "Paul Farmer"
+           |      },
+           |      {
+           |        text: "16"
+           |      },
+           |      {
+           |        text: "20"
+           |      }
+           |    ],
+           |    [
+           |      {
+           |        text: "Rita Patel"
+           |      },
+           |      {
+           |        text: "24"
+           |      },
+           |      {
+           |        text: "27"
+           |      }
+           |    ]
+           |  ]
+           |}) }}
+           |{% endset -%}
+           |
+           |{% set pastMonthHtml %}
+           |<h2 class="govuk-heading-l">Past month</h2>
+           |{{ govukTable({
+           |  head: [
+           |    {
+           |      text: "Case manager"
+           |    },
+           |    {
+           |      text: "Cases opened"
+           |    },
+           |    {
+           |      text: "Cases closed"
+           |    }
+           |  ],
+           |  rows: [
+           |    [
+           |      {
+           |        text: "David Francis"
+           |      },
+           |      {
+           |        text: "98"
+           |      },
+           |      {
+           |        text: "95"
+           |      }
+           |    ],
+           |    [
+           |      {
+           |        text: "Paul Farmer"
+           |      },
+           |      {
+           |        text: "122"
+           |      },
+           |      {
+           |        text: "131"
+           |      }
+           |    ],
+           |    [
+           |      {
+           |        text: "Rita Patel"
+           |      },
+           |      {
+           |        text: "126"
+           |      },
+           |      {
+           |        text: "142"
+           |      }
+           |    ]
+           |  ]
+           |}) }}
+           |{% endset -%}
+           |
+           |{% set pastYearHtml %}
+           |<h2 class="govuk-heading-l">Past year</h2>
+           |{{ govukTable({
+           |  head: [
+           |    {
+           |      text: "Case manager"
+           |    },
+           |    {
+           |      text: "Cases opened"
+           |    },
+           |    {
+           |      text: "Cases closed"
+           |    }
+           |  ],
+           |  rows: [
+           |    [
+           |      {
+           |        text: "David Francis"
+           |      },
+           |      {
+           |        text: "1380"
+           |      },
+           |      {
+           |        text: "1472"
+           |      }
+           |    ],
+           |    [
+           |      {
+           |        text: "Paul Farmer"
+           |      },
+           |      {
+           |        text: "1129"
+           |      },
+           |      {
+           |        text: "1083"
+           |      }
+           |    ],
+           |    [
+           |      {
+           |        text: "Rita Patel"
+           |      },
+           |      {
+           |        text: "1539"
+           |      },
+           |      {
+           |        text: "1265"
+           |      }
+           |    ]
+           |  ]
+           |}) }}
+           |{% endset -%}
+           |
+           |{{ govukTabs({
+           |  items: [
+           |    {
+           |      label: "Past day",
+           |      id: "past-day",
+           |      panel: {
+           |        html: pastDayHtml
+           |      }
+           |    },
+           |    {
+           |      label: "Past week",
+           |      id: "past-week",
+           |      panel: {
+           |        html: pastWeekHtml
+           |      }
+           |    },
+           |    {
+           |      label: "Past month",
+           |      id: "past-month",
+           |      panel: {
+           |        html: pastMonthHtml
+           |      }
+           |    },
+           |    {
+           |      label: "Past year",
+           |      id: "past-year",
+           |      panel: {
+           |        html: pastYearHtml
+           |      }
+           |    }
+           |  ]
+           |}) }}""".stripMargin
 
-      val govukInputTwirlExpected =
-        """@import uk.gov.hmrc.govukfrontend.views.html.components._
-          |
-          |@()
-          |@GovukInput(Input(
-          |  id = "event-name",
-          |  name = "event-name",
-          |  label = Label(
-          |    content = Text( "Event name")
-          |  )
-          |))""".stripMargin
+      val govukTabsTwirlExpected =
+        """|@import uk.gov.hmrc.govukfrontend.views.html.components._
+           |
+           |@()
+           |
+           |@pastDayHtml = {
+           |<h2 class="govuk-heading-l">Past day</h2>
+           |
+           |@GovukTable(Table(
+           |    rows = Seq(
+           |      Seq(
+           |        TableRow(
+           |          content = Text("David Francis")
+           |        ),
+           |        TableRow(
+           |          content = Text("3")
+           |        ),
+           |        TableRow(
+           |          content = Text("0")
+           |        )
+           |      ),
+           |      Seq(
+           |        TableRow(
+           |          content = Text("Paul Farmer")
+           |        ),
+           |        TableRow(
+           |          content = Text("1")
+           |        ),
+           |        TableRow(
+           |          content = Text("0")
+           |        )
+           |      ),
+           |      Seq(
+           |        TableRow(
+           |          content = Text("Rita Patel")
+           |        ),
+           |        TableRow(
+           |          content = Text("2")
+           |        ),
+           |        TableRow(
+           |          content = Text("0")
+           |        )
+           |      )
+           |    ),
+           |    head = Some(List(
+           |      HeadCell(
+           |        content = Text("Case manager")
+           |      ),
+           |      HeadCell(
+           |        content = Text("Cases opened")
+           |      ),
+           |      HeadCell(
+           |        content = Text("Cases closed")
+           |      )
+           |    ))
+           |  ))
+           |}
+           |@pastWeekHtml = {
+           |<h2 class="govuk-heading-l">Past week</h2>
+           |
+           |@GovukTable(Table(
+           |    rows = Seq(
+           |      Seq(
+           |        TableRow(
+           |          content = Text("David Francis")
+           |        ),
+           |        TableRow(
+           |          content = Text("24")
+           |        ),
+           |        TableRow(
+           |          content = Text("18")
+           |        )
+           |      ),
+           |      Seq(
+           |        TableRow(
+           |          content = Text("Paul Farmer")
+           |        ),
+           |        TableRow(
+           |          content = Text("16")
+           |        ),
+           |        TableRow(
+           |          content = Text("20")
+           |        )
+           |      ),
+           |      Seq(
+           |        TableRow(
+           |          content = Text("Rita Patel")
+           |        ),
+           |        TableRow(
+           |          content = Text("24")
+           |        ),
+           |        TableRow(
+           |          content = Text("27")
+           |        )
+           |      )
+           |    ),
+           |    head = Some(List(
+           |      HeadCell(
+           |        content = Text("Case manager")
+           |      ),
+           |      HeadCell(
+           |        content = Text("Cases opened")
+           |      ),
+           |      HeadCell(
+           |        content = Text("Cases closed")
+           |      )
+           |    ))
+           |  ))
+           |}
+           |@pastMonthHtml = {
+           |<h2 class="govuk-heading-l">Past month</h2>
+           |
+           |@GovukTable(Table(
+           |    rows = Seq(
+           |      Seq(
+           |        TableRow(
+           |          content = Text("David Francis")
+           |        ),
+           |        TableRow(
+           |          content = Text("98")
+           |        ),
+           |        TableRow(
+           |          content = Text("95")
+           |        )
+           |      ),
+           |      Seq(
+           |        TableRow(
+           |          content = Text("Paul Farmer")
+           |        ),
+           |        TableRow(
+           |          content = Text("122")
+           |        ),
+           |        TableRow(
+           |          content = Text("131")
+           |        )
+           |      ),
+           |      Seq(
+           |        TableRow(
+           |          content = Text("Rita Patel")
+           |        ),
+           |        TableRow(
+           |          content = Text("126")
+           |        ),
+           |        TableRow(
+           |          content = Text("142")
+           |        )
+           |      )
+           |    ),
+           |    head = Some(List(
+           |      HeadCell(
+           |        content = Text("Case manager")
+           |      ),
+           |      HeadCell(
+           |        content = Text("Cases opened")
+           |      ),
+           |      HeadCell(
+           |        content = Text("Cases closed")
+           |      )
+           |    ))
+           |  ))
+           |}
+           |@pastYearHtml = {
+           |<h2 class="govuk-heading-l">Past year</h2>
+           |
+           |@GovukTable(Table(
+           |    rows = Seq(
+           |      Seq(
+           |        TableRow(
+           |          content = Text("David Francis")
+           |        ),
+           |        TableRow(
+           |          content = Text("1380")
+           |        ),
+           |        TableRow(
+           |          content = Text("1472")
+           |        )
+           |      ),
+           |      Seq(
+           |        TableRow(
+           |          content = Text("Paul Farmer")
+           |        ),
+           |        TableRow(
+           |          content = Text("1129")
+           |        ),
+           |        TableRow(
+           |          content = Text("1083")
+           |        )
+           |      ),
+           |      Seq(
+           |        TableRow(
+           |          content = Text("Rita Patel")
+           |        ),
+           |        TableRow(
+           |          content = Text("1539")
+           |        ),
+           |        TableRow(
+           |          content = Text("1265")
+           |        )
+           |      )
+           |    ),
+           |    head = Some(List(
+           |      HeadCell(
+           |        content = Text("Case manager")
+           |      ),
+           |      HeadCell(
+           |        content = Text("Cases opened")
+           |      ),
+           |      HeadCell(
+           |        content = Text("Cases closed")
+           |      )
+           |    ))
+           |  ))
+           |}
+           |@GovukTabs(Tabs(
+           |    items = Some(List(
+           |      TabItem(
+           |        id = Some("past-day"),
+           |        label = "Past day",
+           |        panel = TabPanel(
+           |          content = HtmlContent(pastDayHtml)
+           |        )
+           |      ),
+           |      TabItem(
+           |        id = Some("past-week"),
+           |        label = "Past week",
+           |        panel = TabPanel(
+           |          content = HtmlContent(pastWeekHtml)
+           |        )
+           |      ),
+           |      TabItem(
+           |        id = Some("past-month"),
+           |        label = "Past month",
+           |        panel = TabPanel(
+           |          content = HtmlContent(pastMonthHtml)
+           |        )
+           |      ),
+           |      TabItem(
+           |        id = Some("past-year"),
+           |        label = "Past year",
+           |        panel = TabPanel(
+           |          content = HtmlContent(pastYearHtml)
+           |        )
+           |      )
+           |    ))
+           |  ))""".stripMargin
 
-      val gouvukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
-      val gouvukInputTwirl  = formatPlay25(gouvukInputParsed.get.value)
-      gouvukInputTwirl.print
-      gouvukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
-    }
-
-    "format GovukInput1 " in {
-
-      val gouvukInputNunjucks =
-        """{% from "govuk/components/input/macro.njk" import govukInput %}
-          |
-          |{{ govukInput({
-          |  label: {
-          |    text: "Event name"
-          |  },
-          |  id: "event-name",
-          |  name: "event-name"
-          |}) }}""".stripMargin
-
-      val govukInputTwirlExpected =
-        """@import uk.gov.hmrc.govukfrontend.views.html.components._
-          |
-          |@()
-          |@GovukInput(Input(
-          |  id = "event-name",
-          |  name = "event-name",
-          |  label = Label(
-          |    content = Text( "Event name")
-          |  )
-          |))""".stripMargin
-
-      val gouvukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
-      val gouvukInputTwirl  = formatPlay25(gouvukInputParsed.get.value)
-      gouvukInputTwirl.print
-      gouvukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
-    }
-
-    "format GovukInput2 " in {
-
-      val gouvukInputNunjucks =
-        """{% from "govuk/components/input/macro.njk" import govukInput %}
-          |
-          |{{ govukInput({
-          |  label: {
-          |    text: "20 character width"
-          |  },
-          |  classes: "govuk-input--width-20",
-          |  id: "width-20",
-          |  name: "width-20"
-          |}) }}
-          |
-          |{{ govukInput({
-          |  label: {
-          |    text: "10 character width"
-          |  },
-          |  classes: "govuk-input--width-10",
-          |  id: "width-10",
-          |  name: "width-10"
-          |}) }}
-          |
-          |{{ govukInput({
-          |  label: {
-          |    text: "5 character width"
-          |  },
-          |  classes: "govuk-input--width-5",
-          |  id: "width-5",
-          |  name: "width-5"
-          |}) }}
-          |
-          |{{ govukInput({
-          |  label: {
-          |    text: "4 character width"
-          |  },
-          |  classes: "govuk-input--width-4",
-          |  id: "width-4",
-          |  name: "width-4"
-          |}) }}
-          |
-          |{{ govukInput({
-          |  label: {
-          |    text: "3 character width"
-          |  },
-          |  classes: "govuk-input--width-3",
-          |  id: "width-3",
-          |  name: "width-3"
-          |}) }}
-          |
-          |{{ govukInput({
-          |  label: {
-          |    text: "2 character width"
-          |  },
-          |  classes: "govuk-input--width-2",
-          |  id: "width-2",
-          |  name: "width-2"
-          |}) }}""".stripMargin
-
-      val govukInputTwirlExpected =
-        """@import uk.gov.hmrc.govukfrontend.views.html.components._
-          |
-          |@()
-          |@GovukInput(Input(
-          |  id = "width-20",
-          |  name = "width-20",
-          |  label = Label(
-          |    content = Text( "20 character width")
-          |  ),
-          |  classes = "govuk-input--width-20"
-          |))
-          |@GovukInput(Input(
-          |  id = "width-10",
-          |  name = "width-10",
-          |  label = Label(
-          |    content = Text( "10 character width")
-          |  ),
-          |  classes = "govuk-input--width-10"
-          |))
-          |@GovukInput(Input(
-          |  id = "width-5",
-          |  name = "width-5",
-          |  label = Label(
-          |    content = Text( "5 character width")
-          |  ),
-          |  classes = "govuk-input--width-5"
-          |))
-          |@GovukInput(Input(
-          |  id = "width-4",
-          |  name = "width-4",
-          |  label = Label(
-          |    content = Text( "4 character width")
-          |  ),
-          |  classes = "govuk-input--width-4"
-          |))
-          |@GovukInput(Input(
-          |  id = "width-3",
-          |  name = "width-3",
-          |  label = Label(
-          |    content = Text( "3 character width")
-          |  ),
-          |  classes = "govuk-input--width-3"
-          |))
-          |@GovukInput(Input(
-          |  id = "width-2",
-          |  name = "width-2",
-          |  label = Label(
-          |    content = Text( "2 character width")
-          |  ),
-          |  classes = "govuk-input--width-2"
-          |))""".stripMargin
-
-      val gouvukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
-      val gouvukInputTwirl  = formatPlay25(gouvukInputParsed.get.value)
-      gouvukInputTwirl.print
-      gouvukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
-    }
-
-    "format GovukInput3 " in {
-
-      val gouvukInputNunjucks =
-        """{% from "govuk/components/input/macro.njk" import govukInput %}
-          |
-          |{{ govukInput({
-          |  label: {
-          |    text: "Full width"
-          |  },
-          |  classes: "govuk-!-width-full",
-          |  id: "full",
-          |  name: "full"
-          |}) }}
-          |
-          |{{ govukInput({
-          |  label: {
-          |    text: "Three-quarters width"
-          |  },
-          |  classes: "govuk-!-width-three-quarters",
-          |  id: "three-quarters",
-          |  name: "three-quarters"
-          |}) }}
-          |
-          |{{ govukInput({
-          |  label: {
-          |    text: "Two-thirds width"
-          |  },
-          |  classes: "govuk-!-width-two-thirds",
-          |  id: "two-thirds",
-          |  name: "two-thirds"
-          |}) }}
-          |
-          |{{ govukInput({
-          |  label: {
-          |    text: "One-half width"
-          |  },
-          |  classes: "govuk-!-width-one-half",
-          |  id: "one-half",
-          |  name: "one-half"
-          |}) }}
-          |
-          |{{ govukInput({
-          |  label: {
-          |    text: "One-third width"
-          |  },
-          |  classes: "govuk-!-width-one-third",
-          |  id: "one-third",
-          |  name: "one-third"
-          |}) }}
-          |
-          |{{ govukInput({
-          |  label: {
-          |    text: "One-quarter width"
-          |  },
-          |  classes: "govuk-!-width-one-quarter",
-          |  id: "one-quarter",
-          |  name: "one-quarter"
-          |}) }}""".stripMargin
-
-      val govukInputTwirlExpected =
-        """@import uk.gov.hmrc.govukfrontend.views.html.components._
-          |
-          |@()
-          |@GovukInput(Input(
-          |  id = "full",
-          |  name = "full",
-          |  label = Label(
-          |    content = Text( "Full width")
-          |  ),
-          |  classes = "govuk-!-width-full"
-          |))
-          |@GovukInput(Input(
-          |  id = "three-quarters",
-          |  name = "three-quarters",
-          |  label = Label(
-          |    content = Text( "Three-quarters width")
-          |  ),
-          |  classes = "govuk-!-width-three-quarters"
-          |))
-          |@GovukInput(Input(
-          |  id = "two-thirds",
-          |  name = "two-thirds",
-          |  label = Label(
-          |    content = Text( "Two-thirds width")
-          |  ),
-          |  classes = "govuk-!-width-two-thirds"
-          |))
-          |@GovukInput(Input(
-          |  id = "one-half",
-          |  name = "one-half",
-          |  label = Label(
-          |    content = Text( "One-half width")
-          |  ),
-          |  classes = "govuk-!-width-one-half"
-          |))
-          |@GovukInput(Input(
-          |  id = "one-third",
-          |  name = "one-third",
-          |  label = Label(
-          |    content = Text( "One-third width")
-          |  ),
-          |  classes = "govuk-!-width-one-third"
-          |))
-          |@GovukInput(Input(
-          |  id = "one-quarter",
-          |  name = "one-quarter",
-          |  label = Label(
-          |    content = Text( "One-quarter width")
-          |  ),
-          |  classes = "govuk-!-width-one-quarter"
-          |))""".stripMargin
-
-      val gouvukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
-      val gouvukInputTwirl  = formatPlay25(gouvukInputParsed.get.value)
-      gouvukInputTwirl.print
-      gouvukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
-    }
-
-    "format GovukInput4 " in {
-
-      val gouvukInputNunjucks =
-        """{% from "govuk/components/input/macro.njk" import govukInput %}
-          |
-          |{{ govukInput({
-          |  label: {
-          |    text: "Event name"
-          |  },
-          |  hint: {
-          |    text: "The name you’ll use on promotional material."
-          |  },
-          |  id: "event-name",
-          |  name: "event-name"
-          |}) }}""".stripMargin
-
-      val govukInputTwirlExpected =
-        """@import uk.gov.hmrc.govukfrontend.views.html.components._
-          |
-          |@()
-          |@GovukInput(Input(
-          |  id = "event-name",
-          |  name = "event-name",
-          |  label = Label(
-          |    content = Text( "Event name")
-          |  ),
-          |  hint = Some(Hint(
-          |    content = Text( "The name you’ll use on promotional material.")
-          |  ))
-          |))""".stripMargin
-
-      val gouvukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
-      val gouvukInputTwirl  = formatPlay25(gouvukInputParsed.get.value)
-      gouvukInputTwirl.print
-      gouvukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
-    }
-
-    "format GovukInput5 " in {
-
-      val gouvukInputNunjucks =
-        """{% from "govuk/components/input/macro.njk" import govukInput %}
-          |
-          |{{ govukInput({
-          |  label: {
-          |    text: "Event name"
-          |  },
-          |  id: "event-name",
-          |  name: "event-name",
-          |  hint: {
-          |    text: "The name you’ll use on promotional material."
-          |  },
-          |  errorMessage: {
-          |    text: "Enter an event name"
-          |  }
-          |}) }}""".stripMargin
-
-      val govukInputTwirlExpected =
-        """@import uk.gov.hmrc.govukfrontend.views.html.components._
-          |
-          |@()
-          |@GovukInput(Input(
-          |  id = "event-name",
-          |  name = "event-name",
-          |  label = Label(
-          |    content = Text( "Event name")
-          |  ),
-          |  hint = Some(Hint(
-          |    content = Text( "The name you’ll use on promotional material.")
-          |  )),
-          |  errorMessage = Some(ErrorMessage(
-          |    content = Text( "Enter an event name")
-          |  ))
-          |))""".stripMargin
-
-      val gouvukInputParsed = fastparse.parse(gouvukInputNunjucks, NunjucksParser.nunjucksParser(_))
-      val gouvukInputTwirl  = formatPlay25(gouvukInputParsed.get.value)
-      gouvukInputTwirl.print
-      gouvukInputTwirl.trimSpaces shouldBe govukInputTwirlExpected.trimSpaces
+      val gouvukTabsParsed = fastparse.parse(gouvukTabsNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukTabsTwirl  = formatPlay25(gouvukTabsParsed.get.value)
+      gouvukTabsTwirl.print
+      gouvukTabsTwirl.trimSpaces shouldBe govukTabsTwirlExpected.trimSpaces
     }
 
     "format GovukTextarea " in {
