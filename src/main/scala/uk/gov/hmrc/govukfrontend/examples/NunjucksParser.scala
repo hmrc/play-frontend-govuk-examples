@@ -21,8 +21,8 @@ import fastparse._
 import play.api.libs.json.Reads
 import play.twirl.api.Html
 import uk.gov.hmrc.govukfrontend.examples.AsJson._
-import uk.gov.hmrc.govukfrontend.views.html.components._
-import uk.gov.hmrc.hmrcfrontend.views.html.components.PageHeading
+import uk.gov.hmrc.govukfrontend.views.html.components.{Header => GovukHeader, _}
+import uk.gov.hmrc.hmrcfrontend.views.html.components._
 
 object NunjucksParser {
 
@@ -97,7 +97,7 @@ object NunjucksParser {
         case (m @ "govukFooter", args) =>
           jsonToMacroCall[Footer](m, args)
         case (m @ "govukHeader", args) =>
-          jsonToMacroCall[Header](m, args)
+          jsonToMacroCall[GovukHeader](m, args)
         case (m @ "govukHint", args) =>
           jsonToMacroCall[Hint](m, args)
         case (m @ "govukInput", args) =>
@@ -130,6 +130,8 @@ object NunjucksParser {
           jsonToMacroCall[WarningText](m, args)
         case (m @ "hmrcPageHeading", args) =>
           jsonToMacroCall[PageHeading](m, args)
+        case (m @ "hmrcNotificationBadge", args) =>
+          jsonToMacroCall[NotificationBadge](m, args)
       }
 
   import scala.reflect.runtime.universe._

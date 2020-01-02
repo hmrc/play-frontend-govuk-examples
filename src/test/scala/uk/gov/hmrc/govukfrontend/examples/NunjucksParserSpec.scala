@@ -873,5 +873,30 @@ class NunjucksParserSpec extends WordSpec with Matchers {
         163
       )
     }
+
+    "parse hmrc notification badge full example" in {
+      val s =
+        """{%- from "hmrc/components/notification-badge/macro.njk" import hmrcNotificationBadge -%}
+          |
+          |<a class="govuk-link" href="#">Messages {{ hmrcNotificationBadge({ text: '32' }) }}</a>""".stripMargin
+
+      val parsed = fastparse.parse(s, nunjucksParser(_))
+      parsed shouldBe Success(
+        NunjucksTemplate(
+          imports = List(
+            Import(from = "hmrc/components/notification-badge/macro.njk", macroName = "hmrcNotificationBadge")
+          ),
+          body = List(
+            TemplateHtml(Html("""<a class="govuk-link" href="#">Messages """)),
+            MacroCall(
+              macroName = "hmrcNotificationBadge",
+              args      = NotificationBadge(text = "32")
+            ),
+            TemplateHtml(Html("""</a>"""))
+          )
+        ),
+        177
+      )
+    }
   }
 }
