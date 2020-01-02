@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 HM Revenue & Customs
+ * Copyright 2020 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import play.api.libs.json.Reads
 import play.twirl.api.Html
 import uk.gov.hmrc.govukfrontend.examples.AsJson._
 import uk.gov.hmrc.govukfrontend.views.html.components._
+import uk.gov.hmrc.hmrcfrontend.views.html.components.PageHeading
 
 object NunjucksParser {
 
@@ -64,7 +65,7 @@ object NunjucksParser {
       case (callMacro, macroCalls) => CallMacro(callMacro, macroCalls.toList)
     }
 
-  def macroName[_: P]: P[String] = P(("govuk" ~ (!"(" ~ AnyChar).rep).!)
+  def macroName[_: P]: P[String] = P(("govuk" ~ (!"(" ~ AnyChar).rep).! | ("hmrc" ~ (!"(" ~ AnyChar).rep).!)
 
   def macroCall[_: P](starting: String = "{{", terminating: String = "}}"): P[MacroCall] =
     P(ws ~ starting ~ ws ~ macroName ~ "(" ~ ("{" ~ ws ~ (!"})" ~ AnyChar).rep ~ ws ~ "}").! ~ ")" ~ ws ~ terminating ~ ws)
@@ -127,6 +128,8 @@ object NunjucksParser {
           jsonToMacroCall[Textarea](m, args)
         case (m @ "govukWarningText", args) =>
           jsonToMacroCall[WarningText](m, args)
+        case (m @ "hmrcPageHeading", args) =>
+          jsonToMacroCall[PageHeading](m, args)
       }
 
   import scala.reflect.runtime.universe._
