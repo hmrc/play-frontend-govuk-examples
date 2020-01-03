@@ -37,7 +37,8 @@ class ExampleTranslatorTest extends AsyncWordSpec with Matchers {
       ExampleTranslator
         .translateTwirlExamples(
           TrueDir(Paths.get(srcDir)),
-          TrueDir(Paths.get(destDir))
+          TrueDir(Paths.get(destDir)),
+          GovukFrontend
         )
         .flatMap { _ =>
           assert(Directory(destDir).exists)
