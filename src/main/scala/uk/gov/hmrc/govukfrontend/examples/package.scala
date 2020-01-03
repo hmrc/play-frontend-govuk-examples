@@ -142,7 +142,9 @@ package object examples {
 
   case class Import(from: String = "", macroName: String = "") {
 
-    override def toString: String = "@import uk.gov.hmrc.govukfrontend.views.html.components._"
+    override def toString: String =
+      if (macroName.startsWith("hmrc")) "@import uk.gov.hmrc.hmrcfrontend.views.html.components._"
+      else "@import uk.gov.hmrc.govukfrontend.views.html.components._"
 
     def toDependencyInjectionString: String = s"$macroName : ${macroName.capitalize}"
   }

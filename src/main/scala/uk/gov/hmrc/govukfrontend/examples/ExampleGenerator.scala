@@ -29,7 +29,7 @@ object ExampleGenerator extends App {
   val currentDir: String = System.getProperty("user.dir")
   val srcGovukDir        = s"$currentDir/govuk-design-system/src/components"
   val destGovukDir       = s"$currentDir/src/test"
-  val srcHmrcDir         = s"$currentDir/hmrc-design-system/src/components"
+  val srcHmrcDir         = s"$currentDir/hmrc-design-system/src/examples"
   val destHmrcDir        = s"$currentDir/src/test"
 
   private val govuk =

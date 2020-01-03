@@ -47,7 +47,7 @@ object NunjucksParser {
   def doubleQuotedString[_: P]: P[String] = P("\"" ~ (!"\"" ~ AnyChar).rep.! ~ "\"")
 
   def templateBody[_: P]: P[Seq[NunjucksTemplateBody]] =
-    P((macroCall() | callMacro | setBlock | html).rep(1))
+    P((macroCall() | callMacro | setBlock | html).rep)
 
   def html[_: P]: P[TemplateHtml] =
     P(ws ~ "<" ~ (!"{{" ~ !"{%" ~ AnyChar).rep.! ~ ws).map(html => TemplateHtml(Html(s"<$html")))
@@ -58,14 +58,14 @@ object NunjucksParser {
         SetBlock(blockName, html, macroCall)
     }
 
-  def blockName[_: P]: P[String] = P("{% set" ~ ws ~ (!"%}" ~ CharIn("a-zA-Z")).rep.! ~ ws ~ "%}" ~ ws)
+  def blockName[_: P]: P[String] = P("{%" ~ ws ~ "set" ~ ws ~ (!"%}" ~ CharIn("a-zA-Z")).rep.! ~ ws ~ "%}" ~ ws)
 
   def callMacro[_: P]: P[CallMacro] =
     P(macroCall("{% call", "%}") ~ ws ~ macroCall().rep ~ ws ~ "{% endcall %}").map {
       case (callMacro, macroCalls) => CallMacro(callMacro, macroCalls.toList)
     }
 
-  def macroName[_: P]: P[String] = P(("govuk" ~ (!"(" ~ AnyChar).rep).! | ("hmrc" ~ (!"(" ~ AnyChar).rep).!)
+  def macroName[_: P]: P[String] = P(("govuk" ~ (!"(" ~ AnyChar).rep).! | ("hmrc" ~ (!"(" ~ AnyChar).rep).!).map(_.trim)
 
   def macroCall[_: P](starting: String = "{{", terminating: String = "}}"): P[MacroCall] =
     P(ws ~ starting ~ ws ~ macroName ~ "(" ~ ("{" ~ ws ~ (!"})" ~ AnyChar).rep ~ ws ~ "}").! ~ ")" ~ ws ~ terminating ~ ws)
