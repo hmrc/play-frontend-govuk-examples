@@ -30,6 +30,7 @@ package object examples {
     val thisDepth   = prettyPrint(_: Any, indentSize, maxElementWidth, depth)
     val nextDepth   = prettyPrint(_: Any, indentSize, maxElementWidth, depth + 1)
     a match {
+      case Nil                    => ""
       case (k: String, v: String) => s""""$k" -> "$v""""
       case Some(value: String)    => s"""Some("$value")"""
       case HtmlContent(value: Html) =>

@@ -2354,6 +2354,30 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
       gouvukTextareaTwirl.trimSpaces shouldBe govukTextareaTwirlExpected.trimSpaces
     }
 
+    "format hmrcHeader " ignore {
+
+      val gouvukTextareaNunjucks =
+        """---
+          |layout: layout-example.njk
+          |---
+          |{% from "hmrc/components/header/macro.njk" import hmrcHeader %}
+          |
+          |{{ hmrcHeader({
+          |    "serviceName": "Service Name",
+          |    "serviceUrl" : "/",
+          |    "phaseBanner" : true,
+          |    "signOut" : true
+          |}) }}""".stripMargin
+
+      val govukTextareaTwirlExpected =
+        """""".stripMargin
+
+      val gouvukTextareaParsed = fastparse.parse(gouvukTextareaNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukTextareaTwirl  = formatPlay25(gouvukTextareaParsed.get.value)
+      gouvukTextareaTwirl.print
+      gouvukTextareaTwirl.trimSpaces shouldBe govukTextareaTwirlExpected.trimSpaces
+    }
+
   }
 
   "Play 2.6 formatter" should {

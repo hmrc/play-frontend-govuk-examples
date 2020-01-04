@@ -1,0 +1,26 @@
+
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@()
+
+@GovukInput(Input(
+    id = "access-code",
+    name = "access-code",
+    label = Label(
+      content = Text("Access code")
+    ),
+    classes = "govuk-input--width-10"
+  ))
+@GovukCheckboxes(Checkboxes(
+    idPrefix = Some("access-code-7-days"),
+    name = "access-code-7-days",
+    items = Seq(
+      CheckboxItem(
+        content = Text("Remember this access code for 7 days"),
+        value = "Keep for 7 days"
+      )
+    )
+  ))
+@GovukButton(Button(
+    content = Text("Continue")
+  ))

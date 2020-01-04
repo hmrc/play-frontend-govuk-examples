@@ -1,0 +1,21 @@
+
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@()
+
+@GovukInput(Input(
+    id = "employer-paye-reference",
+    name = "employer-paye-reference",
+    label = Label(
+      isPageHeading = true,
+      classes = "govuk-label--xl",
+      content = Text("What is Anycompany’s employer PAYE reference?")
+    ),
+    hint = Some(Hint(
+      content = Text("This is a 3 digit tax office number, a forward slash, and a tax office employer reference, like 123/AB456. It may be called ‘Employer PAYE reference’ or ‘PAYE reference’. It will be on your P60.")
+    )),
+    classes = "govuk-input--width-10"
+  ))
+@GovukButton(Button(
+    content = Text("Continue")
+  ))
