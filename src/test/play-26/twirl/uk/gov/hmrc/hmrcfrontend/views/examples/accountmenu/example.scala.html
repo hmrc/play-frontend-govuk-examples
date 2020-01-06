@@ -1,0 +1,23 @@
+@import uk.gov.hmrc.hmrcfrontend.views.html.components._
+
+@this(hmrcAccountMenu : HmrcAccountMenu)
+
+@()
+
+
+@hmrcAccountMenu(AccountMenu(
+    accountHome = AccountHome(
+      href = "#account-home",
+      active = true
+    ),
+    messages = AccountMessages(
+      href = "#messages",
+      messageCount = Some(2)
+    ),
+    checkProgress = CheckProgress(
+      href = "#check-progress"
+    ),
+    paperlessSettings = PaperlessSettings("#paperless-settings"),
+    personalDetails = PersonalDetails("#personal-details"),
+    signOut = SignOut("#sign-out")
+  ))

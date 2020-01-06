@@ -93,7 +93,8 @@ lazy val libDependencies: Seq[ModuleID] = dependencies(
   },
   play25 = {
     val compile = Seq(
-      "uk.gov.hmrc" %% "play-frontend-govuk" % "0.32.0-play-25"
+      "uk.gov.hmrc" %% "play-frontend-govuk" % "0.32.0-play-25",
+      "uk.gov.hmrc" %% "play-frontend-hmrc" % "0.7.0-play-25"
     )
 
     val test = Seq(
@@ -104,7 +105,8 @@ lazy val libDependencies: Seq[ModuleID] = dependencies(
   },
   play26 = {
     val compile = Seq(
-      "uk.gov.hmrc" %% "play-frontend-govuk" % "0.32.0-play-26"
+      "uk.gov.hmrc" %% "play-frontend-govuk" % "0.32.0-play-26",
+      "uk.gov.hmrc" %% "play-frontend-hmrc" % "0.7.0-play-26"
     )
 
     val test = Seq(

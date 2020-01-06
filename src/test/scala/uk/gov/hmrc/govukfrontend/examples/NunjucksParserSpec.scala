@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 HM Revenue & Customs
+ * Copyright 2020 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import org.scalatest.{Matchers, WordSpec}
 import play.twirl.api.Html
 import uk.gov.hmrc.govukfrontend.examples.NunjucksParser._
 import uk.gov.hmrc.govukfrontend.views.html.components._
+import uk.gov.hmrc.hmrcfrontend.views.html.components._
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -81,7 +82,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
   }
 
   "macroName parser" should {
-    "parse" in {
+    "parse govuk macro name" in {
       val s = """govukErrorSummary({"""
 
       fastparse.parse(s, macroName(_)) shouldBe Success(
@@ -89,10 +90,19 @@ class NunjucksParserSpec extends WordSpec with Matchers {
         17
       )
     }
+
+    "parse hmrc macro name" in {
+      val s = """hmrcPageHeading({"""
+
+      fastparse.parse(s, macroName(_)) shouldBe Success(
+        "hmrcPageHeading",
+        15
+      )
+    }
   }
 
   "macroCall parser" should {
-    "parse" in {
+    "parse govuk macro" in {
       val s =
         """{{ govukErrorSummary({
           |  titleText: "There is a problem",
@@ -126,6 +136,25 @@ class NunjucksParserSpec extends WordSpec with Matchers {
           )
         ),
         289
+      )
+    }
+
+    "parse hmrc macro" in {
+      val s =
+        """{{ hmrcPageHeading({
+          |  text: "What is your name?",
+          |  section: "Personal details"
+          |}) }}""".stripMargin
+
+      fastparse.parse(s, macroCall()(_)) shouldBe Success(
+        MacroCall(
+          macroName = "hmrcPageHeading",
+          args = PageHeading(
+            text    = "What is your name?",
+            section = Some("Personal details")
+          )
+        ),
+        86
       )
     }
   }
@@ -813,6 +842,60 @@ class NunjucksParserSpec extends WordSpec with Matchers {
           )
         ),
         1438
+      )
+    }
+
+    "parse hmrc page heading full example" in {
+      val s =
+        """{% from "hmrc/components/page-heading/macro.njk"  import hmrcPageHeading %}
+          |
+          |{{ hmrcPageHeading({
+          |  text: "What is your name?",
+          |  section: "Personal details"
+          |}) }}""".stripMargin
+
+      val parsed = fastparse.parse(s, nunjucksParser(_))
+      parsed shouldBe Success(
+        NunjucksTemplate(
+          imports = List(
+            Import(from = "hmrc/components/page-heading/macro.njk", macroName = "hmrcPageHeading")
+          ),
+          body = List(
+            MacroCall(
+              macroName = "hmrcPageHeading",
+              args = PageHeading(
+                text    = "What is your name?",
+                section = Some("Personal details")
+              )
+            )
+          )
+        ),
+        163
+      )
+    }
+
+    "parse hmrc notification badge full example" in {
+      val s =
+        """{%- from "hmrc/components/notification-badge/macro.njk" import hmrcNotificationBadge -%}
+          |
+          |<a class="govuk-link" href="#">Messages {{ hmrcNotificationBadge({ text: '32' }) }}</a>""".stripMargin
+
+      val parsed = fastparse.parse(s, nunjucksParser(_))
+      parsed shouldBe Success(
+        NunjucksTemplate(
+          imports = List(
+            Import(from = "hmrc/components/notification-badge/macro.njk", macroName = "hmrcNotificationBadge")
+          ),
+          body = List(
+            TemplateHtml(Html("""<a class="govuk-link" href="#">Messages """)),
+            MacroCall(
+              macroName = "hmrcNotificationBadge",
+              args      = NotificationBadge(text = "32")
+            ),
+            TemplateHtml(Html("""</a>"""))
+          )
+        ),
+        177
       )
     }
   }

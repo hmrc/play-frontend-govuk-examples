@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 HM Revenue & Customs
+ * Copyright 2020 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ package object examples {
     val thisDepth   = prettyPrint(_: Any, indentSize, maxElementWidth, depth)
     val nextDepth   = prettyPrint(_: Any, indentSize, maxElementWidth, depth + 1)
     a match {
+      case Nil                    => ""
       case (k: String, v: String) => s""""$k" -> "$v""""
       case Some(value: String)    => s"""Some("$value")"""
       case HtmlContent(value: Html) =>
@@ -142,7 +143,9 @@ package object examples {
 
   case class Import(from: String = "", macroName: String = "") {
 
-    override def toString: String = "@import uk.gov.hmrc.govukfrontend.views.html.components._"
+    override def toString: String =
+      if (macroName.startsWith("hmrc")) "@import uk.gov.hmrc.hmrcfrontend.views.html.components._"
+      else "@import uk.gov.hmrc.govukfrontend.views.html.components._"
 
     def toDependencyInjectionString: String = s"$macroName : ${macroName.capitalize}"
   }

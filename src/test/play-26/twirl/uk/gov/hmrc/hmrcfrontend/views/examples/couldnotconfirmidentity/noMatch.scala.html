@@ -1,0 +1,18 @@
+@import uk.gov.hmrc.hmrcfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(hmrcPageHeading : HmrcPageHeading,
+govukButton : GovukButton)
+
+@()
+
+
+@hmrcPageHeading(PageHeading(
+    text = "We could not confirm your identity"
+  ))
+<p class="govuk-body">The information you have entered does not match our records.</p>
+
+
+@govukButton(Button(
+    content = Text("Try again")
+  ))

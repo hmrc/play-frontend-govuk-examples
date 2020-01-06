@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 HM Revenue & Customs
+ * Copyright 2020 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,9 +24,10 @@ object TwirlFormatter {
       |""".stripMargin
 
   def format(parsed: NunjucksTemplate): String = {
-    val firstImport: Import = if (parsed.imports.isEmpty) Import() else parsed.imports.head
+    val importStatement: String =
+      if (parsed.imports.isEmpty) Import().toString else parsed.imports.map(_.toString).toSet.mkString("\n")
 
-    (firstImport :: play26ParameterList(parsed.imports) :: parsed.prelim.fold("")(_.toString) :: injectingDependencies(
+    (importStatement :: play26ParameterList(parsed.imports) :: parsed.prelim.fold("")(_.toString) :: injectingDependencies(
       parsed.body))
       .map(_.toString)
       .mkString("\n")
@@ -49,9 +50,10 @@ object TwirlFormatter {
   }
 
   def formatPlay25(parsed: NunjucksTemplate): String = {
-    val firstImport: Import = if (parsed.imports.isEmpty) Import() else parsed.imports.head
+    val importStatement: String =
+      if (parsed.imports.isEmpty) Import().toString else parsed.imports.map(_.toString).toSet.mkString("\n")
 
-    (parsed.prelim.fold("")(_.toString) :: firstImport :: play25ParameterList :: parsed.body)
+    (parsed.prelim.fold("")(_.toString) :: importStatement :: play25ParameterList :: parsed.body)
       .map(_.toString)
       .mkString("\n")
   }

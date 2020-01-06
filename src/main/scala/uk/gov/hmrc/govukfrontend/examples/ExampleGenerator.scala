@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 HM Revenue & Customs
+ * Copyright 2020 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,10 +27,18 @@ import scala.concurrent.duration._
 object ExampleGenerator extends App {
 
   val currentDir: String = System.getProperty("user.dir")
-  val srcDir             = s"$currentDir/govuk-design-system/src/components"
-  val destDir            = s"$currentDir/src/test"
+  val srcGovukDir        = s"$currentDir/govuk-design-system/src/components"
+  val destGovukDir       = s"$currentDir/src/test"
+  val srcHmrcDir         = s"$currentDir/hmrc-design-system/src/examples"
+  val destHmrcDir        = s"$currentDir/src/test"
 
-  private val future = ExampleTranslator.translateTwirlExamples(TrueDir(Paths.get(srcDir)), TrueDir(Paths.get(destDir)))
-  Await.result(future, 30.second)
+  private val govuk =
+    ExampleTranslator
+      .translateTwirlExamples(TrueDir(Paths.get(srcGovukDir)), TrueDir(Paths.get(destGovukDir)), GovukFrontend)
+  Await.result(govuk, 30.second)
 
+  private val hmrc =
+    ExampleTranslator
+      .translateTwirlExamples(TrueDir(Paths.get(srcHmrcDir)), TrueDir(Paths.get(destHmrcDir)), HmrcFrontend)
+  Await.result(hmrc, 30.second)
 }

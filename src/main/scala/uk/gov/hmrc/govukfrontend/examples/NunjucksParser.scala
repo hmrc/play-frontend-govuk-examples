@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 HM Revenue & Customs
+ * Copyright 2020 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,8 @@ import fastparse._
 import play.api.libs.json.Reads
 import play.twirl.api.Html
 import uk.gov.hmrc.govukfrontend.examples.AsJson._
-import uk.gov.hmrc.govukfrontend.views.html.components._
+import uk.gov.hmrc.govukfrontend.views.html.components.{Header => GovukHeader, _}
+import uk.gov.hmrc.hmrcfrontend.views.html.components._
 
 object NunjucksParser {
 
@@ -46,7 +47,7 @@ object NunjucksParser {
   def doubleQuotedString[_: P]: P[String] = P("\"" ~ (!"\"" ~ AnyChar).rep.! ~ "\"")
 
   def templateBody[_: P]: P[Seq[NunjucksTemplateBody]] =
-    P((macroCall() | callMacro | setBlock | html).rep(1))
+    P((macroCall() | callMacro | setBlock | html).rep)
 
   def html[_: P]: P[TemplateHtml] =
     P(ws ~ "<" ~ (!"{{" ~ !"{%" ~ AnyChar).rep.! ~ ws).map(html => TemplateHtml(Html(s"<$html")))
@@ -57,17 +58,17 @@ object NunjucksParser {
         SetBlock(blockName, html, macroCall)
     }
 
-  def blockName[_: P]: P[String] = P("{% set" ~ ws ~ (!"%}" ~ CharIn("a-zA-Z")).rep.! ~ ws ~ "%}" ~ ws)
+  def blockName[_: P]: P[String] = P("{%" ~ ws ~ "set" ~ ws ~ (!"%}" ~ CharIn("a-zA-Z")).rep.! ~ ws ~ "%}" ~ ws)
 
   def callMacro[_: P]: P[CallMacro] =
     P(macroCall("{% call", "%}") ~ ws ~ macroCall().rep ~ ws ~ "{% endcall %}").map {
       case (callMacro, macroCalls) => CallMacro(callMacro, macroCalls.toList)
     }
 
-  def macroName[_: P]: P[String] = P(("govuk" ~ (!"(" ~ AnyChar).rep).!)
+  def macroName[_: P]: P[String] = P(("govuk" ~ (!"(" ~ AnyChar).rep).! | ("hmrc" ~ (!"(" ~ AnyChar).rep).!).map(_.trim)
 
   def macroCall[_: P](starting: String = "{{", terminating: String = "}}"): P[MacroCall] =
-    P(ws ~ starting ~ ws ~ macroName ~ "(" ~ ("{" ~ ws ~ (!"})" ~ AnyChar).rep ~ ws ~ "}").! ~ ")" ~ ws ~ terminating ~ ws)
+    P(ws ~ starting ~ ws ~ macroName ~ "(" ~ ("{" ~ ws ~ (!"})" ~ AnyChar).rep ~ ws ~ "}").!.? ~ ")" ~ ws ~ terminating ~ ws)
       .map {
         case (m @ "govukAccordion", args) =>
           jsonToMacroCall[Accordion](m, args)
@@ -96,7 +97,7 @@ object NunjucksParser {
         case (m @ "govukFooter", args) =>
           jsonToMacroCall[Footer](m, args)
         case (m @ "govukHeader", args) =>
-          jsonToMacroCall[Header](m, args)
+          jsonToMacroCall[GovukHeader](m, args)
         case (m @ "govukHint", args) =>
           jsonToMacroCall[Hint](m, args)
         case (m @ "govukInput", args) =>
@@ -127,14 +128,35 @@ object NunjucksParser {
           jsonToMacroCall[Textarea](m, args)
         case (m @ "govukWarningText", args) =>
           jsonToMacroCall[WarningText](m, args)
+        case (m @ "hmrcPageHeading", args) =>
+          jsonToMacroCall[PageHeading](m, args)
+        case (m @ "hmrcNotificationBadge", args) =>
+          jsonToMacroCall[NotificationBadge](m, args)
+        case (m @ "hmrcAccountMenu", args) =>
+          jsonToMacroCall[AccountMenu](m, args)
+        case (m @ "hmrcBanner", args) =>
+          jsonToMacroCall[Banner](m, args)
+        case (m @ "hmrcHeader", args) =>
+          jsonToMacroCall[Header](m, args)
+        case (m @ "hmrcInternalHeader", args) =>
+          jsonToMacroCall[InternalHeader](m, args)
+        case (m @ "hmrcLanguageSelect", args) =>
+          jsonToMacroCall[LanguageSelect](m, args)
+        case (m @ "hmrcNewTabLink", args) =>
+          jsonToMacroCall[NewTabLink](m, args)
+        case (m @ "hmrcTimeoutDialog", args) =>
+          jsonToMacroCall[TimeoutDialog](m, args)
       }
 
   import scala.reflect.runtime.universe._
 
-  def jsonToMacroCall[T: Reads: TypeTag](macroName: String, args: String): MacroCall = {
+  def jsonToMacroCall[T: Reads: TypeTag](macroName: String, args: Option[String]): MacroCall = {
     val typeOfT = typeOf[T] match { case TypeRef(_, symbol, _) => symbol.toString.replace("type ", "").trim }
 
-    var argsWithQuotes = args.lines.toStream
+    var argsWithQuotes = args
+      .getOrElse("")
+      .lines
+      .toStream
       .map { line =>
         if ((line matches """\s*html\s*:\s*([^"][A-z])+\s*$""") ||
             (typeOfT == "DateInput" && (line matches """\s*value\s*:\s*([^"][A-z0-9])+\s*$"""))) {
@@ -168,7 +190,7 @@ object NunjucksParser {
         .mkString("\n")
     }
 
-    val templateParams = asJson(argsWithQuotes).as[T]
+    val templateParams = if (args.isDefined) asJson(argsWithQuotes).as[T] else Nil
     MacroCall(macroName = macroName, args = templateParams)
   }
 }

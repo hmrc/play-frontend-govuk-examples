@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 HM Revenue & Customs
+ * Copyright 2020 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -2347,6 +2347,30 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    content = Text( "Enter more detail")
           |  ))
           |))""".stripMargin
+
+      val gouvukTextareaParsed = fastparse.parse(gouvukTextareaNunjucks, NunjucksParser.nunjucksParser(_))
+      val gouvukTextareaTwirl  = formatPlay25(gouvukTextareaParsed.get.value)
+      gouvukTextareaTwirl.print
+      gouvukTextareaTwirl.trimSpaces shouldBe govukTextareaTwirlExpected.trimSpaces
+    }
+
+    "format hmrcHeader " ignore {
+
+      val gouvukTextareaNunjucks =
+        """---
+          |layout: layout-example.njk
+          |---
+          |{% from "hmrc/components/header/macro.njk" import hmrcHeader %}
+          |
+          |{{ hmrcHeader({
+          |    "serviceName": "Service Name",
+          |    "serviceUrl" : "/",
+          |    "phaseBanner" : true,
+          |    "signOut" : true
+          |}) }}""".stripMargin
+
+      val govukTextareaTwirlExpected =
+        """""".stripMargin
 
       val gouvukTextareaParsed = fastparse.parse(gouvukTextareaNunjucks, NunjucksParser.nunjucksParser(_))
       val gouvukTextareaTwirl  = formatPlay25(gouvukTextareaParsed.get.value)
