@@ -2354,9 +2354,9 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
       gouvukTextareaTwirl.trimSpaces shouldBe govukTextareaTwirlExpected.trimSpaces
     }
 
-    "format hmrcHeader " ignore {
+    "format HmrcHeader " in {
 
-      val gouvukTextareaNunjucks =
+      val hmrcHeaderNunjucks =
         """---
           |layout: layout-example.njk
           |---
@@ -2369,13 +2369,20 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |    "signOut" : true
           |}) }}""".stripMargin
 
-      val govukTextareaTwirlExpected =
-        """""".stripMargin
+      val hmrcHeaderTwirlExpected =
+        """@import uk.gov.hmrc.hmrcfrontend.views.html.components._
+          |
+          |@()
+          |
+          |@HmrcHeader(Header(
+          |  serviceName = Some("Service Name"),
+          |  serviceUrl = "/"
+          |))""".stripMargin
 
-      val gouvukTextareaParsed = fastparse.parse(gouvukTextareaNunjucks, NunjucksParser.nunjucksParser(_))
-      val gouvukTextareaTwirl  = formatPlay25(gouvukTextareaParsed.get.value)
-      gouvukTextareaTwirl.print
-      gouvukTextareaTwirl.trimSpaces shouldBe govukTextareaTwirlExpected.trimSpaces
+      val hmrcHeaderParsed = fastparse.parse(hmrcHeaderNunjucks, NunjucksParser.nunjucksParser(_))
+      val hmrcHeaderTwirl  = formatPlay25(hmrcHeaderParsed.get.value)
+      hmrcHeaderTwirl.print
+      hmrcHeaderTwirl.trimSpaces shouldBe hmrcHeaderTwirlExpected.trimSpaces
     }
 
   }
@@ -4255,6 +4262,38 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
       val gouvukTextareaTwirl  = format(gouvukTextareaParsed.get.value)
       gouvukTextareaTwirl.print
       gouvukTextareaTwirl.trimSpaces shouldBe govukTextareaTwirlExpected.trimSpaces
+    }
+
+    "format HmrcHeader " in {
+
+      val hmrcHeaderNunjucks =
+        """---
+          |layout: layout-example.njk
+          |---
+          |{% from "hmrc/components/header/macro.njk" import hmrcHeader %}
+          |
+          |{{ hmrcHeader({
+          |    "serviceName": "Service Name",
+          |    "serviceUrl" : "/",
+          |    "phaseBanner" : true,
+          |    "signOut" : true
+          |}) }}""".stripMargin
+
+      val hmrcHeaderTwirlExpected =
+        """@import uk.gov.hmrc.hmrcfrontend.views.html.components._
+          |
+          |@this(hmrcHeader: HmrcHeader)
+          |
+          |@()
+          |@hmrcHeader(Header(
+          |  serviceName = Some("Service Name"),
+          |  serviceUrl = "/"
+          |))""".stripMargin
+
+      val hmrcHeaderParsed = fastparse.parse(hmrcHeaderNunjucks, NunjucksParser.nunjucksParser(_))
+      val hmrcHeaderTwirl  = format(hmrcHeaderParsed.get.value)
+      hmrcHeaderTwirl.print
+      hmrcHeaderTwirl.trimSpaces shouldBe hmrcHeaderTwirlExpected.trimSpaces
     }
 
   }
