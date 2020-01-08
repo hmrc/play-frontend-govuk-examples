@@ -9,9 +9,12 @@ lazy val playDir =
   (if (PlayCrossCompilation.playVersion == Play25) "play-25"
    else "play-26")
 
+lazy val IntegrationTest = config("it") extend Test
+
 lazy val root = Project(libName, file("."))
   .enablePlugins(PlayScala, SbtAutoBuildPlugin, SbtGitVersioning, SbtTwirl, SbtArtifactory)
   .disablePlugins(PlayLayoutPlugin)
+  .configs(IntegrationTest)
   .settings(
     name := libName,
     majorVersion := 0,
@@ -63,6 +66,12 @@ lazy val root = Project(libName, file("."))
     mainClass in (Compile, run) := Some("uk.gov.hmrc.govukfrontend.examples.ExampleGenerator"),
     mainClass in (Compile, packageBin) := Some("uk.gov.hmrc.govukfrontend.examples.ExampleGenerator")
   )
+  .settings(inConfig(IntegrationTest)(itSettings): _*)
+
+lazy val itSettings = Defaults.itSettings ++ Seq(
+  unmanagedSourceDirectories += sourceDirectory.value / playDir,
+  unmanagedResourceDirectories += sourceDirectory.value / playDir / "resources"
+)
 
 lazy val libDependencies: Seq[ModuleID] = dependencies(
   shared = {
