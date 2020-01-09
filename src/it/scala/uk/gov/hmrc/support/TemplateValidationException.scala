@@ -1,4 +1,4 @@
-package uk.gov.hmrc.examples.support
+package uk.gov.hmrc.support
 
 class TemplateValidationException(message: String) extends IllegalArgumentException(message)
 

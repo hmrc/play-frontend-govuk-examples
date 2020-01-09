@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.examples.support
+package uk.gov.hmrc.support
 
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document

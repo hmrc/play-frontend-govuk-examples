@@ -1,4 +1,4 @@
-package uk.gov.hmrc.govukfrontend.support
+package uk.gov.hmrc.support
 
 object Utils {
 

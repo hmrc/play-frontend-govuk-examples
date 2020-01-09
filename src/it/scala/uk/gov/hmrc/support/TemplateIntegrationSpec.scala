@@ -1,14 +1,15 @@
-package uk.gov.hmrc.examples.support
+package uk.gov.hmrc.support
 
 import org.jsoup.Jsoup
 import org.scalacheck.ShrinkLowPriority
 import org.scalatest.WordSpec
 import org.scalatest.concurrent.{IntegrationPatience, ScalaFutures}
-import uk.gov.hmrc.govukfrontend.support.Implicits._
-import uk.gov.hmrc.govukfrontend.support.TemplateServiceClient
+import uk.gov.hmrc.govukfrontend.examples.ExampleType
 import uk.gov.hmrc.govukfrontend.views.PreProcessor
 import uk.gov.hmrc.govukfrontend.views.TemplateDiff._
+import uk.gov.hmrc.support.Implicits._
 
+import scala.concurrent.Future
 import scala.util.{Failure, Success, Try}
 
 /**
@@ -19,45 +20,60 @@ abstract class TemplateIntegrationSpec
     extends WordSpec
     with TemplateServiceClient
     with PreProcessor
-//    with TwirlRenderer[T]
     with ShrinkLowPriority
     with JsoupHelpers
     with ScalaFutures
     with IntegrationPatience {
 
-  def testRendering(componentName: String, exampleName: String, example: play.twirl.api.HtmlFormat.Appendable) {
+  def testRendering(componentName: String, frontend: ExampleType) {
 
-    val response = render(componentName)
+    s"$componentName examples" should {
 
-    val nunJucksOutputHtml = response.futureValue.bodyAsString
+      "compile to the same HTML as the corresponding Nunjucks" in {
 
-    val tryRenderTwirl =
-      Try(example)
-        .transform(html => Success(html.body), f => Failure(new TemplateValidationException(f.getMessage)))
+        val examples: List[Example] = fetchExamples(componentName, frontend).futureValue
 
-    tryRenderTwirl match {
+        examples.foreach { example =>
 
-      case Success(twirlOutputHtml) =>
-        val preProcessedTwirlHtml    = preProcess(twirlOutputHtml)
-        val preProcessedNunjucksHtml = preProcess(nunJucksOutputHtml)
-        val prop                     = preProcessedTwirlHtml == preProcessedNunjucksHtml
+          s"${example.frontend} ${example.componentName} ${example.exampleName}" in {
 
-        if (!prop) {
-          reportDiff(
-            exampleName,
-            preProcessedTwirlHtml    = preProcessedTwirlHtml,
-            preProcessedNunjucksHtml = preProcessedNunjucksHtml
-          )
+          }
+
         }
 
-        prop
-      case Failure(TemplateValidationException(message)) =>
-        println(s"Failed to validate the parameters for the $componentName template")
-        println(s"Exception: $message")
-        println("Skipping property evaluation")
 
-        true
+      }
+
     }
+
+
+//    val tryRenderTwirl =
+//      Try(example)
+//        .transform(html => Success(html.body), f => Failure(new TemplateValidationException(f.getMessage)))
+//
+//    tryRenderTwirl match {
+//
+//      case Success(twirlOutputHtml) =>
+//        val preProcessedTwirlHtml    = preProcess(twirlOutputHtml)
+//        val preProcessedNunjucksHtml = preProcess(nunJucksOutputHtml)
+//        val prop                     = preProcessedTwirlHtml == preProcessedNunjucksHtml
+//
+//        if (!prop) {
+//          reportDiff(
+//            exampleName,
+//            preProcessedTwirlHtml    = preProcessedTwirlHtml,
+//            preProcessedNunjucksHtml = preProcessedNunjucksHtml
+//          )
+//        }
+//
+//        prop
+//      case Failure(TemplateValidationException(message)) =>
+//        println(s"Failed to validate the parameters for the $componentName template")
+//        println(s"Exception: $message")
+//        println("Skipping property evaluation")
+//
+//        true
+//    }
   }
 
   def reportDiff(exampleName: String, preProcessedTwirlHtml: String, preProcessedNunjucksHtml: String): Unit = {

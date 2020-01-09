@@ -14,11 +14,19 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.govukfrontend.views
-package html
+package uk.gov.hmrc.support
 
-package object examples {
+import play.twirl.api.HtmlFormat
 
+import scala.util.Try
 
+trait TwirlRenderer[T] {
 
+  /**
+    * Calls the Twirl template with the given parameters and returns the resulting markup
+    *
+    * @param templateParams
+    * @return [[Try[HtmlFormat.Appendable]]] containing the markup
+    */
+  def render(templateParams: T): Try[HtmlFormat.Appendable]
 }

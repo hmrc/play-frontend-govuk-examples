@@ -14,19 +14,13 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.examples.support
+package uk.gov.hmrc.support
 
-import play.twirl.api.HtmlFormat
+import play.api.libs.ws.WSResponse
 
-import scala.util.Try
+object Implicits {
 
-trait TwirlRenderer[T] {
-
-  /**
-    * Calls the Twirl template with the given parameters and returns the resulting markup
-    *
-    * @param templateParams
-    * @return [[Try[HtmlFormat.Appendable]]] containing the markup
-    */
-  def render(templateParams: T): Try[HtmlFormat.Appendable]
+  implicit class RichWSResponse(response: WSResponse) {
+    def bodyAsString: String = response.body[String]
+  }
 }

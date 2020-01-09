@@ -15,12 +15,13 @@
  */
 
 package uk.gov.hmrc.govukfrontend.views
-package html
+package examples
 
-package object examples {
+import uk.gov.hmrc.support.TemplateIntegrationSpec
+import uk.gov.hmrc.govukfrontend.examples.GovukFrontend
 
-  type GovukAccordionDefault            = accordion.default
-  type GovukAccordionWithSummarySection = accordion.withSummarySection
-  type GovukButtonDefault               = button.default
+class govukButtonIntegrationSpec extends TemplateIntegrationSpec {
+
+  testRendering("button", GovukFrontend)
 
 }
