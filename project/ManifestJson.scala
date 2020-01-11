@@ -1,4 +1,4 @@
-import play.api.libs.json.{Json, OWrites}
+import play.api.libs.json.{JsObject, Json, OWrites}
 
 final case class ManifestJson(
   id: String,
@@ -10,13 +10,24 @@ object ManifestJson {
 }
 
 final case class Versions(
-  play25: ExampleRef,
-  play26: ExampleRef
+  playRefs: Seq[PlayExampleRef]
 )
 
 object Versions {
-  implicit val writes: OWrites[Versions] = Json.writes[Versions]
+  implicit val writes: OWrites[Versions] = new OWrites[Versions] {
+    override def writes(o: Versions): JsObject = JsObject(
+      o.playRefs
+        .sortBy(_.playVersion)
+        .map(playRef => s"play${playRef.playVersion}" -> Json.toJsObject(playRef.ref))
+        .toMap
+    )
+  }
 }
+
+final case class PlayExampleRef(
+ playVersion: Int,
+ ref: ExampleRef
+)
 
 final case class ExampleRef(
   uri: String,

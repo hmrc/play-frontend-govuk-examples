@@ -24,7 +24,7 @@ import scala.concurrent.Await
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
 
-object ExampleGenerator extends App {
+class ExampleGenerator {
 
   val currentDir: String = System.getProperty("user.dir")
   val srcGovukDir        = s"$currentDir/govuk-design-system/src/components"
