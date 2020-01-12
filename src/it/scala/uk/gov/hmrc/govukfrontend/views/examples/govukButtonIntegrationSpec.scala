@@ -52,5 +52,4 @@ class govukButtonIntegrationSpec extends TemplateIntegrationSpec {
   testRendering(GovukFrontend, "button", "secondaryCombo", secondaryCombo.f)
   testRendering(GovukFrontend, "button", "start", start.f)
   testRendering(GovukFrontend, "button", "warning", warning.f)
-
 }
