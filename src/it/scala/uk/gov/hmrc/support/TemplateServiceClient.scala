@@ -3,10 +3,11 @@ package uk.gov.hmrc.support
 import org.scalatest.WordSpecLike
 import org.scalatestplus.play.PortNumber
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
+import play.api.libs.json.{Json, Reads}
 import play.api.libs.ws.{WSClient, WSResponse}
-
 import uk.gov.hmrc.govukfrontend.examples.{ExampleType, GovukFrontend, HmrcFrontend}
 
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 trait TemplateServiceClient extends WordSpecLike with WSScalaTestClient with GuiceOneAppPerSuite {
@@ -14,6 +15,13 @@ trait TemplateServiceClient extends WordSpecLike with WSScalaTestClient with Gui
   implicit val portNumber: PortNumber = PortNumber(3000)
 
   implicit lazy val wsClient: WSClient = app.injector.instanceOf[WSClient]
+
+  case class ComponentExample(name: String, html: String)
+
+  object ComponentExample {
+
+    implicit val reads: Reads[ComponentExample] = Json.reads[ComponentExample]
+  }
 
   /**
     * Render a govuk-frontend and hmrc-frontend component using the template service
@@ -26,11 +34,17 @@ trait TemplateServiceClient extends WordSpecLike with WSScalaTestClient with Gui
 
     val frontendPath = frontend match {
       case GovukFrontend => "govuk"
-      case HmrcFrontend => "hmrc"
+      case HmrcFrontend  => "hmrc"
     }
 
-    val response: Future[WSResponse] = wsUrl(s"/examples-output/$frontendPath/$componentName").get()
+    val future: Future[List[ComponentExample]] =
+      wsUrl(s"/examples-output/$frontendPath/$componentName").get().map(_.json.as[List[ComponentExample]])
 
-    ???
+    for (response <- future)
+      yield
+        for (example <- response)
+          yield
+            Example(componentName, frontend, example.name.substring(example.name.indexOf("/") + 1), html = example.html)
+
   }
 }
