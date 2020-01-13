@@ -58,7 +58,6 @@ abstract class TemplateIntegrationSpec
 
           if (!prop) {
             reportDiff(
-              exampleName,
               preProcessedTwirlHtml    = preProcessedTwirlHtml,
               preProcessedNunjucksHtml = preProcessedNunjucksHtml
             )
@@ -72,32 +71,32 @@ abstract class TemplateIntegrationSpec
 
           false
       }
-  }
 
-  private def reportDiff(exampleName: String, preProcessedTwirlHtml: String, preProcessedNunjucksHtml: String): Unit = {
+    def reportDiff(preProcessedTwirlHtml: String, preProcessedNunjucksHtml: String): Unit = {
 
-    val diffPath =
-      templateDiffPath(
-        twirlOutputHtml    = preProcessedTwirlHtml,
-        nunJucksOutputHtml = preProcessedNunjucksHtml,
-        diffFilePrefix     = Some(exampleName)
-      )
+      val diffPath =
+        templateDiffPath(
+          twirlOutputHtml    = preProcessedTwirlHtml,
+          nunJucksOutputHtml = preProcessedNunjucksHtml,
+          diffFilePrefix     = Some(exampleName)
+        )
 
-    println(s"Diff between Twirl and Nunjucks outputs (please open diff HTML file in a browser): file://$diffPath\n")
+      println(s"Diff between Twirl and Nunjucks outputs (please open diff HTML file in a browser): file://$diffPath\n")
 
-    println("-" * 80)
-    println("Twirl")
-    println("-" * 80)
+      println("-" * 80)
+      println("Twirl")
+      println("-" * 80)
 
-    val formattedTwirlHtml = Jsoup.parseBodyFragment(preProcessedTwirlHtml).body.html
-    println(s"\nTwirl output:\n$formattedTwirlHtml\n")
+      val formattedTwirlHtml = Jsoup.parseBodyFragment(preProcessedTwirlHtml).body.html
+      println(s"\nTwirl output:\n$formattedTwirlHtml\n")
 
-    println("-" * 80)
-    println("Nunjucks")
-    println("-" * 80)
+      println("-" * 80)
+      println("Nunjucks")
+      println("-" * 80)
 
-    val formattedNunjucksHtml = Jsoup.parseBodyFragment(preProcessedNunjucksHtml).body.html
-    println(s"\nNunjucks output:\n$formattedNunjucksHtml\n")
+      val formattedNunjucksHtml = Jsoup.parseBodyFragment(preProcessedNunjucksHtml).body.html
+      println(s"\nNunjucks output:\n$formattedNunjucksHtml\n")
 
+    }
   }
 }
