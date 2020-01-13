@@ -9,9 +9,12 @@ lazy val playDir =
   (if (PlayCrossCompilation.playVersion == Play25) "play-25"
    else "play-26")
 
+lazy val IntegrationTest = config("it") extend Test
+
 lazy val root = Project(libName, file("."))
   .enablePlugins(PlayScala, SbtAutoBuildPlugin, SbtGitVersioning, SbtTwirl, SbtArtifactory)
   .disablePlugins(PlayLayoutPlugin)
+  .configs(IntegrationTest)
   .settings(
     name := libName,
     majorVersion := 0,
@@ -28,11 +31,8 @@ lazy val root = Project(libName, file("."))
     TwirlKeys.templateImports := templateImports,
     PlayCrossCompilation.playCrossCompilationSettings,
     makePublicallyAvailableOnBintray := true,
-    unmanagedSourceDirectories in Compile += baseDirectory.value / "src/main/twirl",
-    unmanagedSourceDirectories in Test += baseDirectory.value / "src/test/twirl",
+    unmanagedSourceDirectories in Compile += baseDirectory.value / "src/test/twirl",
     (sourceDirectories in (Compile, TwirlKeys.compileTemplates)) +=
-      baseDirectory.value / "src" / "main" / playDir / "twirl",
-    (sourceDirectories in (Test, TwirlKeys.compileTemplates)) +=
       baseDirectory.value / "src" / "test" / playDir / "twirl",
     generateExamplesManifestTask := {
       val cachedFun: Set[File] => Set[File] =
@@ -63,6 +63,9 @@ lazy val root = Project(libName, file("."))
     mainClass in (Compile, run) := Some("uk.gov.hmrc.govukfrontend.examples.ExampleGenerator"),
     mainClass in (Compile, packageBin) := Some("uk.gov.hmrc.govukfrontend.examples.ExampleGenerator")
   )
+  .settings(inConfig(IntegrationTest)(itSettings): _*)
+
+lazy val itSettings = Defaults.itSettings :+ (unmanagedSourceDirectories += sourceDirectory.value / playDir)
 
 lazy val libDependencies: Seq[ModuleID] = dependencies(
   shared = {
@@ -87,7 +90,7 @@ lazy val libDependencies: Seq[ModuleID] = dependencies(
       "com.lihaoyi"                   %% "pprint"          % "0.5.3",
       "org.bitbucket.cowwoc"          % "diff-match-patch" % "1.2",
       ws
-    ).map(_ % Test)
+    ).map(_ % s"$IntegrationTest,$Test")
 
     compile ++ test
   },
@@ -99,7 +102,7 @@ lazy val libDependencies: Seq[ModuleID] = dependencies(
 
     val test = Seq(
       "org.scalatestplus.play" %% "scalatestplus-play" % "2.0.1"
-    ).map(_ % Test)
+    ).map(_ % s"$IntegrationTest,$Test")
 
     compile ++ test
   },
@@ -111,7 +114,7 @@ lazy val libDependencies: Seq[ModuleID] = dependencies(
 
     val test = Seq(
       "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2"
-    )
+    ).map(_ % s"$IntegrationTest,$Test")
 
     compile ++ test
   }
