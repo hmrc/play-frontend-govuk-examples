@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.govukfrontend.views.examples
+package uk.gov.hmrc.govukfrontend.views
+package examples
 
 import com.google.inject.Guice
 import javax.inject.Inject
@@ -24,15 +25,15 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukHeaderIntegrationSpec extends TemplateIntegrationSpec {
 
   @Inject private val default =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.header.default])
+    Guice.createInjector().getInstance(classOf[html.examples.header.default])
 
   @Inject private val withServiceName =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.header.withServiceName])
+    Guice.createInjector().getInstance(classOf[html.examples.header.withServiceName])
 
   @Inject private val withServiceNameAndNavigation =
     Guice
       .createInjector()
-      .getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.header.withServiceNameAndNavigation])
+      .getInstance(classOf[html.examples.header.withServiceNameAndNavigation])
 
   testRendering(GovukFrontend, "header", "default", default.f)
   testRendering(GovukFrontend, "header", "withServiceName", withServiceName.f)

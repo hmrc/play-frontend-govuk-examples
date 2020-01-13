@@ -14,32 +14,31 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.govukfrontend.views.examples
+package uk.gov.hmrc.govukfrontend.views
+package examples
 
 import com.google.inject.Guice
 import javax.inject.Inject
-import org.scalatest.Ignore
 import uk.gov.hmrc.govukfrontend.examples.GovukFrontend
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
-@Ignore
 class govukErrorSummaryIntegrationSpec extends TemplateIntegrationSpec {
 
   @Inject private val default =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.errorsummary.default])
+    Guice.createInjector().getInstance(classOf[html.examples.errorsummary.default])
 
   @Inject private val linking =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.errorsummary.linking])
+    Guice.createInjector().getInstance(classOf[html.examples.errorsummary.linking])
 
   @Inject private val linkingCheckboxesRadios =
     Guice
       .createInjector()
-      .getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.errorsummary.linkingCheckboxesRadios])
+      .getInstance(classOf[html.examples.errorsummary.linkingCheckboxesRadios])
 
   @Inject private val linkingMultipleFields =
     Guice
       .createInjector()
-      .getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.errorsummary.linkingMultipleFields])
+      .getInstance(classOf[html.examples.errorsummary.linkingMultipleFields])
 
   testRendering(GovukFrontend, "error-summary", "default", default.f)
   testRendering(GovukFrontend, "error-summary", "linking", linking.f)

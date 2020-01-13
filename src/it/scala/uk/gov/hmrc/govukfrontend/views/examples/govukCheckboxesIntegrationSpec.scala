@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.govukfrontend.views.examples
+package uk.gov.hmrc.govukfrontend.views
+package examples
 
 import com.google.inject.Guice
 import javax.inject.Inject
@@ -24,21 +25,21 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukCheckboxesIntegrationSpec extends TemplateIntegrationSpec {
 
   @Inject private val default =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.checkboxes.default])
+    Guice.createInjector().getInstance(classOf[html.examples.checkboxes.default])
 
   @Inject private val conditionalReveal =
     Guice
       .createInjector()
-      .getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.checkboxes.conditionalReveal])
+      .getInstance(classOf[html.examples.checkboxes.conditionalReveal])
 
   @Inject private val error =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.checkboxes.error])
+    Guice.createInjector().getInstance(classOf[html.examples.checkboxes.error])
 
   @Inject private val hint =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.checkboxes.hint])
+    Guice.createInjector().getInstance(classOf[html.examples.checkboxes.hint])
 
   @Inject private val small =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.checkboxes.small])
+    Guice.createInjector().getInstance(classOf[html.examples.checkboxes.small])
 
   testRendering(GovukFrontend, "checkboxes", "default", default.f)
   testRendering(GovukFrontend, "checkboxes", "conditionalReveal", conditionalReveal.f)

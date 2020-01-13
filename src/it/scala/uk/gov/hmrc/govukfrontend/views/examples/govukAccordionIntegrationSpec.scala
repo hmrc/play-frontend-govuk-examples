@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.govukfrontend.views.examples
+package uk.gov.hmrc.govukfrontend.views
+package examples
 
 import com.google.inject.Guice
 import javax.inject.Inject
@@ -24,12 +25,12 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukAccordionIntegrationSpec extends TemplateIntegrationSpec {
 
   @Inject private val default =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.accordion.default])
+    Guice.createInjector().getInstance(classOf[html.examples.accordion.default])
 
   @Inject private val withSummarySection =
     Guice
       .createInjector()
-      .getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.accordion.withSummarySection])
+      .getInstance(classOf[html.examples.accordion.withSummarySection])
 
   testRendering(GovukFrontend, "accordion", "default", default.f)
   testRendering(GovukFrontend, "accordion", "withSummarySection", withSummarySection.f)

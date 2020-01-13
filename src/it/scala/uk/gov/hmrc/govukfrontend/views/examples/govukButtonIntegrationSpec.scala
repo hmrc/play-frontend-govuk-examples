@@ -25,25 +25,25 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukButtonIntegrationSpec extends TemplateIntegrationSpec {
 
   @Inject private val default =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.button.default])
+    Guice.createInjector().getInstance(classOf[html.examples.button.default])
 
   @Inject private val disabled =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.button.disabled])
+    Guice.createInjector().getInstance(classOf[html.examples.button.disabled])
 
   @Inject private val preventDoubleClick =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.button.preventDoubleClick])
+    Guice.createInjector().getInstance(classOf[html.examples.button.preventDoubleClick])
 
   @Inject private val secondary =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.button.secondary])
+    Guice.createInjector().getInstance(classOf[html.examples.button.secondary])
 
   @Inject private val secondaryCombo =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.button.secondaryCombo])
+    Guice.createInjector().getInstance(classOf[html.examples.button.secondaryCombo])
 
   @Inject private val start =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.button.start])
+    Guice.createInjector().getInstance(classOf[html.examples.button.start])
 
   @Inject private val warning =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.button.warning])
+    Guice.createInjector().getInstance(classOf[html.examples.button.warning])
 
   testRendering(GovukFrontend, "button", "default", default.f)
   testRendering(GovukFrontend, "button", "disabled", disabled.f)

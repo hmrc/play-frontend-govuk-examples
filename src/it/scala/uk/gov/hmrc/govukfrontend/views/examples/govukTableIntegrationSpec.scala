@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.govukfrontend.views.examples
+package uk.gov.hmrc.govukfrontend.views
+package examples
 
 import com.google.inject.Guice
 import javax.inject.Inject
@@ -24,18 +25,18 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukTableIntegrationSpec extends TemplateIntegrationSpec {
 
   @Inject private val default =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.table.default])
+    Guice.createInjector().getInstance(classOf[html.examples.table.default])
 
   @Inject private val columnWidths =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.table.columnWidths])
+    Guice.createInjector().getInstance(classOf[html.examples.table.columnWidths])
 
   @Inject private val columnWidthsCustomClasses =
     Guice
       .createInjector()
-      .getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.table.columnWidthsCustomClasses])
+      .getInstance(classOf[html.examples.table.columnWidthsCustomClasses])
 
   @Inject private val numbers =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.table.numbers])
+    Guice.createInjector().getInstance(classOf[html.examples.table.numbers])
 
   testRendering(GovukFrontend, "table", "default", default.f)
   testRendering(GovukFrontend, "table", "columnWidths", columnWidths.f)

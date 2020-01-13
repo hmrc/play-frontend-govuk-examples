@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.govukfrontend.views.examples
+package uk.gov.hmrc.govukfrontend.views
+package examples
 
 import com.google.inject.Guice
 import javax.inject.Inject
@@ -24,17 +25,17 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukSummaryListIntegrationSpec extends TemplateIntegrationSpec {
 
   @Inject private val default =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.summarylist.default])
+    Guice.createInjector().getInstance(classOf[html.examples.summarylist.default])
 
   @Inject private val withoutActions =
     Guice
       .createInjector()
-      .getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.summarylist.withoutActions])
+      .getInstance(classOf[html.examples.summarylist.withoutActions])
 
   @Inject private val withoutBorders =
     Guice
       .createInjector()
-      .getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.summarylist.withoutBorders])
+      .getInstance(classOf[html.examples.summarylist.withoutBorders])
 
   testRendering(GovukFrontend, "summary-list", "default", default.f)
   testRendering(GovukFrontend, "summary-list", "withoutActions", withoutActions.f)

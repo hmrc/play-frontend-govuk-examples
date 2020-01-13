@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.govukfrontend.views.examples
+package uk.gov.hmrc.govukfrontend.views
+package examples
 
 import com.google.inject.Guice
 import javax.inject.Inject
@@ -24,29 +25,29 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukTextInputIntegrationSpec extends TemplateIntegrationSpec {
 
   @Inject private val default =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.textinput.default])
+    Guice.createInjector().getInstance(classOf[html.examples.textinput.default])
 
   @Inject private val error =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.textinput.error])
+    Guice.createInjector().getInstance(classOf[html.examples.textinput.error])
 
   @Inject private val inputAutocompleteAttribute =
     Guice
       .createInjector()
-      .getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.textinput.inputAutocompleteAttribute])
+      .getInstance(classOf[html.examples.textinput.inputAutocompleteAttribute])
 
   @Inject private val inputFixedWidth =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.textinput.inputFixedWidth])
+    Guice.createInjector().getInstance(classOf[html.examples.textinput.inputFixedWidth])
 
   @Inject private val inputFluidWidth =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.textinput.inputFluidWidth])
+    Guice.createInjector().getInstance(classOf[html.examples.textinput.inputFluidWidth])
 
   @Inject private val inputHintText =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.textinput.inputHintText])
+    Guice.createInjector().getInstance(classOf[html.examples.textinput.inputHintText])
 
   @Inject private val inputSpellcheckDisabled =
     Guice
       .createInjector()
-      .getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.textinput.inputSpellcheckDisabled])
+      .getInstance(classOf[html.examples.textinput.inputSpellcheckDisabled])
 
   testRendering(GovukFrontend, "text-input", "default", default.f)
   testRendering(GovukFrontend, "text-input", "error", error.f)

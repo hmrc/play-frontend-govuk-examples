@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.govukfrontend.views.examples
+package uk.gov.hmrc.govukfrontend.views
+package examples
 
 import com.google.inject.Guice
 import javax.inject.Inject
@@ -24,16 +25,16 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukErrorMessageIntegrationSpec extends TemplateIntegrationSpec {
 
   @Inject private val default =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.errormessage.default])
+    Guice.createInjector().getInstance(classOf[html.examples.errormessage.default])
 
   @Inject private val customPrefix =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.errormessage.customPrefix])
+    Guice.createInjector().getInstance(classOf[html.examples.errormessage.customPrefix])
 
   @Inject private val label =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.errormessage.label])
+    Guice.createInjector().getInstance(classOf[html.examples.errormessage.label])
 
   @Inject private val legend =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.errormessage.legend])
+    Guice.createInjector().getInstance(classOf[html.examples.errormessage.legend])
 
   testRendering(GovukFrontend, "error-message", "default", default.f)
   testRendering(GovukFrontend, "error-message", "customPrefix", customPrefix.f)

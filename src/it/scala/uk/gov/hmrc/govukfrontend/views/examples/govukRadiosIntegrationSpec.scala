@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.govukfrontend.views.examples
+package uk.gov.hmrc.govukfrontend.views
+package examples
 
 import com.google.inject.Guice
 import javax.inject.Inject
@@ -24,25 +25,25 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukRadiosIntegrationSpec extends TemplateIntegrationSpec {
 
   @Inject private val default =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.radios.default])
+    Guice.createInjector().getInstance(classOf[html.examples.radios.default])
 
   @Inject private val conditionalReveal =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.radios.conditionalReveal])
+    Guice.createInjector().getInstance(classOf[html.examples.radios.conditionalReveal])
 
   @Inject private val divider =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.radios.divider])
+    Guice.createInjector().getInstance(classOf[html.examples.radios.divider])
 
   @Inject private val error =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.radios.error])
+    Guice.createInjector().getInstance(classOf[html.examples.radios.error])
 
   @Inject private val hint =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.radios.hint])
+    Guice.createInjector().getInstance(classOf[html.examples.radios.hint])
 
   @Inject private val small =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.radios.small])
+    Guice.createInjector().getInstance(classOf[html.examples.radios.small])
 
   @Inject private val stacked =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.radios.stacked])
+    Guice.createInjector().getInstance(classOf[html.examples.radios.stacked])
 
   testRendering(GovukFrontend, "radios", "default", default.f)
   testRendering(GovukFrontend, "radios", "conditionalReveal", conditionalReveal.f)

@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.govukfrontend.views.examples
+package uk.gov.hmrc.govukfrontend.views
+package examples
 
 import com.google.inject.Guice
 import javax.inject.Inject
@@ -24,16 +25,16 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukFooterIntegrationSpec extends TemplateIntegrationSpec {
 
   @Inject private val default =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.footer.default])
+    Guice.createInjector().getInstance(classOf[html.examples.footer.default])
 
   @Inject private val full =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.footer.full])
+    Guice.createInjector().getInstance(classOf[html.examples.footer.full])
 
   @Inject private val withMeta =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.footer.withMeta])
+    Guice.createInjector().getInstance(classOf[html.examples.footer.withMeta])
 
   @Inject private val withNavigation =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.footer.withNavigation])
+    Guice.createInjector().getInstance(classOf[html.examples.footer.withNavigation])
 
   testRendering(GovukFrontend, "footer", "default", default.f)
   testRendering(GovukFrontend, "footer", "full", full.f)

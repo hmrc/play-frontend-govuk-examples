@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.govukfrontend.views.examples
+package uk.gov.hmrc.govukfrontend.views
+package examples
 
 import com.google.inject.Guice
 import javax.inject.Inject
@@ -24,10 +25,10 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukPhaseBannerIntegrationSpec extends TemplateIntegrationSpec {
 
   @Inject private val default =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.phasebanner.default])
+    Guice.createInjector().getInstance(classOf[html.examples.phasebanner.default])
 
   @Inject private val beta =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.phasebanner.beta])
+    Guice.createInjector().getInstance(classOf[html.examples.phasebanner.beta])
 
   testRendering(GovukFrontend, "phase-banner", "default", default.f)
   testRendering(GovukFrontend, "phase-banner", "beta", beta.f)

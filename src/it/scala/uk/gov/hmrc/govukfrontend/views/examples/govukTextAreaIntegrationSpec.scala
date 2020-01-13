@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.govukfrontend.views.examples
+package uk.gov.hmrc.govukfrontend.views
+package examples
 
 import com.google.inject.Guice
 import javax.inject.Inject
@@ -24,13 +25,13 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukTextAreaIntegrationSpec extends TemplateIntegrationSpec {
 
   @Inject private val default =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.textarea.default])
+    Guice.createInjector().getInstance(classOf[html.examples.textarea.default])
 
   @Inject private val error =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.textarea.error])
+    Guice.createInjector().getInstance(classOf[html.examples.textarea.error])
 
   @Inject private val specifyingRows =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.textarea.specifyingRows])
+    Guice.createInjector().getInstance(classOf[html.examples.textarea.specifyingRows])
 
   testRendering(GovukFrontend, "textarea", "default", default.f)
   testRendering(GovukFrontend, "textarea", "error", error.f)

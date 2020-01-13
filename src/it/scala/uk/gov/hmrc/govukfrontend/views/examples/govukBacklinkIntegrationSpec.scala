@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.govukfrontend.views.examples
+package uk.gov.hmrc.govukfrontend.views
+package examples
 
 import com.google.inject.Guice
 import javax.inject.Inject
@@ -24,7 +25,7 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukBacklinkIntegrationSpec extends TemplateIntegrationSpec {
 
   @Inject private val default =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.backlink.default])
+    Guice.createInjector().getInstance(classOf[html.examples.backlink.default])
 
   testRendering(GovukFrontend, "back-link", "default", default.f)
 }

@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.govukfrontend.views.examples
+package uk.gov.hmrc.govukfrontend.views
+package examples
 
 import com.google.inject.Guice
 import javax.inject.Inject
@@ -24,21 +25,21 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukCharacterCountIntegrationSpec extends TemplateIntegrationSpec {
 
   @Inject private val default =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.charactercount.default])
+    Guice.createInjector().getInstance(classOf[html.examples.charactercount.default])
 
   @Inject private val error =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.charactercount.error])
+    Guice.createInjector().getInstance(classOf[html.examples.charactercount.error])
 
   @Inject private val labelPageHeading =
     Guice
       .createInjector()
-      .getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.charactercount.labelPageHeading])
+      .getInstance(classOf[html.examples.charactercount.labelPageHeading])
 
   @Inject private val threshold =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.charactercount.threshold])
+    Guice.createInjector().getInstance(classOf[html.examples.charactercount.threshold])
 
   @Inject private val wordCount =
-    Guice.createInjector().getInstance(classOf[uk.gov.hmrc.govukfrontend.views.html.examples.charactercount.wordCount])
+    Guice.createInjector().getInstance(classOf[html.examples.charactercount.wordCount])
 
   testRendering(GovukFrontend, "character-count", "default", default.f)
   testRendering(GovukFrontend, "character-count", "error", error.f)
