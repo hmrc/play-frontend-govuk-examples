@@ -156,8 +156,11 @@ lazy val templateImports: Seq[String] = {
 
 /**
   * Generates Twirl examples for govuk-frontend and hmrc-frontend components under
-  * src/test/play-XX/twirl/uk/gov/hmrc/govukfrontend/views/examples, where XX designates
-  * the relevant Play versions. Currently implement for Play 2.5 and Play 2.6.
+  * src/test/play-XX/twirl/uk/gov/hmrc/govukfrontend/views/examples and
+  * src/test/play-XX/twirl/uk/gov/hmrc/hmrcfrontend/views/examples appropriately,
+  * where XX designates the relevant Play versions. Currently implement for
+  * Play 2.5 and Play 2.6.
+  *
   * Run this task in the sbt console via <code>generateExamplesTask</code>.
   */
 lazy val generateExamples = taskKey[Any]("Generate Twirl examples")
