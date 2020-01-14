@@ -1,5 +1,7 @@
 import Frontend.{GovukFrontend, HmrcFrontend}
-import TemplateService.{getNunjucksExamples, TemplateServiceResponse}
+import TemplateService.{TemplateServiceResponse, getNunjucksExamples}
+
+import scala.util.{Failure, Success, Try}
 
 class Md5Calculator(exampleVersionsIterable: Iterable[ExampleForPlayVersions]) {
 
@@ -21,7 +23,7 @@ class Md5Calculator(exampleVersionsIterable: Iterable[ExampleForPlayVersions]) {
           }
       }
 
-  def calcMd5(exampleVersions: ExampleForPlayVersions): String = {
+  def calcMd5(exampleVersions: ExampleForPlayVersions): Try[String] = {
     val id = exampleVersions.id
     val frontend = exampleVersions.frontend
     val njksId = frontend.toTemplateServiceExampleId(id)
@@ -31,13 +33,12 @@ class Md5Calculator(exampleVersionsIterable: Iterable[ExampleForPlayVersions]) {
       case HmrcFrontend => hmrcNunjucksExamples
     }
 
+    val md5Failure = Failure(new Exception(s"Could not find Nunjuck equivalent for frontend $frontend example named $id to calculate MD5 hash."))
+
     nunjucksExamples
       .find(_.name.toLowerCase.replace("-", "") == njksId.toLowerCase)
       .map(_.md5)
-      .getOrElse{
-        println(s"ERROR: Could not find Nunjuck equivalent for frontend $frontend example named $id to calculate MD5 hash.")
-        "Could not be calculated"
-      }
+      .fold(md5Failure: Try[String])(Success.apply)
   }
 
 }

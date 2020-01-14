@@ -2,6 +2,7 @@ import ExamplesManifestGenerator.generate
 import PlayCrossCompilation.{dependencies, playVersion}
 import play.sbt.PlayImport.PlayKeys._
 import sbt.classpath.ClasspathUtilities
+import sys.process.Process
 import uk.gov.hmrc.playcrosscompilation.PlayVersion.{Play25, Play26}
 
 val libName = "play-frontend-govuk-examples"
@@ -35,18 +36,31 @@ lazy val root = Project(libName, file("."))
     unmanagedSourceDirectories in Compile += baseDirectory.value / "src/test/twirl",
     (sourceDirectories in (Compile, TwirlKeys.compileTemplates)) +=
       baseDirectory.value / "src" / "test" / playDir / "twirl",
+    updateExampleSources := {
+      println("==========")
+      println("Updating example repository sources for govuk-frontend and hmrc-frontend components to the latest versions...")
+      Process("git submodule update --init --recursive").!
+      println("Task completed")
+    },
     generateExamples := {
+      println("==========")
+      println("Generating Twirl examples for govuk-frontend and hmrc-frontend components...")
+      val _ = updateExampleSources.value
       val classpath = (fullClasspath in Runtime).value
       val loader: ClassLoader = ClasspathUtilities.toLoader(classpath.map(_.data).map(_.getAbsoluteFile))
-      loader.loadClass("uk.gov.hmrc.govukfrontend.examples.ExampleGenerator").newInstance()
+      val generator = loader.loadClass("uk.gov.hmrc.govukfrontend.examples.ExampleGenerator").newInstance()
+      println("Task completed")
+      generator
     },
     generateExamplesManifest := {
+      println("==========")
       val _ = generateExamples.value
-      println("Generating manifest.json")
+      println("Generating manifest.json...")
       val manifestFile = (resourceDirectory in Test).value / "manifest.json"
       val examplesDir: File = baseDirectory.value / "src/test"
       val allExamples: Set[File] = (examplesDir ** "*.scala.html").get.toSet
       generate(allExamples = allExamples, manifestFile = manifestFile)
+      println("Task completed")
       manifestFile
     },
     parallelExecution in sbt.Test := false,
@@ -158,13 +172,21 @@ lazy val templateImports: Seq[String] = {
 }
 
 /**
+  * Updates source repositories for examples for govuk-frontend and hmrc-frontend
+  * respectively.
+  *
+  * Run this task in the sbt console via <code>updateExampleSources</code>.
+  */
+lazy val updateExampleSources = taskKey[Unit]("Update source example repositories for govuk-frontend and hmrc-frontend")
+
+/**
   * Generates Twirl examples for govuk-frontend and hmrc-frontend components under
   * src/test/play-XX/twirl/uk/gov/hmrc/govukfrontend/views/examples and
   * src/test/play-XX/twirl/uk/gov/hmrc/hmrcfrontend/views/examples appropriately,
   * where XX designates the relevant Play versions. Currently implement for
   * Play 2.5 and Play 2.6.
   *
-  * Run this task in the sbt console via <code>generateExamplesTask</code>.
+  * Run this task in the sbt console via <code>generateExamples</code>.
   */
 lazy val generateExamples = taskKey[Any]("Generate Twirl examples")
 
@@ -174,6 +196,6 @@ lazy val generateExamples = taskKey[Any]("Generate Twirl examples")
   *
   * The generation of all Play Twirl examples is a prerequisite to this task.
   * generateExamplesTask is hence executed when this task is run.
-  * Run this task in the sbt console via <code>generateExamplesTask</code>.
+  * Run this task in the sbt console via <code>generateExamples</code>.
   */
 lazy val generateExamplesManifest = taskKey[File]("Generate Twirl examples manifest.json file")

@@ -2,6 +2,8 @@ import play.api.libs.json.Json
 import sbt._
 import ExampleForPlayVersions.toExamplesForPlayVersions
 
+import scala.util.{Failure, Success}
+
 object ExamplesManifestGenerator {
 
   /**
@@ -59,12 +61,19 @@ object ExamplesManifestGenerator {
 
     def toManifestElem(exampleVersions: ExampleForPlayVersions): ManifestJson = {
       val exampleId = exampleVersions.id
+      val htmlChecksum = md5Calculator.calcMd5(exampleVersions) match {
+        case Success(v) => v
+        case Failure(e) =>
+          println(e.getMessage)
+          "Could not be calculated"
+      }
+
       val playRefs = exampleVersions.playVersionedSources.map {
         case (playVersion, source) =>
           source.getAbsolutePath match {
             case uriReg(uri) => PlayVersionedExample(
               playVersion = playVersion,
-              ref = ExampleRef(uri = uri, htmlChecksum = md5Calculator.calcMd5(exampleVersions))
+              ref = ExampleRef(uri = uri, htmlChecksum = htmlChecksum)
             )
             case path => throw new Exception(s"Failed to abstract manifest URI for example ${exampleVersions.frontend} $exampleId at path $path.")
           }
