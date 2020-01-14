@@ -74,7 +74,7 @@ case class CaseClassOps[T <: Product : ClassTag](caseClassObj: T) {
   }
 
   private val caseAccessors: Iterable[String] = {
-    val nonPublicCaseAccessor: Regex = """(.*?)\$\d+$""".r
+    val nonPublicCaseAccessor: Regex = """^([^$]*).*$""".r
 
     val members = caseClassMirror
       .symbol
