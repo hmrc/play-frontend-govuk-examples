@@ -10,23 +10,25 @@ object ManifestJson {
 }
 
 final case class Versions(
-  playRefs: Seq[PlayExampleRef]
+  playVersionedExamples: Seq[PlayVersionedExample]
 )
 
 object Versions {
   implicit val writes: OWrites[Versions] = new OWrites[Versions] {
     override def writes(o: Versions): JsObject = JsObject(
-      o.playRefs
+      o.playVersionedExamples
         .sortBy(_.playVersion)
-        .map(playRef => s"play${playRef.playVersion}" -> Json.toJsObject(playRef.ref))
+        .map { example =>
+          s"play${example.playVersion}" -> Json.toJsObject(example.ref)
+        }
         .toMap
     )
   }
 }
 
-final case class PlayExampleRef(
- playVersion: Int,
- ref: ExampleRef
+final case class PlayVersionedExample(
+  playVersion: Int,
+  ref: ExampleRef
 )
 
 final case class ExampleRef(

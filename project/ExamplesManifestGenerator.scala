@@ -1,6 +1,6 @@
 import play.api.libs.json.Json
 import sbt._
-import ExampleVersions.toExampleVersionsIterable
+import ExampleForPlayVersions.toExamplesForPlayVersions
 
 object ExamplesManifestGenerator {
 
@@ -51,18 +51,18 @@ object ExamplesManifestGenerator {
     */
   private def manifestContent(allExamples: List[File]): String = {
 
-    val exampleVersionsIterable: Iterable[ExampleVersions] = toExampleVersionsIterable(allExamples)
+    val exampleVersionsIterable: Iterable[ExampleForPlayVersions] = toExamplesForPlayVersions(allExamples)
 
     val md5Calculator = new Md5Calculator(exampleVersionsIterable)
 
     val uriReg = """.*/(play-\d*/(?:.*/){8}.*\.scala\.html)$""".r
 
-    def toManifestElem(exampleVersions: ExampleVersions): ManifestJson = {
+    def toManifestElem(exampleVersions: ExampleForPlayVersions): ManifestJson = {
       val exampleId = exampleVersions.id
       val playRefs = exampleVersions.playVersionedSources.map {
         case (playVersion, source) =>
           source.getAbsolutePath match {
-            case uriReg(uri) => PlayExampleRef(
+            case uriReg(uri) => PlayVersionedExample(
               playVersion = playVersion,
               ref = ExampleRef(uri = uri, htmlChecksum = md5Calculator.calcMd5(exampleVersions))
             )
@@ -72,7 +72,7 @@ object ExamplesManifestGenerator {
 
       ManifestJson(
         id       = exampleId,
-        versions = Versions(playRefs = playRefs)
+        versions = Versions(playVersionedExamples = playRefs)
       )
     }
 

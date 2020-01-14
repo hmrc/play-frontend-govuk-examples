@@ -1,14 +1,14 @@
 sealed trait Frontend {
   val exampleIdPrefix: String
   val templateServiceSubpath: String
-  val twirlToNjksIdMap: Map[String, String]
+  val twirlToTemplateServiceExampleIdMap: Map[String, String]
   val twirlSubpath: String
 
-  def toNunjucksStyle(id: String): String = {
+  def toTemplateServiceExampleId(twirlExampleId: String): String = {
     val TwirlReg = s"^($exampleIdPrefix)?([^/]*)(/?.*)$$".r
-    id match {
+    twirlExampleId match {
       case njksId@TwirlReg(_, twirl, suffix) =>
-        twirlToNjksIdMap.get(twirl)
+        twirlToTemplateServiceExampleIdMap.get(twirl)
           .map(njks => s"$njks$suffix")
           .getOrElse(njksId)
       case njksId => njksId
@@ -23,7 +23,7 @@ object Frontend {
     val templateServiceSubpath = "govuk"
     val twirlSubpath = "govukfrontend"
 
-    val twirlToNjksIdMap: Map[String, String] = Map(
+    val twirlToTemplateServiceExampleIdMap: Map[String, String] = Map(
       "backlink"       -> "backLink",
       "charactercount" -> "characterCount",
       "dateinput"      -> "dateInput",
@@ -44,7 +44,7 @@ object Frontend {
     val exampleIdPrefix = "hmrc/"
     val templateServiceSubpath = "hmrc"
     val twirlSubpath = "hmrcfrontend"
-    val twirlToNjksIdMap: Map[String, String] = Map(
+    val twirlToTemplateServiceExampleIdMap: Map[String, String] = Map(
       "accountheader"                 -> "accountHeader",
       "accountmenu"                   -> "accountMenu",
       "accountsofficereference"       -> "accountsOfficeReference",
