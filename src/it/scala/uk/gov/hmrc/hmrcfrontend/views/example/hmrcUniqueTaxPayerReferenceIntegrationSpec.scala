@@ -36,8 +36,8 @@ class hmrcUniqueTaxPayerReferenceIntegrationSpec extends TemplateIntegrationSpec
   @Inject private val selfAssessment =
     Guice.createInjector().getInstance(classOf[html.examples.uniquetaxpayerreference.selfAssessment])
 
-  testRendering(HmrcFrontend, "unique-tax-payer-reference", "corporationTax", corporationTax.f)
-  testRendering(HmrcFrontend, "unique-tax-payer-reference", "label", label.f)
-  testRendering(HmrcFrontend, "unique-tax-payer-reference", "labelError", labelError.f)
-  testRendering(HmrcFrontend, "unique-tax-payer-reference", "selfAssessment", selfAssessment.f)
+  testRendering(HmrcFrontend, "unique-taxpayer-reference", "corporationTax", corporationTax.f)
+  testRendering(HmrcFrontend, "unique-taxpayer-reference", "label", label.f)
+  testRendering(HmrcFrontend, "unique-taxpayer-reference", "labelError", labelError.f)
+  testRendering(HmrcFrontend, "unique-taxpayer-reference", "selfAssessment", selfAssessment.f)
 }
