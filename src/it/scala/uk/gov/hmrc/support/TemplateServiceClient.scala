@@ -24,7 +24,7 @@ trait TemplateServiceClient extends WordSpecLike with WSScalaTestClient with Gui
   }
 
   /**
-    * Render a govuk-frontend and hmrc-frontend component using the template service
+    * Render a govuk-frontend and hmrc-frontend component using x-govuk-component-renderer
     *
     * @param componentName the govuk-frontend or hmrc-frontend component name
     * @param frontend the case object GovukFrontend or HmrcFrontend depending on which frontend the component derives from
