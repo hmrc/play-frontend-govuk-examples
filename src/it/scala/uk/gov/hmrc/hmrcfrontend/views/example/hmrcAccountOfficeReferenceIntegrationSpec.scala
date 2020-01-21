@@ -17,23 +17,13 @@
 package uk.gov.hmrc.hmrcfrontend.views
 package examples
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.HmrcFrontend
+import uk.gov.hmrc.hmrcfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcAccountOfficeReferenceIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val heading =
-    Guice.createInjector().getInstance(classOf[html.examples.accountsofficereference.heading])
-
-  @Inject private val label =
-    Guice.createInjector().getInstance(classOf[html.examples.accountsofficereference.label])
-
-  @Inject private val labelError =
-    Guice.createInjector().getInstance(classOf[html.examples.accountsofficereference.labelError])
-
-  testRendering(HmrcFrontend, "accounts-office-reference", "heading", heading.f)
-  testRendering(HmrcFrontend, "accounts-office-reference", "label", label.f)
-  testRendering(HmrcFrontend, "accounts-office-reference", "labelError", labelError.f)
+  testRendering(HmrcFrontend, "accounts-office-reference", "heading", accountsofficereferenceHeading.f)
+  testRendering(HmrcFrontend, "accounts-office-reference", "label", accountsofficereferenceLabel.f)
+  testRendering(HmrcFrontend, "accounts-office-reference", "labelError", accountsofficereferenceLabelError.f)
 }

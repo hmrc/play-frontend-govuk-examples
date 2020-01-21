@@ -17,43 +17,45 @@
 package uk.gov.hmrc.hmrcfrontend.views
 package example
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.HmrcFrontend
+import uk.gov.hmrc.hmrcfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcThereISAProblemWithTheServiceIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val linkToOtherService =
-    Guice.createInjector().getInstance(classOf[html.examples.thereisaproblemwiththeservice.linkToOtherService])
+  testRendering(
+    HmrcFrontend,
+    "there-is-a-problem-with-the-service",
+    "linkToOtherService",
+    thereisaproblemwiththeserviceLinkToOtherService.f)
 
-  @Inject private val linkToOtherServiceWelsh =
-    Guice.createInjector().getInstance(classOf[html.examples.thereisaproblemwiththeservice.linkToOtherServiceWelsh])
-
-  @Inject private val noContact =
-    Guice.createInjector().getInstance(classOf[html.examples.thereisaproblemwiththeservice.noContact])
-
-  @Inject private val noContactWelsh =
-    Guice.createInjector().getInstance(classOf[html.examples.thereisaproblemwiththeservice.noContactWelsh])
-
-  @Inject private val problemWithService =
-    Guice.createInjector().getInstance(classOf[html.examples.thereisaproblemwiththeservice.problemWithService])
-
-  @Inject private val problemWithServiceWelsh =
-    Guice.createInjector().getInstance(classOf[html.examples.thereisaproblemwiththeservice.problemWithServiceWelsh])
-
-  testRendering(HmrcFrontend, "there-is-a-problem-with-the-service", "linkToOtherService", linkToOtherService.f)
   testRendering(
     HmrcFrontend,
     "there-is-a-problem-with-the-service",
     "linkToOtherServiceWelsh",
-    linkToOtherServiceWelsh.f)
-  testRendering(HmrcFrontend, "there-is-a-problem-with-the-service", "noContact", noContact.f)
-  testRendering(HmrcFrontend, "there-is-a-problem-with-the-service", "noContactWelsh", noContactWelsh.f)
-  testRendering(HmrcFrontend, "there-is-a-problem-with-the-service", "problemWithService", problemWithService.f)
+    thereisaproblemwiththeserviceLinkToOtherServiceWelsh.f)
+
+  testRendering(
+    HmrcFrontend,
+    "there-is-a-problem-with-the-service",
+    "noContact",
+    thereisaproblemwiththeserviceNoContact.f)
+
+  testRendering(
+    HmrcFrontend,
+    "there-is-a-problem-with-the-service",
+    "noContactWelsh",
+    thereisaproblemwiththeserviceNoContactWelsh.f)
+
+  testRendering(
+    HmrcFrontend,
+    "there-is-a-problem-with-the-service",
+    "problemWithService",
+    thereisaproblemwiththeserviceProblemWithService.f)
+
   testRendering(
     HmrcFrontend,
     "there-is-a-problem-with-the-service",
     "problemWithServiceWelsh",
-    problemWithServiceWelsh.f)
+    thereisaproblemwiththeserviceProblemWithServiceWelsh.f)
 }

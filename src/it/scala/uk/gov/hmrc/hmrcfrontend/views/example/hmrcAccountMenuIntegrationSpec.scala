@@ -17,15 +17,11 @@
 package uk.gov.hmrc.hmrcfrontend.views
 package examples
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.HmrcFrontend
+import uk.gov.hmrc.hmrcfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcAccountMenuIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val example =
-    Guice.createInjector().getInstance(classOf[html.examples.accountmenu.example])
-
-  testRendering(HmrcFrontend, "account-menu", "example", example.f)
+  testRendering(HmrcFrontend, "account-menu", "example", accountmenuExample.f)
 }

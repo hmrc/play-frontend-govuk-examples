@@ -17,18 +17,12 @@
 package uk.gov.hmrc.hmrcfrontend.views
 package example
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.HmrcFrontend
+import uk.gov.hmrc.hmrcfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcPageHeadingIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val withoutSubheading =
-    Guice.createInjector().getInstance(classOf[html.examples.pageheading.withoutSubheading])
-  @Inject private val withSubheading =
-    Guice.createInjector().getInstance(classOf[html.examples.pageheading.withSubheading])
-
-  testRendering(HmrcFrontend, "page-heading", "withoutSubheading", withoutSubheading.f)
-  testRendering(HmrcFrontend, "page-heading", "withSubheading", withSubheading.f)
+  testRendering(HmrcFrontend, "page-heading", "withoutSubheading", pageheadingWithoutSubheading.f)
+  testRendering(HmrcFrontend, "page-heading", "withSubheading", pageheadingWithSubheading.f)
 }

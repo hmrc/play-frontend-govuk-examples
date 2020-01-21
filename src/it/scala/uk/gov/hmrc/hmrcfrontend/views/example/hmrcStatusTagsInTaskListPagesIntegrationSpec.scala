@@ -17,18 +17,12 @@
 package uk.gov.hmrc.hmrcfrontend.views
 package example
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.HmrcFrontend
+import uk.gov.hmrc.hmrcfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcStatusTagsInTaskListPagesIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val example =
-    Guice.createInjector().getInstance(classOf[html.examples.statustagsintasklistpages.example])
-  @Inject private val exampleWelsh =
-    Guice.createInjector().getInstance(classOf[html.examples.statustagsintasklistpages.exampleWelsh])
-
-  testRendering(HmrcFrontend, "status-tags-in-task-list-pages", "example", example.f)
-  testRendering(HmrcFrontend, "status-tags-in-task-list-pages", "exampleWelsh", exampleWelsh.f)
+  testRendering(HmrcFrontend, "status-tags-in-task-list-pages", "example", statustagsintasklistpagesExample.f)
+  testRendering(HmrcFrontend, "status-tags-in-task-list-pages", "exampleWelsh", statustagsintasklistpagesExampleWelsh.f)
 }

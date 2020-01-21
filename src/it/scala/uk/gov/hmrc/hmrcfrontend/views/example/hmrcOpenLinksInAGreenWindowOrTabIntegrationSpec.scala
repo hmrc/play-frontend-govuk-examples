@@ -17,18 +17,16 @@
 package uk.gov.hmrc.hmrcfrontend.views
 package example
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.HmrcFrontend
+import uk.gov.hmrc.hmrcfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcOpenLinksInAGreenWindowOrTabIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val example =
-    Guice.createInjector().getInstance(classOf[html.examples.openlinksinanewwindowortab.example])
-  @Inject private val exampleWelsh =
-    Guice.createInjector().getInstance(classOf[html.examples.openlinksinanewwindowortab.exampleWelsh])
-
-  testRendering(HmrcFrontend, "open-links-in-a-new-window-or-tab", "example", example.f)
-  testRendering(HmrcFrontend, "open-links-in-a-new-window-or-tab", "exampleWelsh", exampleWelsh.f)
+  testRendering(HmrcFrontend, "open-links-in-a-new-window-or-tab", "example", openlinksinanewwindowortabExample.f)
+  testRendering(
+    HmrcFrontend,
+    "open-links-in-a-new-window-or-tab",
+    "exampleWelsh",
+    openlinksinanewwindowortabExampleWelsh.f)
 }

@@ -17,19 +17,12 @@
 package uk.gov.hmrc.govukfrontend.views
 package examples
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.GovukFrontend
+import uk.gov.hmrc.govukfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukFieldsetIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val default =
-    Guice.createInjector().getInstance(classOf[html.examples.fieldset.default])
-
-  @Inject private val addressGroup =
-    Guice.createInjector().getInstance(classOf[html.examples.fieldset.addressGroup])
-
-  testRendering(GovukFrontend, "fieldset", "default", default.f)
-  testRendering(GovukFrontend, "fieldset", "addressGroup", addressGroup.f)
+  testRendering(GovukFrontend, "fieldset", "default", fieldsetDefault.f)
+  testRendering(GovukFrontend, "fieldset", "addressGroup", fieldsetAddressGroup.f)
 }

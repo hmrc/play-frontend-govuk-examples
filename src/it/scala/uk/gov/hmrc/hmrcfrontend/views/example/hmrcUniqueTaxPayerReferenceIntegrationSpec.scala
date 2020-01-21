@@ -17,27 +17,14 @@
 package uk.gov.hmrc.hmrcfrontend.views
 package example
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.HmrcFrontend
+import uk.gov.hmrc.hmrcfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcUniqueTaxPayerReferenceIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val corporationTax =
-    Guice.createInjector().getInstance(classOf[html.examples.uniquetaxpayerreference.corporationTax])
-
-  @Inject private val label =
-    Guice.createInjector().getInstance(classOf[html.examples.uniquetaxpayerreference.label])
-
-  @Inject private val labelError =
-    Guice.createInjector().getInstance(classOf[html.examples.uniquetaxpayerreference.labelError])
-
-  @Inject private val selfAssessment =
-    Guice.createInjector().getInstance(classOf[html.examples.uniquetaxpayerreference.selfAssessment])
-
-  testRendering(HmrcFrontend, "unique-taxpayer-reference", "corporationTax", corporationTax.f)
-  testRendering(HmrcFrontend, "unique-taxpayer-reference", "label", label.f)
-  testRendering(HmrcFrontend, "unique-taxpayer-reference", "labelError", labelError.f)
-  testRendering(HmrcFrontend, "unique-taxpayer-reference", "selfAssessment", selfAssessment.f)
+  testRendering(HmrcFrontend, "unique-taxpayer-reference", "corporationTax", uniquetaxpayerreferenceCorporationTax.f)
+  testRendering(HmrcFrontend, "unique-taxpayer-reference", "label", uniquetaxpayerreferenceLabel.f)
+  testRendering(HmrcFrontend, "unique-taxpayer-reference", "labelError", uniquetaxpayerreferenceLabelError.f)
+  testRendering(HmrcFrontend, "unique-taxpayer-reference", "selfAssessment", uniquetaxpayerreferenceSelfAssessment.f)
 }

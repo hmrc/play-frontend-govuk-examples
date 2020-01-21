@@ -17,15 +17,11 @@
 package uk.gov.hmrc.hmrcfrontend.views
 package example
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.HmrcFrontend
+import uk.gov.hmrc.hmrcfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcSignOutIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val example =
-    Guice.createInjector().getInstance(classOf[html.examples.signout.example])
-
-  testRendering(HmrcFrontend, "sign-out", "example", example.f)
+  testRendering(HmrcFrontend, "sign-out", "example", signoutExample.f)
 }

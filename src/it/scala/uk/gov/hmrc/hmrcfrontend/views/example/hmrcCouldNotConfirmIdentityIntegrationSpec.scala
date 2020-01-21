@@ -17,39 +17,33 @@
 package uk.gov.hmrc.hmrcfrontend.views
 package example
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.HmrcFrontend
+import uk.gov.hmrc.hmrcfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcCouldNotConfirmIdentityIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val endOfJourney =
-    Guice.createInjector().getInstance(classOf[html.examples.couldnotconfirmidentity.endOfJourney])
+  testRendering(HmrcFrontend, "could-not-confirm-identity", "endOfJourney", couldnotconfirmidentityEndOfJourney.f)
 
-  @Inject private val endOfJourneyWelsh =
-    Guice.createInjector().getInstance(classOf[html.examples.couldnotconfirmidentity.endOfJourneyWelsh])
+  testRendering(
+    HmrcFrontend,
+    "could-not-confirm-identity",
+    "endOfJourneyWelsh",
+    couldnotconfirmidentityEndOfJourneyWelsh.f)
 
-  @Inject private val insufficientInformation =
-    Guice.createInjector().getInstance(classOf[html.examples.couldnotconfirmidentity.insufficientInformation])
+  testRendering(
+    HmrcFrontend,
+    "could-not-confirm-identity",
+    "insufficientInformation",
+    couldnotconfirmidentityInsufficientInformation.f)
 
-  @Inject private val insufficientInformationWelsh =
-    Guice.createInjector().getInstance(classOf[html.examples.couldnotconfirmidentity.insufficientInformationWelsh])
-
-  @Inject private val noMatch =
-    Guice.createInjector().getInstance(classOf[html.examples.couldnotconfirmidentity.noMatch])
-
-  @Inject private val noMatchWelsh =
-    Guice.createInjector().getInstance(classOf[html.examples.couldnotconfirmidentity.noMatchWelsh])
-
-  testRendering(HmrcFrontend, "could-not-confirm-identity", "endOfJourney", endOfJourney.f)
-  testRendering(HmrcFrontend, "could-not-confirm-identity", "endOfJourneyWelsh", endOfJourneyWelsh.f)
-  testRendering(HmrcFrontend, "could-not-confirm-identity", "insufficientInformation", insufficientInformation.f)
   testRendering(
     HmrcFrontend,
     "could-not-confirm-identity",
     "insufficientInformationWelsh",
-    insufficientInformationWelsh.f)
-  testRendering(HmrcFrontend, "could-not-confirm-identity", "noMatch", noMatch.f)
-  testRendering(HmrcFrontend, "could-not-confirm-identity", "noMatchWelsh", noMatchWelsh.f)
+    couldnotconfirmidentityInsufficientInformationWelsh.f)
+
+  testRendering(HmrcFrontend, "could-not-confirm-identity", "noMatch", couldnotconfirmidentityNoMatch.f)
+
+  testRendering(HmrcFrontend, "could-not-confirm-identity", "noMatchWelsh", couldnotconfirmidentityNoMatchWelsh.f)
 }

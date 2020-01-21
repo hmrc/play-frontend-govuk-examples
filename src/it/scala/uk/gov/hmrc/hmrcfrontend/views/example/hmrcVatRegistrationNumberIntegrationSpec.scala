@@ -17,23 +17,13 @@
 package uk.gov.hmrc.hmrcfrontend.views
 package example
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.HmrcFrontend
+import uk.gov.hmrc.hmrcfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcVatRegistrationNumberIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val heading =
-    Guice.createInjector().getInstance(classOf[html.examples.vatregistrationnumber.heading])
-
-  @Inject private val label =
-    Guice.createInjector().getInstance(classOf[html.examples.vatregistrationnumber.label])
-
-  @Inject private val labelError =
-    Guice.createInjector().getInstance(classOf[html.examples.vatregistrationnumber.labelError])
-
-  testRendering(HmrcFrontend, "vat-registration-number", "heading", heading.f)
-  testRendering(HmrcFrontend, "vat-registration-number", "label", label.f)
-  testRendering(HmrcFrontend, "vat-registration-number", "labelError", labelError.f)
+  testRendering(HmrcFrontend, "vat-registration-number", "heading", vatregistrationnumberHeading.f)
+  testRendering(HmrcFrontend, "vat-registration-number", "label", vatregistrationnumberLabel.f)
+  testRendering(HmrcFrontend, "vat-registration-number", "labelError", vatregistrationnumberLabelError.f)
 }

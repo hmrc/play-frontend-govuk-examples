@@ -17,27 +17,14 @@
 package uk.gov.hmrc.govukfrontend.views
 package examples
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.GovukFrontend
+import uk.gov.hmrc.govukfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukErrorMessageIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val default =
-    Guice.createInjector().getInstance(classOf[html.examples.errormessage.default])
-
-  @Inject private val customPrefix =
-    Guice.createInjector().getInstance(classOf[html.examples.errormessage.customPrefix])
-
-  @Inject private val label =
-    Guice.createInjector().getInstance(classOf[html.examples.errormessage.label])
-
-  @Inject private val legend =
-    Guice.createInjector().getInstance(classOf[html.examples.errormessage.legend])
-
-  testRendering(GovukFrontend, "error-message", "default", default.f)
-  testRendering(GovukFrontend, "error-message", "customPrefix", customPrefix.f)
-  testRendering(GovukFrontend, "error-message", "label", label.f)
-  testRendering(GovukFrontend, "error-message", "legend", legend.f)
+  testRendering(GovukFrontend, "error-message", "default", errormessageDefault.f)
+  testRendering(GovukFrontend, "error-message", "customPrefix", errormessageCustomPrefix.f)
+  testRendering(GovukFrontend, "error-message", "label", errormessageLabel.f)
+  testRendering(GovukFrontend, "error-message", "legend", errormessageLegend.f)
 }

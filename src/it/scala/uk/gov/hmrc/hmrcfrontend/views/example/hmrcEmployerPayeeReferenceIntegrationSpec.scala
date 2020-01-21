@@ -17,23 +17,13 @@
 package uk.gov.hmrc.hmrcfrontend.views
 package example
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.HmrcFrontend
+import uk.gov.hmrc.hmrcfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcEmployerPayeeReferenceIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val heading =
-    Guice.createInjector().getInstance(classOf[html.examples.employerpayereference.heading])
-
-  @Inject private val label =
-    Guice.createInjector().getInstance(classOf[html.examples.employerpayereference.label])
-
-  @Inject private val labelError =
-    Guice.createInjector().getInstance(classOf[html.examples.employerpayereference.labelError])
-
-  testRendering(HmrcFrontend, "employer-paye-reference", "heading", heading.f)
-  testRendering(HmrcFrontend, "employer-paye-reference", "label", label.f)
-  testRendering(HmrcFrontend, "employer-paye-reference", "labelError", labelError.f)
+  testRendering(HmrcFrontend, "employer-paye-reference", "heading", employerpayereferenceHeading.f)
+  testRendering(HmrcFrontend, "employer-paye-reference", "label", employerpayereferenceLabel.f)
+  testRendering(HmrcFrontend, "employer-paye-reference", "labelError", employerpayereferenceLabelError.f)
 }

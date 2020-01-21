@@ -17,23 +17,13 @@
 package uk.gov.hmrc.govukfrontend.views
 package examples
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.GovukFrontend
+import uk.gov.hmrc.govukfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukTextAreaIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val default =
-    Guice.createInjector().getInstance(classOf[html.examples.textarea.default])
-
-  @Inject private val error =
-    Guice.createInjector().getInstance(classOf[html.examples.textarea.error])
-
-  @Inject private val specifyingRows =
-    Guice.createInjector().getInstance(classOf[html.examples.textarea.specifyingRows])
-
-  testRendering(GovukFrontend, "textarea", "default", default.f)
-  testRendering(GovukFrontend, "textarea", "error", error.f)
-  testRendering(GovukFrontend, "textarea", "specifyingRows", specifyingRows.f)
+  testRendering(GovukFrontend, "textarea", "default", textareaDefault.f)
+  testRendering(GovukFrontend, "textarea", "error", textareaError.f)
+  testRendering(GovukFrontend, "textarea", "specifyingRows", textareaSpecifyingRows.f)
 }

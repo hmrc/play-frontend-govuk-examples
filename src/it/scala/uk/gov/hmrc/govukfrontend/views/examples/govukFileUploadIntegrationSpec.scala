@@ -17,19 +17,12 @@
 package uk.gov.hmrc.govukfrontend.views
 package examples
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.GovukFrontend
+import uk.gov.hmrc.govukfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukFileUploadIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val default =
-    Guice.createInjector().getInstance(classOf[html.examples.fileupload.default])
-
-  @Inject private val error =
-    Guice.createInjector().getInstance(classOf[html.examples.fileupload.error])
-
-  testRendering(GovukFrontend, "file-upload", "default", default.f)
-  testRendering(GovukFrontend, "file-upload", "error", error.f)
+  testRendering(GovukFrontend, "file-upload", "default", fileuploadDefault.f)
+  testRendering(GovukFrontend, "file-upload", "error", fileuploadError.f)
 }

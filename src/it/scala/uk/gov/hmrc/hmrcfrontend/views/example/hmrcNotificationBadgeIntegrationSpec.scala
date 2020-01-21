@@ -17,19 +17,12 @@
 package uk.gov.hmrc.hmrcfrontend.views
 package example
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.HmrcFrontend
+import uk.gov.hmrc.hmrcfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcNotificationBadgeIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val noItems =
-    Guice.createInjector().getInstance(classOf[html.examples.notificationbadge.noItems])
-
-  @Inject private val withItems =
-    Guice.createInjector().getInstance(classOf[html.examples.notificationbadge.withItems])
-
-  testRendering(HmrcFrontend, "notification-badge", "noItems", noItems.f)
-  testRendering(HmrcFrontend, "notification-badge", "withItems", withItems.f)
+  testRendering(HmrcFrontend, "notification-badge", "noItems", notificationbadgeNoItems.f)
+  testRendering(HmrcFrontend, "notification-badge", "withItems", notificationbadgeWithItems.f)
 }

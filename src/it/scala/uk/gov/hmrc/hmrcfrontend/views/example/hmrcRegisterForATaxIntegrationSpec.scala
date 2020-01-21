@@ -17,15 +17,11 @@
 package uk.gov.hmrc.hmrcfrontend.views
 package example
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.HmrcFrontend
+import uk.gov.hmrc.hmrcfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcRegisterForATaxIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val example =
-    Guice.createInjector().getInstance(classOf[html.examples.registerforatax.example])
-
-  testRendering(HmrcFrontend, "register-for-a-tax", "example", example.f)
+  testRendering(HmrcFrontend, "register-for-a-tax", "example", registerforataxExample.f)
 }

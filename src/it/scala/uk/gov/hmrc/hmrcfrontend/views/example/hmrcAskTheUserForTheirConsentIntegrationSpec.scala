@@ -17,23 +17,27 @@
 package uk.gov.hmrc.hmrcfrontend.views
 package example
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.HmrcFrontend
+import uk.gov.hmrc.hmrcfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcAskTheUserForTheirConsentIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val multipleCheckboxes =
-    Guice.createInjector().getInstance(classOf[html.examples.asktheuserfortheirconsent.multipleCheckboxes])
+  testRendering(
+    HmrcFrontend,
+    "ask-the-user-for-their-consent",
+    "multipleCheckboxes",
+    asktheuserfortheirconsentMultipleCheckboxes.f)
 
-  @Inject private val singleCheckbox =
-    Guice.createInjector().getInstance(classOf[html.examples.asktheuserfortheirconsent.singleCheckbox])
+  testRendering(
+    HmrcFrontend,
+    "ask-the-user-for-their-consent",
+    "singleCheckbox",
+    asktheuserfortheirconsentSingleCheckbox.f)
 
-  @Inject private val yesNoQuestion =
-    Guice.createInjector().getInstance(classOf[html.examples.asktheuserfortheirconsent.yesNoQuestion])
-
-  testRendering(HmrcFrontend, "ask-the-user-for-their-consent", "multipleCheckboxes", multipleCheckboxes.f)
-  testRendering(HmrcFrontend, "ask-the-user-for-their-consent", "singleCheckbox", singleCheckbox.f)
-  testRendering(HmrcFrontend, "ask-the-user-for-their-consent", "yesNoQuestion", yesNoQuestion.f)
+  testRendering(
+    HmrcFrontend,
+    "ask-the-user-for-their-consent",
+    "yesNoQuestion",
+    asktheuserfortheirconsentYesNoQuestion.f)
 }
