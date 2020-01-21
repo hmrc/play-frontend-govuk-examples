@@ -9,7 +9,7 @@ The extension pulls in the Scala Twirl examples provided by this repo (translate
 This allows it to add an extra tab to each set of examples for using the Scala Twirl implemented by [play-frontend-govuk](https://github.com/hmrc/play-frontend-govuk)
 
 ## Prerequisites
-First start up the `template-service-spike` NodeJS service according to the ReadMe in the relevant GitHub repo.
+First start up the `x-govuk-component-renderer` NodeJS service according to the ReadMe in the relevant GitHub repo.
 
 ## Testing
 Run the unit tests and ensure they pass before committing new changes by the below command:
@@ -62,7 +62,7 @@ sbt run
 ### Generating & testing Example Templates
 The examples need to be unit tested against the expected output `HTML` accompanying each example in the [GOV.UK Design System](https://design-system.service.gov.uk/components/)
 to ensure the `Twirl` examples produce the same markup as the `Nunjucks` ones. <br/>
-**_`Todo`_**: Use GET from /examples-output/$$COMPONENT_NAME$$ endpoint call in [template-service-spike](https://github.com/hmrc/template-service-spike) to retrieve html equivalent and compare
+**_`Todo`_**: Use GET from /examples-output/$$COMPONENT_NAME$$ endpoint call in [x-govuk-component-renderer](https://github.com/hmrc/x-govuk-component-renderer) to retrieve html equivalent and compare
 
 Once the examples have been created, an `sbt` task is manually run to generate a [manifest.json](src/test/resources/manifest.json)
 file that is consumed by the [Chrome extension]((https://github.com/hmrc/play-frontend-govuk-extension)) to display the examples
