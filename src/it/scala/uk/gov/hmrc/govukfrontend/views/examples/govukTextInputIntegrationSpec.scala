@@ -17,43 +17,17 @@
 package uk.gov.hmrc.govukfrontend.views
 package examples
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.GovukFrontend
+import uk.gov.hmrc.govukfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukTextInputIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val default =
-    Guice.createInjector().getInstance(classOf[html.examples.textinput.default])
-
-  @Inject private val error =
-    Guice.createInjector().getInstance(classOf[html.examples.textinput.error])
-
-  @Inject private val inputAutocompleteAttribute =
-    Guice
-      .createInjector()
-      .getInstance(classOf[html.examples.textinput.inputAutocompleteAttribute])
-
-  @Inject private val inputFixedWidth =
-    Guice.createInjector().getInstance(classOf[html.examples.textinput.inputFixedWidth])
-
-  @Inject private val inputFluidWidth =
-    Guice.createInjector().getInstance(classOf[html.examples.textinput.inputFluidWidth])
-
-  @Inject private val inputHintText =
-    Guice.createInjector().getInstance(classOf[html.examples.textinput.inputHintText])
-
-  @Inject private val inputSpellcheckDisabled =
-    Guice
-      .createInjector()
-      .getInstance(classOf[html.examples.textinput.inputSpellcheckDisabled])
-
-  testRendering(GovukFrontend, "text-input", "default", default.f)
-  testRendering(GovukFrontend, "text-input", "error", error.f)
-  testRendering(GovukFrontend, "text-input", "inputAutocompleteAttribute", inputAutocompleteAttribute.f)
-  testRendering(GovukFrontend, "text-input", "inputFixedWidth", inputFixedWidth.f)
-  testRendering(GovukFrontend, "text-input", "inputFluidWidth", inputFluidWidth.f)
-  testRendering(GovukFrontend, "text-input", "inputHintText", inputHintText.f)
-  testRendering(GovukFrontend, "text-input", "inputSpellcheckDisabled", inputSpellcheckDisabled.f)
+  testRendering(GovukFrontend, "text-input", "default", textinputDefault.f)
+  testRendering(GovukFrontend, "text-input", "error", textinputError.f)
+  testRendering(GovukFrontend, "text-input", "inputAutocompleteAttribute", textinputInputAutocompleteAttribute.f)
+  testRendering(GovukFrontend, "text-input", "inputFixedWidth", textinputInputFixedWidth.f)
+  testRendering(GovukFrontend, "text-input", "inputFluidWidth", textinputInputFluidWidth.f)
+  testRendering(GovukFrontend, "text-input", "inputHintText", textinputInputHintText.f)
+  testRendering(GovukFrontend, "text-input", "inputSpellcheckDisabled", textinputInputSpellcheckDisabled.f)
 }

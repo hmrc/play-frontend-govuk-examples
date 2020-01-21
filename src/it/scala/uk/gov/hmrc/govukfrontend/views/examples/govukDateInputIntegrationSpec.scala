@@ -17,23 +17,13 @@
 package uk.gov.hmrc.govukfrontend.views
 package examples
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.GovukFrontend
+import uk.gov.hmrc.govukfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukDateInputIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val default =
-    Guice.createInjector().getInstance(classOf[html.examples.dateinput.default])
-
-  @Inject private val dateOfBirth =
-    Guice.createInjector().getInstance(classOf[html.examples.dateinput.dateOfBirth])
-
-  @Inject private val error =
-    Guice.createInjector().getInstance(classOf[html.examples.dateinput.error])
-
-  testRendering(GovukFrontend, "date-input", "default", default.f)
-  testRendering(GovukFrontend, "date-input", "dateOfBirth", dateOfBirth.f)
-  testRendering(GovukFrontend, "date-input", "error", error.f)
+  testRendering(GovukFrontend, "date-input", "default", dateinputDefault.f)
+  testRendering(GovukFrontend, "date-input", "dateOfBirth", dateinputDateOfBirth.f)
+  testRendering(GovukFrontend, "date-input", "error", dateinputError.f)
 }

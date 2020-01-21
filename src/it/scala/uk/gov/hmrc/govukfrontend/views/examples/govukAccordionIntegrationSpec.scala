@@ -17,21 +17,12 @@
 package uk.gov.hmrc.govukfrontend.views
 package examples
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.GovukFrontend
+import uk.gov.hmrc.govukfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukAccordionIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val default =
-    Guice.createInjector().getInstance(classOf[html.examples.accordion.default])
-
-  @Inject private val withSummarySection =
-    Guice
-      .createInjector()
-      .getInstance(classOf[html.examples.accordion.withSummarySection])
-
-  testRendering(GovukFrontend, "accordion", "default", default.f)
-  testRendering(GovukFrontend, "accordion", "withSummarySection", withSummarySection.f)
+  testRendering(GovukFrontend, "accordion", "default", accordionDefault.f)
+  testRendering(GovukFrontend, "accordion", "withSummarySection", accordionWithSummarySection.f)
 }

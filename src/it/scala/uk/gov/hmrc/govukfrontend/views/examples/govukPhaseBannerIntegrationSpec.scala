@@ -17,19 +17,12 @@
 package uk.gov.hmrc.govukfrontend.views
 package examples
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.GovukFrontend
+import uk.gov.hmrc.govukfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukPhaseBannerIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val default =
-    Guice.createInjector().getInstance(classOf[html.examples.phasebanner.default])
-
-  @Inject private val beta =
-    Guice.createInjector().getInstance(classOf[html.examples.phasebanner.beta])
-
-  testRendering(GovukFrontend, "phase-banner", "default", default.f)
-  testRendering(GovukFrontend, "phase-banner", "beta", beta.f)
+  testRendering(GovukFrontend, "phase-banner", "default", phasebannerDefault.f)
+  testRendering(GovukFrontend, "phase-banner", "beta", phasebannerBeta.f)
 }

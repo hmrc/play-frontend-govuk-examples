@@ -17,6 +17,7 @@
 package uk.gov.hmrc.govukfrontend.views
 
 import com.googlecode.htmlcompressor.compressor.HtmlCompressor
+import com.googlecode.htmlcompressor.compressor.HtmlCompressor.ALL_TAGS
 import org.jsoup.parser.Parser
 
 trait PreProcessor {
@@ -29,8 +30,12 @@ trait PreProcessor {
     * @param html
     * @return
     */
-  def parseAndCompressHtml(html: String): String =
+  def parseAndCompressHtml(html: String): String = {
+    compressor.setRemoveIntertagSpaces(true)
+    compressor.setRemoveMultiSpaces(true)
+//    compressor.setRemoveSurroundingSpaces(ALL_TAGS)
     compressor.compress(Parser.unescapeEntities(html, false))
+  }
 
   /***
     * Function to pre-process the markup before comparing.

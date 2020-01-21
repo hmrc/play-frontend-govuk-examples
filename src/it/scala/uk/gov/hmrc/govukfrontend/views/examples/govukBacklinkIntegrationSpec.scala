@@ -17,15 +17,11 @@
 package uk.gov.hmrc.govukfrontend.views
 package examples
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.GovukFrontend
+import uk.gov.hmrc.govukfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukBacklinkIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val default =
-    Guice.createInjector().getInstance(classOf[html.examples.backlink.default])
-
-  testRendering(GovukFrontend, "back-link", "default", default.f)
+  testRendering(GovukFrontend, "back-link", "default", backlinkDefault.f)
 }

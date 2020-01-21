@@ -17,27 +17,14 @@
 package uk.gov.hmrc.govukfrontend.views
 package examples
 
-import com.google.inject.Guice
-import javax.inject.Inject
 import uk.gov.hmrc.govukfrontend.examples.GovukFrontend
+import uk.gov.hmrc.govukfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukFooterIntegrationSpec extends TemplateIntegrationSpec {
 
-  @Inject private val default =
-    Guice.createInjector().getInstance(classOf[html.examples.footer.default])
-
-  @Inject private val full =
-    Guice.createInjector().getInstance(classOf[html.examples.footer.full])
-
-  @Inject private val withMeta =
-    Guice.createInjector().getInstance(classOf[html.examples.footer.withMeta])
-
-  @Inject private val withNavigation =
-    Guice.createInjector().getInstance(classOf[html.examples.footer.withNavigation])
-
-  testRendering(GovukFrontend, "footer", "default", default.f)
-  testRendering(GovukFrontend, "footer", "full", full.f)
-  testRendering(GovukFrontend, "footer", "withMeta", withMeta.f)
-  testRendering(GovukFrontend, "footer", "withNavigation", withNavigation.f)
+  testRendering(GovukFrontend, "footer", "default", footerDefault.f)
+  testRendering(GovukFrontend, "footer", "full", footerFull.f)
+  testRendering(GovukFrontend, "footer", "withMeta", footerWithMeta.f)
+  testRendering(GovukFrontend, "footer", "withNavigation", footerWithNavigation.f)
 }

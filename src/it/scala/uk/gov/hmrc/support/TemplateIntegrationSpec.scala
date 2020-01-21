@@ -40,7 +40,7 @@ abstract class TemplateIntegrationSpec
           .find(_.exampleName.replaceAll("-", "").matches(exampleName.toLowerCase()))
           .getOrElse(throw new Exception(s"Nunjucks example not found for Twirl example $exampleName"))
 
-        matchTwirlWithNunjucks(twirlRendering, nunjucks.html)
+        assert(matchTwirlWithNunjucks(twirlRendering, nunjucks.html))
       }
     }
 
