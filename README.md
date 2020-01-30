@@ -70,7 +70,7 @@ in the [GOV.UK Design System](https://design-system.service.gov.uk/components/).
 
 Ideally the following processes would be automated and wired up to run as a single process:
 1. Generate the examples from the `Nunjucks` automatically (DONE)
-2. Write automated tests using html from Template Service (TODO)
+2. Write automated tests using html from Template Service (DONE)
 3. Generate the `manifest.json` for the `Chrome` extension (DONE)
 
 ![example generation](docs/images/example-generation.svg)
