@@ -90,7 +90,7 @@ lazy val libDependencies: Seq[ModuleID] = dependencies(
       "com.typesafe.play" %% "play"            % playRevision,
       "com.typesafe.play" %% "filters-helpers" % playRevision,
       "org.joda"          % "joda-convert"     % "2.0.2",
-      "org.webjars.npm"   % "govuk-frontend"   % "3.3.0",
+      "org.webjars.npm"   % "govuk-frontend"   % "3.5.0",
       "com.lihaoyi"       %% "fastparse"       % "2.1.2"
     )
 
@@ -111,7 +111,7 @@ lazy val libDependencies: Seq[ModuleID] = dependencies(
   },
   play25 = {
     val compile = Seq(
-      "uk.gov.hmrc" %% "play-frontend-govuk" % "0.32.0-play-25",
+      "uk.gov.hmrc" %% "play-frontend-govuk" % "0.38.0-play-25",
       "uk.gov.hmrc" %% "play-frontend-hmrc" % "0.10.0-play-25"
     )
 
@@ -123,7 +123,7 @@ lazy val libDependencies: Seq[ModuleID] = dependencies(
   },
   play26 = {
     val compile = Seq(
-      "uk.gov.hmrc" %% "play-frontend-govuk" % "0.32.0-play-26",
+      "uk.gov.hmrc" %% "play-frontend-govuk" % "0.38.0-play-26",
       "uk.gov.hmrc" %% "play-frontend-hmrc" % "0.10.0-play-26"
     )
 
