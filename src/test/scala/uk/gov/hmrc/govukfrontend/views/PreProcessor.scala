@@ -33,7 +33,7 @@ trait PreProcessor {
   def parseAndCompressHtml(html: String): String = {
     compressor.setRemoveIntertagSpaces(true)
     compressor.setRemoveMultiSpaces(true)
-//    compressor.setRemoveSurroundingSpaces(ALL_TAGS)
+    compressor.setRemoveSurroundingSpaces(ALL_TAGS)
     compressor.compress(Parser.unescapeEntities(html, false))
   }
 
