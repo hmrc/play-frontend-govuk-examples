@@ -6,11 +6,11 @@
 
 
 @govukFooter(Footer(
-    navigation = Some(List(
+    navigation = Seq(
       FooterNavigation(
         title = Some("Two column list"),
         columns = Some(2),
-        items = Some(List(
+        items = Seq(
           FooterItem(
             text = Some("Navigation item 1"),
             href = Some("#1")
@@ -35,11 +35,11 @@
             text = Some("Navigation item 6"),
             href = Some("#6")
           )
-        ))
+        )
       ), 
       FooterNavigation(
         title = Some("Single column list"),
-        items = Some(List(
+        items = Seq(
           FooterItem(
             text = Some("Navigation item 1"),
             href = Some("#1")
@@ -52,7 +52,7 @@
             text = Some("Navigation item 3"),
             href = Some("#3")
           )
-        ))
+        )
       )
-    ))
+    )
   ))

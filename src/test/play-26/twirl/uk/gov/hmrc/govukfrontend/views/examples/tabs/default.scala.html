@@ -215,7 +215,7 @@ govukTable : GovukTable)
   ))
 }
 @govukTabs(Tabs(
-    items = Some(List(
+    items = Seq(
       TabItem(
         id = Some("past-day"),
         label = "Past day",
@@ -244,5 +244,5 @@ govukTable : GovukTable)
           content = HtmlContent(pastYearHtml)
         )
       )
-    ))
+    )
   ))

@@ -474,11 +474,11 @@ class NunjucksParserSpec extends WordSpec with Matchers {
             MacroCall(
               macroName = "govukFooter",
               args = Footer(
-                navigation = Some(Seq(
+                navigation = Seq(
                   FooterNavigation(
                     title   = Some("Services and information"),
                     columns = Some(2),
-                    items = Some(Seq(
+                    items = Seq(
                       FooterItem(href = Some("#"), text = Some("Benefits")),
                       FooterItem(href = Some("#"), text = Some("Births, deaths, marriages and care")),
                       FooterItem(href = Some("#"), text = Some("Business and self-employed")),
@@ -495,20 +495,20 @@ class NunjucksParserSpec extends WordSpec with Matchers {
                       FooterItem(href = Some("#"), text = Some("Passports, travel and living abroad")),
                       FooterItem(href = Some("#"), text = Some("Visas and immigration")),
                       FooterItem(href = Some("#"), text = Some("Working, jobs and pensions"))
-                    ))
+                    )
                   ),
                   FooterNavigation(
                     title = Some("Departments and policy"),
-                    items = Some(Seq(
+                    items = Seq(
                       FooterItem(href = Some("#"), text = Some("How government works")),
                       FooterItem(href = Some("#"), text = Some("Departments")),
                       FooterItem(href = Some("#"), text = Some("Worldwide")),
                       FooterItem(href = Some("#"), text = Some("Policies")),
                       FooterItem(href = Some("#"), text = Some("Publications")),
                       FooterItem(href = Some("#"), text = Some("Announcements"))
-                    ))
+                    )
                   )
-                )),
+                ),
                 meta = Some(Meta(
                   items = Some(Seq(
                     FooterItem(href = Some("#"), text = Some("Help")),
