@@ -2160,7 +2160,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
            |  ))
            |}
            |@GovukTabs(Tabs(
-           |    items = Some(List(
+           |    items = Seq(
            |      TabItem(
            |        id = Some("past-day"),
            |        label = "Past day",
@@ -2189,7 +2189,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
            |          content = HtmlContent(pastYearHtml)
            |        )
            |      )
-           |    ))
+           |    )
            |  ))""".stripMargin
 
       val gouvukTabsParsed = fastparse.parse(gouvukTabsNunjucks, NunjucksParser.nunjucksParser(_))

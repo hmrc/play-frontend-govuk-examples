@@ -4,9 +4,9 @@
 @()
 
 @GovukDateInput(DateInput(
-    id = Some("passport-issued"),
+    id = "passport-issued",
     namePrefix = Some("passport-issued"),
-    items = Some(List(
+    items = Seq(
       InputItem(
         name = "day",
         value = Some("6"),
@@ -22,7 +22,7 @@
         value = Some("2076"),
         classes = "govuk-input--width-4 govuk-input--error"
       )
-    )),
+    ),
     hint = Some(Hint(
       content = Text("For example, 12 11 2007")
     )),

@@ -16,9 +16,9 @@ govukErrorSummary : GovukErrorSummary)
     title = Text("There is a problem")
   ))
 @govukDateInput(DateInput(
-    id = Some("passport-issued"),
+    id = "passport-issued",
     namePrefix = Some("passport-issued"),
-    items = Some(List(
+    items = Seq(
       InputItem(
         name = "day",
         value = Some("5"),
@@ -33,7 +33,7 @@ govukErrorSummary : GovukErrorSummary)
         name = "year",
         classes = "govuk-input--width-4 govuk-input--error"
       )
-    )),
+    ),
     errorMessage = Some(ErrorMessage(
       content = Text("Passport issue date must include a year")
     )),

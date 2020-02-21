@@ -4,9 +4,9 @@
 @()
 
 @GovukDateInput(DateInput(
-    id = Some("dob"),
+    id = "dob",
     namePrefix = Some("dob"),
-    items = Some(List(
+    items = Seq(
       InputItem(
         name = "day",
         autocomplete = Some("bday-day"),
@@ -22,7 +22,7 @@
         autocomplete = Some("bday-year"),
         classes = "govuk-input--width-4"
       )
-    )),
+    ),
     hint = Some(Hint(
       content = Text("For example, 31 3 1980")
     )),
