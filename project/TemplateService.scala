@@ -4,13 +4,13 @@ import scalaj.http.{Http, HttpOptions}
 
 object TemplateService {
 
-  final case class TemplateServiceResponse(name: String, html: String, md5: String, nunjucks: String)
+  final case class TemplateServiceResponse(name: String, html: String, nunjucks: String)
 
   implicit val reads: Reads[TemplateServiceResponse] = Json.reads[TemplateServiceResponse]
 
   def getNunjucksExamples(frontend: Frontend, component: String): Seq[TemplateServiceResponse] = {
 
-    val endpoint: String = s"http://localhost:3000/examples-output/${frontend.templateServiceSubpath}/$component"
+    val endpoint: String = s"http://localhost:3000/example-usage/${frontend.templateServiceSubpath}/$component"
 
     val attempt: Try[Seq[TemplateServiceResponse]] = Try {
       val response = Http(endpoint)

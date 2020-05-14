@@ -1,0 +1,23 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukInput : GovukInput)
+
+@()
+
+
+@govukInput(Input(
+    id = "account-number",
+    name = "account-number",
+    inputmode = Some("numeric"),
+    label = Label(
+      content = Text("Account number")
+    ),
+    hint = Some(Hint(
+      content = Text("Must be between 6 and 8 digits long")
+    )),
+    classes = "govuk-input--width-10",
+    pattern = Some("[0-9]*"),
+    attributes = Map(
+      "spellcheck" -> "false"
+    )
+  ))

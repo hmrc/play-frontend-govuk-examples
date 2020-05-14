@@ -38,7 +38,7 @@ trait TemplateServiceClient extends WordSpecLike with WSScalaTestClient with Gui
     }
 
     val future: Future[List[ComponentExample]] =
-      wsUrl(s"/examples-output/$frontendPath/$componentName").get().map(_.json.as[List[ComponentExample]])
+      wsUrl(s"/example-usage/$frontendPath/$componentName").get().map(_.json.as[List[ComponentExample]])
 
     for (response <- future)
       yield

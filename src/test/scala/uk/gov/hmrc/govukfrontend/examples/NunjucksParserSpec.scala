@@ -53,9 +53,31 @@ class NunjucksParserSpec extends WordSpec with Matchers {
     }
   }
 
+  "withContext parser" should {
+    "parse" in {
+      val s = "with context"
+
+      fastparse.parse(s, withContext(_)) shouldBe Success(
+        (),
+        12
+      )
+    }
+  }
+
   "import parser" should {
     "parse" in {
       val s = """{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}"""
+
+      val Parsed.Success(parsedValue, _) = fastparse.parse(s, importParser(_))
+
+      parsedValue shouldBe
+        Import("govuk/components/error-summary/macro.njk", "govukErrorSummary")
+    }
+  }
+
+  "import with context parser" should {
+    "parse" in {
+      val s = """{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary with context %}"""
 
       val Parsed.Success(parsedValue, _) = fastparse.parse(s, importParser(_))
 

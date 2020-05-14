@@ -2,8 +2,6 @@ import play.api.libs.json.Json
 import sbt._
 import ExampleForPlayVersions.toExamplesForPlayVersions
 
-import scala.util.{Failure, Success}
-
 object ExamplesManifestGenerator {
 
   /**
@@ -13,7 +11,7 @@ object ExamplesManifestGenerator {
     *
     * It collects all the examples in the folder [[src/test/play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples]]
     * (the play-25 examples are auto-generated) and generates a <code>manifest.json</code> file in the folder
-    * [[src/test/resources]]which contains the location of each play-25 and play-26 example, along with the md5 hash
+    * [[src/test/resources]]which contains the location of each play-25 and play-26 example
     * provided by x-govuk-component-renderer.
     *
     * To exclude an example from the manifest include a Twirl comment with the following contents
@@ -21,7 +19,7 @@ object ExamplesManifestGenerator {
     *
     * x-govuk-component-renderer [[https://github.com/hmrc/x-govuk-component-renderer]] must be running for the task to succeed,
     * as it reads from the live Govuk Design System [[https://design-system.service.gov.uk/components/]] to provide the
-    * examples and md5 hashes.
+    * examples.
     *
     * @param allExamples
     * @param manifestFile
@@ -55,25 +53,17 @@ object ExamplesManifestGenerator {
 
     val exampleVersionsIterable: Iterable[ExampleForPlayVersions] = toExamplesForPlayVersions(allExamples)
 
-    val md5Calculator = new Md5Calculator(exampleVersionsIterable)
-
     val uriReg = """.*/(play-\d*/(?:.*/){8}.*\.scala\.html)$""".r
 
     def toManifestElem(exampleVersions: ExampleForPlayVersions): ManifestJson = {
       val exampleId = exampleVersions.id
-      val htmlChecksum = md5Calculator.calcMd5(exampleVersions) match {
-        case Success(v) => v
-        case Failure(e) =>
-          println(e.getMessage)
-          "Could not be calculated"
-      }
 
       val playRefs = exampleVersions.playVersionedSources.map {
         case (playVersion, source) =>
           source.getAbsolutePath match {
             case uriReg(uri) => PlayVersionedExample(
               playVersion = playVersion,
-              ref = ExampleRef(uri = uri, htmlChecksum = htmlChecksum)
+              ref = ExampleRef(uri = uri)
             )
             case path => throw new Exception(s"Failed to abstract manifest URI for example ${exampleVersions.frontend} $exampleId at path $path.")
           }
