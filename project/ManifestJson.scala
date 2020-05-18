@@ -32,8 +32,7 @@ final case class PlayVersionedExample(
 )
 
 final case class ExampleRef(
-  uri: String,
-  htmlChecksum: String
+  uri: String
 )
 
 object ExampleRef {

@@ -35,10 +35,12 @@ object NunjucksParser {
 
   def ws[_: P] = P(CharsWhileIn(" \r\n", 0))
 
+  def withContext[_: P] = P("with context")
+
   def imports[_: P]: P[Seq[Import]] = P((importParser ~ ws).rep)
 
   def importParser[_: P]: P[Import] =
-    P("{%" ~ "-".? ~ ws ~ "from" ~ ws ~ doubleQuotedString ~ ws ~ "import" ~ ws ~ (!" " ~ AnyChar).rep.! ~ ws ~ "-".? ~ "%}")
+    P("{%" ~ "-".? ~ ws ~ "from" ~ ws ~ doubleQuotedString ~ ws ~ "import" ~ ws ~ (!" " ~ AnyChar).rep.! ~ ws ~ withContext.? ~ ws ~ "-".? ~ "%}")
       .map {
         case (importStatement, macroName) =>
           Import(from = importStatement, macroName = macroName)
@@ -136,6 +138,8 @@ object NunjucksParser {
           jsonToMacroCall[AccountMenu](m, args)
         case (m @ "hmrcBanner", args) =>
           jsonToMacroCall[Banner](m, args)
+        case (m @ "hmrcCurrencyInput", args) =>
+          jsonToMacroCall[CurrencyInput](m, args)
         case (m @ "hmrcHeader", args) =>
           jsonToMacroCall[Header](m, args)
         case (m @ "hmrcInternalHeader", args) =>

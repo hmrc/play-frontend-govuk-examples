@@ -1,32 +1,20 @@
-@import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this(govukDateInput : GovukDateInput,
-govukErrorSummary : GovukErrorSummary)
+@import uk.gov.hmrc.govukfrontend.views.html.components._
 
 @()
 
-
-@govukErrorSummary(ErrorSummary(
-    errorList = Seq(
-      ErrorLink(
-        href = Some("#passport-issued-year"),
-        content = Text("Passport issue date must include a year")
-      )
-    ),
-    title = Text("There is a problem")
-  ))
-@govukDateInput(DateInput(
+@GovukDateInput(DateInput(
     id = "passport-issued",
     namePrefix = Some("passport-issued"),
     items = Seq(
       InputItem(
         name = "day",
-        value = Some("5"),
+        value = Some("6"),
         classes = "govuk-input--width-2"
       ), 
       InputItem(
         name = "month",
-        value = Some("12"),
+        value = Some("3"),
         classes = "govuk-input--width-2"
       ), 
       InputItem(
@@ -34,8 +22,11 @@ govukErrorSummary : GovukErrorSummary)
         classes = "govuk-input--width-4 govuk-input--error"
       )
     ),
+    hint = Some(Hint(
+      content = Text("For example, 27 3 2007")
+    )),
     errorMessage = Some(ErrorMessage(
-      content = Text("Passport issue date must include a year")
+      content = Text("The date your passport was issued must include a year")
     )),
     fieldset = Some(Fieldset(
       legend = Some(Legend(

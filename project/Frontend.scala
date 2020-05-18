@@ -50,6 +50,7 @@ object Frontend {
       "accountsofficereference"       -> "accountsOfficeReference",
       "addtoalist"                    -> "addToAList",
       "asktheuserfortheirconsent"     -> "askTheUserForTheirConsent",
+      "currencyinput"                 -> "currencyInput",
       "confirmedidentity"             -> "confirmedIdentity",
       "couldnotconfirmidentity"       -> "couldNotConfirmIdentity",
       "employerpayereference"         -> "employerPayeReference",
