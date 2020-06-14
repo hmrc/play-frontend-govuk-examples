@@ -1,0 +1,13 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukSkipLink : GovukSkipLink)
+
+@()
+
+<p class="govuk-body">To view the skip link component tab to this example, or click inside this example and press tab.</p>
+
+
+@govukSkipLink(SkipLink(
+    href = "#content",
+    content = Text("Skip to main content")
+  ))

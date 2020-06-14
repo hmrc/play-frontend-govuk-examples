@@ -1,9 +1,8 @@
 import ExamplesManifestGenerator.generate
-import PlayCrossCompilation.{dependencies, playVersion}
 import play.sbt.PlayImport.PlayKeys._
 import sbt.classpath.ClasspathUtilities
 import sys.process.Process
-import uk.gov.hmrc.playcrosscompilation.PlayVersion.{Play25, Play26}
+import uk.gov.hmrc.playcrosscompilation.PlayVersion.{Play25, Play26, Play27}
 
 val libName = "play-frontend-govuk-examples"
 
@@ -12,6 +11,8 @@ lazy val playDir =
    else "play-26")
 
 lazy val IntegrationTest = config("it") extend Test
+val twirlCompileTemplates =
+  TaskKey[Seq[File]]("twirl-compile-templates", "Compile twirl templates into scala source files")
 
 lazy val root = Project(libName, file("."))
   .enablePlugins(PlayScala, SbtAutoBuildPlugin, SbtGitVersioning, SbtTwirl, SbtArtifactory)
@@ -20,20 +21,19 @@ lazy val root = Project(libName, file("."))
   .settings(
     name := libName,
     majorVersion := 0,
-    scalaVersion := "2.11.12",
-    crossScalaVersions := List("2.11.12", "2.12.8"),
-    libraryDependencies ++= libDependencies,
-    dependencyOverrides ++= overrides,
+    scalaVersion := "2.12.10",
+    crossScalaVersions := List("2.11.12", "2.12.10"),
+    libraryDependencies ++= LibDependencies.libDependencies,
+    dependencyOverrides ++= LibDependencies.overrides,
     resolvers :=
       Seq(
         "HMRC Releases" at "https://dl.bintray.com/hmrc/releases",
-        "typesafe-releases" at "http://repo.typesafe.com/typesafe/releases/",
+        "typesafe-releases" at "https://repo.typesafe.com/typesafe/releases/",
         "bintray" at "https://dl.bintray.com/webjars/maven"
       ),
     TwirlKeys.templateImports := templateImports,
     PlayCrossCompilation.playCrossCompilationSettings,
     makePublicallyAvailableOnBintray := true,
-    unmanagedSourceDirectories in Compile += baseDirectory.value / "src/test/twirl",
     (sourceDirectories in (Compile, TwirlKeys.compileTemplates)) +=
       baseDirectory.value / "src" / "test" / playDir / "twirl",
     updateExampleSources := {
@@ -65,10 +65,6 @@ lazy val root = Project(libName, file("."))
     },
     parallelExecution in sbt.Test := false,
     playMonitoredFiles ++= (sourceDirectories in (Compile, TwirlKeys.compileTemplates)).value,
-    routesGenerator := {
-      if (playVersion == Play25) StaticRoutesGenerator
-      else InjectedRoutesGenerator
-    },
     unmanagedResourceDirectories in Test ++= Seq(baseDirectory(_ / "target/web/public/test").value),
     buildInfoKeys ++= Seq[BuildInfoKey](
       "playVersion" -> PlayCrossCompilation.playVersion,
@@ -76,70 +72,24 @@ lazy val root = Project(libName, file("."))
     ),
     run := {
       val _ = generateExamplesManifest.value
-    }
+    },
+    scalacOptions += "-verbose",
+    fork in Test := false
   )
   .settings(inConfig(IntegrationTest)(itSettings): _*)
-
-lazy val itSettings = Defaults.itSettings :+ (unmanagedSourceDirectories += sourceDirectory.value / playDir)
-
-lazy val libDependencies: Seq[ModuleID] = dependencies(
-  shared = {
-    import PlayCrossCompilation.playRevision
-
-    val compile = Seq(
-      "com.typesafe.play" %% "play"            % playRevision,
-      "com.typesafe.play" %% "filters-helpers" % playRevision,
-      "org.joda"          % "joda-convert"     % "2.0.2",
-      "org.webjars.npm"   % "govuk-frontend"   % "3.5.0",
-      "com.lihaoyi"       %% "fastparse"       % "2.1.2"
-    )
-
-    val test = Seq(
-      "org.scalatest"                 %% "scalatest"       % "3.0.8",
-      "org.pegdown"                   % "pegdown"          % "1.6.0",
-      "org.jsoup"                     % "jsoup"            % "1.11.3",
-      "com.typesafe.play"             %% "play-test"       % playRevision,
-      "org.scalacheck"                %% "scalacheck"      % "1.14.1",
-      "com.googlecode.htmlcompressor" % "htmlcompressor"   % "1.5.2",
-      "com.github.pathikrit"          %% "better-files"    % "3.8.0",
-      "com.lihaoyi"                   %% "pprint"          % "0.5.3",
-      "org.bitbucket.cowwoc"          % "diff-match-patch" % "1.2",
-      ws
-    ).map(_ % s"$IntegrationTest,$Test")
-
-    compile ++ test
-  },
-  play25 = {
-    val compile = Seq(
-      "uk.gov.hmrc" %% "play-frontend-govuk" % "0.44.0-play-25",
-      "uk.gov.hmrc" %% "play-frontend-hmrc" % "0.14.0-play-25"
-    )
-
-    val test = Seq(
-      "org.scalatestplus.play" %% "scalatestplus-play" % "2.0.1"
-    ).map(_ % s"$IntegrationTest,$Test")
-
-    compile ++ test
-  },
-  play26 = {
-    val compile = Seq(
-      "uk.gov.hmrc" %% "play-frontend-govuk" % "0.44.0-play-26",
-      "uk.gov.hmrc" %% "play-frontend-hmrc" % "0.14.0-play-26"
-    )
-
-    val test = Seq(
-      "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2"
-    ).map(_ % s"$IntegrationTest,$Test")
-
-    compile ++ test
-  }
+  .settings(
+    // The following line undoes the inclusion of Twirl templates in the sbt-header sources
+    // enabled by sbt-auto-build. These are generated example templates that we don't want to
+    // add licence headers to because it is generated example code we are explicitly inviting
+    // users to copy and paste.
+    //
+    // The mechanism documented here: https://github.com/sbt/sbt-header/tree/v4.1.0#excluding-files
+    // does not work for Twirl templates and even if it did work this issue would
+    // prevent the templates from being compiled: https://github.com/sbt/sbt-header/issues/130
+    unmanagedSources.in(Compile, headerCreate) := sources.in(Compile, unmanagedSources).value
 )
 
-lazy val overrides: Set[ModuleID] = dependencies(
-  play25 = Seq(
-    "com.typesafe.play" %% "twirl-api" % "1.1.1"
-  )
-).toSet
+lazy val itSettings = Defaults.itSettings :+ (unmanagedSourceDirectories += sourceDirectory.value / playDir)
 
 lazy val templateImports: Seq[String] = {
 
@@ -161,7 +111,7 @@ lazy val templateImports: Seq[String] = {
       Seq(
         "_root_.play.twirl.api.TemplateMagic._"
       )
-    case Play26 =>
+    case _ =>
       Seq(
         "_root_.play.twirl.api.TwirlFeatureImports._",
         "_root_.play.twirl.api.TwirlHelperImports._"

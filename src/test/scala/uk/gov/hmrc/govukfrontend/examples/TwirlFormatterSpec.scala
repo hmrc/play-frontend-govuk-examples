@@ -1990,7 +1990,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
            |        )
            |      )
            |    ),
-           |    head = Some(List(
+           |    head = Some(Seq(
            |      HeadCell(
            |        content = Text("Case manager")
            |      ),
@@ -2042,7 +2042,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
            |        )
            |      )
            |    ),
-           |    head = Some(List(
+           |    head = Some(Seq(
            |      HeadCell(
            |        content = Text("Case manager")
            |      ),
@@ -2094,7 +2094,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
            |        )
            |      )
            |    ),
-           |    head = Some(List(
+           |    head = Some(Seq(
            |      HeadCell(
            |        content = Text("Case manager")
            |      ),
@@ -2146,7 +2146,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
            |        )
            |      )
            |    ),
-           |    head = Some(List(
+           |    head = Some(Seq(
            |      HeadCell(
            |        content = Text("Case manager")
            |      ),

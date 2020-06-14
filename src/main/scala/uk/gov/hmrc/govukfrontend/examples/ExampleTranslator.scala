@@ -23,7 +23,7 @@ import fastparse.Parsed.{Success => PSuccess}
 import fastparse._
 import uk.gov.hmrc.govukfrontend.examples.FileSystem.{TrueDir, TrueFile, prepareDirStructure}
 import uk.gov.hmrc.govukfrontend.examples.NunjucksParser.nunjucksParser
-import uk.gov.hmrc.govukfrontend.examples.PlayVersions.{Play25, Play26, PlayVersion}
+import uk.gov.hmrc.govukfrontend.examples.PlayVersions.{Play25, Play26, Play27, PlayVersion}
 
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.{Failure, Success, Try}
@@ -107,6 +107,7 @@ object ExampleTranslator {
                   playVersion match {
                     case Play25() => TwirlFormatter.formatPlay25(ex)
                     case Play26() => TwirlFormatter.format(ex)
+                    case Play27() => TwirlFormatter.format(ex)
                   }
               ),
               e => {

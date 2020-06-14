@@ -31,6 +31,10 @@ object PlayVersions {
     val version: Int              = 26
     override def toString: String = "play-26"
   }
+  case class Play27() extends PlayVersion {
+    val version: Int              = 27
+    override def toString: String = "play-27"
+  }
 
-  val implementedPlayVersions: Iterable[PlayVersion] = Iterable(Play25(), Play26())
+  val implementedPlayVersions: Iterable[PlayVersion] = Iterable(Play25(), Play26(), Play27())
 }

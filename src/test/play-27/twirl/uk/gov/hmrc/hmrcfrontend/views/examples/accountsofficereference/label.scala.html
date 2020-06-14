@@ -1,0 +1,18 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukInput : GovukInput)
+
+@()
+
+
+@govukInput(Input(
+    id = "accounts-office-reference",
+    name = "accounts-office-reference",
+    label = Label(
+      content = Text("What is your Accounts Office reference?")
+    ),
+    hint = Some(Hint(
+      content = Text("This is 13 characters, like 123PX00123456 or 123PX0012345X. It will be on letters from HMRC about PAYE and when you registered as an employer.")
+    )),
+    classes = "govuk-input--width-10"
+  ))
