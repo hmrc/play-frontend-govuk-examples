@@ -7,23 +7,23 @@
     homepageUrl = Some("#"),
     serviceName = Some("Service name"),
     serviceUrl = Some("#"),
-    navigation = Some(List(
+    navigation = Some(Seq(
       HeaderNavigation(
-        text = Some("Navigation item 1"),
         href = Some("#1"),
-        active = true
+        active = true,
+        content = Text("Navigation item 1")
       ), 
       HeaderNavigation(
-        text = Some("Navigation item 2"),
-        href = Some("#2")
+        href = Some("#2"),
+        content = Text("Navigation item 2")
       ), 
       HeaderNavigation(
-        text = Some("Navigation item 3"),
-        href = Some("#3")
+        href = Some("#3"),
+        content = Text("Navigation item 3")
       ), 
       HeaderNavigation(
-        text = Some("Navigation item 4"),
-        href = Some("#4")
+        href = Some("#4"),
+        content = Text("Navigation item 4")
       )
     ))
   ))

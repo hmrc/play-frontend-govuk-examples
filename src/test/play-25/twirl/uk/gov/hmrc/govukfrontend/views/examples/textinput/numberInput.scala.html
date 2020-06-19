@@ -8,7 +8,9 @@
     name = "account-number",
     inputmode = Some("numeric"),
     label = Label(
-      content = Text("Account number")
+      isPageHeading = true,
+      classes = "govuk-label--l",
+      content = Text("What is your account number?")
     ),
     hint = Some(Hint(
       content = Text("Must be between 6 and 8 digits long")

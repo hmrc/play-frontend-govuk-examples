@@ -22,6 +22,9 @@ import uk.gov.hmrc.govukfrontend.views.viewmodels.fieldset.Fieldset
 import uk.gov.hmrc.govukfrontend.examples.Implicits.ProductOps
 
 package object examples {
+  def standardiseSeq(in: String) = {
+    in.replaceAll("""([\s(])(List|Vector)""", "$1Seq")
+  }
 
   def prettyPrint(a: Any, indentSize: Int = 2, maxElementWidth: Int = 30, depth: Int = 1): String = {
     val indent = " " * depth * indentSize
@@ -118,9 +121,9 @@ package object examples {
 
   case class MacroCall(macroName: String, args: Any) extends NunjucksTemplateBody {
 
-    override def toString: String = s"""@${macroName.capitalize}(${prettyPrint(args)})""".replaceAll("\\sList", " Seq")
+    override def toString: String = standardiseSeq(s"""@${macroName.capitalize}(${prettyPrint(args)})""")
 
-    def toDependencyInjectionString: String = s"""@$macroName(${prettyPrint(args)})""".replaceAll("\\sList", " Seq")
+    def toDependencyInjectionString: String = standardiseSeq(s"""@$macroName(${prettyPrint(args)})""")
   }
 
   case class SetBlock(blockName: String, html: Option[TemplateHtml] = None, macroCall: MacroCall)
@@ -129,10 +132,10 @@ package object examples {
     private val htmlContent = html.fold("")(_.toString + "\n")
 
     override def toString: String =
-      s"""@$blockName = {\n$htmlContent${macroCall.toString}\n}""".replaceAll("\\sList", " Seq")
+      s"""@$blockName = {\n$htmlContent${macroCall.toString}\n}"""
 
     def toDependencyInjectionString: String =
-      s"""@$blockName = {\n$htmlContent${macroCall.toDependencyInjectionString}\n}""".replaceAll("\\sList", " Seq")
+      s"""@$blockName = {\n$htmlContent${macroCall.toDependencyInjectionString}\n}"""
   }
 
   case class CallMacro(callMacro: MacroCall, macroCalls: List[MacroCall]) extends NunjucksTemplateBody {
@@ -158,7 +161,6 @@ package object examples {
              |$macroCallsHtml
              |}
              |""".stripMargin
-            .replaceAll("\\sList", " Seq")
         case _ => ""
       }
   }

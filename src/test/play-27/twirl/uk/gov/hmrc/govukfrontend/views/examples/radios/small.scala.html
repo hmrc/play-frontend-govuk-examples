@@ -1,0 +1,29 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukRadios : GovukRadios)
+
+@()
+
+
+@govukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("Filter"),
+        classes = "govuk-fieldset__legend--m",
+        isPageHeading = true
+      ))
+    )),
+    idPrefix = Some("changed-name"),
+    name = "changed-name",
+    items = Seq(
+      RadioItem(
+        content = Text("Monthly"),
+        value = Some("month")
+      ), 
+      RadioItem(
+        content = Text("Yearly"),
+        value = Some("year")
+      )
+    ),
+    classes = "govuk-radios--small"
+  ))

@@ -1,0 +1,75 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukRadios : GovukRadios,
+govukInput : GovukInput)
+
+@()
+
+
+@emailHtml = {
+@govukInput(Input(
+    id = "contact-by-email",
+    name = "contact-by-email",
+    inputType = "email",
+    label = Label(
+      content = Text("Email address")
+    ),
+    classes = "govuk-!-width-one-third",
+    attributes = Map(
+      "spellcheck" -> "false"
+    )
+  ))
+}
+@phoneHtml = {
+@govukInput(Input(
+    id = "contact-by-phone",
+    name = "contact-by-phone",
+    inputType = "tel",
+    label = Label(
+      content = Text("Phone number")
+    ),
+    classes = "govuk-!-width-one-third"
+  ))
+}
+@textHtml = {
+@govukInput(Input(
+    id = "contact-by-text",
+    name = "contact-by-text",
+    inputType = "tel",
+    label = Label(
+      content = Text("Mobile phone number")
+    ),
+    classes = "govuk-!-width-one-third"
+  ))
+}
+@govukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("How would you prefer to be contacted?"),
+        classes = "govuk-fieldset__legend--l",
+        isPageHeading = true
+      ))
+    )),
+    hint = Some(Hint(
+      content = Text("Select one option.")
+    )),
+    idPrefix = Some("how-contacted-conditional"),
+    name = "how-contacted",
+    items = Seq(
+      RadioItem(
+        content = Text("Email"),
+        value = Some("email"),
+        conditionalHtml = Some(emailHtml)
+      ), 
+      RadioItem(
+        content = Text("Phone"),
+        value = Some("phone"),
+        conditionalHtml = Some(phoneHtml)
+      ), 
+      RadioItem(
+        content = Text("Text message"),
+        value = Some("text"),
+        conditionalHtml = Some(textHtml)
+      )
+    )
+  ))

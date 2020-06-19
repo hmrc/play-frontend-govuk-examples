@@ -1,0 +1,21 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukInput : GovukInput)
+
+@()
+
+
+@govukInput(Input(
+    id = "cost",
+    name = "cost",
+    label = Label(
+      content = Text("Cost per item, in pounds")
+    ),
+    hint = Some(Hint(
+      content = Text("For example, 23.99")
+    )),
+    classes = "govuk-input--width-10",
+    attributes = Map(
+      "spellcheck" -> "false"
+    )
+  ))

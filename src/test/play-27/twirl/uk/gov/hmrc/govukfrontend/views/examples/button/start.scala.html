@@ -1,0 +1,12 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukButton : GovukButton)
+
+@()
+
+
+@govukButton(Button(
+    href = Some("#"),
+    isStartButton = true,
+    content = Text("Start now")
+  ))
