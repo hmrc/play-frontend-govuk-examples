@@ -1,6 +1,8 @@
 import ExamplesManifestGenerator.generate
 import play.sbt.PlayImport.PlayKeys._
+import sbt.CrossVersion
 import sbt.classpath.ClasspathUtilities
+
 import sys.process.Process
 import uk.gov.hmrc.playcrosscompilation.PlayVersion.{Play25, Play26, Play27}
 
@@ -86,8 +88,17 @@ lazy val root = Project(libName, file("."))
     // The mechanism documented here: https://github.com/sbt/sbt-header/tree/v4.1.0#excluding-files
     // does not work for Twirl templates and even if it did work this issue would
     // prevent the templates from being compiled: https://github.com/sbt/sbt-header/issues/130
-    unmanagedSources.in(Compile, headerCreate) := sources.in(Compile, unmanagedSources).value
+    unmanagedSources.in(Compile, headerCreate) := sources.in(Compile, unmanagedSources).value,
+    // ***************
+    // Use the silencer plugin to suppress warnings from unused imports in compiled twirl templates
+    scalacOptions += "-P:silencer:pathFilters=views;routes",
+    libraryDependencies ++= Seq(
+      compilerPlugin("com.github.ghik" % "silencer-plugin" % "1.6.0" cross CrossVersion.full),
+      "com.github.ghik" % "silencer-lib" % "1.6.0" % Provided cross CrossVersion.full
+    )
+    // ***************
 )
+
 
 lazy val itSettings = Defaults.itSettings :+ (unmanagedSourceDirectories += sourceDirectory.value / playDir)
 

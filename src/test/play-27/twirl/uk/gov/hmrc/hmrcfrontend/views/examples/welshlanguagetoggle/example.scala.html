@@ -1,0 +1,20 @@
+@import uk.gov.hmrc.hmrcfrontend.views.html.components._
+
+@this(hmrcLanguageSelect : HmrcLanguageSelect)
+
+@()
+
+
+@hmrcLanguageSelect(LanguageSelect(
+    language = En,
+    languageLinks = ArrayBuffer(
+      Tuple2(
+        _1 = En,
+        _2 = "?en"
+      ), 
+      Tuple2(
+        _1 = Cy,
+        _2 = "?cy"
+      )
+    )
+  ))
