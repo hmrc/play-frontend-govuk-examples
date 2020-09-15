@@ -6,10 +6,12 @@
 
 
 @govukInput(Input(
-    id = "weight",
-    name = "weight",
+    id = "cost",
+    name = "cost",
     label = Label(
-      content = Text("Weight, in kilograms")
+      isPageHeading = true,
+      classes = "govuk-label--l",
+      content = Text("What is the cost in pounds?")
     ),
     classes = "govuk-input--width-5"
   ))
