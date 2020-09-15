@@ -5,7 +5,7 @@ import sbt.{ModuleID, Test}
 
 object LibDependencies {
 
-  lazy val playFrontendGovukVersion = "0.48.0"
+  lazy val playFrontendGovukVersion = "0.50.0"
   lazy val playFrontendHmrcVersion = "0.19.0"
 
   lazy val libDependencies: Seq[ModuleID] = dependencies(
