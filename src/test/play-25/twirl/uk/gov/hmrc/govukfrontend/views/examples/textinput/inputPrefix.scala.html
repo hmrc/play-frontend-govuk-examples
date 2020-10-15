@@ -11,5 +11,9 @@
       classes = "govuk-label--l",
       content = Text("What is the cost in pounds?")
     ),
-    classes = "govuk-input--width-5"
+    classes = "govuk-input--width-5",
+    spellcheck = Some(false),
+    prefix = Some(PrefixOrSuffix(
+      content = Text("£")
+    ))
   ))

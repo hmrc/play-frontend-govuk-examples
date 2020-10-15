@@ -70,9 +70,7 @@ As a result, `manifest.json` would be amended - commit changes to both examples 
 Re-run the tests for each version of Play:
 
 ```
-PLAY_VERSION=2.5 sbt test
-PLAY_VERSION=2.6 sbt test
-PLAY_VERSION=2.7 sbt test
+PLAY_VERSION=2.5 sbt test && PLAY_VERSION=2.6 sbt test && PLAY_VERSION=2.7 sbt test
 ```
 
 ### Generating & testing Example Templates
