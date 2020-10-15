@@ -6,16 +6,14 @@
 
 
 @govukInput(Input(
-    id = "cost",
-    name = "cost",
+    id = "weight",
+    name = "weight",
     label = Label(
-      content = Text("Cost per item, in pounds")
+      content = Text("Weight, in kilograms")
     ),
-    hint = Some(Hint(
-      content = Text("For example, 23.99")
-    )),
-    classes = "govuk-input--width-10",
-    attributes = Map(
-      "spellcheck" -> "false"
-    )
+    classes = "govuk-input--width-5",
+    spellcheck = Some(false),
+    suffix = Some(PrefixOrSuffix(
+      content = Text("kg")
+    ))
   ))
