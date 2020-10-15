@@ -14,10 +14,7 @@ govukInput : GovukInput)
     label = Label(
       content = Text("Email address")
     ),
-    classes = "govuk-!-width-one-third",
-    attributes = Map(
-      "spellcheck" -> "false"
-    )
+    classes = "govuk-!-width-one-third"
   ))
 }
 @phoneHtml = {
@@ -53,8 +50,8 @@ govukInput : GovukInput)
     hint = Some(Hint(
       content = Text("Select one option.")
     )),
-    idPrefix = Some("how-contacted-conditional"),
-    name = "how-contacted",
+    idPrefix = Some("contact"),
+    name = "contact",
     items = Seq(
       RadioItem(
         content = Text("Email"),

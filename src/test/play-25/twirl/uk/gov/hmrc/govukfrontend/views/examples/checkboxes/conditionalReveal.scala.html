@@ -11,10 +11,7 @@
     label = Label(
       content = Text("Email address")
     ),
-    classes = "govuk-!-width-one-third",
-    attributes = Map(
-      "spellcheck" -> "false"
-    )
+    classes = "govuk-!-width-one-third"
   ))
 }
 @phoneHtml = {
@@ -50,8 +47,8 @@
     hint = Some(Hint(
       content = Text("Select all options that are relevant to you.")
     )),
-    idPrefix = Some("citizenship-conditional"),
-    name = "citizen",
+    idPrefix = Some("contact"),
+    name = "contact",
     items = Seq(
       CheckboxItem(
         content = Text("Email"),
