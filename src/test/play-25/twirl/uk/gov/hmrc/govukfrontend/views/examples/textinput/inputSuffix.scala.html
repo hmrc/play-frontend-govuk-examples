@@ -1,0 +1,19 @@
+
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@()
+
+@GovukInput(Input(
+    id = "weight",
+    name = "weight",
+    label = Label(
+      isPageHeading = true,
+      classes = "govuk-label--l",
+      content = Text("What is the weight in kilograms?")
+    ),
+    classes = "govuk-input--width-5",
+    spellcheck = Some(false),
+    suffix = Some(PrefixOrSuffix(
+      content = Text("kg")
+    ))
+  ))

@@ -5,6 +5,9 @@ import sbt.{ModuleID, Test}
 
 object LibDependencies {
 
+  val playFrontendGovukVersion = "0.53.0"
+  val playFrontendHmrcVersion = "0.20.0"
+
   lazy val libDependencies: Seq[ModuleID] = dependencies(
     shared = {
       import PlayCrossCompilation.playRevision
@@ -34,8 +37,8 @@ object LibDependencies {
     },
     play25 = {
       val compile = Seq(
-        "uk.gov.hmrc" %% "play-frontend-govuk" % "0.48.0-play-25",
-        "uk.gov.hmrc" %% "play-frontend-hmrc" % "0.16.0-play-25"
+        "uk.gov.hmrc" %% "play-frontend-govuk" % s"$playFrontendGovukVersion-play-25",
+        "uk.gov.hmrc" %% "play-frontend-hmrc" % s"$playFrontendHmrcVersion-play-25"
       )
 
       val test = Seq(
@@ -46,8 +49,8 @@ object LibDependencies {
     },
     play26 = {
       val compile = Seq(
-        "uk.gov.hmrc" %% "play-frontend-govuk" % "0.48.0-play-26",
-        "uk.gov.hmrc" %% "play-frontend-hmrc" % "0.16.0-play-26"
+        "uk.gov.hmrc" %% "play-frontend-govuk" % s"$playFrontendGovukVersion-play-26",
+        "uk.gov.hmrc" %% "play-frontend-hmrc" % s"$playFrontendHmrcVersion-play-26"
       )
 
       val test = Seq(
@@ -58,8 +61,8 @@ object LibDependencies {
     },
     play27 = {
       val compile = Seq(
-        "uk.gov.hmrc" %% "play-frontend-govuk" % "0.48.0-play-27",
-        "uk.gov.hmrc" %% "play-frontend-hmrc" % "0.16.0-play-27"
+        "uk.gov.hmrc" %% "play-frontend-govuk" % s"$playFrontendGovukVersion-play-27",
+        "uk.gov.hmrc" %% "play-frontend-hmrc" % s"$playFrontendHmrcVersion-play-27"
       )
 
       val test = Seq(

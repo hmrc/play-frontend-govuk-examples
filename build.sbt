@@ -39,7 +39,7 @@ lazy val root = Project(libName, file("."))
     updateExampleSources := {
       println("==========")
       println("Updating example repository sources for govuk-frontend and hmrc-frontend components to the latest versions...")
-      Process("git submodule update --init --recursive").!
+      Process("git submodule update --init --recursive") #&& Process("git submodule update --remote")
       println("Task completed")
     },
     generateExamples := {

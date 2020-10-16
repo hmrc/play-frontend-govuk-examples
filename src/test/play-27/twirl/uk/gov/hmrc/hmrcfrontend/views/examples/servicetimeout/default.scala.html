@@ -1,0 +1,14 @@
+@import uk.gov.hmrc.hmrcfrontend.views.html.components._
+
+@this(hmrcTimeoutDialog : HmrcTimeoutDialog)
+
+@()
+
+
+@hmrcTimeoutDialog(TimeoutDialog(
+    language = Some("en"),
+    timeout = Some(70),
+    countdown = Some(68),
+    keepAliveUrl = Some("?continue=true"),
+    signOutUrl = Some("?lang=English")
+  ))
