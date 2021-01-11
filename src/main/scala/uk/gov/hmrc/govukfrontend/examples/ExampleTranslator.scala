@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ import fastparse.Parsed.{Success => PSuccess}
 import fastparse._
 import uk.gov.hmrc.govukfrontend.examples.FileSystem.{TrueDir, TrueFile, prepareDirStructure}
 import uk.gov.hmrc.govukfrontend.examples.NunjucksParser.nunjucksParser
-import uk.gov.hmrc.govukfrontend.examples.PlayVersions.{Play25, Play26, Play27, PlayVersion}
+import uk.gov.hmrc.govukfrontend.examples.PlayVersions.{Play26, Play27, PlayVersion}
 
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.{Failure, Success, Try}
@@ -70,14 +70,23 @@ object ExampleTranslator {
 
         parse(relPath, nunjucksPathP(_)) match {
 
-          case PSuccess((component :: scenario :: Nil, "index.njk"), _) =>
-            var filename = scenario.split("-").toList.map(_.capitalize).mkString("")
-            filename = filename.substring(0, 1).toLowerCase + filename.substring(1)
-            TrueFile(
-              Paths.get(
-                s"${destTwirlExamplesDirPath.path}/play-${playVersion.version}/twirl/uk/gov/hmrc/${exampleType.toString}/views/examples/${component
-                  .replaceAll("-", "")}/$filename.scala.html")
-            )
+          case PSuccess((component :: scenario :: Nil, nunjucksPath), _) => {
+            nunjucksPath match {
+              case validPath if nunjucksPath == "index.njk" || nunjucksPath == "code.njk" =>
+                var filename = scenario.split("-").toList.map(_.capitalize).mkString("")
+                filename = filename.substring(0, 1).toLowerCase + filename.substring(1)
+                TrueFile(
+                  Paths.get(
+                    s"${destTwirlExamplesDirPath.path}/play-${playVersion.version}/twirl/uk/gov/hmrc/${exampleType.toString}/views/examples/${
+                      component
+                        .replaceAll("-", "")
+                    }/$filename.scala.html")
+                )
+              case _ =>        throw new Exception(
+                s"""Expected Nunjucks file name should be either index.njk OR code.njk'.
+                   |Instead found: [$absPath].""".stripMargin)
+            }
+          }
 
           case _ =>
             throw new Exception(
@@ -105,7 +114,6 @@ object ExampleTranslator {
               ex =>
                 Success(
                   playVersion match {
-                    case Play25() => TwirlFormatter.formatPlay25(ex)
                     case Play26() => TwirlFormatter.format(ex)
                     case Play27() => TwirlFormatter.format(ex)
                   }
@@ -147,7 +155,6 @@ object ExampleTranslator {
 
       val dirClearing: Future[Unit] =
         Future {
-          TrueDir(destTwirlExamplesDirPath.path.resolve(Play25.toString())).del()
           TrueDir(destTwirlExamplesDirPath.path.resolve(Play26.toString())).del()
         }
       val dirCreation: Future[Unit] = draftsToBe.flatMap(files => prepareDirStructure(files.map(_.path)))

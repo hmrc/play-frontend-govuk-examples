@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,10 +23,6 @@ object PlayVersions {
     override def toString: String = version.toString
   }
 
-  case class Play25() extends PlayVersion {
-    val version: Int              = 25
-    override def toString: String = "play-25"
-  }
   case class Play26() extends PlayVersion {
     val version: Int              = 26
     override def toString: String = "play-26"
@@ -36,5 +32,5 @@ object PlayVersions {
     override def toString: String = "play-27"
   }
 
-  val implementedPlayVersions: Iterable[PlayVersion] = Iterable(Play25(), Play26(), Play27())
+  val implementedPlayVersions: Iterable[PlayVersion] = Iterable(Play26(), Play27())
 }
