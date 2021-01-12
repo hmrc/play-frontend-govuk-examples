@@ -21,7 +21,7 @@ import fastparse._
 import play.api.libs.json.Reads
 import play.twirl.api.Html
 import uk.gov.hmrc.govukfrontend.examples.AsJson._
-import uk.gov.hmrc.govukfrontend.views.html.components.{Header => GovukHeader, _}
+import uk.gov.hmrc.govukfrontend.views.html.components.{Header => GovukHeader, Footer => GovukFooter, _}
 import uk.gov.hmrc.hmrcfrontend.views.html.components._
 
 object NunjucksParser {
@@ -97,7 +97,7 @@ object NunjucksParser {
         case (m @ "govukFileUpload", args) =>
           jsonToMacroCall[FileUpload](m, args)
         case (m @ "govukFooter", args) =>
-          jsonToMacroCall[Footer](m, args)
+          jsonToMacroCall[GovukFooter](m, args)
         case (m @ "govukHeader", args) =>
           jsonToMacroCall[GovukHeader](m, args)
         case (m @ "govukHint", args) =>
