@@ -1,9 +1,6 @@
 [ {
   "id" : "accordion/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/accordion/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/accordion/default.scala.html"
     },
@@ -14,9 +11,6 @@
 }, {
   "id" : "accordion/withSummarySection",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/accordion/withSummarySection.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/accordion/withSummarySection.scala.html"
     },
@@ -27,9 +21,6 @@
 }, {
   "id" : "backlink/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/backlink/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/backlink/default.scala.html"
     },
@@ -40,9 +31,6 @@
 }, {
   "id" : "breadcrumbs/collapseMobile",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/breadcrumbs/collapseMobile.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/breadcrumbs/collapseMobile.scala.html"
     },
@@ -53,9 +41,6 @@
 }, {
   "id" : "breadcrumbs/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/breadcrumbs/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/breadcrumbs/default.scala.html"
     },
@@ -66,9 +51,6 @@
 }, {
   "id" : "button/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/default.scala.html"
     },
@@ -79,9 +61,6 @@
 }, {
   "id" : "button/disabled",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/disabled.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/disabled.scala.html"
     },
@@ -92,9 +71,6 @@
 }, {
   "id" : "button/preventDoubleClick",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/preventDoubleClick.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/preventDoubleClick.scala.html"
     },
@@ -105,9 +81,6 @@
 }, {
   "id" : "button/secondary",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/secondary.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/secondary.scala.html"
     },
@@ -118,9 +91,6 @@
 }, {
   "id" : "button/secondaryCombo",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/secondaryCombo.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/secondaryCombo.scala.html"
     },
@@ -131,9 +101,6 @@
 }, {
   "id" : "button/start",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/start.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/start.scala.html"
     },
@@ -144,9 +111,6 @@
 }, {
   "id" : "button/warning",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/warning.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/warning.scala.html"
     },
@@ -157,9 +121,6 @@
 }, {
   "id" : "charactercount/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/default.scala.html"
     },
@@ -170,9 +131,6 @@
 }, {
   "id" : "charactercount/error",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/error.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/error.scala.html"
     },
@@ -183,9 +141,6 @@
 }, {
   "id" : "charactercount/labelPageHeading",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/labelPageHeading.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/labelPageHeading.scala.html"
     },
@@ -196,9 +151,6 @@
 }, {
   "id" : "charactercount/threshold",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/threshold.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/threshold.scala.html"
     },
@@ -209,9 +161,6 @@
 }, {
   "id" : "charactercount/wordCount",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/wordCount.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/wordCount.scala.html"
     },
@@ -222,9 +171,6 @@
 }, {
   "id" : "checkboxes/conditionalReveal",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/conditionalReveal.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/conditionalReveal.scala.html"
     },
@@ -235,9 +181,6 @@
 }, {
   "id" : "checkboxes/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/default.scala.html"
     },
@@ -248,9 +191,6 @@
 }, {
   "id" : "checkboxes/error",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/error.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/error.scala.html"
     },
@@ -261,9 +201,6 @@
 }, {
   "id" : "checkboxes/hint",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/hint.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/hint.scala.html"
     },
@@ -274,9 +211,6 @@
 }, {
   "id" : "checkboxes/small",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/small.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/small.scala.html"
     },
@@ -287,9 +221,6 @@
 }, {
   "id" : "dateinput/dateOfBirth",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/dateinput/dateOfBirth.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/dateinput/dateOfBirth.scala.html"
     },
@@ -300,9 +231,6 @@
 }, {
   "id" : "dateinput/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/dateinput/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/dateinput/default.scala.html"
     },
@@ -313,9 +241,6 @@
 }, {
   "id" : "dateinput/error",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/dateinput/error.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/dateinput/error.scala.html"
     },
@@ -326,9 +251,6 @@
 }, {
   "id" : "dateinput/errorSingle",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/dateinput/errorSingle.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/dateinput/errorSingle.scala.html"
     },
@@ -339,9 +261,6 @@
 }, {
   "id" : "details/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/details/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/details/default.scala.html"
     },
@@ -352,9 +271,6 @@
 }, {
   "id" : "errormessage/customPrefix",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/errormessage/customPrefix.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/errormessage/customPrefix.scala.html"
     },
@@ -365,9 +281,6 @@
 }, {
   "id" : "errormessage/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/errormessage/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/errormessage/default.scala.html"
     },
@@ -378,9 +291,6 @@
 }, {
   "id" : "errormessage/label",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/errormessage/label.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/errormessage/label.scala.html"
     },
@@ -391,9 +301,6 @@
 }, {
   "id" : "errormessage/legend",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/errormessage/legend.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/errormessage/legend.scala.html"
     },
@@ -404,9 +311,6 @@
 }, {
   "id" : "errorsummary/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/errorsummary/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/errorsummary/default.scala.html"
     },
@@ -417,9 +321,6 @@
 }, {
   "id" : "errorsummary/fullPageExample",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/errorsummary/fullPageExample.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/errorsummary/fullPageExample.scala.html"
     },
@@ -430,9 +331,6 @@
 }, {
   "id" : "errorsummary/linking",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/errorsummary/linking.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/errorsummary/linking.scala.html"
     },
@@ -443,9 +341,6 @@
 }, {
   "id" : "errorsummary/linkingCheckboxesRadios",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/errorsummary/linkingCheckboxesRadios.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/errorsummary/linkingCheckboxesRadios.scala.html"
     },
@@ -456,9 +351,6 @@
 }, {
   "id" : "errorsummary/linkingMultipleFields",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/errorsummary/linkingMultipleFields.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/errorsummary/linkingMultipleFields.scala.html"
     },
@@ -469,9 +361,6 @@
 }, {
   "id" : "fieldset/addressGroup",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/fieldset/addressGroup.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/fieldset/addressGroup.scala.html"
     },
@@ -482,9 +371,6 @@
 }, {
   "id" : "fieldset/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/fieldset/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/fieldset/default.scala.html"
     },
@@ -495,9 +381,6 @@
 }, {
   "id" : "fileupload/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/fileupload/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/fileupload/default.scala.html"
     },
@@ -508,9 +391,6 @@
 }, {
   "id" : "fileupload/error",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/fileupload/error.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/fileupload/error.scala.html"
     },
@@ -521,9 +401,6 @@
 }, {
   "id" : "footer/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/footer/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/footer/default.scala.html"
     },
@@ -534,9 +411,6 @@
 }, {
   "id" : "footer/full",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/footer/full.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/footer/full.scala.html"
     },
@@ -547,9 +421,6 @@
 }, {
   "id" : "footer/withMeta",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/footer/withMeta.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/footer/withMeta.scala.html"
     },
@@ -560,9 +431,6 @@
 }, {
   "id" : "footer/withNavigation",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/footer/withNavigation.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/footer/withNavigation.scala.html"
     },
@@ -573,9 +441,6 @@
 }, {
   "id" : "header/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/header/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/header/default.scala.html"
     },
@@ -586,9 +451,6 @@
 }, {
   "id" : "header/withServiceName",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/header/withServiceName.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/header/withServiceName.scala.html"
     },
@@ -599,9 +461,6 @@
 }, {
   "id" : "header/withServiceNameAndNavigation",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/header/withServiceNameAndNavigation.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/header/withServiceNameAndNavigation.scala.html"
     },
@@ -612,9 +471,6 @@
 }, {
   "id" : "hmrc/accountheader/example",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountheader/example.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountheader/example.scala.html"
     },
@@ -625,9 +481,6 @@
 }, {
   "id" : "hmrc/accountheader/exampleWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountheader/exampleWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountheader/exampleWelsh.scala.html"
     },
@@ -638,9 +491,6 @@
 }, {
   "id" : "hmrc/accountmenu/example",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountmenu/example.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountmenu/example.scala.html"
     },
@@ -651,9 +501,6 @@
 }, {
   "id" : "hmrc/accountsofficereference/heading",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountsofficereference/heading.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountsofficereference/heading.scala.html"
     },
@@ -664,9 +511,6 @@
 }, {
   "id" : "hmrc/accountsofficereference/label",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountsofficereference/label.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountsofficereference/label.scala.html"
     },
@@ -677,9 +521,6 @@
 }, {
   "id" : "hmrc/accountsofficereference/labelError",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountsofficereference/labelError.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountsofficereference/labelError.scala.html"
     },
@@ -690,9 +531,6 @@
 }, {
   "id" : "hmrc/addtoalist/addToSummary",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/addToSummary.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/addToSummary.scala.html"
     },
@@ -703,9 +541,6 @@
 }, {
   "id" : "hmrc/addtoalist/changeList",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/changeList.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/changeList.scala.html"
     },
@@ -716,9 +551,6 @@
 }, {
   "id" : "hmrc/addtoalist/checkAnswers",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/checkAnswers.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/checkAnswers.scala.html"
     },
@@ -729,9 +561,6 @@
 }, {
   "id" : "hmrc/addtoalist/removeFromList",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/removeFromList.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/removeFromList.scala.html"
     },
@@ -742,9 +571,6 @@
 }, {
   "id" : "hmrc/addtoalist/viewASummary",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/viewASummary.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/viewASummary.scala.html"
     },
@@ -755,9 +581,6 @@
 }, {
   "id" : "hmrc/asktheuserfortheirconsent/multipleCheckboxes",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/asktheuserfortheirconsent/multipleCheckboxes.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/asktheuserfortheirconsent/multipleCheckboxes.scala.html"
     },
@@ -768,9 +591,6 @@
 }, {
   "id" : "hmrc/asktheuserfortheirconsent/singleCheckbox",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/asktheuserfortheirconsent/singleCheckbox.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/asktheuserfortheirconsent/singleCheckbox.scala.html"
     },
@@ -781,9 +601,6 @@
 }, {
   "id" : "hmrc/asktheuserfortheirconsent/yesNoQuestion",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/asktheuserfortheirconsent/yesNoQuestion.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/asktheuserfortheirconsent/yesNoQuestion.scala.html"
     },
@@ -794,9 +611,6 @@
 }, {
   "id" : "hmrc/confirmedidentity/example",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/confirmedidentity/example.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/confirmedidentity/example.scala.html"
     },
@@ -807,9 +621,6 @@
 }, {
   "id" : "hmrc/confirmedidentity/exampleWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/confirmedidentity/exampleWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/confirmedidentity/exampleWelsh.scala.html"
     },
@@ -820,9 +631,6 @@
 }, {
   "id" : "hmrc/couldnotconfirmidentity/endOfJourney",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/endOfJourney.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/endOfJourney.scala.html"
     },
@@ -833,9 +641,6 @@
 }, {
   "id" : "hmrc/couldnotconfirmidentity/endOfJourneyWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/endOfJourneyWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/endOfJourneyWelsh.scala.html"
     },
@@ -846,9 +651,6 @@
 }, {
   "id" : "hmrc/couldnotconfirmidentity/insufficientInformation",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/insufficientInformation.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/insufficientInformation.scala.html"
     },
@@ -859,9 +661,6 @@
 }, {
   "id" : "hmrc/couldnotconfirmidentity/insufficientInformationWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/insufficientInformationWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/insufficientInformationWelsh.scala.html"
     },
@@ -872,9 +671,6 @@
 }, {
   "id" : "hmrc/couldnotconfirmidentity/noMatch",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/noMatch.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/noMatch.scala.html"
     },
@@ -885,9 +681,6 @@
 }, {
   "id" : "hmrc/couldnotconfirmidentity/noMatchWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/noMatchWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/noMatchWelsh.scala.html"
     },
@@ -898,9 +691,6 @@
 }, {
   "id" : "hmrc/currencyinput/pounds",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/currencyinput/pounds.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/currencyinput/pounds.scala.html"
     },
@@ -911,9 +701,6 @@
 }, {
   "id" : "hmrc/employerpayereference/heading",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/employerpayereference/heading.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/employerpayereference/heading.scala.html"
     },
@@ -924,9 +711,6 @@
 }, {
   "id" : "hmrc/employerpayereference/label",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/employerpayereference/label.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/employerpayereference/label.scala.html"
     },
@@ -937,9 +721,6 @@
 }, {
   "id" : "hmrc/employerpayereference/labelError",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/employerpayereference/labelError.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/employerpayereference/labelError.scala.html"
     },
@@ -950,9 +731,6 @@
 }, {
   "id" : "hmrc/greenbutton/example",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/greenbutton/example.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/greenbutton/example.scala.html"
     },
@@ -963,9 +741,6 @@
 }, {
   "id" : "hmrc/hmrcbanner/example",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/hmrcbanner/example.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/hmrcbanner/example.scala.html"
     },
@@ -976,9 +751,6 @@
 }, {
   "id" : "hmrc/hmrcbanner/exampleWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/hmrcbanner/exampleWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/hmrcbanner/exampleWelsh.scala.html"
     },
@@ -989,9 +761,6 @@
 }, {
   "id" : "hmrc/internalheader/example",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/internalheader/example.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/internalheader/example.scala.html"
     },
@@ -1002,9 +771,6 @@
 }, {
   "id" : "hmrc/notificationbadge/noItems",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/notificationbadge/noItems.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/notificationbadge/noItems.scala.html"
     },
@@ -1015,9 +781,6 @@
 }, {
   "id" : "hmrc/notificationbadge/withItems",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/notificationbadge/withItems.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/notificationbadge/withItems.scala.html"
     },
@@ -1028,9 +791,6 @@
 }, {
   "id" : "hmrc/openlinksinanewwindowortab/example",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/openlinksinanewwindowortab/example.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/openlinksinanewwindowortab/example.scala.html"
     },
@@ -1041,9 +801,6 @@
 }, {
   "id" : "hmrc/openlinksinanewwindowortab/exampleWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/openlinksinanewwindowortab/exampleWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/openlinksinanewwindowortab/exampleWelsh.scala.html"
     },
@@ -1054,9 +811,6 @@
 }, {
   "id" : "hmrc/pageheading/withSubheading",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/pageheading/withSubheading.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/pageheading/withSubheading.scala.html"
     },
@@ -1067,9 +821,6 @@
 }, {
   "id" : "hmrc/pageheading/withoutSubheading",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/pageheading/withoutSubheading.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/pageheading/withoutSubheading.scala.html"
     },
@@ -1080,9 +831,6 @@
 }, {
   "id" : "hmrc/pagenotfound/example",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/pagenotfound/example.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/pagenotfound/example.scala.html"
     },
@@ -1093,9 +841,6 @@
 }, {
   "id" : "hmrc/pagenotfound/exampleWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/pagenotfound/exampleWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/pagenotfound/exampleWelsh.scala.html"
     },
@@ -1106,9 +851,6 @@
 }, {
   "id" : "hmrc/registerforatax/example",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/registerforatax/example.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/registerforatax/example.scala.html"
     },
@@ -1119,9 +861,6 @@
 }, {
   "id" : "hmrc/servicetimeout/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/default.scala.html"
     },
@@ -1132,9 +871,6 @@
 }, {
   "id" : "hmrc/servicetimeout/defaultWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/defaultWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/defaultWelsh.scala.html"
     },
@@ -1145,9 +881,6 @@
 }, {
   "id" : "hmrc/servicetimeout/notSaved",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/notSaved.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/notSaved.scala.html"
     },
@@ -1158,9 +891,6 @@
 }, {
   "id" : "hmrc/servicetimeout/notSavedWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/notSavedWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/notSavedWelsh.scala.html"
     },
@@ -1171,9 +901,6 @@
 }, {
   "id" : "hmrc/servicetimeout/notSignedIn",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/notSignedIn.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/notSignedIn.scala.html"
     },
@@ -1184,9 +911,6 @@
 }, {
   "id" : "hmrc/servicetimeout/notSignedInWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/notSignedInWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/notSignedInWelsh.scala.html"
     },
@@ -1197,9 +921,6 @@
 }, {
   "id" : "hmrc/servicetimeout/saved",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/saved.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/saved.scala.html"
     },
@@ -1210,9 +931,6 @@
 }, {
   "id" : "hmrc/servicetimeout/savedWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/savedWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/savedWelsh.scala.html"
     },
@@ -1223,9 +941,6 @@
 }, {
   "id" : "hmrc/servicetimeout/signedOutDefault",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutDefault.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutDefault.scala.html"
     },
@@ -1236,9 +951,6 @@
 }, {
   "id" : "hmrc/servicetimeout/signedOutDefaultWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutDefaultWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutDefaultWelsh.scala.html"
     },
@@ -1249,9 +961,6 @@
 }, {
   "id" : "hmrc/servicetimeout/signedOutNotSaved",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutNotSaved.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutNotSaved.scala.html"
     },
@@ -1262,9 +971,6 @@
 }, {
   "id" : "hmrc/servicetimeout/signedOutNotSavedWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutNotSavedWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutNotSavedWelsh.scala.html"
     },
@@ -1275,9 +981,6 @@
 }, {
   "id" : "hmrc/servicetimeout/signedOutSaved",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutSaved.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutSaved.scala.html"
     },
@@ -1288,9 +991,6 @@
 }, {
   "id" : "hmrc/servicetimeout/signedOutSavedWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutSavedWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutSavedWelsh.scala.html"
     },
@@ -1301,9 +1001,6 @@
 }, {
   "id" : "hmrc/servicetimeout/weDeletedYourAnswers",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/weDeletedYourAnswers.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/weDeletedYourAnswers.scala.html"
     },
@@ -1314,9 +1011,6 @@
 }, {
   "id" : "hmrc/servicetimeout/weDeletedYourAnswersWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/weDeletedYourAnswersWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/weDeletedYourAnswersWelsh.scala.html"
     },
@@ -1327,9 +1021,6 @@
 }, {
   "id" : "hmrc/servicetimeout/youDeletedYourAnswers",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/youDeletedYourAnswers.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/youDeletedYourAnswers.scala.html"
     },
@@ -1340,9 +1031,6 @@
 }, {
   "id" : "hmrc/servicetimeout/youDeletedYourAnswersWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/youDeletedYourAnswersWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/youDeletedYourAnswersWelsh.scala.html"
     },
@@ -1353,9 +1041,6 @@
 }, {
   "id" : "hmrc/serviceunavailable/generalPage",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/generalPage.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/generalPage.scala.html"
     },
@@ -1366,9 +1051,6 @@
 }, {
   "id" : "hmrc/serviceunavailable/generalPageWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/generalPageWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/generalPageWelsh.scala.html"
     },
@@ -1379,9 +1061,6 @@
 }, {
   "id" : "hmrc/serviceunavailable/linkToOtherService",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/linkToOtherService.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/linkToOtherService.scala.html"
     },
@@ -1392,9 +1071,6 @@
 }, {
   "id" : "hmrc/serviceunavailable/linkToOtherServiceWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/linkToOtherServiceWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/linkToOtherServiceWelsh.scala.html"
     },
@@ -1405,9 +1081,6 @@
 }, {
   "id" : "hmrc/serviceunavailable/serviceClosed",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceClosed.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceClosed.scala.html"
     },
@@ -1418,9 +1091,6 @@
 }, {
   "id" : "hmrc/serviceunavailable/serviceClosedWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceClosedWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceClosedWelsh.scala.html"
     },
@@ -1431,9 +1101,6 @@
 }, {
   "id" : "hmrc/serviceunavailable/serviceNotYetOpen",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceNotYetOpen.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceNotYetOpen.scala.html"
     },
@@ -1444,9 +1111,6 @@
 }, {
   "id" : "hmrc/serviceunavailable/serviceNotYetOpenWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceNotYetOpenWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceNotYetOpenWelsh.scala.html"
     },
@@ -1457,9 +1121,6 @@
 }, {
   "id" : "hmrc/serviceunavailable/serviceReplaced",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceReplaced.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceReplaced.scala.html"
     },
@@ -1470,9 +1131,6 @@
 }, {
   "id" : "hmrc/serviceunavailable/serviceReplacedWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceReplacedWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceReplacedWelsh.scala.html"
     },
@@ -1483,9 +1141,6 @@
 }, {
   "id" : "hmrc/serviceunavailable/serviceShutDown",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceShutDown.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceShutDown.scala.html"
     },
@@ -1496,9 +1151,6 @@
 }, {
   "id" : "hmrc/serviceunavailable/serviceShutDownWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceShutDownWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceShutDownWelsh.scala.html"
     },
@@ -1509,9 +1161,6 @@
 }, {
   "id" : "hmrc/serviceunavailable/serviceTemporarilyUnavailable",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceTemporarilyUnavailable.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceTemporarilyUnavailable.scala.html"
     },
@@ -1522,9 +1171,6 @@
 }, {
   "id" : "hmrc/serviceunavailable/serviceTemporarilyUnavailableWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceTemporarilyUnavailableWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceTemporarilyUnavailableWelsh.scala.html"
     },
@@ -1535,9 +1181,6 @@
 }, {
   "id" : "hmrc/signout/example",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/signout/example.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/signout/example.scala.html"
     },
@@ -1548,9 +1191,6 @@
 }, {
   "id" : "hmrc/statustagsintasklistpages/example",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/statustagsintasklistpages/example.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/statustagsintasklistpages/example.scala.html"
     },
@@ -1561,9 +1201,6 @@
 }, {
   "id" : "hmrc/statustagsintasklistpages/exampleWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/statustagsintasklistpages/exampleWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/statustagsintasklistpages/exampleWelsh.scala.html"
     },
@@ -1574,9 +1211,6 @@
 }, {
   "id" : "hmrc/thereisaproblemwiththeservice/linkToOtherService",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/linkToOtherService.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/linkToOtherService.scala.html"
     },
@@ -1587,9 +1221,6 @@
 }, {
   "id" : "hmrc/thereisaproblemwiththeservice/linkToOtherServiceWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/linkToOtherServiceWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/linkToOtherServiceWelsh.scala.html"
     },
@@ -1600,9 +1231,6 @@
 }, {
   "id" : "hmrc/thereisaproblemwiththeservice/noContact",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/noContact.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/noContact.scala.html"
     },
@@ -1613,9 +1241,6 @@
 }, {
   "id" : "hmrc/thereisaproblemwiththeservice/noContactWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/noContactWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/noContactWelsh.scala.html"
     },
@@ -1626,9 +1251,6 @@
 }, {
   "id" : "hmrc/thereisaproblemwiththeservice/problemWithService",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/problemWithService.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/problemWithService.scala.html"
     },
@@ -1639,9 +1261,6 @@
 }, {
   "id" : "hmrc/thereisaproblemwiththeservice/problemWithServiceWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/problemWithServiceWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/problemWithServiceWelsh.scala.html"
     },
@@ -1652,9 +1271,6 @@
 }, {
   "id" : "hmrc/uniquetaxpayerreference/corporationTax",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/corporationTax.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/corporationTax.scala.html"
     },
@@ -1665,9 +1281,6 @@
 }, {
   "id" : "hmrc/uniquetaxpayerreference/label",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/label.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/label.scala.html"
     },
@@ -1678,9 +1291,6 @@
 }, {
   "id" : "hmrc/uniquetaxpayerreference/labelError",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/labelError.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/labelError.scala.html"
     },
@@ -1691,9 +1301,6 @@
 }, {
   "id" : "hmrc/uniquetaxpayerreference/selfAssessment",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/selfAssessment.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/selfAssessment.scala.html"
     },
@@ -1704,9 +1311,6 @@
 }, {
   "id" : "hmrc/vatregistrationnumber/heading",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/vatregistrationnumber/heading.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/vatregistrationnumber/heading.scala.html"
     },
@@ -1717,9 +1321,6 @@
 }, {
   "id" : "hmrc/vatregistrationnumber/label",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/vatregistrationnumber/label.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/vatregistrationnumber/label.scala.html"
     },
@@ -1730,9 +1331,6 @@
 }, {
   "id" : "hmrc/vatregistrationnumber/labelError",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/vatregistrationnumber/labelError.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/vatregistrationnumber/labelError.scala.html"
     },
@@ -1743,9 +1341,6 @@
 }, {
   "id" : "hmrc/welshlanguagetoggle/example",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/welshlanguagetoggle/example.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/welshlanguagetoggle/example.scala.html"
     },
@@ -1756,9 +1351,6 @@
 }, {
   "id" : "hmrc/welshlanguagetoggle/exampleWelsh",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/welshlanguagetoggle/exampleWelsh.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/welshlanguagetoggle/exampleWelsh.scala.html"
     },
@@ -1769,9 +1361,6 @@
 }, {
   "id" : "insettext/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/insettext/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/insettext/default.scala.html"
     },
@@ -1782,9 +1371,6 @@
 }, {
   "id" : "notificationbanner/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/notificationbanner/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/notificationbanner/default.scala.html"
     },
@@ -1795,9 +1381,6 @@
 }, {
   "id" : "notificationbanner/success",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/notificationbanner/success.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/notificationbanner/success.scala.html"
     },
@@ -1808,9 +1391,6 @@
 }, {
   "id" : "notificationbanner/wholeService",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/notificationbanner/wholeService.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/notificationbanner/wholeService.scala.html"
     },
@@ -1821,9 +1401,6 @@
 }, {
   "id" : "panel/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/panel/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/panel/default.scala.html"
     },
@@ -1834,9 +1411,6 @@
 }, {
   "id" : "phasebanner/beta",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/phasebanner/beta.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/phasebanner/beta.scala.html"
     },
@@ -1847,9 +1421,6 @@
 }, {
   "id" : "phasebanner/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/phasebanner/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/phasebanner/default.scala.html"
     },
@@ -1860,9 +1431,6 @@
 }, {
   "id" : "radios/conditionalReveal",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/conditionalReveal.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/conditionalReveal.scala.html"
     },
@@ -1873,9 +1441,6 @@
 }, {
   "id" : "radios/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/default.scala.html"
     },
@@ -1886,9 +1451,6 @@
 }, {
   "id" : "radios/divider",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/divider.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/divider.scala.html"
     },
@@ -1899,9 +1461,6 @@
 }, {
   "id" : "radios/error",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/error.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/error.scala.html"
     },
@@ -1912,9 +1471,6 @@
 }, {
   "id" : "radios/hint",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/hint.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/hint.scala.html"
     },
@@ -1925,9 +1481,6 @@
 }, {
   "id" : "radios/small",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/small.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/small.scala.html"
     },
@@ -1938,9 +1491,6 @@
 }, {
   "id" : "radios/stacked",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/stacked.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/stacked.scala.html"
     },
@@ -1951,9 +1501,6 @@
 }, {
   "id" : "select/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/select/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/select/default.scala.html"
     },
@@ -1964,9 +1511,6 @@
 }, {
   "id" : "skiplink/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/skiplink/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/skiplink/default.scala.html"
     },
@@ -1977,9 +1521,6 @@
 }, {
   "id" : "summarylist/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/summarylist/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/summarylist/default.scala.html"
     },
@@ -1990,9 +1531,6 @@
 }, {
   "id" : "summarylist/withoutActions",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/summarylist/withoutActions.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/summarylist/withoutActions.scala.html"
     },
@@ -2003,9 +1541,6 @@
 }, {
   "id" : "summarylist/withoutBorders",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/summarylist/withoutBorders.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/summarylist/withoutBorders.scala.html"
     },
@@ -2016,9 +1551,6 @@
 }, {
   "id" : "table/columnWidths",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/table/columnWidths.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/table/columnWidths.scala.html"
     },
@@ -2029,9 +1561,6 @@
 }, {
   "id" : "table/columnWidthsCustomClasses",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/table/columnWidthsCustomClasses.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/table/columnWidthsCustomClasses.scala.html"
     },
@@ -2042,9 +1571,6 @@
 }, {
   "id" : "table/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/table/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/table/default.scala.html"
     },
@@ -2055,9 +1581,6 @@
 }, {
   "id" : "table/numbers",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/table/numbers.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/table/numbers.scala.html"
     },
@@ -2068,9 +1591,6 @@
 }, {
   "id" : "tabs/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/tabs/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/tabs/default.scala.html"
     },
@@ -2081,9 +1601,6 @@
 }, {
   "id" : "tag/allColours",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/tag/allColours.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/tag/allColours.scala.html"
     },
@@ -2094,9 +1611,6 @@
 }, {
   "id" : "tag/colouredTags",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/tag/colouredTags.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/tag/colouredTags.scala.html"
     },
@@ -2107,9 +1621,6 @@
 }, {
   "id" : "tag/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/tag/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/tag/default.scala.html"
     },
@@ -2120,9 +1631,6 @@
 }, {
   "id" : "tag/multipleTags",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/tag/multipleTags.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/tag/multipleTags.scala.html"
     },
@@ -2133,9 +1641,6 @@
 }, {
   "id" : "textarea/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/textarea/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/textarea/default.scala.html"
     },
@@ -2146,9 +1651,6 @@
 }, {
   "id" : "textarea/error",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/textarea/error.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/textarea/error.scala.html"
     },
@@ -2159,9 +1661,6 @@
 }, {
   "id" : "textarea/specifyingRows",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/textarea/specifyingRows.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/textarea/specifyingRows.scala.html"
     },
@@ -2172,9 +1671,6 @@
 }, {
   "id" : "textinput/decimalInput",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/decimalInput.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/decimalInput.scala.html"
     },
@@ -2185,9 +1681,6 @@
 }, {
   "id" : "textinput/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/default.scala.html"
     },
@@ -2198,9 +1691,6 @@
 }, {
   "id" : "textinput/error",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/error.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/error.scala.html"
     },
@@ -2211,9 +1701,6 @@
 }, {
   "id" : "textinput/inputAutocompleteAttribute",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputAutocompleteAttribute.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputAutocompleteAttribute.scala.html"
     },
@@ -2224,9 +1711,6 @@
 }, {
   "id" : "textinput/inputFixedWidth",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputFixedWidth.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputFixedWidth.scala.html"
     },
@@ -2237,9 +1721,6 @@
 }, {
   "id" : "textinput/inputFluidWidth",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputFluidWidth.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputFluidWidth.scala.html"
     },
@@ -2250,9 +1731,6 @@
 }, {
   "id" : "textinput/inputHintText",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputHintText.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputHintText.scala.html"
     },
@@ -2263,9 +1741,6 @@
 }, {
   "id" : "textinput/inputPrefix",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputPrefix.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputPrefix.scala.html"
     },
@@ -2276,9 +1751,6 @@
 }, {
   "id" : "textinput/inputPrefixSuffix",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputPrefixSuffix.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputPrefixSuffix.scala.html"
     },
@@ -2289,9 +1761,6 @@
 }, {
   "id" : "textinput/inputPrefixSuffixError",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputPrefixSuffixError.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputPrefixSuffixError.scala.html"
     },
@@ -2302,9 +1771,6 @@
 }, {
   "id" : "textinput/inputSpellcheckDisabled",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputSpellcheckDisabled.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputSpellcheckDisabled.scala.html"
     },
@@ -2315,9 +1781,6 @@
 }, {
   "id" : "textinput/inputSuffix",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputSuffix.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputSuffix.scala.html"
     },
@@ -2328,9 +1791,6 @@
 }, {
   "id" : "textinput/numberInput",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/numberInput.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/numberInput.scala.html"
     },
@@ -2341,9 +1801,6 @@
 }, {
   "id" : "warningtext/default",
   "versions" : {
-    "play25" : {
-      "uri" : "play-25/twirl/uk/gov/hmrc/govukfrontend/views/examples/warningtext/default.scala.html"
-    },
     "play26" : {
       "uri" : "play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples/warningtext/default.scala.html"
     },
