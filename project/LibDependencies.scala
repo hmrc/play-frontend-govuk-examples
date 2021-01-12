@@ -5,8 +5,9 @@ import sbt.{ModuleID, Test}
 
 object LibDependencies {
 
-  val playFrontendGovukVersion = "0.53.0"
-  val playFrontendHmrcVersion = "0.20.0"
+  val playFrontendGovukVersion = "0.57.0"
+  val playFrontendHmrcVersion = "0.35.0"
+  val govukFrontendVersion = "3.10.1"
 
   lazy val libDependencies: Seq[ModuleID] = dependencies(
     shared = {
@@ -15,8 +16,8 @@ object LibDependencies {
       val compile = Seq(
         "com.typesafe.play" %% "play"            % playRevision,
         "com.typesafe.play" %% "filters-helpers" % playRevision,
+        "org.webjars.npm"   % "govuk-frontend"   % govukFrontendVersion,
         "org.joda"          % "joda-convert"     % "2.0.2",
-        "org.webjars.npm"   % "govuk-frontend"   % "3.5.0",
         "com.lihaoyi"       %% "fastparse"       % "2.1.2"
       )
 
@@ -31,18 +32,6 @@ object LibDependencies {
         "com.lihaoyi"                   %% "pprint"          % "0.5.3",
         "org.bitbucket.cowwoc"          % "diff-match-patch" % "1.2",
         ws
-      ).map(_ % s"$IntegrationTest,$Test")
-
-      compile ++ test
-    },
-    play25 = {
-      val compile = Seq(
-        "uk.gov.hmrc" %% "play-frontend-govuk" % s"$playFrontendGovukVersion-play-25",
-        "uk.gov.hmrc" %% "play-frontend-hmrc" % s"$playFrontendHmrcVersion-play-25"
-      )
-
-      val test = Seq(
-        "org.scalatestplus.play" %% "scalatestplus-play" % "2.0.1"
       ).map(_ % s"$IntegrationTest,$Test")
 
       compile ++ test
@@ -73,9 +62,4 @@ object LibDependencies {
     }
   )
 
-  lazy val overrides: Set[ModuleID] = dependencies(
-    play25 = Seq(
-      "com.typesafe.play" %% "twirl-api" % "1.1.1"
-    )
-  ).toSet
 }

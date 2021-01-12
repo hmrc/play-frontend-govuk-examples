@@ -6,9 +6,7 @@ import uk.gov.hmrc.playcrosscompilation.PlayVersion.{Play25, Play26, Play27}
 
 val libName = "play-frontend-govuk-examples"
 
-lazy val playDir =
-  (if (PlayCrossCompilation.playVersion == Play25) "play-25"
-   else "play-26")
+lazy val playDir = "play-26"
 
 lazy val IntegrationTest = config("it") extend Test
 val twirlCompileTemplates =
@@ -24,7 +22,6 @@ lazy val root = Project(libName, file("."))
     scalaVersion := "2.12.10",
     crossScalaVersions := List("2.11.12", "2.12.10"),
     libraryDependencies ++= LibDependencies.libDependencies,
-    dependencyOverrides ++= LibDependencies.overrides,
     resolvers :=
       Seq(
         "HMRC Releases" at "https://dl.bintray.com/hmrc/releases",
@@ -91,9 +88,7 @@ lazy val root = Project(libName, file("."))
 
 lazy val itSettings = Defaults.itSettings :+ (unmanagedSourceDirectories += sourceDirectory.value / playDir)
 
-lazy val templateImports: Seq[String] = {
-
-  val allImports = Seq(
+lazy val templateImports: Seq[String] = Seq(
     "_root_.play.twirl.api.Html",
     "_root_.play.twirl.api.HtmlFormat",
     "_root_.play.twirl.api.JavaScript",
@@ -103,23 +98,9 @@ lazy val templateImports: Seq[String] = {
     "play.api.data._",
     "play.api.i18n._",
     "play.api.templates.PlayMagic._",
-    "uk.gov.hmrc.govukfrontend.views.html.components.implicits._"
+    "uk.gov.hmrc.govukfrontend.views.html.components.implicits._",
+    "_root_.play.twirl.api.TwirlHelperImports._"
   )
-
-  val specificImports = PlayCrossCompilation.playVersion match {
-    case Play25 =>
-      Seq(
-        "_root_.play.twirl.api.TemplateMagic._"
-      )
-    case _ =>
-      Seq(
-        "_root_.play.twirl.api.TwirlFeatureImports._",
-        "_root_.play.twirl.api.TwirlHelperImports._"
-      )
-  }
-
-  allImports ++ specificImports
-}
 
 /**
   * Updates source repositories for examples for govuk-frontend and hmrc-frontend
@@ -133,8 +114,8 @@ lazy val updateExampleSources = taskKey[Unit]("Update source example repositorie
   * Generates Twirl examples for govuk-frontend and hmrc-frontend components under
   * src/test/play-XX/twirl/uk/gov/hmrc/govukfrontend/views/examples and
   * src/test/play-XX/twirl/uk/gov/hmrc/hmrcfrontend/views/examples appropriately,
-  * where XX designates the relevant Play versions. Currently implement for
-  * Play 2.5 and Play 2.6.
+  * where XX designates the relevant Play versions. Currently implemented for
+  * Play 2.6 and Play 2.7.
   *
   * Run this task in the sbt console via <code>generateExamples</code>.
   */

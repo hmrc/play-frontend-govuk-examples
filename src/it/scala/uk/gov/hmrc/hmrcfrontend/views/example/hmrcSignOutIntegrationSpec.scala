@@ -23,5 +23,7 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcSignOutIntegrationSpec extends TemplateIntegrationSpec {
 
-  testRendering(HmrcFrontend, "sign-out", "example", signoutExample.f)
+  // FIXME: This test is temporarily disabled until https://github.com/hmrc/design-system/pull/133
+  // has been merged, as there is currently incorrect Nunjucks returned from the HMRC Design System
+  //  testRendering(HmrcFrontend, "sign-out", "example", signoutExample.f)
 }

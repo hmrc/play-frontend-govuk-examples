@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,9 @@ import org.scalatest.{Matchers, WordSpec}
 import play.twirl.api.Html
 import uk.gov.hmrc.govukfrontend.examples.NunjucksParser._
 import uk.gov.hmrc.govukfrontend.views.html.components._
-import uk.gov.hmrc.hmrcfrontend.views.html.components._
+import uk.gov.hmrc.govukfrontend.views.html.components.{Footer => GovukFooter, _}
+import uk.gov.hmrc.hmrcfrontend.views.viewmodels.notificationbadge.NotificationBadge
+import uk.gov.hmrc.hmrcfrontend.views.viewmodels.pageheading.PageHeading
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -495,7 +497,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
           body = List(
             MacroCall(
               macroName = "govukFooter",
-              args = Footer(
+              args = GovukFooter(
                 navigation = Seq(
                   FooterNavigation(
                     title   = Some("Services and information"),
