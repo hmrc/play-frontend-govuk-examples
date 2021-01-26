@@ -11,18 +11,12 @@ resolvers ++= Seq(
 
 addSbtPlugin("com.typesafe.play" % "sbt-plugin" % PlayCrossCompilation.playRevision)
 
-addSbtPlugin("uk.gov.hmrc" % "sbt-auto-build" % "2.6.0")
+addSbtPlugin("uk.gov.hmrc" % "sbt-auto-build" % "2.13.0")
 
-addSbtPlugin("uk.gov.hmrc" % "sbt-git-versioning" % "2.1.0")
+addSbtPlugin("uk.gov.hmrc" % "sbt-git-versioning" % "2.2.0")
 
-val twirlPluginVersion =
-  if (PlayCrossCompilation.playVersion == Play26) "1.3.15" else "1.1.1"
+addSbtPlugin("com.typesafe.sbt" % "sbt-twirl" % "1.3.15")
 
-addSbtPlugin("com.typesafe.sbt" % "sbt-twirl" % twirlPluginVersion)
+addSbtPlugin("uk.gov.hmrc" % "sbt-play-cross-compilation" % "2.0.0")
 
-addSbtPlugin("uk.gov.hmrc" % "sbt-play-cross-compilation" % "0.20.0")
-
-addSbtPlugin("uk.gov.hmrc" % "sbt-artifactory" % "1.2.0")
-
-
-
+addSbtPlugin("uk.gov.hmrc" % "sbt-artifactory" % "1.13.0")

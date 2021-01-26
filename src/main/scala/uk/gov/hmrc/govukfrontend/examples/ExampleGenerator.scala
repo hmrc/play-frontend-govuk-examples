@@ -24,7 +24,9 @@ import scala.concurrent.Await
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
 
-class ExampleGenerator {
+object ExampleGenerator extends App {
+  println("==========")
+  println("Generating Twirl examples for govuk-frontend and hmrc-frontend components...")
 
   val currentDir: String = System.getProperty("user.dir")
   val srcGovukDir        = s"$currentDir/govuk-design-system/src/components"
@@ -41,4 +43,6 @@ class ExampleGenerator {
     ExampleTranslator
       .translateTwirlExamples(TrueDir(Paths.get(srcHmrcDir)), TrueDir(Paths.get(destHmrcDir)), HmrcFrontend)
   Await.result(hmrc, 30.second)
+
+  println("Task completed")
 }
