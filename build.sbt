@@ -1,8 +1,6 @@
 import ExamplesManifestGenerator.generate
 import play.sbt.PlayImport.PlayKeys._
-import sbt.classpath.ClasspathUtilities
 import sys.process.Process
-import uk.gov.hmrc.playcrosscompilation.PlayVersion.{Play25, Play26, Play27}
 
 val libName = "play-frontend-govuk-examples"
 
@@ -38,16 +36,6 @@ lazy val root = Project(libName, file("."))
       println("Updating example repository sources for govuk-frontend and hmrc-frontend components to the latest versions...")
       Process("git submodule update --init --recursive") #&& Process("git submodule update --remote")
       println("Task completed")
-    },
-    generateExamples := {
-      println("==========")
-      println("Generating Twirl examples for govuk-frontend and hmrc-frontend components...")
-      val _ = updateExampleSources.value
-      val classpath = (fullClasspath in Runtime).value
-      val loader: ClassLoader = ClasspathUtilities.toLoader(classpath.map(_.data).map(_.getAbsoluteFile))
-      val generator = loader.loadClass("uk.gov.hmrc.govukfrontend.examples.ExampleGenerator").newInstance()
-      println("Task completed")
-      generator
     },
     generateExamplesManifest := {
       println("==========")
@@ -119,8 +107,12 @@ lazy val updateExampleSources = taskKey[Unit]("Update source example repositorie
   *
   * Run this task in the sbt console via <code>generateExamples</code>.
   */
-lazy val generateExamples = taskKey[Any]("Generate Twirl examples")
-
+lazy val generateExamples = taskKey[Unit]("Generate Twirl examples")
+fullRunTask(
+  generateExamples,
+  Compile,
+  "uk.gov.hmrc.govukfrontend.examples.ExampleGenerator"
+)
 /**
   * Generates the manifest.json file in the [[src/test/resources]] folder, used by the Design System browser
   * extension to display Twirl examples for the library's components.
