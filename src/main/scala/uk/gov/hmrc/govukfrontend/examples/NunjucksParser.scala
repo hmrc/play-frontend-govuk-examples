@@ -21,7 +21,7 @@ import fastparse._
 import play.api.libs.json.Reads
 import play.twirl.api.Html
 import uk.gov.hmrc.govukfrontend.examples.AsJson._
-import uk.gov.hmrc.govukfrontend.views.html.components.{Header => GovukHeader, Footer => GovukFooter, _}
+import uk.gov.hmrc.govukfrontend.views.html.components.{Header => GovukHeader, Footer => GovukFooter, CharacterCount => GovukCharacterCount, _}
 import uk.gov.hmrc.hmrcfrontend.views.html.components._
 
 object NunjucksParser {
@@ -81,9 +81,11 @@ object NunjucksParser {
         case (m @ "govukButton", args) =>
           jsonToMacroCall[Button](m, args)
         case (m @ "govukCharacterCount", args) =>
-          jsonToMacroCall[CharacterCount](m, args)
+          jsonToMacroCall[GovukCharacterCount](m, args)
         case (m @ "govukCheckboxes", args) =>
           jsonToMacroCall[Checkboxes](m, args)
+        case (m @ "govukCookieBanner", args) =>
+          jsonToMacroCall[CookieBanner](m, args)
         case (m @ "govukDateInput", args) =>
           jsonToMacroCall[DateInput](m, args)
         case (m @ "govukDetails", args) =>

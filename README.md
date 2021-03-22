@@ -35,7 +35,7 @@ They do not test the content of the rendered examples.
 Before committing any new changes, ensure they pass by running,
 
 ```shell script
-PLAY_VERSION=2.5 sbt test && PLAY_VERSION=2.6 sbt test && PLAY_VERSION=2.7 sbt test
+PLAY_VERSION=2.6 sbt test && PLAY_VERSION=2.7 sbt test
 ```
 
 ## Regenerating examples and committing changes
@@ -76,7 +76,7 @@ sbt generateExamplesManifest
 Then re-run the unit tests for each version of Play:
 
 ```shell script
-PLAY_VERSION=2.5 sbt test && PLAY_VERSION=2.6 sbt test && PLAY_VERSION=2.7 sbt test
+PLAY_VERSION=2.6 sbt test && PLAY_VERSION=2.7 sbt test
 ```
 
 Due to limitations with the Nunjucks parser, it is possible you may find compilation issues with the
@@ -98,7 +98,7 @@ First, clone and start up https://www.github.com/hmrc/x-govuk-component-renderer
 the instructions in the README. Then run,
 
 ```shell script
-PLAY_VERSION=2.5 sbt it:test && PLAY_VERSION=2.6 sbt it:test && PLAY_VERSION=2.7 sbt it:test
+PLAY_VERSION=2.6 sbt it:test && PLAY_VERSION=2.7 sbt it:test
 ```
 
 For each example, the integration tests,

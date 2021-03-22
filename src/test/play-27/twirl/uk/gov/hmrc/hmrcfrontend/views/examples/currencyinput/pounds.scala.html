@@ -1,13 +1,12 @@
-@import uk.gov.hmrc.hmrcfrontend.views.html.components._
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this(hmrcCurrencyInput : HmrcCurrencyInput,
+@this(govukInput : GovukInput,
 govukButton : GovukButton)
 
 @()
 
 
-@hmrcCurrencyInput(CurrencyInput(
+@govukInput(Input(
     id = "currency",
     name = "currency",
     label = Label(
@@ -17,7 +16,10 @@ govukButton : GovukButton)
       content = Text("For example, £600 or £193.54.")
     )),
     classes = "govuk-input--width-10",
-    autocomplete = Some("off")
+    spellcheck = Some(false),
+    prefix = Some(PrefixOrSuffix(
+      content = Text("£")
+    ))
   ))
 @govukButton(Button(
     content = Text("Continue")

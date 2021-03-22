@@ -1,0 +1,41 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukRadios : GovukRadios,
+govukButton : GovukButton)
+
+@()
+
+
+@govukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("What type of business are you?"),
+        classes = "govuk-fieldset__legend--xl",
+        isPageHeading = true
+      ))
+    )),
+    idPrefix = Some("business-type"),
+    name = "business-type",
+    items = Seq(
+      RadioItem(
+        content = Text("Limited Company"),
+        value = Some("limited-company")
+      ), 
+      RadioItem(
+        content = Text("Sole trader"),
+        value = Some("sole-trader")
+      ), 
+      RadioItem(
+        content = Text("Partnership"),
+        value = Some("partnership")
+      ), 
+      RadioItem(
+        content = Text("Trust"),
+        value = Some("trust")
+      )
+    ),
+    classes = "govuk-radios"
+  ))
+@govukButton(Button(
+    content = Text("Continue")
+  ))

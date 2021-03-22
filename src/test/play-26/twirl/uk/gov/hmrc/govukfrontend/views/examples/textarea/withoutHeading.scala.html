@@ -1,0 +1,14 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukTextarea : GovukTextarea)
+
+@()
+
+
+@govukTextarea(Textarea(
+    id = "more-detail",
+    name = "more-detail",
+    label = Label(
+      content = Text("Can you provide more detail?")
+    )
+  ))
