@@ -4,7 +4,7 @@ This repository is a dependency for the Google Chrome extension
 [play-frontend-govuk-extension](https://github.com/hmrc/play-frontend-govuk-extension), providing
 Twirl examples for the Nunjucks components in the
 [GOV.UK Design System](https://design-system.service.gov.uk/components/) and
-[HMRC Design System](https://design.tax.service.gov.uk/components/).
+[HMRC Design System](https://design.tax.service.gov.uk/).
 
 The extension pulls in these examples and adds an extra tab to each set of 
 examples showing how to use them with the Twirl libraries
