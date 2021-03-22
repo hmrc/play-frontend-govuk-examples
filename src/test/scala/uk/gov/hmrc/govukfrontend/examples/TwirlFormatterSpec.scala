@@ -663,7 +663,7 @@ class TwirlFormatterSpec extends WordSpec with Matchers {
           |  html: "Your reference number<br><strong>HDJ2123F</strong>"
           |}) }}""".stripMargin
 
-      val htmlContent = "\"\"\"Your reference number<br><strong>HDJ2123F</strong>\"\"\""
+      val htmlContent             = "\"\"\"Your reference number<br><strong>HDJ2123F</strong>\"\"\""
       val govukPanelTwirlExpected =
         s"""@import uk.gov.hmrc.govukfrontend.views.html.components._
           |

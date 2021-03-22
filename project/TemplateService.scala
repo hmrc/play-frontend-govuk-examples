@@ -24,8 +24,10 @@ object TemplateService {
 
     attempt match {
       case Success(njksExamples) => njksExamples
-      case Failure(e) =>
-        println(s"Failed to fetch Nunjucks examples for $frontend $component from Template Service at $endpoint. Details: [${e.getLocalizedMessage}].")
+      case Failure(e)            =>
+        println(
+          s"Failed to fetch Nunjucks examples for $frontend $component from Template Service at $endpoint. Details: [${e.getLocalizedMessage}]."
+        )
         Seq()
     }
   }

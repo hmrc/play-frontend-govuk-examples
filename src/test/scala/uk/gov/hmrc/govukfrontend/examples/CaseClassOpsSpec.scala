@@ -28,21 +28,21 @@ class CaseClassOpsSpec extends WordSpec with Matchers {
   }
 
   case class TestCaseClass(
-                   zero: String,
-                   one: Boolean = true,
-                   two: Int = 2,
-                   three: Option[Int] = None,
-                   four: List[Int] = List(4),
-                   five: Double,
-                   six: Float,
-                   seven: BigDecimal,
-                   eight: String = "eight",
-                   nine: Int,
-                   ten: Option[Int] = Some(10),
-                   private val eleven: String,
-                   protected val twelve: Int
-                 ) extends Abstract {
-    val thirteen: Option[String] = Some("thirteen")
+    zero: String,
+    one: Boolean = true,
+    two: Int = 2,
+    three: Option[Int] = None,
+    four: List[Int] = List(4),
+    five: Double,
+    six: Float,
+    seven: BigDecimal,
+    eight: String = "eight",
+    nine: Int,
+    ten: Option[Int] = Some(10),
+    private val eleven: String,
+    protected val twelve: Int
+  ) extends Abstract {
+    val thirteen: Option[String]         = Some("thirteen")
     private val fourteen: Option[Double] = Some(14)
     protected val fifteen: Option[Float] = Some(15)
   }
@@ -56,7 +56,7 @@ class CaseClassOpsSpec extends WordSpec with Matchers {
     eleven = "eleven",
     twelve = 12
   )
-  
+
   val testOneOps: CaseClassOps[TestCaseClass] = CaseClassOps(testOne)
 
   val testTwo: TestCaseClass = TestCaseClass(
@@ -74,7 +74,7 @@ class CaseClassOpsSpec extends WordSpec with Matchers {
   )
 
   val testTwoOps: CaseClassOps[TestCaseClass] = CaseClassOps(testTwo)
-  
+
   "fields" should {
 
     """provide a list of all defined fields in a case class,

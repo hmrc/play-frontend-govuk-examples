@@ -40,10 +40,11 @@ object NunjucksParser {
   def imports[_: P]: P[Seq[Import]] = P((importParser ~ ws).rep)
 
   def importParser[_: P]: P[Import] =
-    P("{%" ~ "-".? ~ ws ~ "from" ~ ws ~ doubleQuotedString ~ ws ~ "import" ~ ws ~ (!" " ~ AnyChar).rep.! ~ ws ~ withContext.? ~ ws ~ "-".? ~ "%}")
-      .map {
-        case (importStatement, macroName) =>
-          Import(from = importStatement, macroName = macroName)
+    P(
+      "{%" ~ "-".? ~ ws ~ "from" ~ ws ~ doubleQuotedString ~ ws ~ "import" ~ ws ~ (!" " ~ AnyChar).rep.! ~ ws ~ withContext.? ~ ws ~ "-".? ~ "%}"
+    )
+      .map { case (importStatement, macroName) =>
+        Import(from = importStatement, macroName = macroName)
       }
 
   def doubleQuotedString[_: P]: P[String] = P("\"" ~ (!"\"" ~ AnyChar).rep.! ~ "\"")
@@ -55,100 +56,101 @@ object NunjucksParser {
     P(ws ~ "<" ~ (!"{{" ~ !"{%" ~ AnyChar).rep.! ~ ws).map(html => TemplateHtml(Html(s"<$html")))
 
   def setBlock[_: P]: P[SetBlock] =
-    P(blockName ~ ws ~ html.? ~ macroCall() ~ ws ~ "{% endset -%}" ~ ws).map {
-      case (blockName, html, macroCall) =>
-        SetBlock(blockName, html, macroCall)
+    P(blockName ~ ws ~ html.? ~ macroCall() ~ ws ~ "{% endset -%}" ~ ws).map { case (blockName, html, macroCall) =>
+      SetBlock(blockName, html, macroCall)
     }
 
   def blockName[_: P]: P[String] = P("{%" ~ ws ~ "set" ~ ws ~ (!"%}" ~ CharIn("a-zA-Z")).rep.! ~ ws ~ "%}" ~ ws)
 
   def callMacro[_: P]: P[CallMacro] =
-    P(macroCall("{% call", "%}") ~ ws ~ macroCall().rep ~ ws ~ "{% endcall %}").map {
-      case (callMacro, macroCalls) => CallMacro(callMacro, macroCalls.toList)
+    P(macroCall("{% call", "%}") ~ ws ~ macroCall().rep ~ ws ~ "{% endcall %}").map { case (callMacro, macroCalls) =>
+      CallMacro(callMacro, macroCalls.toList)
     }
 
   def macroName[_: P]: P[String] = P(("govuk" ~ (!"(" ~ AnyChar).rep).! | ("hmrc" ~ (!"(" ~ AnyChar).rep).!).map(_.trim)
 
   def macroCall[_: P](starting: String = "{{", terminating: String = "}}"): P[MacroCall] =
-    P(ws ~ starting ~ ws ~ macroName ~ "(" ~ ("{" ~ ws ~ (!"})" ~ AnyChar).rep ~ ws ~ "}").!.? ~ ")" ~ ws ~ terminating ~ ws)
+    P(
+      ws ~ starting ~ ws ~ macroName ~ "(" ~ ("{" ~ ws ~ (!"})" ~ AnyChar).rep ~ ws ~ "}").!.? ~ ")" ~ ws ~ terminating ~ ws
+    )
       .map {
-        case (m @ "govukAccordion", args) =>
+        case (m @ "govukAccordion", args)        =>
           jsonToMacroCall[Accordion](m, args)
-        case (m @ "govukBackLink", args) =>
+        case (m @ "govukBackLink", args)         =>
           jsonToMacroCall[BackLink](m, args)
-        case (m @ "govukBreadcrumbs", args) =>
+        case (m @ "govukBreadcrumbs", args)      =>
           jsonToMacroCall[Breadcrumbs](m, args)
-        case (m @ "govukButton", args) =>
+        case (m @ "govukButton", args)           =>
           jsonToMacroCall[Button](m, args)
-        case (m @ "govukCharacterCount", args) =>
+        case (m @ "govukCharacterCount", args)   =>
           jsonToMacroCall[CharacterCount](m, args)
-        case (m @ "govukCheckboxes", args) =>
+        case (m @ "govukCheckboxes", args)       =>
           jsonToMacroCall[Checkboxes](m, args)
-        case (m @ "govukDateInput", args) =>
+        case (m @ "govukDateInput", args)        =>
           jsonToMacroCall[DateInput](m, args)
-        case (m @ "govukDetails", args) =>
+        case (m @ "govukDetails", args)          =>
           jsonToMacroCall[Details](m, args)
-        case (m @ "govukErrorMessage", args) =>
+        case (m @ "govukErrorMessage", args)     =>
           jsonToMacroCall[ErrorMessage](m, args)
-        case (m @ "govukErrorSummary", args) =>
+        case (m @ "govukErrorSummary", args)     =>
           jsonToMacroCall[ErrorSummary](m, args)
-        case (m @ "govukFieldset", args) =>
+        case (m @ "govukFieldset", args)         =>
           jsonToMacroCall[Fieldset](m, args)
-        case (m @ "govukFileUpload", args) =>
+        case (m @ "govukFileUpload", args)       =>
           jsonToMacroCall[FileUpload](m, args)
-        case (m @ "govukFooter", args) =>
+        case (m @ "govukFooter", args)           =>
           jsonToMacroCall[GovukFooter](m, args)
-        case (m @ "govukHeader", args) =>
+        case (m @ "govukHeader", args)           =>
           jsonToMacroCall[GovukHeader](m, args)
-        case (m @ "govukHint", args) =>
+        case (m @ "govukHint", args)             =>
           jsonToMacroCall[Hint](m, args)
-        case (m @ "govukInput", args) =>
+        case (m @ "govukInput", args)            =>
           jsonToMacroCall[Input](m, args)
-        case (m @ "govukInsetText", args) =>
+        case (m @ "govukInsetText", args)        =>
           jsonToMacroCall[InsetText](m, args)
-        case (m @ "govukLabel", args) =>
+        case (m @ "govukLabel", args)            =>
           jsonToMacroCall[Label](m, args)
-        case (m @ "govukPanel", args) =>
+        case (m @ "govukPanel", args)            =>
           jsonToMacroCall[Panel](m, args)
-        case (m @ "govukPhaseBanner", args) =>
+        case (m @ "govukPhaseBanner", args)      =>
           jsonToMacroCall[PhaseBanner](m, args)
-        case (m @ "govukRadios", args) =>
+        case (m @ "govukRadios", args)           =>
           jsonToMacroCall[Radios](m, args)
-        case (m @ "govukSelect", args) =>
+        case (m @ "govukSelect", args)           =>
           jsonToMacroCall[Select](m, args)
-        case (m @ "govukSkipLink", args) =>
+        case (m @ "govukSkipLink", args)         =>
           jsonToMacroCall[SkipLink](m, args)
-        case (m @ "govukSummaryList", args) =>
+        case (m @ "govukSummaryList", args)      =>
           jsonToMacroCall[SummaryList](m, args)
-        case (m @ "govukTable", args) =>
+        case (m @ "govukTable", args)            =>
           jsonToMacroCall[Table](m, args)
-        case (m @ "govukTabs", args) =>
+        case (m @ "govukTabs", args)             =>
           jsonToMacroCall[Tabs](m, args)
-        case (m @ "govukTag", args) =>
+        case (m @ "govukTag", args)              =>
           jsonToMacroCall[Tag](m, args)
-        case (m @ "govukTextarea", args) =>
+        case (m @ "govukTextarea", args)         =>
           jsonToMacroCall[Textarea](m, args)
-        case (m @ "govukWarningText", args) =>
+        case (m @ "govukWarningText", args)      =>
           jsonToMacroCall[WarningText](m, args)
-        case (m @ "hmrcPageHeading", args) =>
+        case (m @ "hmrcPageHeading", args)       =>
           jsonToMacroCall[PageHeading](m, args)
         case (m @ "hmrcNotificationBadge", args) =>
           jsonToMacroCall[NotificationBadge](m, args)
-        case (m @ "hmrcAccountMenu", args) =>
+        case (m @ "hmrcAccountMenu", args)       =>
           jsonToMacroCall[AccountMenu](m, args)
-        case (m @ "hmrcBanner", args) =>
+        case (m @ "hmrcBanner", args)            =>
           jsonToMacroCall[Banner](m, args)
-        case (m @ "hmrcCurrencyInput", args) =>
+        case (m @ "hmrcCurrencyInput", args)     =>
           jsonToMacroCall[CurrencyInput](m, args)
-        case (m @ "hmrcHeader", args) =>
+        case (m @ "hmrcHeader", args)            =>
           jsonToMacroCall[Header](m, args)
-        case (m @ "hmrcInternalHeader", args) =>
+        case (m @ "hmrcInternalHeader", args)    =>
           jsonToMacroCall[InternalHeader](m, args)
-        case (m @ "hmrcLanguageSelect", args) =>
+        case (m @ "hmrcLanguageSelect", args)    =>
           jsonToMacroCall[LanguageSelect](m, args)
-        case (m @ "hmrcNewTabLink", args) =>
+        case (m @ "hmrcNewTabLink", args)        =>
           jsonToMacroCall[NewTabLink](m, args)
-        case (m @ "hmrcTimeoutDialog", args) =>
+        case (m @ "hmrcTimeoutDialog", args)     =>
           jsonToMacroCall[TimeoutDialog](m, args)
       }
 
@@ -162,8 +164,10 @@ object NunjucksParser {
       .lines
       .toStream
       .map { line =>
-        if ((line matches """\s*html\s*:\s*([^"][A-z])+\s*$""") ||
-            (typeOfT == "DateInput" && (line matches """\s*value\s*:\s*([^"][A-z0-9])+\s*$"""))) {
+        if (
+          (line matches """\s*html\s*:\s*([^"][A-z])+\s*$""") ||
+          (typeOfT == "DateInput" && (line matches """\s*value\s*:\s*([^"][A-z0-9])+\s*$"""))
+        ) {
           val splits = line.split("\\s*:\\s*")
           splits(0) + ": \'" + splits(1) + "\'"
         } else line
