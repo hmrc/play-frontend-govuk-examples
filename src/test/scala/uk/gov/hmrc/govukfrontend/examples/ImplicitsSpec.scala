@@ -28,12 +28,12 @@ class ImplicitsSpec extends WordSpec with Matchers {
   case object TestCaseObject extends Abstract
 
   class NonCaseClassProduct extends Product {
-    override def productElement(n: Int): Any = throw new Exception
-    override def productArity: Int = throw new Exception
+    override def productElement(n: Int): Any  = throw new Exception
+    override def productArity: Int            = throw new Exception
     override def canEqual(that: Any): Boolean = throw new Exception
   }
 
-  val testCaseClass: TestCaseClass = TestCaseClass()
+  val testCaseClass: TestCaseClass             = TestCaseClass()
   val nonCaseClassProduct: NonCaseClassProduct = new NonCaseClassProduct
 
   "withCaseClassOps" should {
@@ -45,7 +45,7 @@ class ImplicitsSpec extends WordSpec with Matchers {
         val foo: CaseClassOps[_] = testCaseClass
       } match {
         case Success(_) => succeed
-        case _ => fail
+        case _          => fail
       }
     }
 
@@ -56,7 +56,7 @@ class ImplicitsSpec extends WordSpec with Matchers {
         val foo: CaseClassOps[_] = TestCaseObject
       } match {
         case Failure(_) => succeed
-        case _ => fail
+        case _          => fail
       }
     }
 
@@ -66,7 +66,7 @@ class ImplicitsSpec extends WordSpec with Matchers {
         val foo: CaseClassOps[_] = nonCaseClassProduct
       } match {
         case Failure(_) => succeed
-        case _ => fail
+        case _          => fail
       }
     }
 
@@ -129,21 +129,21 @@ class ImplicitsSpec extends WordSpec with Matchers {
       "return Some(CaseClassOps) for case classes" in {
         testCaseClass.asCaseClassOps match {
           case Some(_: CaseClassOps[_]) => succeed
-          case _ => fail
+          case _                        => fail
         }
       }
 
       "return None for case objects" in {
         TestCaseObject.asCaseClassOps match {
           case None => succeed
-          case _ => fail
+          case _    => fail
         }
       }
 
       "return None otherwise" in {
         nonCaseClassProduct.asCaseClassOps match {
           case None => succeed
-          case _ => fail
+          case _    => fail
         }
       }
 

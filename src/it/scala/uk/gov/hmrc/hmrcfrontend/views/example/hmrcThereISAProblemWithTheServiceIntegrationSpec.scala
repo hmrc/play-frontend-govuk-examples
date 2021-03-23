@@ -27,35 +27,41 @@ class hmrcThereISAProblemWithTheServiceIntegrationSpec extends TemplateIntegrati
     HmrcFrontend,
     "there-is-a-problem-with-the-service",
     "linkToOtherService",
-    thereisaproblemwiththeserviceLinkToOtherService.f)
+    thereisaproblemwiththeserviceLinkToOtherService.f
+  )
 
   testRendering(
     HmrcFrontend,
     "there-is-a-problem-with-the-service",
     "linkToOtherServiceWelsh",
-    thereisaproblemwiththeserviceLinkToOtherServiceWelsh.f)
+    thereisaproblemwiththeserviceLinkToOtherServiceWelsh.f
+  )
 
   testRendering(
     HmrcFrontend,
     "there-is-a-problem-with-the-service",
     "noContact",
-    thereisaproblemwiththeserviceNoContact.f)
+    thereisaproblemwiththeserviceNoContact.f
+  )
 
   testRendering(
     HmrcFrontend,
     "there-is-a-problem-with-the-service",
     "noContactWelsh",
-    thereisaproblemwiththeserviceNoContactWelsh.f)
+    thereisaproblemwiththeserviceNoContactWelsh.f
+  )
 
   testRendering(
     HmrcFrontend,
     "there-is-a-problem-with-the-service",
     "problemWithService",
-    thereisaproblemwiththeserviceProblemWithService.f)
+    thereisaproblemwiththeserviceProblemWithService.f
+  )
 
   testRendering(
     HmrcFrontend,
     "there-is-a-problem-with-the-service",
     "problemWithServiceWelsh",
-    thereisaproblemwiththeserviceProblemWithServiceWelsh.f)
+    thereisaproblemwiththeserviceProblemWithServiceWelsh.f
+  )
 }

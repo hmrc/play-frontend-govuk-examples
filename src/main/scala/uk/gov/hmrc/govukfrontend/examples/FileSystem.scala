@@ -24,7 +24,6 @@ import scala.reflect.io.Directory
 import scala.concurrent.{ExecutionContext, Future}
 import scala.io.Source
 
-
 object FileSystem extends Retryable {
 
   sealed trait TruePath {
@@ -44,28 +43,23 @@ object FileSystem extends Retryable {
 
     def read(implicit ec: ExecutionContext): Future[String] = Future {
       val source = Source.fromFile(new JFile(path.toString), "UTF-8")
-      try {
-        source.getLines().mkString("\n")
-      } finally {
-        source.close()
-      }
+      try source.getLines().mkString("\n")
+      finally source.close()
     }
 
     def toPathAncestry: PathAncestry = PathAncestry(this, getParent.map(_.toPathAncestry))
 
     def write(content: String)(implicit ec: ExecutionContext): Future[Unit] = Future {
-        val pw = new PrintWriter(path.toFile)
-        try {
-          pw.write(content)
-        } finally {
-          pw.close()
-        }
+      val pw = new PrintWriter(path.toFile)
+      try pw.write(content)
+      finally pw.close()
     }
 
   }
   case class TrueDir(path: Path) extends TruePath {
 
-    val recursiveContents: Iterable[TrueFile] = new Directory(path.toFile).deepFiles.map(f => TrueFile(Paths.get(f.path))).toIterable
+    val recursiveContents: Iterable[TrueFile] =
+      new Directory(path.toFile).deepFiles.map(f => TrueFile(Paths.get(f.path))).toIterable
 
     def del(): Unit = {
       val cond = s"[$path] directory and children have been deleted within 15 attempts"
@@ -88,7 +82,7 @@ object FileSystem extends Retryable {
     val treeMembers: Iterable[PathAncestry] = {
       def acc(path: PathAncestry): Iterable[PathAncestry] = {
         val ancestors: Iterable[PathAncestry] = path.parent match {
-          case None => Nil
+          case None    => Nil
           case Some(a) => acc(a)
         }
         Iterable(path) ++ ancestors
@@ -101,27 +95,25 @@ object FileSystem extends Retryable {
   }
 
   private def ensure(paths: Iterable[TruePath])(implicit ec: ExecutionContext): Future[Unit] = {
-    val ensures: Iterable[Future[Unit]] = for (path <- paths) yield path.ensure
+    val ensures: Iterable[Future[Unit]]   = for (path <- paths) yield path.ensure
     val sequenced: Future[Iterable[Unit]] = Future.sequence(ensures)
 
-    sequenced.map (seq =>
-      for (_ <- seq) yield ()
-    )
+    sequenced.map(seq => for (_ <- seq) yield ())
   }
 
   def prepareDirStructure(files: Iterable[TrueFile])(implicit ec: ExecutionContext): Future[Unit] = Future {
     val ancestries: Iterable[PathAncestry] = files.map(_.toPathAncestry)
     val members: Iterable[AncestorCounter] = for {
       ancestry <- ancestries
-      member <- ancestry.treeMembers
+      member   <- ancestry.treeMembers
     } yield member.toAncestorCounter
 
     val uniques: Set[AncestorCounter] = members.toSet
 
     val hierarchyGrouped: Seq[(Int, Set[AncestorCounter])] = uniques.groupBy(_.ancestorCount).toSeq.sortBy(_._1)
-    val hierarchyGroups: Seq[Iterable[TruePath]] = for {
+    val hierarchyGroups: Seq[Iterable[TruePath]]           = for {
       (_, ancestorCounters) <- hierarchyGrouped
-      sameTierPaths = ancestorCounters.map(_.path.path)
+      sameTierPaths          = ancestorCounters.map(_.path.path)
     } yield sameTierPaths
 
     Future.traverse(hierarchyGroups)(gp => ensure(gp))

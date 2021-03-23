@@ -7,11 +7,12 @@ sealed trait Frontend {
   def toTemplateServiceExampleId(twirlExampleId: String): String = {
     val TwirlReg = s"^($exampleIdPrefix)?([^/]*)(/?.*)$$".r
     twirlExampleId match {
-      case njksId@TwirlReg(_, twirl, suffix) =>
-        twirlToTemplateServiceExampleIdMap.get(twirl)
+      case njksId @ TwirlReg(_, twirl, suffix) =>
+        twirlToTemplateServiceExampleIdMap
+          .get(twirl)
           .map(njks => s"$njks$suffix")
           .getOrElse(njksId)
-      case njksId => njksId
+      case njksId                              => njksId
     }
   }
 }
@@ -19,9 +20,9 @@ sealed trait Frontend {
 object Frontend {
 
   case object GovukFrontend extends Frontend {
-    val exampleIdPrefix = ""
+    val exampleIdPrefix        = ""
     val templateServiceSubpath = "govuk"
-    val twirlSubpath = "govukfrontend"
+    val twirlSubpath           = "govukfrontend"
 
     val twirlToTemplateServiceExampleIdMap: Map[String, String] = Map(
       "backlink"       -> "backLink",
@@ -41,9 +42,9 @@ object Frontend {
   }
 
   case object HmrcFrontend extends Frontend {
-    val exampleIdPrefix = "hmrc/"
-    val templateServiceSubpath = "hmrc"
-    val twirlSubpath = "hmrcfrontend"
+    val exampleIdPrefix                                         = "hmrc/"
+    val templateServiceSubpath                                  = "hmrc"
+    val twirlSubpath                                            = "hmrcfrontend"
     val twirlToTemplateServiceExampleIdMap: Map[String, String] = Map(
       "accountheader"                 -> "accountHeader",
       "accountmenu"                   -> "accountMenu",

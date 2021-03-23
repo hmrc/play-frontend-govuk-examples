@@ -41,10 +41,13 @@ trait TemplateServiceClient extends WordSpecLike with WSScalaTestClient with Gui
       wsUrl(s"/example-usage/$frontendPath/$componentName").get().map(_.json.as[List[ComponentExample]])
 
     for (response <- future)
-      yield
-        for (example <- response)
-          yield
-            Example(componentName, frontend, example.name.substring(example.name.indexOf("/") + 1), html = example.html)
+      yield for (example <- response)
+        yield Example(
+          componentName,
+          frontend,
+          example.name.substring(example.name.indexOf("/") + 1),
+          html = example.html
+        )
 
   }
 }

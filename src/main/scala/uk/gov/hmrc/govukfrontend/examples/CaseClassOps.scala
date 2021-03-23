@@ -23,27 +23,26 @@ import scala.reflect.runtime.currentMirror
 import scala.util.matching.Regex
 
 case class Field[+T](
-                     name: String,
-                     value: T,
-                     defaultValue: Option[T],
-                     isConstructorVal: Boolean
-                   ) {
-}
+  name: String,
+  value: T,
+  defaultValue: Option[T],
+  isConstructorVal: Boolean
+) {}
 
-case class CaseClassOps[T <: Product : ClassTag](caseClassObj: T) {
+case class CaseClassOps[T <: Product: ClassTag](caseClassObj: T) {
 
-  private val caseClass = caseClassObj.getClass
+  private val caseClass       = caseClassObj.getClass
   private val caseClassMirror = currentMirror.reflect(caseClassObj)
 
   private val companionObjInstance: Any = {
-    val classLoader = caseClass.getClassLoader
+    val classLoader  = caseClass.getClassLoader
     val companionObj = classLoader.loadClass(s"${caseClass.getName}$$")
 
     val moduleMaybe = companionObj.getDeclaredFields.find(_.getName == "MODULE$")
     moduleMaybe match {
       case Some(module) => module.get(true)
-      case _ =>
-        val outerModule = caseClass.getFields.find(_.getName.contains("$")).get.get(caseClassObj)
+      case _            =>
+        val outerModule  = caseClass.getFields.find(_.getName.contains("$")).get.get(caseClassObj)
         val moduleMirror = currentMirror.reflect(outerModule)
 
         val companionSymbol = caseClassMirror.symbol.companion.asModule
@@ -52,8 +51,7 @@ case class CaseClassOps[T <: Product : ClassTag](caseClassObj: T) {
   }
 
   val javaFields: Array[JField] = {
-    val fields = caseClass
-      .getDeclaredFields
+    val fields = caseClass.getDeclaredFields
       .filterNot(f => f.isSynthetic | f.getName.contains("serialVersionUID"))
     fields.foreach(_.setAccessible(true))
     fields
@@ -63,11 +61,11 @@ case class CaseClassOps[T <: Product : ClassTag](caseClassObj: T) {
     val nonPublicField: Regex = """.*?\$\$(\w*)$""".r
 
     val kvps = for {
-      field <- javaFields
+      field    <- javaFields
       fieldName = field.getName match {
-        case nonPublicField(trueName) => trueName
-        case f@_ => f
-      }
+                    case nonPublicField(trueName) => trueName
+                    case f @ _                    => f
+                  }
     } yield field -> fieldName
 
     kvps.toMap
@@ -76,36 +74,33 @@ case class CaseClassOps[T <: Product : ClassTag](caseClassObj: T) {
   private val caseAccessors: Iterable[String] = {
     val nonPublicCaseAccessor: Regex = """^([^$]*).*$""".r
 
-    val members = caseClassMirror
-      .symbol
-      .typeSignature
-      .members
+    val members = caseClassMirror.symbol.typeSignature.members
 
     for {
-      member <- members
+      member      <- members
       if member.isMethod
       methodSymbol = member.asMethod
       if methodSymbol.isCaseAccessor
-      fieldName = methodSymbol.name.toString
+      fieldName    = methodSymbol.name.toString
     } yield fieldName match {
       case nonPublicCaseAccessor(trueName) => trueName
-      case _ => fieldName
+      case _                               => fieldName
     }
   }
 
   private val defaults: Map[String, Any] = {
     val fieldNames: Seq[String] = javaFields.map(jFieldTrueNames)
-    val kvps = for {
+    val kvps                    = for {
       compObjMethod: Method <- companionObjInstance.getClass.getDeclaredMethods
       javaMethodName: String = compObjMethod.getName
-      defaultParamIndex <-
+      defaultParamIndex     <-
         """\$lessinit\$greater\$default\$(\d+)""".r
           .findFirstMatchIn(javaMethodName)
           .toIterable
           .flatMap(_.subgroups)
           .map(_.toInt - 1)
-      field: String = fieldNames(defaultParamIndex)
-      default: Any = compObjMethod.invoke(companionObjInstance)
+      field: String          = fieldNames(defaultParamIndex)
+      default: Any           = compObjMethod.invoke(companionObjInstance)
     } yield field -> default
 
     kvps.toMap
@@ -113,11 +108,11 @@ case class CaseClassOps[T <: Product : ClassTag](caseClassObj: T) {
 
   val fields: List[Field[Any]] = {
     val array = for {
-      jField <- javaFields
-      fieldName = jFieldTrueNames(jField)
-      value = jField.get(caseClassObj)
+      jField          <- javaFields
+      fieldName        = jFieldTrueNames(jField)
+      value            = jField.get(caseClassObj)
       isConstructorVal = caseAccessors.toSeq.contains(fieldName)
-      defaultValue = if (isConstructorVal) defaults.get(fieldName) else Some(value)
+      defaultValue     = if (isConstructorVal) defaults.get(fieldName) else Some(value)
     } yield Field(
       name = fieldName,
       value = value,
@@ -128,8 +123,8 @@ case class CaseClassOps[T <: Product : ClassTag](caseClassObj: T) {
     array.toList
   }
 
-  val constructorFields: List[Field[Any]] = fields.filter(_.isConstructorVal)
-  val customisedFields: List[Field[Any]] = fields.filterNot(f => f.defaultValue.contains(f.value))
+  val constructorFields: List[Field[Any]]           = fields.filter(_.isConstructorVal)
+  val customisedFields: List[Field[Any]]            = fields.filterNot(f => f.defaultValue.contains(f.value))
   val customisedConstructorFields: List[Field[Any]] = customisedFields.filter(_.isConstructorVal)
 
 }

@@ -30,7 +30,8 @@ class hmrcServiceUnavailableIntegrationSpec extends TemplateIntegrationSpec {
     HmrcFrontend,
     "service-unavailable",
     "linkToOtherServiceWelsh",
-    serviceunavailableLinkToOtherServiceWelsh.f)
+    serviceunavailableLinkToOtherServiceWelsh.f
+  )
   testRendering(HmrcFrontend, "service-unavailable", "serviceClosed", serviceunavailableServiceClosed.f)
   testRendering(HmrcFrontend, "service-unavailable", "serviceClosedWelsh", serviceunavailableServiceClosedWelsh.f)
   testRendering(HmrcFrontend, "service-unavailable", "serviceNotYetOpen", serviceunavailableServiceNotYetOpen.f)
@@ -38,7 +39,8 @@ class hmrcServiceUnavailableIntegrationSpec extends TemplateIntegrationSpec {
     HmrcFrontend,
     "service-unavailable",
     "serviceNotYetOpenWelsh",
-    serviceunavailableServiceNotYetOpenWelsh.f)
+    serviceunavailableServiceNotYetOpenWelsh.f
+  )
   testRendering(HmrcFrontend, "service-unavailable", "serviceReplaced", serviceunavailableServiceReplaced.f)
   testRendering(HmrcFrontend, "service-unavailable", "serviceReplacedWelsh", serviceunavailableServiceReplacedWelsh.f)
   testRendering(HmrcFrontend, "service-unavailable", "serviceShutDown", serviceunavailableServiceShutDown.f)
@@ -47,10 +49,12 @@ class hmrcServiceUnavailableIntegrationSpec extends TemplateIntegrationSpec {
     HmrcFrontend,
     "service-unavailable",
     "serviceTemporarilyUnavailable",
-    serviceunavailableServiceTemporarilyUnavailable.f)
+    serviceunavailableServiceTemporarilyUnavailable.f
+  )
   testRendering(
     HmrcFrontend,
     "service-unavailable",
     "serviceTemporarilyUnavailableWelsh",
-    serviceunavailableServiceTemporarilyUnavailableWelsh.f)
+    serviceunavailableServiceTemporarilyUnavailableWelsh.f
+  )
 }

@@ -29,19 +29,22 @@ class hmrcCouldNotConfirmIdentityIntegrationSpec extends TemplateIntegrationSpec
     HmrcFrontend,
     "could-not-confirm-identity",
     "endOfJourneyWelsh",
-    couldnotconfirmidentityEndOfJourneyWelsh.f)
+    couldnotconfirmidentityEndOfJourneyWelsh.f
+  )
 
   testRendering(
     HmrcFrontend,
     "could-not-confirm-identity",
     "insufficientInformation",
-    couldnotconfirmidentityInsufficientInformation.f)
+    couldnotconfirmidentityInsufficientInformation.f
+  )
 
   testRendering(
     HmrcFrontend,
     "could-not-confirm-identity",
     "insufficientInformationWelsh",
-    couldnotconfirmidentityInsufficientInformationWelsh.f)
+    couldnotconfirmidentityInsufficientInformationWelsh.f
+  )
 
   testRendering(HmrcFrontend, "could-not-confirm-identity", "noMatch", couldnotconfirmidentityNoMatch.f)
 

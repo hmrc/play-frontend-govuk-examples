@@ -5,7 +5,6 @@ import ExampleForPlayVersions.toExamplesForPlayVersions
 object ExamplesManifestGenerator {
 
   /**
-    *
     * sbt task implementation that generates a <code>manifest.json</code> with references to the example files which can be used by the
     * Govuk Design System browser extension [[https://github.com/hmrc/play-frontend-govuk-extension]]
     *
@@ -34,7 +33,7 @@ object ExamplesManifestGenerator {
 
     println(s">>>>>>>>>>>>>>>> Generating manifest examples for ${allExamples.size} files")
     removeExcludes(allExamples).toList match {
-      case Nil => Set.empty
+      case Nil      => Set.empty
       case examples =>
         val content = manifestContent(examples)
         IO.write(content = content, file = manifestFile, append = false)
@@ -58,25 +57,28 @@ object ExamplesManifestGenerator {
     def toManifestElem(exampleVersions: ExampleForPlayVersions): ManifestJson = {
       val exampleId = exampleVersions.id
 
-      val playRefs = exampleVersions.playVersionedSources.map {
-        case (playVersion, source) =>
-          source.getAbsolutePath match {
-            case uriReg(uri) => PlayVersionedExample(
+      val playRefs = exampleVersions.playVersionedSources.map { case (playVersion, source) =>
+        source.getAbsolutePath match {
+          case uriReg(uri) =>
+            PlayVersionedExample(
               playVersion = playVersion,
               ref = ExampleRef(uri = uri)
             )
-            case path => throw new Exception(s"Failed to abstract manifest URI for example ${exampleVersions.frontend} $exampleId at path $path.")
-          }
+          case path        =>
+            throw new Exception(
+              s"Failed to abstract manifest URI for example ${exampleVersions.frontend} $exampleId at path $path."
+            )
+        }
       }.toSeq
 
       ManifestJson(
-        id       = exampleId,
+        id = exampleId,
         versions = Versions(playVersionedExamples = playRefs)
       )
     }
 
     val manifestElems = exampleVersionsIterable.map(toManifestElem).toSeq.sortBy(_.id)
-    val json = Json.toJson(manifestElems)
+    val json          = Json.toJson(manifestElems)
     Json.prettyPrint(json)
   }
 

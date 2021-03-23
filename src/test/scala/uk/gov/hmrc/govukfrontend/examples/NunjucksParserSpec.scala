@@ -150,11 +150,11 @@ class NunjucksParserSpec extends WordSpec with Matchers {
             errorList = Seq(
               ErrorLink(
                 content = Text("The date your passport was issued must be in the past"),
-                href    = Some("#passport-issued-error")
+                href = Some("#passport-issued-error")
               ),
               ErrorLink(
                 content = Text("Enter a postcode, like AA1 1AA"),
-                href    = Some("#postcode-error")
+                href = Some("#postcode-error")
               )
             )
           )
@@ -174,7 +174,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
         MacroCall(
           macroName = "hmrcPageHeading",
           args = PageHeading(
-            text    = "What is your name?",
+            text = "What is your name?",
             section = Some("Personal details")
           )
         ),
@@ -223,11 +223,11 @@ class NunjucksParserSpec extends WordSpec with Matchers {
                 errorList = Seq(
                   ErrorLink(
                     content = Text("The date your passport was issued must be in the past"),
-                    href    = Some("#passport-issued-error")
+                    href = Some("#passport-issued-error")
                   ),
                   ErrorLink(
                     content = Text("Enter a postcode, like AA1 1AA"),
-                    href    = Some("#postcode-error")
+                    href = Some("#postcode-error")
                   )
                 )
               )
@@ -295,7 +295,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
         NunjucksTemplate(
           imports = List(
             Import(from = "govuk/components/error-summary/macro.njk", macroName = "govukErrorSummary"),
-            Import(from = "govuk/components/checkboxes/macro.njk", macroName    = "govukCheckboxes")
+            Import(from = "govuk/components/checkboxes/macro.njk", macroName = "govukCheckboxes")
           ),
           body = List(
             MacroCall(
@@ -303,7 +303,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
               args = ErrorSummary(
                 errorList = Seq(
                   ErrorLink(
-                    href    = Some("#nationality"),
+                    href = Some("#nationality"),
                     content = Text("Select if you are British, Irish or a citizen of a different country")
                   )
                 ),
@@ -314,37 +314,41 @@ class NunjucksParserSpec extends WordSpec with Matchers {
               macroName = "govukCheckboxes",
               args = Checkboxes(
                 idPrefix = Some("nationality"),
-                name     = "nationality",
+                name = "nationality",
                 fieldset = Some(
                   Fieldset(
                     legend = Some(
                       Legend(
-                        content       = Text("What is your nationality?"),
+                        content = Text("What is your nationality?"),
                         isPageHeading = true,
-                        classes       = "govuk-fieldset__legend--xl"
-                      ))
-                  )),
+                        classes = "govuk-fieldset__legend--xl"
+                      )
+                    )
+                  )
+                ),
                 hint = Some(
                   Hint(
                     content = Text("If you have dual nationality, select all options that are relevant to you.")
-                  )),
+                  )
+                ),
                 errorMessage = Some(
                   ErrorMessage(
                     content = Text("Select if you are British, Irish or a citizen of a different country")
-                  )),
+                  )
+                ),
                 items = Seq(
                   CheckboxItem(
-                    value   = "british",
+                    value = "british",
                     content = Text("British"),
-                    hint    = Some(Hint(content = Text("including English, Scottish, Welsh and Northern Irish"))),
-                    id      = Some("nationality")
+                    hint = Some(Hint(content = Text("including English, Scottish, Welsh and Northern Irish"))),
+                    id = Some("nationality")
                   ),
                   CheckboxItem(
-                    value   = "irish",
+                    value = "irish",
                     content = Text("Irish")
                   ),
                   CheckboxItem(
-                    value   = "other",
+                    value = "other",
                     content = Text("Citizen of another country")
                   )
                 )
@@ -500,7 +504,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
               args = GovukFooter(
                 navigation = Seq(
                   FooterNavigation(
-                    title   = Some("Services and information"),
+                    title = Some("Services and information"),
                     columns = Some(2),
                     items = Seq(
                       FooterItem(href = Some("#"), text = Some("Benefits")),
@@ -533,17 +537,22 @@ class NunjucksParserSpec extends WordSpec with Matchers {
                     )
                   )
                 ),
-                meta = Some(Meta(
-                  items = Some(Seq(
-                    FooterItem(href = Some("#"), text = Some("Help")),
-                    FooterItem(href = Some("#"), text = Some("Cookies")),
-                    FooterItem(href = Some("#"), text = Some("Contact")),
-                    FooterItem(href = Some("#"), text = Some("Terms and conditions")),
-                    FooterItem(href = Some("#"), text = Some("Rhestr o Wasanaethau Cymraeg"))
-                  )),
-                  content = HtmlContent(
-                    """Built by the <a href="#" class="govuk-footer__link">Government Digital Service</a>""")
-                ))
+                meta = Some(
+                  Meta(
+                    items = Some(
+                      Seq(
+                        FooterItem(href = Some("#"), text = Some("Help")),
+                        FooterItem(href = Some("#"), text = Some("Cookies")),
+                        FooterItem(href = Some("#"), text = Some("Contact")),
+                        FooterItem(href = Some("#"), text = Some("Terms and conditions")),
+                        FooterItem(href = Some("#"), text = Some("Rhestr o Wasanaethau Cymraeg"))
+                      )
+                    ),
+                    content = HtmlContent(
+                      """Built by the <a href="#" class="govuk-footer__link">Government Digital Service</a>"""
+                    )
+                  )
+                )
               )
             )
           )
@@ -614,7 +623,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
       fastparse.parse(s, nunjucksParser(_)) shouldBe Success(
         NunjucksTemplate(
           imports = List(
-            Import(from = "govuk/components/input/macro.njk", macroName    = "govukInput"),
+            Import(from = "govuk/components/input/macro.njk", macroName = "govukInput"),
             Import(from = "govuk/components/fieldset/macro.njk", macroName = "govukFieldset")
           ),
           body = List(
@@ -624,16 +633,18 @@ class NunjucksParserSpec extends WordSpec with Matchers {
                 Fieldset(
                   legend = Some(
                     Legend(
-                      content       = Text("What is your address?"),
-                      classes       = "govuk-fieldset__legend--xl",
+                      content = Text("What is your address?"),
+                      classes = "govuk-fieldset__legend--xl",
                       isPageHeading = true
-                    ))
-                )),
+                    )
+                  )
+                )
+              ),
               macroCalls = List(
                 MacroCall(
                   "govukInput",
                   Input(
-                    id   = "address-line-1",
+                    id = "address-line-1",
                     name = "address-line-1",
                     label = Label(
                       content =
@@ -644,7 +655,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
                 MacroCall(
                   "govukInput",
                   Input(
-                    id   = "address-line-2",
+                    id = "address-line-2",
                     name = "address-line-2",
                     label = Label(
                       content =
@@ -655,35 +666,39 @@ class NunjucksParserSpec extends WordSpec with Matchers {
                 MacroCall(
                   "govukInput",
                   Input(
-                    id   = "address-town",
+                    id = "address-town",
                     name = "address-town",
                     label = Label(
                       content = Text("Town or city")
                     ),
                     classes = "govuk-!-width-two-thirds"
-                  )),
+                  )
+                ),
                 MacroCall(
                   "govukInput",
                   Input(
-                    id   = "address-county",
+                    id = "address-county",
                     name = "address-county",
                     label = Label(
                       content = Text("County")
                     ),
                     classes = "govuk-!-width-two-thirds"
-                  )),
+                  )
+                ),
                 MacroCall(
                   "govukInput",
                   Input(
-                    id   = "address-postcode",
+                    id = "address-postcode",
                     name = "address-postcode",
                     label = Label(
                       content = Text("Postcode")
                     ),
                     classes = "govuk-input--width-10"
-                  ))
+                  )
+                )
               )
-            ))
+            )
+          )
         ),
         1166
       )
@@ -777,7 +792,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
         NunjucksTemplate(
           imports = List(
             Import(from = "govuk/components/radios/macro.njk", macroName = "govukRadios"),
-            Import(from = "govuk/components/input/macro.njk", macroName  = "govukInput")
+            Import(from = "govuk/components/input/macro.njk", macroName = "govukInput")
           ),
           body = List(
             SetBlock(
@@ -785,13 +800,13 @@ class NunjucksParserSpec extends WordSpec with Matchers {
               macroCall = MacroCall(
                 "govukInput",
                 Input(
-                  id        = "contact-by-email",
-                  name      = "contact-by-email",
+                  id = "contact-by-email",
+                  name = "contact-by-email",
                   inputType = "email",
                   label = Label(
                     content = Text("Email address")
                   ),
-                  classes    = "govuk-!-width-one-third",
+                  classes = "govuk-!-width-one-third",
                   attributes = Map("spellcheck" -> "false")
                 )
               )
@@ -801,8 +816,8 @@ class NunjucksParserSpec extends WordSpec with Matchers {
               macroCall = MacroCall(
                 "govukInput",
                 Input(
-                  id        = "contact-by-phone",
-                  name      = "contact-by-phone",
+                  id = "contact-by-phone",
+                  name = "contact-by-phone",
                   inputType = "tel",
                   label = Label(
                     content = Text("Phone number")
@@ -816,8 +831,8 @@ class NunjucksParserSpec extends WordSpec with Matchers {
               macroCall = MacroCall(
                 "govukInput",
                 Input(
-                  id        = "contact-by-text",
-                  name      = "contact-by-text",
+                  id = "contact-by-text",
+                  name = "contact-by-text",
                   inputType = "tel",
                   label = Label(
                     content = Text("Mobile phone number")
@@ -833,31 +848,34 @@ class NunjucksParserSpec extends WordSpec with Matchers {
                   Fieldset(
                     legend = Some(
                       Legend(
-                        content       = Text("How would you prefer to be contacted?"),
-                        classes       = "govuk-fieldset__legend--xl",
+                        content = Text("How would you prefer to be contacted?"),
+                        classes = "govuk-fieldset__legend--xl",
                         isPageHeading = true
-                      ))
-                  )),
+                      )
+                    )
+                  )
+                ),
                 hint = Some(
                   Hint(
                     content = Text("Select one option.")
-                  )),
+                  )
+                ),
                 idPrefix = Some("how-contacted-conditional"),
-                name     = "how-contacted",
+                name = "how-contacted",
                 items = Seq(
                   RadioItem(
-                    content         = Text("Email"),
-                    value           = Some("email"),
+                    content = Text("Email"),
+                    value = Some("email"),
                     conditionalHtml = Some(Html("emailHtml"))
                   ),
                   RadioItem(
-                    content         = Text("Phone"),
-                    value           = Some("phone"),
+                    content = Text("Phone"),
+                    value = Some("phone"),
                     conditionalHtml = Some(Html("phoneHtml"))
                   ),
                   RadioItem(
-                    content         = Text("Text message"),
-                    value           = Some("text"),
+                    content = Text("Text message"),
+                    value = Some("text"),
                     conditionalHtml = Some(Html("textHtml"))
                   )
                 )
@@ -888,7 +906,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
             MacroCall(
               macroName = "hmrcPageHeading",
               args = PageHeading(
-                text    = "What is your name?",
+                text = "What is your name?",
                 section = Some("Personal details")
               )
             )
@@ -914,7 +932,7 @@ class NunjucksParserSpec extends WordSpec with Matchers {
             TemplateHtml(Html("""<a class="govuk-link" href="#">Messages """)),
             MacroCall(
               macroName = "hmrcNotificationBadge",
-              args      = NotificationBadge(text = "32")
+              args = NotificationBadge(text = "32")
             ),
             TemplateHtml(Html("""</a>"""))
           )

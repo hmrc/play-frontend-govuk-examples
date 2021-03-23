@@ -23,20 +23,21 @@ import scala.util.Try
 
 object Implicits {
 
-  implicit def withCaseClassOps[T <: Product : ClassTag](caseClassObj: T): CaseClassOps[T] = {
+  implicit def withCaseClassOps[T <: Product: ClassTag](caseClassObj: T): CaseClassOps[T] =
     if (!caseClassObj.isCaseClass)
-      throw new Exception(s"Product [$caseClassObj] is not a case class - please limit the scope of implicit conversion or directly create CaseClassOps appropriately.")
+      throw new Exception(
+        s"Product [$caseClassObj] is not a case class - please limit the scope of implicit conversion or directly create CaseClassOps appropriately."
+      )
     else
       CaseClassOps(caseClassObj)
-  }
 
-  implicit class ProductOps[T <: Product : ClassTag](product: T) {
+  implicit class ProductOps[T <: Product: ClassTag](product: T) {
 
     val isCaseType: Boolean = currentMirror.reflect(product).symbol.isCaseClass
 
     private val hasCompanionObject: Boolean = {
       val productClass: Class[_ <: T] = product.getClass
-      val classLoader = productClass.getClassLoader
+      val classLoader                 = productClass.getClassLoader
       Try(classLoader.loadClass(s"${productClass.getName}$$")).isSuccess
     }
 
