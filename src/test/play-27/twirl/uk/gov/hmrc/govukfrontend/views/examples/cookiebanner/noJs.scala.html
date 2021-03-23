@@ -1,0 +1,17 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.cookiebanner.{Message, Action}
+
+@this(govukCookieBanner : GovukCookieBanner)
+
+@()
+
+
+@govukCookieBanner(CookieBanner(
+    ariaLabel = Some("Cookies on [name of service]"),
+    messages = Seq(
+      Message(
+        heading = Text("Cookies on [name of service]"),
+        content = Text("We use cookies to make this service work and collect analytics information. To accept or reject cookies, turn on JavaScript in your browser settings or reload this page.")
+      )
+    )
+  ))

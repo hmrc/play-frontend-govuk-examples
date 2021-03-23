@@ -44,8 +44,8 @@ package object examples {
   lazy val charactercountError =
     Guice.createInjector().getInstance(classOf[charactercount.error])
 
-  lazy val charactercountLabelPageHeading =
-    Guice.createInjector().getInstance(classOf[charactercount.labelPageHeading])
+  lazy val charactercountWithoutHeading =
+    Guice.createInjector().getInstance(classOf[charactercount.withoutHeading])
 
   lazy val charactercountThreshold =
     Guice.createInjector().getInstance(classOf[charactercount.threshold])

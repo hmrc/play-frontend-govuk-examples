@@ -25,7 +25,7 @@ class govukCharacterCountIntegrationSpec extends TemplateIntegrationSpec {
 
   testRendering(GovukFrontend, "character-count", "default", charactercountDefault.f)
   testRendering(GovukFrontend, "character-count", "error", charactercountError.f)
-  testRendering(GovukFrontend, "character-count", "labelPageHeading", charactercountLabelPageHeading.f)
+  testRendering(GovukFrontend, "character-count", "withoutHeading", charactercountWithoutHeading.f)
   testRendering(GovukFrontend, "character-count", "threshold", charactercountThreshold.f)
   testRendering(GovukFrontend, "character-count", "wordCount", charactercountWordCount.f)
 }

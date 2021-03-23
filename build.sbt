@@ -18,7 +18,6 @@ lazy val root = Project(libName, file("."))
     name := libName,
     majorVersion := 0,
     scalaVersion := "2.12.10",
-    crossScalaVersions := List("2.11.12", "2.12.10"),
     libraryDependencies ++= LibDependencies.libDependencies,
     resolvers :=
       Seq(
