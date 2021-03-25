@@ -28,5 +28,6 @@ class hmrcOpenLinksInAGreenWindowOrTabIntegrationSpec extends TemplateIntegratio
     HmrcFrontend,
     "open-links-in-a-new-window-or-tab",
     "exampleWelsh",
-    openlinksinanewwindowortabExampleWelsh.f)
+    openlinksinanewwindowortabExampleWelsh.f
+  )
 }

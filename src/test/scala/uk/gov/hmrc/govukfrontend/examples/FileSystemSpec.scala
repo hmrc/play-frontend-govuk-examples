@@ -27,37 +27,33 @@ import scala.reflect.io.{Directory, File}
 class FileSystemSpec extends AsyncWordSpec with Matchers with ParallelTestExecution {
 
   private val currentDir: String = System.getProperty("user.dir")
-  private val targetDir = s"$currentDir/target"
-  private val testNameSpace = s"$targetDir/FileSystemSpec"
-  private val testDir = Directory(testNameSpace)
+  private val targetDir          = s"$currentDir/target"
+  private val testNameSpace      = s"$targetDir/FileSystemSpec"
+  private val testDir            = Directory(testNameSpace)
 
-  "ensure" should {
-
-
-
-  }
+  "ensure" should {}
 
   "prepareDirStructure" should {
 
     "successfully create files and ancestor dirs when ancestor dirs are shared" in {
       val testPrecond: Future[AnyVal] = Future(if (testDir.exists) testDir.deleteRecursively())
 
-      val sharedAncestors = s"$testNameSpace/a/b/c/d/e/f/g/h"
-      val sharedAncestorsTwo = s"$sharedAncestors/i/j/k/l"
+      val sharedAncestors      = s"$testNameSpace/a/b/c/d/e/f/g/h"
+      val sharedAncestorsTwo   = s"$sharedAncestors/i/j/k/l"
       val sharedAncestorsThree = s"$sharedAncestorsTwo/m/n/o/p"
 
-      val fileOnePath = s"$sharedAncestors/fileOne.scala.html"
-      val fileTwoPath = s"$sharedAncestors/fileTwo.scala.html"
+      val fileOnePath   = s"$sharedAncestors/fileOne.scala.html"
+      val fileTwoPath   = s"$sharedAncestors/fileTwo.scala.html"
       val fileThreePath = s"$sharedAncestorsTwo/fileThree.scala.html"
-      val fileFourPath = s"$sharedAncestorsThree/fileFour.scala.html"
-      val fileFivePath = s"$testNameSpace/fileFive.scala.html"
-      val filePaths = Iterable(fileOnePath, fileTwoPath, fileThreePath, fileFourPath, fileFivePath)
+      val fileFourPath  = s"$sharedAncestorsThree/fileFour.scala.html"
+      val fileFivePath  = s"$testNameSpace/fileFive.scala.html"
+      val filePaths     = Iterable(fileOnePath, fileTwoPath, fileThreePath, fileFourPath, fileFivePath)
 
-      val fileOne = TrueFile(Paths.get(fileOnePath))
-      val fileTwo = TrueFile(Paths.get(fileTwoPath))
+      val fileOne   = TrueFile(Paths.get(fileOnePath))
+      val fileTwo   = TrueFile(Paths.get(fileTwoPath))
       val fileThree = TrueFile(Paths.get(fileThreePath))
-      val fileFour = TrueFile(Paths.get(fileFourPath))
-      val fileFive = TrueFile(Paths.get(fileFivePath))
+      val fileFour  = TrueFile(Paths.get(fileFourPath))
+      val fileFive  = TrueFile(Paths.get(fileFivePath))
 
       val files = Iterable(fileOne, fileTwo, fileThree, fileFour, fileFive)
 
@@ -66,7 +62,9 @@ class FileSystemSpec extends AsyncWordSpec with Matchers with ParallelTestExecut
       for {
         _          <- testPrecond
         _          <- dirCreation
-        assertions <- Future.traverse(filePaths)(path => assert(File(path).exists, s"Expected path to file (including file) [$path] to be created."))
+        assertions <- Future.traverse(filePaths)(path =>
+                        assert(File(path).exists, s"Expected path to file (including file) [$path] to be created.")
+                      )
       } yield assert(assertions.forall(_ == Succeeded))
     }
 

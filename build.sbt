@@ -6,7 +6,7 @@ val libName = "play-frontend-govuk-examples"
 
 lazy val playDir = "play-26"
 
-lazy val IntegrationTest = config("it") extend Test
+lazy val IntegrationTest  = config("it") extend Test
 val twirlCompileTemplates =
   TaskKey[Seq[File]]("twirl-compile-templates", "Compile twirl templates into scala source files")
 
@@ -32,16 +32,18 @@ lazy val root = Project(libName, file("."))
       baseDirectory.value / "src" / "test" / playDir / "twirl",
     updateExampleSources := {
       println("==========")
-      println("Updating example repository sources for govuk-frontend and hmrc-frontend components to the latest versions...")
+      println(
+        "Updating example repository sources for govuk-frontend and hmrc-frontend components to the latest versions..."
+      )
       Process("git submodule update --init --recursive") #&& Process("git submodule update --remote")
       println("Task completed")
     },
     generateExamplesManifest := {
       println("==========")
-      val _ = generateExamples.value
+      val _                      = generateExamples.value
       println("Generating manifest.json...")
-      val manifestFile = (resourceDirectory in Test).value / "manifest.json"
-      val examplesDir: File = baseDirectory.value / "src/test"
+      val manifestFile           = (resourceDirectory in Test).value / "manifest.json"
+      val examplesDir: File      = baseDirectory.value / "src/test"
       val allExamples: Set[File] = (examplesDir ** "*.scala.html").get.toSet
       generate(allExamples = allExamples, manifestFile = manifestFile)
       println("Task completed")
@@ -61,6 +63,7 @@ lazy val root = Project(libName, file("."))
     fork in Test := false
   )
   .settings(inConfig(IntegrationTest)(itSettings): _*)
+  .settings(inConfig(IntegrationTest)(org.scalafmt.sbt.ScalafmtPlugin.scalafmtConfigSettings))
   .settings(
     // The following line undoes the inclusion of Twirl templates in the sbt-header sources
     // enabled by sbt-auto-build. These are generated example templates that we don't want to
@@ -71,23 +74,23 @@ lazy val root = Project(libName, file("."))
     // does not work for Twirl templates and even if it did work this issue would
     // prevent the templates from being compiled: https://github.com/sbt/sbt-header/issues/130
     unmanagedSources.in(Compile, headerCreate) := sources.in(Compile, unmanagedSources).value
-)
+  )
 
 lazy val itSettings = Defaults.itSettings :+ (unmanagedSourceDirectories += sourceDirectory.value / playDir)
 
 lazy val templateImports: Seq[String] = Seq(
-    "_root_.play.twirl.api.Html",
-    "_root_.play.twirl.api.HtmlFormat",
-    "_root_.play.twirl.api.JavaScript",
-    "_root_.play.twirl.api.Txt",
-    "_root_.play.twirl.api.Xml",
-    "play.api.mvc._",
-    "play.api.data._",
-    "play.api.i18n._",
-    "play.api.templates.PlayMagic._",
-    "uk.gov.hmrc.govukfrontend.views.html.components.implicits._",
-    "_root_.play.twirl.api.TwirlHelperImports._"
-  )
+  "_root_.play.twirl.api.Html",
+  "_root_.play.twirl.api.HtmlFormat",
+  "_root_.play.twirl.api.JavaScript",
+  "_root_.play.twirl.api.Txt",
+  "_root_.play.twirl.api.Xml",
+  "play.api.mvc._",
+  "play.api.data._",
+  "play.api.i18n._",
+  "play.api.templates.PlayMagic._",
+  "uk.gov.hmrc.govukfrontend.views.html.components.implicits._",
+  "_root_.play.twirl.api.TwirlHelperImports._"
+)
 
 /**
   * Updates source repositories for examples for govuk-frontend and hmrc-frontend
@@ -112,6 +115,7 @@ fullRunTask(
   Compile,
   "uk.gov.hmrc.govukfrontend.examples.ExampleGenerator"
 )
+
 /**
   * Generates the manifest.json file in the [[src/test/resources]] folder, used by the Design System browser
   * extension to display Twirl examples for the library's components.

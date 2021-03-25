@@ -13,7 +13,6 @@ import scala.util.{Failure, Success, Try}
 
 /**
   * Base class for integration testing a Twirl template against the Nunjucks template rendering service
-  *
   */
 abstract class TemplateIntegrationSpec
     extends WordSpec
@@ -28,7 +27,8 @@ abstract class TemplateIntegrationSpec
     frontend: ExampleType,
     componentName: String,
     exampleName: String,
-    twirlTemplate: () => HtmlFormat.Appendable) {
+    twirlTemplate: () => HtmlFormat.Appendable
+  ) {
 
     s"$componentName example $exampleName" should {
 
@@ -51,14 +51,14 @@ abstract class TemplateIntegrationSpec
     def matchTwirlWithNunjucks(twirlOutputHtml: Try[String], nunJucksOutputHtml: String) =
       twirlOutputHtml match {
 
-        case Success(twirlOutputHtml) =>
+        case Success(twirlOutputHtml)                      =>
           val preProcessedTwirlHtml    = preProcess(twirlOutputHtml)
           val preProcessedNunjucksHtml = preProcess(nunJucksOutputHtml)
           val prop                     = preProcessedTwirlHtml == preProcessedNunjucksHtml
 
           if (!prop) {
             reportDiff(
-              preProcessedTwirlHtml    = preProcessedTwirlHtml,
+              preProcessedTwirlHtml = preProcessedTwirlHtml,
               preProcessedNunjucksHtml = preProcessedNunjucksHtml
             )
           }
@@ -76,9 +76,9 @@ abstract class TemplateIntegrationSpec
 
       val diffPath =
         templateDiffPath(
-          twirlOutputHtml    = preProcessedTwirlHtml,
+          twirlOutputHtml = preProcessedTwirlHtml,
           nunJucksOutputHtml = preProcessedNunjucksHtml,
-          diffFilePrefix     = Some(exampleName)
+          diffFilePrefix = Some(exampleName)
         )
 
       println(s"Diff between Twirl and Nunjucks outputs (please open diff HTML file in a browser): file://$diffPath\n")

@@ -22,8 +22,9 @@ object TwirlFormatter {
     val importStatement: String =
       if (parsed.imports.isEmpty) Import().toString else parsed.imports.map(_.toString).toSet.mkString("\n")
 
-    (importStatement :: play26ParameterList(parsed.imports) :: parsed.prelim.fold("")(_.toString) :: injectingDependencies(
-      parsed.body))
+    (importStatement :: play26ParameterList(parsed.imports) :: parsed.prelim.fold("")(
+      _.toString
+    ) :: injectingDependencies(parsed.body))
       .map(_.toString)
       .mkString("\n")
   }

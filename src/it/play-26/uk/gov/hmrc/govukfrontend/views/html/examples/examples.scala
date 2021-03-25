@@ -77,7 +77,7 @@ package object examples {
   lazy val dateinputError =
     Guice.createInjector().getInstance(classOf[dateinput.error])
 
-  lazy val detailsDefault =
+  lazy val detailsDefault      =
     Guice.createInjector().getInstance(classOf[details.default])
   lazy val errormessageDefault =
     Guice.createInjector().getInstance(classOf[errormessage.default])

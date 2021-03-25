@@ -27,17 +27,20 @@ class hmrcAskTheUserForTheirConsentIntegrationSpec extends TemplateIntegrationSp
     HmrcFrontend,
     "ask-the-user-for-their-consent",
     "multipleCheckboxes",
-    asktheuserfortheirconsentMultipleCheckboxes.f)
+    asktheuserfortheirconsentMultipleCheckboxes.f
+  )
 
   testRendering(
     HmrcFrontend,
     "ask-the-user-for-their-consent",
     "singleCheckbox",
-    asktheuserfortheirconsentSingleCheckbox.f)
+    asktheuserfortheirconsentSingleCheckbox.f
+  )
 
   testRendering(
     HmrcFrontend,
     "ask-the-user-for-their-consent",
     "yesNoQuestion",
-    asktheuserfortheirconsentYesNoQuestion.f)
+    asktheuserfortheirconsentYesNoQuestion.f
+  )
 }
