@@ -38,6 +38,7 @@ object Implicits {
     private val hasCompanionObject: Boolean = {
       val productClass: Class[_ <: T] = product.getClass
       val classLoader                 = productClass.getClassLoader
+
       Try(classLoader.loadClass(s"${productClass.getName}$$")).isSuccess
     }
 

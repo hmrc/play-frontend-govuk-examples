@@ -1,0 +1,24 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukInput : GovukInput,
+govukButton : GovukButton)
+
+@()
+
+
+@govukInput(Input(
+    id = "vat-registration-number",
+    name = "vat-registration-number",
+    label = Label(
+      isPageHeading = true,
+      classes = "govuk-label--xl",
+      content = Text("Beth yw rhif cofrestru TAW Anycompany?")
+    ),
+    hint = Some(Hint(
+      content = Text("9 rhif yw hwn, weithiau â ‘GB’ ar y dechrau. Er enghraifft 123456789 neu GB123456789. Mae hwn i’w weld ar dystysgrif cofrestru TAW Anycompany.")
+    )),
+    classes = "govuk-input--width-10"
+  ))
+@govukButton(Button(
+    content = Text("Yn eich blaen")
+  ))

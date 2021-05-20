@@ -1,0 +1,20 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukCharacterCount : GovukCharacterCount)
+
+@()
+
+
+@govukCharacterCount(CharacterCount(
+    id = "with-hint",
+    name = "with-hint",
+    maxLength = Some(200),
+    label = Label(
+      isPageHeading = true,
+      classes = "govuk-label--l",
+      content = Text("Can you provide more detail?")
+    ),
+    hint = Some(Hint(
+      content = Text("Do not include personal or financial information like your National Insurance number or credit card details.")
+    ))
+  ))

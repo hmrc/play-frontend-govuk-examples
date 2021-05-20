@@ -1,0 +1,19 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukCharacterCount : GovukCharacterCount)
+
+@()
+
+
+@govukCharacterCount(CharacterCount(
+    id = "word-count",
+    name = "word-count",
+    value = Some("Type another letter into this field after this message to see the threshold feature"),
+    maxLength = Some(112),
+    threshold = Some(75),
+    label = Label(
+      isPageHeading = true,
+      classes = "govuk-label--l",
+      content = Text("Can you provide more detail?")
+    )
+  ))

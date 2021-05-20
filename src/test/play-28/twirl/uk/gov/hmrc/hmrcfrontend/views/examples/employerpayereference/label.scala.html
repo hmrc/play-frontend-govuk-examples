@@ -1,0 +1,18 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukInput : GovukInput)
+
+@()
+
+
+@govukInput(Input(
+    id = "employer-paye-reference",
+    name = "employer-paye-reference",
+    label = Label(
+      content = Text("Your employer PAYE reference")
+    ),
+    hint = Some(Hint(
+      content = Text("This is a 3 digit tax office number, a forward slash, and a tax office employer reference, like 123/AB456. It may be called ‘Employer PAYE reference’ or ‘PAYE reference’. It will be on letters from HMRC about PAYE.")
+    )),
+    classes = "govuk-input--width-10"
+  ))

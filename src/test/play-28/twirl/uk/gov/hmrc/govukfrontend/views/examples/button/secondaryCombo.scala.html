@@ -1,0 +1,17 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukButton : GovukButton)
+
+@()
+
+
+<div class="govuk-button-group">
+  
+@govukButton(Button(
+    content = Text("Save and continue")
+  ))
+@govukButton(Button(
+    classes = "govuk-button--secondary",
+    content = Text("Save as draft")
+  ))
+</div>

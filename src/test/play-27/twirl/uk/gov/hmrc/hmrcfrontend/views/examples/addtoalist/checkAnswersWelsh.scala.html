@@ -1,0 +1,98 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukSummaryList : GovukSummaryList,
+govukButton : GovukButton)
+
+@()
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check your answers</h1>
+
+      
+@govukSummaryList(SummaryList(
+    rows = Seq(
+      SummaryListRow(
+        key = Key(
+          content = Text("Beth yw enw’r cyfarwyddwr?")
+        ),
+        value = Value(
+          content = Text("Elizabeth Kean")
+        ),
+        actions = Some(Actions(
+          items = Seq(
+            ActionItem(
+              href = "#",
+              content = Text("Newid"),
+              visuallyHiddenText = Some("name")
+            )
+          )
+        ))
+      ), 
+      SummaryListRow(
+        key = Key(
+          content = Text("Beth yw dyddiad geni Elizabeth Kean?")
+        ),
+        value = Value(
+          content = Text("12 October 1984")
+        ),
+        actions = Some(Actions(
+          items = Seq(
+            ActionItem(
+              href = "#",
+              content = Text("Newid"),
+              visuallyHiddenText = Some("date of birth")
+            )
+          )
+        ))
+      ), 
+      SummaryListRow(
+        key = Key(
+          content = Text("A oes gan Elizabeth Kean rif Yswiriant Gwladol?")
+        ),
+        value = Value(
+          content = HtmlContent(Iawn)
+        ),
+        actions = Some(Actions(
+          items = Seq(
+            ActionItem(
+              href = "#",
+              content = Text("Newid"),
+              visuallyHiddenText = Some("if they have National Insurance number")
+            )
+          )
+        ))
+      ), 
+      SummaryListRow(
+        key = Key(
+          content = Text("Rhif Yswiriant Gwladol")
+        ),
+        value = Value(
+          content = Text("QQ 12 34 56 C")
+        ),
+        actions = Some(Actions(
+          items = Seq(
+            ActionItem(
+              href = "#",
+              content = Text("Newid"),
+              visuallyHiddenText = Some("National Insurance number")
+            )
+          )
+        ))
+      )
+    ),
+    classes = "govuk-!-margin-bottom-9"
+  ))
+<form action="/form-handler" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        
+@govukButton(Button(
+    content = Text("Yn eich blaen")
+  ))
+</form>
+    </div>
+  </div>
