@@ -13,7 +13,6 @@ object LibDependencies {
   lazy val libDependencies: Seq[ModuleID] = dependencies(
     shared = {
       val compile = Seq(
-        "com.typesafe.play" %% "play"            % PlayVersion.current,
         "com.typesafe.play" %% "filters-helpers" % PlayVersion.current,
         "org.webjars.npm"    % "govuk-frontend"  % govukFrontendVersion,
         "org.joda"           % "joda-convert"    % "2.0.2",
@@ -23,7 +22,6 @@ object LibDependencies {
       val test = Seq(
         "com.vladsch.flexmark"          % "flexmark-all"     % "0.35.10",
         "org.scalatest"                %% "scalatest"        % "3.0.8",
-        "org.pegdown"                   % "pegdown"          % "1.6.0",
         "org.jsoup"                     % "jsoup"            % "1.11.3",
         "com.typesafe.play"            %% "play-test"        % PlayVersion.current,
         "org.scalacheck"               %% "scalacheck"       % "1.14.1",
@@ -43,7 +41,8 @@ object LibDependencies {
       )
 
       val test = Seq(
-        "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2"
+        "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2",
+        "org.pegdown"             % "pegdown"            % "1.6.0"
       ).map(_ % s"$IntegrationTest,$Test")
 
       compile ++ test
@@ -55,7 +54,8 @@ object LibDependencies {
       )
 
       val test = Seq(
-        "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.3"
+        "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.3",
+        "org.pegdown"             % "pegdown"            % "1.6.0"
       ).map(_ % s"$IntegrationTest,$Test")
 
       compile ++ test
@@ -63,7 +63,7 @@ object LibDependencies {
     play28 = Seq(
       "uk.gov.hmrc"            %% "play-frontend-govuk" % s"$playFrontendGovukVersion-play-28",
       "uk.gov.hmrc"            %% "play-frontend-hmrc"  % s"$playFrontendHmrcVersion-play-28",
-      "org.scalatestplus.play" %% "scalatestplus-play"  % "5.1.0" % Test
+      "org.scalatestplus.play" %% "scalatestplus-play"  % "5.1.0" % s"$IntegrationTest,$Test"
     )
   )
 

@@ -12,7 +12,7 @@ val twirlCompileTemplates =
   TaskKey[Seq[File]]("twirl-compile-templates", "Compile twirl templates into scala source files")
 
 lazy val root = Project(libName, file("."))
-  .enablePlugins(PlayScala, SbtAutoBuildPlugin, SbtGitVersioning, SbtTwirl, SbtArtifactory)
+  .enablePlugins(PlayScala, SbtTwirl)
   .disablePlugins(PlayLayoutPlugin)
   .configs(IntegrationTest)
   .settings(
@@ -30,7 +30,7 @@ lazy val root = Project(libName, file("."))
       ),
     TwirlKeys.templateImports := templateImports,
     PlayCrossCompilation.playCrossCompilationSettings,
-    makePublicallyAvailableOnBintray := true,
+    isPublicArtefact := true,
     (sourceDirectories in (Compile, TwirlKeys.compileTemplates)) +=
       baseDirectory.value / "src" / "test" / playDir / "twirl",
     updateExampleSources := {
