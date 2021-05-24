@@ -1,0 +1,36 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukRadios : GovukRadios,
+govukButton : GovukButton)
+
+@()
+
+
+@govukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("Do you have a company registration number?"),
+        classes = "govuk-fieldset__legend--xl",
+        isPageHeading = true
+      ))
+    )),
+    hint = Some(Hint(
+      content = Text("Companies House may have sent this to you if you registered as a limited partnership.")
+    )),
+    idPrefix = Some("has-registration-number"),
+    name = "has-registration-number",
+    items = Seq(
+      RadioItem(
+        content = Text("Yes"),
+        value = Some("yes")
+      ), 
+      RadioItem(
+        content = Text("No"),
+        value = Some("no")
+      )
+    ),
+    classes = "govuk-radios--inline"
+  ))
+@govukButton(Button(
+    content = Text("Continue")
+  ))

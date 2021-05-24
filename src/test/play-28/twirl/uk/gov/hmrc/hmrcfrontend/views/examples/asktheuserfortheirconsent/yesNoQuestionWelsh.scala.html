@@ -1,0 +1,33 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukButton : GovukButton,
+govukRadios : GovukRadios)
+
+@()
+
+
+@govukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("A hoffech gyfathrebu â CThEM drwy ddull electronig, yn hytrach nag ar bapur?"),
+        classes = "govuk-fieldset__legend--xl",
+        isPageHeading = true
+      ))
+    )),
+    idPrefix = Some("paperless"),
+    name = "paperless",
+    items = Seq(
+      RadioItem(
+        content = Text("Iawn"),
+        value = Some("yes")
+      ), 
+      RadioItem(
+        content = Text("Na"),
+        value = Some("no")
+      )
+    ),
+    classes = "govuk-radios--inline"
+  ))
+@govukButton(Button(
+    content = Text("Yn eich blaen")
+  ))

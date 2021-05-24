@@ -1,0 +1,17 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukCharacterCount : GovukCharacterCount)
+
+@()
+
+
+@govukCharacterCount(CharacterCount(
+    id = "label-as-page-heading",
+    name = "label-as-page-heading",
+    maxLength = Some(200),
+    label = Label(
+      isPageHeading = true,
+      classes = "govuk-label--l",
+      content = Text("Describe the nature of your event")
+    )
+  ))

@@ -1,0 +1,32 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukButton : GovukButton,
+govukCheckboxes : GovukCheckboxes)
+
+@()
+
+
+@govukCheckboxes(Checkboxes(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("Nodwch eich dewisiadau"),
+        classes = "govuk-fieldset__legend--xl",
+        isPageHeading = true
+      ))
+    )),
+    idPrefix = Some("mixed"),
+    name = "mixed",
+    items = Seq(
+      CheckboxItem(
+        content = Text("Hoffwn gyfathrebu â CThEM drwy ddull electronig, yn hytrach nag ar bapur"),
+        value = "paperless"
+      ), 
+      CheckboxItem(
+        content = Text("Cofiwch y cod cyrchu hwn am 7 diwrnod"),
+        value = "access-code-7-days"
+      )
+    )
+  ))
+@govukButton(Button(
+    content = Text("Yn eich blaen")
+  ))
