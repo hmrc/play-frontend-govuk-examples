@@ -4,7 +4,7 @@ import sys.process.Process
 
 val libName = "play-frontend-govuk-examples"
 
-lazy val playDir         = "play-26"
+lazy val playDir         = "play-2"
 lazy val silencerVersion = "1.7.2"
 
 lazy val IntegrationTest  = config("it") extend Test
