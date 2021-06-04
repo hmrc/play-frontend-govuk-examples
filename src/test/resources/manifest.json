@@ -1,1673 +1,1666 @@
 [ {
   "id" : "accordion/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/accordion/default.scala.html"
     }
   }
 }, {
   "id" : "accordion/withSummarySection",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/accordion/withSummarySection.scala.html"
     }
   }
 }, {
   "id" : "backlink/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/backlink/default.scala.html"
     }
   }
 }, {
   "id" : "breadcrumbs/collapseMobile",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/breadcrumbs/collapseMobile.scala.html"
     }
   }
 }, {
   "id" : "breadcrumbs/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/breadcrumbs/default.scala.html"
     }
   }
 }, {
   "id" : "button/buttonGroup",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/buttonGroup.scala.html"
     }
   }
 }, {
   "id" : "button/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/default.scala.html"
     }
   }
 }, {
   "id" : "button/disabled",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/disabled.scala.html"
     }
   }
 }, {
   "id" : "button/preventDoubleClick",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/preventDoubleClick.scala.html"
     }
   }
 }, {
   "id" : "button/secondary",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/secondary.scala.html"
     }
   }
 }, {
   "id" : "button/secondaryCombo",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/secondaryCombo.scala.html"
     }
   }
 }, {
   "id" : "button/start",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/start.scala.html"
     }
   }
 }, {
   "id" : "button/warning",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/button/warning.scala.html"
     }
   }
 }, {
   "id" : "charactercount/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/default.scala.html"
     }
   }
 }, {
   "id" : "charactercount/error",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/error.scala.html"
     }
   }
 }, {
   "id" : "charactercount/labelPageHeading",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/labelPageHeading.scala.html"
     }
   }
 }, {
   "id" : "charactercount/threshold",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/threshold.scala.html"
     }
   }
 }, {
   "id" : "charactercount/withoutHeading",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/withoutHeading.scala.html"
     }
   }
 }, {
   "id" : "charactercount/wordCount",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/wordCount.scala.html"
     }
   }
 }, {
   "id" : "checkboxes/conditionalReveal",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/conditionalReveal.scala.html"
     }
   }
 }, {
   "id" : "checkboxes/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/default.scala.html"
     }
   }
 }, {
   "id" : "checkboxes/error",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/error.scala.html"
     }
   }
 }, {
   "id" : "checkboxes/hint",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/hint.scala.html"
     }
   }
 }, {
   "id" : "checkboxes/small",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/small.scala.html"
     }
   }
 }, {
   "id" : "checkboxes/withoutHeading",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/withoutHeading.scala.html"
     }
   }
 }, {
   "id" : "cookiebanner/accepted",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/accepted.scala.html"
     }
   }
 }, {
   "id" : "cookiebanner/clientSide",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/clientSide.scala.html"
     }
   }
 }, {
   "id" : "cookiebanner/clientSideAccepted",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/clientSideAccepted.scala.html"
     }
   }
 }, {
   "id" : "cookiebanner/clientSideRejected",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/clientSideRejected.scala.html"
     }
   }
 }, {
   "id" : "cookiebanner/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/default.scala.html"
     }
   }
 }, {
   "id" : "cookiebanner/essential",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/essential.scala.html"
     }
   }
 }, {
   "id" : "cookiebanner/essentialNoJs",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/essentialNoJs.scala.html"
     }
   }
 }, {
   "id" : "cookiebanner/multipleCookies",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/multipleCookies.scala.html"
     }
   }
 }, {
   "id" : "cookiebanner/noJs",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/noJs.scala.html"
     }
   }
 }, {
   "id" : "cookiebanner/rejected",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/rejected.scala.html"
     }
   }
 }, {
   "id" : "cookiebanner/serverSide",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/serverSide.scala.html"
     }
   }
 }, {
   "id" : "cookiebanner/serverSideConfirmation",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/serverSideConfirmation.scala.html"
     }
   }
 }, {
   "id" : "cookiebanner/serverSideMultipleMessagesConfirmationVisible",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/serverSideMultipleMessagesConfirmationVisible.scala.html"
     }
   }
 }, {
   "id" : "cookiebanner/serverSideMultipleMessagesQuestionVisible",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/serverSideMultipleMessagesQuestionVisible.scala.html"
     }
   }
 }, {
   "id" : "dateinput/dateOfBirth",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/dateinput/dateOfBirth.scala.html"
     }
   }
 }, {
   "id" : "dateinput/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/dateinput/default.scala.html"
     }
   }
 }, {
   "id" : "dateinput/error",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/dateinput/error.scala.html"
     }
   }
 }, {
   "id" : "dateinput/errorSingle",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/dateinput/errorSingle.scala.html"
     }
   }
 }, {
   "id" : "dateinput/withoutHeading",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/dateinput/withoutHeading.scala.html"
     }
   }
 }, {
   "id" : "details/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/details/default.scala.html"
     }
   }
 }, {
   "id" : "errormessage/customPrefix",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/errormessage/customPrefix.scala.html"
     }
   }
 }, {
   "id" : "errormessage/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/errormessage/default.scala.html"
     }
   }
 }, {
   "id" : "errormessage/label",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/errormessage/label.scala.html"
     }
   }
 }, {
   "id" : "errormessage/legend",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/errormessage/legend.scala.html"
     }
   }
 }, {
   "id" : "errorsummary/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/errorsummary/default.scala.html"
     }
   }
 }, {
   "id" : "errorsummary/fullPageExample",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/errorsummary/fullPageExample.scala.html"
     }
   }
 }, {
   "id" : "errorsummary/linking",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/errorsummary/linking.scala.html"
     }
   }
 }, {
   "id" : "errorsummary/linkingCheckboxesRadios",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/errorsummary/linkingCheckboxesRadios.scala.html"
     }
   }
 }, {
   "id" : "errorsummary/linkingMultipleFields",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/errorsummary/linkingMultipleFields.scala.html"
     }
   }
 }, {
   "id" : "fieldset/addressGroup",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/fieldset/addressGroup.scala.html"
     }
   }
 }, {
   "id" : "fieldset/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/fieldset/default.scala.html"
     }
   }
 }, {
   "id" : "fileupload/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/fileupload/default.scala.html"
     }
   }
 }, {
   "id" : "fileupload/error",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/fileupload/error.scala.html"
     }
   }
 }, {
   "id" : "footer/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/footer/default.scala.html"
     }
   }
 }, {
   "id" : "footer/full",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/footer/full.scala.html"
     }
   }
 }, {
   "id" : "footer/withMeta",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/footer/withMeta.scala.html"
     }
   }
 }, {
   "id" : "footer/withNavigation",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/footer/withNavigation.scala.html"
     }
   }
 }, {
   "id" : "header/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/header/default.scala.html"
     }
   }
 }, {
   "id" : "header/withServiceName",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/header/withServiceName.scala.html"
     }
   }
 }, {
   "id" : "header/withServiceNameAndNavigation",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/header/withServiceNameAndNavigation.scala.html"
     }
   }
 }, {
   "id" : "hmrc/accountheader/example",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountheader/example.scala.html"
     }
   }
 }, {
   "id" : "hmrc/accountheader/exampleWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountheader/exampleWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/accountmenu/example",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountmenu/example.scala.html"
     }
   }
 }, {
   "id" : "hmrc/accountsofficereference/heading",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountsofficereference/heading.scala.html"
     }
   }
 }, {
   "id" : "hmrc/accountsofficereference/headingWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountsofficereference/headingWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/accountsofficereference/label",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountsofficereference/label.scala.html"
     }
   }
 }, {
   "id" : "hmrc/accountsofficereference/labelError",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountsofficereference/labelError.scala.html"
     }
   }
 }, {
   "id" : "hmrc/accountsofficereference/labelErrorWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountsofficereference/labelErrorWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/accountsofficereference/labelWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/accountsofficereference/labelWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/addtoalist/addToSummary",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/addToSummary.scala.html"
     }
   }
 }, {
   "id" : "hmrc/addtoalist/addToSummaryWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/addToSummaryWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/addtoalist/changeList",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/changeList.scala.html"
     }
   }
 }, {
   "id" : "hmrc/addtoalist/changeListWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/changeListWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/addtoalist/checkAnswers",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/checkAnswers.scala.html"
     }
   }
 }, {
   "id" : "hmrc/addtoalist/checkAnswersWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/checkAnswersWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/addtoalist/removeFromList",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/removeFromList.scala.html"
     }
   }
 }, {
   "id" : "hmrc/addtoalist/removeFromListWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/removeFromListWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/addtoalist/viewASummary",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/viewASummary.scala.html"
     }
   }
 }, {
   "id" : "hmrc/addtoalist/viewASummaryWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addtoalist/viewASummaryWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/asktheuserfortheirconsent/multipleCheckboxes",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/asktheuserfortheirconsent/multipleCheckboxes.scala.html"
     }
   }
 }, {
   "id" : "hmrc/asktheuserfortheirconsent/multipleCheckboxesWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/asktheuserfortheirconsent/multipleCheckboxesWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/asktheuserfortheirconsent/singleCheckbox",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/asktheuserfortheirconsent/singleCheckbox.scala.html"
     }
   }
 }, {
   "id" : "hmrc/asktheuserfortheirconsent/singleCheckboxWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/asktheuserfortheirconsent/singleCheckboxWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/asktheuserfortheirconsent/yesNoQuestion",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/asktheuserfortheirconsent/yesNoQuestion.scala.html"
     }
   }
 }, {
   "id" : "hmrc/asktheuserfortheirconsent/yesNoQuestionWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/asktheuserfortheirconsent/yesNoQuestionWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/confirmedidentity/example",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/confirmedidentity/example.scala.html"
     }
   }
 }, {
   "id" : "hmrc/confirmedidentity/exampleWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/confirmedidentity/exampleWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/couldnotconfirmidentity/endOfJourney",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/endOfJourney.scala.html"
     }
   }
 }, {
   "id" : "hmrc/couldnotconfirmidentity/endOfJourneyWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/endOfJourneyWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/couldnotconfirmidentity/insufficientInformation",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/insufficientInformation.scala.html"
     }
   }
 }, {
   "id" : "hmrc/couldnotconfirmidentity/insufficientInformationWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/insufficientInformationWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/couldnotconfirmidentity/noMatch",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/noMatch.scala.html"
     }
   }
 }, {
   "id" : "hmrc/couldnotconfirmidentity/noMatchWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/couldnotconfirmidentity/noMatchWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/currencyinput/pounds",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/currencyinput/pounds.scala.html"
     }
   }
 }, {
   "id" : "hmrc/currencyinput/poundsWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/currencyinput/poundsWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/employerpayereference/heading",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/employerpayereference/heading.scala.html"
     }
   }
 }, {
   "id" : "hmrc/employerpayereference/headingWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/employerpayereference/headingWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/employerpayereference/label",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/employerpayereference/label.scala.html"
     }
   }
 }, {
   "id" : "hmrc/employerpayereference/labelError",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/employerpayereference/labelError.scala.html"
     }
   }
 }, {
   "id" : "hmrc/employerpayereference/labelErrorWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/employerpayereference/labelErrorWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/employerpayereference/labelWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/employerpayereference/labelWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/greenbutton/example",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/greenbutton/example.scala.html"
     }
   }
 }, {
   "id" : "hmrc/hmrcbanner/example",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/hmrcbanner/example.scala.html"
     }
   }
 }, {
   "id" : "hmrc/hmrcbanner/exampleWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/hmrcbanner/exampleWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/internalheader/example",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/internalheader/example.scala.html"
     }
   }
 }, {
   "id" : "hmrc/internalheader/exampleWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/internalheader/exampleWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/matchanorganisationtoHMRCrecords/businessType",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/matchanorganisationtoHMRCrecords/businessType.scala.html"
     }
   }
 }, {
   "id" : "hmrc/matchanorganisationtoHMRCrecords/companyRegNumber",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/matchanorganisationtoHMRCrecords/companyRegNumber.scala.html"
     }
   }
 }, {
   "id" : "hmrc/matchanorganisationtoHMRCrecords/companyRegNumberOld",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/matchanorganisationtoHMRCrecords/companyRegNumberOld.scala.html"
     }
   }
 }, {
   "id" : "hmrc/matchanorganisationtoHMRCrecords/doYouHaveACompanyRegNumber",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/matchanorganisationtoHMRCrecords/doYouHaveACompanyRegNumber.scala.html"
     }
   }
 }, {
   "id" : "hmrc/matchanorganisationtoHMRCrecords/isThisYourBusiness",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/matchanorganisationtoHMRCrecords/isThisYourBusiness.scala.html"
     }
   }
 }, {
   "id" : "hmrc/matchanorganisationtoHMRCrecords/noMatch",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/matchanorganisationtoHMRCrecords/noMatch.scala.html"
     }
   }
 }, {
   "id" : "hmrc/matchanorganisationtoHMRCrecords/postCode",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/matchanorganisationtoHMRCrecords/postCode.scala.html"
     }
   }
 }, {
   "id" : "hmrc/notificationbadge/noItems",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/notificationbadge/noItems.scala.html"
     }
   }
 }, {
   "id" : "hmrc/notificationbadge/noItemsWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/notificationbadge/noItemsWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/notificationbadge/withItems",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/notificationbadge/withItems.scala.html"
     }
   }
 }, {
   "id" : "hmrc/notificationbadge/withItemsWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/notificationbadge/withItemsWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/openlinksinanewwindowortab/example",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/openlinksinanewwindowortab/example.scala.html"
     }
   }
 }, {
   "id" : "hmrc/openlinksinanewwindowortab/exampleWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/openlinksinanewwindowortab/exampleWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/pageheading/withSubheading",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/pageheading/withSubheading.scala.html"
     }
   }
 }, {
   "id" : "hmrc/pageheading/withSubheadingWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/pageheading/withSubheadingWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/pageheading/withoutSubheading",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/pageheading/withoutSubheading.scala.html"
     }
   }
 }, {
   "id" : "hmrc/pageheading/withoutSubheadingWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/pageheading/withoutSubheadingWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/pagenotfound/example",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/pagenotfound/example.scala.html"
     }
   }
 }, {
   "id" : "hmrc/pagenotfound/exampleWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/pagenotfound/exampleWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/registerforatax/example",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/registerforatax/example.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/default.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/defaultWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/defaultWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/notSaved",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/notSaved.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/notSavedWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/notSavedWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/notSignedIn",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/notSignedIn.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/notSignedInWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/notSignedInWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/saved",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/saved.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/savedWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/savedWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/signedOutDefault",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutDefault.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/signedOutDefaultWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutDefaultWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/signedOutNotSaved",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutNotSaved.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/signedOutNotSavedWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutNotSavedWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/signedOutSaved",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutSaved.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/signedOutSavedWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/signedOutSavedWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/weDeletedYourAnswers",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/weDeletedYourAnswers.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/weDeletedYourAnswersWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/weDeletedYourAnswersWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/youDeletedYourAnswers",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/youDeletedYourAnswers.scala.html"
     }
   }
 }, {
   "id" : "hmrc/servicetimeout/youDeletedYourAnswersWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/servicetimeout/youDeletedYourAnswersWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/serviceunavailable/generalPage",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/generalPage.scala.html"
     }
   }
 }, {
   "id" : "hmrc/serviceunavailable/generalPageWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/generalPageWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/serviceunavailable/linkToOtherService",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/linkToOtherService.scala.html"
     }
   }
 }, {
   "id" : "hmrc/serviceunavailable/linkToOtherServiceWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/linkToOtherServiceWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/serviceunavailable/serviceClosed",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceClosed.scala.html"
     }
   }
 }, {
   "id" : "hmrc/serviceunavailable/serviceClosedWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceClosedWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/serviceunavailable/serviceNotYetOpen",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceNotYetOpen.scala.html"
     }
   }
 }, {
   "id" : "hmrc/serviceunavailable/serviceNotYetOpenWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceNotYetOpenWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/serviceunavailable/serviceReplaced",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceReplaced.scala.html"
     }
   }
 }, {
   "id" : "hmrc/serviceunavailable/serviceReplacedWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceReplacedWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/serviceunavailable/serviceShutDown",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceShutDown.scala.html"
     }
   }
 }, {
   "id" : "hmrc/serviceunavailable/serviceShutDownWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceShutDownWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/serviceunavailable/serviceTemporarilyUnavailable",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceTemporarilyUnavailable.scala.html"
     }
   }
 }, {
   "id" : "hmrc/serviceunavailable/serviceTemporarilyUnavailableWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/serviceunavailable/serviceTemporarilyUnavailableWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/signout/example",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/signout/example.scala.html"
     }
   }
 }, {
   "id" : "hmrc/statustagsintasklistpages/example",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/statustagsintasklistpages/example.scala.html"
     }
   }
 }, {
   "id" : "hmrc/statustagsintasklistpages/exampleWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/statustagsintasklistpages/exampleWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/thereisaproblemwiththeservice/linkToOtherService",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/linkToOtherService.scala.html"
     }
   }
 }, {
   "id" : "hmrc/thereisaproblemwiththeservice/linkToOtherServiceWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/linkToOtherServiceWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/thereisaproblemwiththeservice/noContact",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/noContact.scala.html"
     }
   }
 }, {
   "id" : "hmrc/thereisaproblemwiththeservice/noContactWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/noContactWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/thereisaproblemwiththeservice/problemWithService",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/problemWithService.scala.html"
     }
   }
 }, {
   "id" : "hmrc/thereisaproblemwiththeservice/problemWithServiceWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/thereisaproblemwiththeservice/problemWithServiceWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/timeline/example",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/timeline/example.scala.html"
     }
   }
 }, {
   "id" : "hmrc/uniquetaxpayerreference/corporationTax",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/corporationTax.scala.html"
     }
   }
 }, {
   "id" : "hmrc/uniquetaxpayerreference/corporationTaxWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/corporationTaxWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/uniquetaxpayerreference/label",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/label.scala.html"
     }
   }
 }, {
   "id" : "hmrc/uniquetaxpayerreference/labelError",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/labelError.scala.html"
     }
   }
 }, {
   "id" : "hmrc/uniquetaxpayerreference/labelErrorWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/labelErrorWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/uniquetaxpayerreference/labelWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/labelWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/uniquetaxpayerreference/selfAssessment",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/selfAssessment.scala.html"
     }
   }
 }, {
   "id" : "hmrc/uniquetaxpayerreference/selfAssessmentWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/selfAssessmentWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/vatregistrationnumber/heading",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/vatregistrationnumber/heading.scala.html"
     }
   }
 }, {
   "id" : "hmrc/vatregistrationnumber/headingWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/vatregistrationnumber/headingWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/vatregistrationnumber/label",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/vatregistrationnumber/label.scala.html"
     }
   }
 }, {
   "id" : "hmrc/vatregistrationnumber/labelError",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/vatregistrationnumber/labelError.scala.html"
     }
   }
 }, {
   "id" : "hmrc/vatregistrationnumber/labelErrorWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/vatregistrationnumber/labelErrorWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/vatregistrationnumber/labelWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/vatregistrationnumber/labelWelsh.scala.html"
     }
   }
 }, {
   "id" : "hmrc/welshlanguagetoggle/example",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/welshlanguagetoggle/example.scala.html"
     }
   }
 }, {
   "id" : "hmrc/welshlanguagetoggle/exampleWelsh",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/welshlanguagetoggle/exampleWelsh.scala.html"
     }
   }
 }, {
   "id" : "insettext/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/insettext/default.scala.html"
     }
   }
 }, {
   "id" : "notificationbanner/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/notificationbanner/default.scala.html"
     }
   }
 }, {
   "id" : "notificationbanner/success",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/notificationbanner/success.scala.html"
     }
   }
 }, {
   "id" : "notificationbanner/wholeService",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/notificationbanner/wholeService.scala.html"
     }
   }
 }, {
   "id" : "panel/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/panel/default.scala.html"
     }
   }
 }, {
   "id" : "phasebanner/beta",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/phasebanner/beta.scala.html"
     }
   }
 }, {
   "id" : "phasebanner/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/phasebanner/default.scala.html"
     }
   }
 }, {
   "id" : "radios/conditionalReveal",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/conditionalReveal.scala.html"
     }
   }
 }, {
   "id" : "radios/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/default.scala.html"
     }
   }
 }, {
   "id" : "radios/divider",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/divider.scala.html"
     }
   }
 }, {
   "id" : "radios/error",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/error.scala.html"
     }
   }
 }, {
   "id" : "radios/hint",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/hint.scala.html"
     }
   }
 }, {
   "id" : "radios/inline",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/inline.scala.html"
     }
   }
 }, {
   "id" : "radios/small",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/small.scala.html"
-    }
-  }
-}, {
-  "id" : "radios/stacked",
-  "versions" : {
-    "play2" : {
-      "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/stacked.scala.html"
     }
   }
 }, {
   "id" : "radios/withoutHeading",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/withoutHeading.scala.html"
     }
   }
 }, {
   "id" : "select/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/select/default.scala.html"
     }
   }
 }, {
   "id" : "skiplink/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/skiplink/default.scala.html"
     }
   }
 }, {
   "id" : "summarylist/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/summarylist/default.scala.html"
     }
   }
 }, {
   "id" : "summarylist/withoutActions",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/summarylist/withoutActions.scala.html"
     }
   }
 }, {
   "id" : "summarylist/withoutBorders",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/summarylist/withoutBorders.scala.html"
     }
   }
 }, {
   "id" : "table/captionL",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/table/captionL.scala.html"
     }
   }
 }, {
   "id" : "table/columnWidths",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/table/columnWidths.scala.html"
     }
   }
 }, {
   "id" : "table/columnWidthsCustomClasses",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/table/columnWidthsCustomClasses.scala.html"
     }
   }
 }, {
   "id" : "table/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/table/default.scala.html"
     }
   }
 }, {
   "id" : "table/numbers",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/table/numbers.scala.html"
     }
   }
 }, {
   "id" : "tabs/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/tabs/default.scala.html"
     }
   }
 }, {
   "id" : "tag/allColours",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/tag/allColours.scala.html"
     }
   }
 }, {
   "id" : "tag/colouredTags",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/tag/colouredTags.scala.html"
     }
   }
 }, {
   "id" : "tag/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/tag/default.scala.html"
     }
   }
 }, {
   "id" : "tag/multipleTags",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/tag/multipleTags.scala.html"
     }
   }
 }, {
   "id" : "textarea/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textarea/default.scala.html"
     }
   }
 }, {
   "id" : "textarea/error",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textarea/error.scala.html"
     }
   }
 }, {
   "id" : "textarea/specifyingRows",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textarea/specifyingRows.scala.html"
     }
   }
 }, {
   "id" : "textarea/withoutHeading",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textarea/withoutHeading.scala.html"
     }
   }
 }, {
   "id" : "textinput/decimalInput",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/decimalInput.scala.html"
     }
   }
 }, {
   "id" : "textinput/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/default.scala.html"
     }
   }
 }, {
   "id" : "textinput/error",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/error.scala.html"
     }
   }
 }, {
   "id" : "textinput/inputAutocompleteAttribute",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputAutocompleteAttribute.scala.html"
     }
   }
 }, {
   "id" : "textinput/inputFixedWidth",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputFixedWidth.scala.html"
     }
   }
 }, {
   "id" : "textinput/inputFluidWidth",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputFluidWidth.scala.html"
     }
   }
 }, {
   "id" : "textinput/inputHintText",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputHintText.scala.html"
     }
   }
 }, {
   "id" : "textinput/inputPrefix",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputPrefix.scala.html"
     }
   }
 }, {
   "id" : "textinput/inputPrefixSuffix",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputPrefixSuffix.scala.html"
     }
   }
 }, {
   "id" : "textinput/inputPrefixSuffixError",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputPrefixSuffixError.scala.html"
     }
   }
 }, {
   "id" : "textinput/inputSpellcheckDisabled",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputSpellcheckDisabled.scala.html"
     }
   }
 }, {
   "id" : "textinput/inputSuffix",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/inputSuffix.scala.html"
     }
   }
 }, {
   "id" : "textinput/numberInput",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/numberInput.scala.html"
     }
   }
 }, {
   "id" : "textinput/withoutHeading",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/withoutHeading.scala.html"
     }
   }
 }, {
   "id" : "warningtext/default",
   "versions" : {
-    "play2" : {
+    "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/warningtext/default.scala.html"
     }
   }
