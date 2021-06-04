@@ -44,7 +44,7 @@ class ExampleTranslatorTest extends AsyncWordSpec with Matchers {
           assert(Directory(destDir).exists)
 
           val noOfNunjucksFiles = countFiles(Paths.get(srcDir), "index.njk")
-          val noOfTwirlFiles    = countFiles(Paths.get(destDir, PlayVersions.Play26().toString), ".*.scala.html")
+          val noOfTwirlFiles    = countFiles(Paths.get(destDir, PlayVersions.Play2().toString), ".*.scala.html")
           noOfNunjucksFiles shouldBe noOfTwirlFiles
         }
     }
