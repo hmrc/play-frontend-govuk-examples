@@ -15,7 +15,7 @@
  */
 
 package uk.gov.hmrc.hmrcfrontend.views
-package examples
+package example
 
 import uk.gov.hmrc.govukfrontend.examples.HmrcFrontend
 import uk.gov.hmrc.hmrcfrontend.views.html.examples._
