@@ -11,8 +11,8 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcAddToAListIntegrationSpec extends TemplateIntegrationSpec {
 
-  val request: RequestHeader= FakeRequest()
-  val messages: Messages = MessagesSupport().messages
+  val request: RequestHeader = FakeRequest()
+  val messages: Messages     = MessagesSupport().messages
 
   testRendering(HmrcFrontend, "add-to-a-list", "addToSummary", () => addtoalistAddToSummary.render(messages, request))
   testRendering(HmrcFrontend, "add-to-a-list", "changeList", addtoalistChangeList.f)
