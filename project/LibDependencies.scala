@@ -6,9 +6,9 @@ import sbt.{ModuleID, Test}
 
 object LibDependencies {
 
-  val playFrontendGovukVersion = "0.72.0"
-  val playFrontendHmrcVersion  = "0.65.0"
-  val govukFrontendVersion     = "3.11.0"
+  val playFrontendGovukVersion = "0.77.0"
+  val playFrontendHmrcVersion  = "0.76.0"
+  val govukFrontendVersion     = "3.12.0"
 
   lazy val libDependencies: Seq[ModuleID] = dependencies(
     shared = {
@@ -16,14 +16,14 @@ object LibDependencies {
         "com.typesafe.play" %% "filters-helpers" % PlayVersion.current,
         "org.webjars.npm"    % "govuk-frontend"  % govukFrontendVersion,
         "org.joda"           % "joda-convert"    % "2.0.2",
-        "com.lihaoyi"       %% "fastparse"       % "2.1.2"
+        "com.lihaoyi"       %% "fastparse"       % "2.1.2",
+        "com.typesafe.play" %% "play-test"       % PlayVersion.current
       )
 
       val test = Seq(
         "com.vladsch.flexmark"          % "flexmark-all"     % "0.35.10",
         "org.scalatest"                %% "scalatest"        % "3.0.8",
         "org.jsoup"                     % "jsoup"            % "1.11.3",
-        "com.typesafe.play"            %% "play-test"        % PlayVersion.current,
         "org.scalacheck"               %% "scalacheck"       % "1.14.1",
         "com.googlecode.htmlcompressor" % "htmlcompressor"   % "1.5.2",
         "com.github.pathikrit"         %% "better-files"     % "3.8.0",

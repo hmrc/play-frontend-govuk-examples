@@ -9,7 +9,7 @@ govukInput : GovukInput)
 @govukErrorSummary(ErrorSummary(
     errorList = Seq(
       ErrorLink(
-        href = Some("#name"),
+        href = Some("#full-name-input"),
         content = Text("Enter your full name")
       )
     ),
@@ -19,7 +19,7 @@ govukInput : GovukInput)
 
 
 @govukInput(Input(
-    id = "name",
+    id = "full-name-input",
     name = "name",
     label = Label(
       content = Text("Full name")

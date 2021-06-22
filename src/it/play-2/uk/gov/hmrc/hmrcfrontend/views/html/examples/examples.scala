@@ -20,6 +20,21 @@ package object examples {
   lazy val accountsofficereferenceLabelError =
     Guice.createInjector().getInstance(classOf[accountsofficereference.labelError])
 
+  lazy val addtoalistAddToSummary =
+    Guice.createInjector().getInstance(classOf[addtoalist.addToSummary])
+
+  lazy val addtoalistChangeList =
+    Guice.createInjector().getInstance(classOf[addtoalist.changeList])
+
+  lazy val addtoalistCheckAnswers =
+    Guice.createInjector().getInstance(classOf[addtoalist.checkAnswers])
+
+  lazy val addtoalistRemoveFromList =
+    Guice.createInjector().getInstance(classOf[addtoalist.removeFromList])
+
+  lazy val addtoalistViewASummary =
+    Guice.createInjector().getInstance(classOf[addtoalist.viewASummary])
+
   lazy val asktheuserfortheirconsentMultipleCheckboxes =
     Guice.createInjector().getInstance(classOf[asktheuserfortheirconsent.multipleCheckboxes])
 
