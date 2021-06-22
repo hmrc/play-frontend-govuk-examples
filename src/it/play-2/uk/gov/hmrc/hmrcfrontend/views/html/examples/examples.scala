@@ -20,7 +20,7 @@ package object examples {
   lazy val accountsofficereferenceLabelError =
     Guice.createInjector().getInstance(classOf[accountsofficereference.labelError])
 
-  lazy val addtoalistaddToSummary =
+  lazy val addtoalistAddToSummary =
     Guice.createInjector().getInstance(classOf[addtoalist.addToSummary])
 
   lazy val addtoalistChangeList =

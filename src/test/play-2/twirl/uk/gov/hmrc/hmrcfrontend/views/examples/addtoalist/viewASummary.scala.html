@@ -1,12 +1,10 @@
 @import uk.gov.hmrc.hmrcfrontend.views.html.components._
 @import uk.gov.hmrc.hmrcfrontend.views.viewmodels.addtoalist.ItemType
 @import uk.gov.hmrc.hmrcfrontend.views.viewmodels.addtoalist.ListItem
-@import uk.gov.hmrc.govukfrontend.examples.MessagesSupport
 
 @this(hmrcAddToAList: HmrcAddToAList)
 
-@import play.api.test.FakeRequest
-@()
+@()(implicit messages: Messages, requestHeader: RequestHeader)
 
 @hmrcAddToAList(AddToAList(
     itemList = Seq(
@@ -32,4 +30,4 @@
     )),
     hintText = Some("You must tell us about all your directors."),
     formAction = Some("")
-))(MessagesSupport().messages, FakeRequest())
+))
