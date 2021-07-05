@@ -21,14 +21,16 @@ govukFieldset : GovukFieldset)
     name = "address-line-1",
     label = Label(
       content = HtmlContent("""Building and street <span class="govuk-visually-hidden">line 1 of 2</span>""")
-    )
+    ),
+    autocomplete = Some("address-line1")
   ))
 @govukInput(Input(
     id = "address-line-2",
     name = "address-line-2",
     label = Label(
       content = HtmlContent("""<span class="govuk-visually-hidden">Building and street line 2 of 2</span>""")
-    )
+    ),
+    autocomplete = Some("address-line2")
   ))
 @govukInput(Input(
     id = "address-town",
@@ -36,7 +38,8 @@ govukFieldset : GovukFieldset)
     label = Label(
       content = Text("Town or city")
     ),
-    classes = "govuk-!-width-two-thirds"
+    classes = "govuk-!-width-two-thirds",
+    autocomplete = Some("address-level2")
   ))
 @govukInput(Input(
     id = "address-county",
@@ -52,6 +55,7 @@ govukFieldset : GovukFieldset)
     label = Label(
       content = Text("Postcode")
     ),
-    classes = "govuk-input--width-10"
+    classes = "govuk-input--width-10",
+    autocomplete = Some("postal-code")
   ))
 }

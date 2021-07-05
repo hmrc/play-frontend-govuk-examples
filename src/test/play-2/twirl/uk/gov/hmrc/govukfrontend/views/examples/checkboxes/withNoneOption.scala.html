@@ -1,0 +1,43 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukCheckboxes : GovukCheckboxes)
+
+@()
+
+
+@govukCheckboxes(Checkboxes(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("Will you be travelling to any of these countries?"),
+        classes = "govuk-fieldset__legend--l",
+        isPageHeading = true
+      ))
+    )),
+    hint = Some(Hint(
+      content = Text("Select all countries that apply")
+    )),
+    idPrefix = Some("countries"),
+    name = "countries",
+    items = Seq(
+      CheckboxItem(
+        content = Text("France"),
+        value = "france"
+      ),
+      CheckboxItem(
+        content = Text("Portugal"),
+        value = "portugal"
+      ),
+      CheckboxItem(
+        content = Text("Spain"),
+        value = "spain"
+      ),
+      CheckboxItem(
+        divider = Some("or")
+      ),
+      CheckboxItem(
+        content = Text("No, I will not be travelling to any of these countries"),
+        value = "none",
+        behaviour = Some(ExclusiveCheckbox)
+      )
+    )
+  ))

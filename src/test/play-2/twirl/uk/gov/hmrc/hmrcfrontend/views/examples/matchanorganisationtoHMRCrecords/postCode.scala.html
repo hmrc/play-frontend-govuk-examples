@@ -15,6 +15,12 @@ govukButton : GovukButton)
 
 
 @govukInput(Input(
+    id = "postcode",
+    name = "postcode",
+    label = Label(
+      classes = "govuk-visually-hidden",
+      content = Text("What is the postcode of your business?")
+    ),
     hint = Some(Hint(
       content = Text("For example, AB1 1DH")
     )),

@@ -15,6 +15,12 @@ govukButton : GovukButton)
 
 
 @govukInput(Input(
+    id = "crn",
+    name = "crn",
+    label = Label(
+      classes = "govuk-visually-hidden",
+      content = Text("What is your company registration number?")
+    ),
     hint = Some(Hint(
       content = Text("For example, 01234567")
     )),
