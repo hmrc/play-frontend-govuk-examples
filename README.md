@@ -85,8 +85,11 @@ get them to compile.
 
 To date, this has been found to be unfortunately the case for the following components:
 
-* hmrcLanguageSelect
-* govukSummaryList
+* welshlanguagetoggle (example, exampleWelsh)
+* signout (example)
+* addtoalist (changeList, changeListWelsh, checkAnswers, checkAnswersWelsh)  
+* checkboxes (withNoneOption, withNoneOptionInError)
+* banner (example, exampleWelsh)
 
 ### Integration testing
 

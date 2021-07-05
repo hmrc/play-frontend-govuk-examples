@@ -9,9 +9,9 @@ govukButton : GovukButton)
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-l">Check your answers</h1>
+      <h1 class="govuk-heading-l">Gwirio'ch atebion</h1>
 
-      
+
 @govukSummaryList(SummaryList(
     rows = Seq(
       SummaryListRow(
@@ -30,13 +30,13 @@ govukButton : GovukButton)
             )
           )
         ))
-      ), 
+      ),
       SummaryListRow(
         key = Key(
           content = Text("Beth yw dyddiad geni Elizabeth Kean?")
         ),
         value = Value(
-          content = Text("12 October 1984")
+          content = Text("12 Hydref 1984")
         ),
         actions = Some(Actions(
           items = Seq(
@@ -47,7 +47,7 @@ govukButton : GovukButton)
             )
           )
         ))
-      ), 
+      ),
       SummaryListRow(
         key = Key(
           content = Text("A oes gan Elizabeth Kean rif Yswiriant Gwladol?")
@@ -64,7 +64,7 @@ govukButton : GovukButton)
             )
           )
         ))
-      ), 
+      ),
       SummaryListRow(
         key = Key(
           content = Text("Rhif Yswiriant Gwladol")
@@ -89,7 +89,7 @@ govukButton : GovukButton)
 
         <input type="hidden" name="answers-checked" value="true">
 
-        
+
 @govukButton(Button(
     content = Text("Yn eich blaen")
   ))

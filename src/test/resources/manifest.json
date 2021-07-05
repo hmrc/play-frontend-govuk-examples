@@ -167,6 +167,20 @@
     }
   }
 }, {
+  "id" : "checkboxes/withNoneOption",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/withNoneOption.scala.html"
+    }
+  }
+}, {
+  "id" : "checkboxes/withNoneOptionInError",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/checkboxes/withNoneOptionInError.scala.html"
+    }
+  }
+}, {
   "id" : "checkboxes/withoutHeading",
   "versions" : {
     "play" : {
@@ -1266,6 +1280,13 @@
     }
   }
 }, {
+  "id" : "hmrc/useadigitalservice/example",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/useadigitalservice/example.scala.html"
+    }
+  }
+}, {
   "id" : "hmrc/vatregistrationnumber/heading",
   "versions" : {
     "play" : {
@@ -1417,6 +1438,13 @@
   "versions" : {
     "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/small.scala.html"
+    }
+  }
+}, {
+  "id" : "radios/stacked",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/stacked.scala.html"
     }
   }
 }, {

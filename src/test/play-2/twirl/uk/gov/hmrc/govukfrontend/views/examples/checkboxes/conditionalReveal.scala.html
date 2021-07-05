@@ -15,6 +15,7 @@ govukInput : GovukInput)
       content = Text("Email address")
     ),
     classes = "govuk-!-width-one-third",
+    autocomplete = Some("email"),
     spellcheck = Some(false)
   ))
 }
@@ -26,7 +27,8 @@ govukInput : GovukInput)
     label = Label(
       content = Text("Phone number")
     ),
-    classes = "govuk-!-width-one-third"
+    classes = "govuk-!-width-one-third",
+    autocomplete = Some("tel")
   ))
 }
 @textHtml = {
@@ -37,7 +39,8 @@ govukInput : GovukInput)
     label = Label(
       content = Text("Mobile phone number")
     ),
-    classes = "govuk-!-width-one-third"
+    classes = "govuk-!-width-one-third",
+    autocomplete = Some("tel")
   ))
 }
 @govukCheckboxes(Checkboxes(
