@@ -2,7 +2,7 @@ package uk.gov.hmrc.support
 
 import org.jsoup.Jsoup
 import org.scalacheck.ShrinkLowPriority
-import org.scalatest.WordSpec
+import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.concurrent.{IntegrationPatience, ScalaFutures}
 import play.twirl.api.HtmlFormat
 import uk.gov.hmrc.govukfrontend.examples.ExampleType
@@ -15,7 +15,7 @@ import scala.util.{Failure, Success, Try}
   * Base class for integration testing a Twirl template against the Nunjucks template rendering service
   */
 abstract class TemplateIntegrationSpec
-    extends WordSpec
+    extends AnyWordSpec
     with TemplateServiceClient
     with PreProcessor
     with ShrinkLowPriority

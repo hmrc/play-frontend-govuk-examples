@@ -19,7 +19,7 @@ object LibDependencies {
 
       val test = Seq(
         "com.vladsch.flexmark"          % "flexmark-all"     % "0.35.10",
-        "org.scalatest"                %% "scalatest"        % "3.0.8",
+        "org.scalatest"                %% "scalatest"        % "3.2.9",
         "org.jsoup"                     % "jsoup"            % "1.11.3",
         "org.scalacheck"               %% "scalacheck"       % "1.14.1",
         "com.googlecode.htmlcompressor" % "htmlcompressor"   % "1.5.2",

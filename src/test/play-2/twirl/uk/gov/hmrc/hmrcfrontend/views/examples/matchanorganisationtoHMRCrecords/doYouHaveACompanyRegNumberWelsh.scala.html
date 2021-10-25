@@ -1,0 +1,36 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukRadios : GovukRadios,
+govukButton : GovukButton)
+
+@()
+
+
+@govukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("A oes gennych rif cofrestru’r cwmni?"),
+        classes = "govuk-fieldset__legend--xl",
+        isPageHeading = true
+      ))
+    )),
+    hint = Some(Hint(
+      content = Text("Efallai y bydd Tŷ’r Cwmnïau wedi anfon hwn atoch os gwnaethoch gofrestru fel partneriaeth gyfyngedig.")
+    )),
+    idPrefix = Some("has-registration-number"),
+    name = "has-registration-number",
+    items = Seq(
+      RadioItem(
+        content = Text("Oes"),
+        value = Some("yes")
+      ), 
+      RadioItem(
+        content = Text("Nac oes"),
+        value = Some("no")
+      )
+    ),
+    classes = "govuk-radios--inline"
+  ))
+@govukButton(Button(
+    content = Text("Yn eich blaen")
+  ))

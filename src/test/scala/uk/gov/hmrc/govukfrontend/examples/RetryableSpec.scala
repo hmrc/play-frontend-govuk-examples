@@ -16,7 +16,9 @@
 
 package uk.gov.hmrc.govukfrontend.examples
 
-import org.scalatest.{AsyncWordSpec, Matchers, ParallelTestExecution}
+import org.scalatest.wordspec.AsyncWordSpec
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.{ParallelTestExecution}
 
 import scala.concurrent.Future
 

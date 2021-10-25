@@ -16,11 +16,12 @@
 
 package uk.gov.hmrc.govukfrontend.examples
 
-import org.scalatest.{Matchers, WordSpec}
+import org.scalatest.wordspec.AnyWordSpec
+import org.scalatest.matchers.should.Matchers
 
 import scala.util.{Failure, Success, Try}
 
-class ImplicitsSpec extends WordSpec with Matchers {
+class ImplicitsSpec extends AnyWordSpec with Matchers {
 
   trait Abstract
 

@@ -1,0 +1,10 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukNotificationBanner : GovukNotificationBanner)
+
+@()
+
+
+@govukNotificationBanner(NotificationBanner(
+    content = Text("There may be a delay in processing your application because of the coronavirus outbreak.")
+  ))

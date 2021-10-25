@@ -1,0 +1,31 @@
+@import uk.gov.hmrc.hmrcfrontend.views.html.components._
+
+@this(hmrcTimeline : HmrcTimeline)
+
+@()
+
+
+@exampleContent1 = {
+<p class="govuk-body">Daeth eich Ffurflen Dreth i law. Gwnaethoch honni bod ad-daliad o £50 yn ddyledus i chi. Rydym yn gwirio’ch hawliad.</p>
+
+}
+@exampleContent2 = {
+<p class="govuk-body">Gwnaethom ad-dalu £50 i chi. Bydd yn cymryd hyd at 3 diwrnod i'r arian gyrraedd eich cyfrif.</p>
+
+}
+@hmrcTimeline(Timeline(
+    events = Seq(
+      Event(
+        title = "Ad-daliad wedi’i wneud",
+        time = "15 Gorffennaf 2020",
+        content = "exampleContent2",
+        datetime = Some("2020-07-15")
+      ), 
+      Event(
+        title = "Gwirio’ch hawliad",
+        time = "14 Gorffennaf 2020",
+        content = "exampleContent1",
+        datetime = Some("2020-07-14")
+      )
+    )
+  ))

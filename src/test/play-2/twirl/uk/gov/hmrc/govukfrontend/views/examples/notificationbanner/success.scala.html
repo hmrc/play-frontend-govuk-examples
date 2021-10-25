@@ -1,0 +1,20 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukNotificationBanner : GovukNotificationBanner)
+
+@()
+
+
+@html = {
+<p class="govuk-notification-banner__heading">
+    Training outcome recorded and trainee withdrawn
+  </p>
+  <p class="govuk-body">Contact <a class="govuk-notification-banner__link" href="#">example@@department.gov.uk</a> if you think there’s a problem.</p>
+
+
+}
+@govukNotificationBanner(NotificationBanner(
+    content = HtmlContent(html),
+    bannerType = Some("success"),
+    disableAutoFocus = Some(true)
+  ))

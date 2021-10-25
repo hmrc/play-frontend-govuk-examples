@@ -16,10 +16,11 @@
 
 package uk.gov.hmrc.govukfrontend.examples
 
-import org.scalatest.{Matchers, WordSpec}
+import org.scalatest.wordspec.AnyWordSpec
+import org.scalatest.matchers.should.Matchers
 import uk.gov.hmrc.govukfrontend.examples.TwirlFormatter._
 
-class TwirlFormatterSpec extends WordSpec with Matchers {
+class TwirlFormatterSpec extends AnyWordSpec with Matchers {
 
   implicit class StringUtil(string: String) {
 

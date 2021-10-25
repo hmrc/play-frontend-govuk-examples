@@ -1,0 +1,32 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.cookiebanner.Message
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.cookiebanner.Action
+
+@this(govukCookieBanner : GovukCookieBanner)
+
+@()
+
+
+@acceptHtml = {
+<p class="govuk-body">You’ve accepted additional cookies. You can <a class="govuk-link" href="#">change your cookie settings</a> at any time.</p>
+
+
+}
+<form method="POST">
+  
+@govukCookieBanner(CookieBanner(
+    ariaLabel = Some("Cookies on [name of service]"),
+    messages = Seq(
+      Message(
+        content = HtmlContent(acceptHtml),
+        actions = Some(Seq(
+          Action(
+            text = "Hide this message",
+            inputType = Some("button"),
+            href = Some("#")
+          )
+        ))
+      )
+    )
+  ))
+</form>

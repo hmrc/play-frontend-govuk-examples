@@ -18,7 +18,9 @@ package uk.gov.hmrc.govukfrontend.examples
 
 import java.nio.file.Paths
 
-import org.scalatest.{AsyncWordSpec, Matchers, ParallelTestExecution, Succeeded}
+import org.scalatest.wordspec.AsyncWordSpec
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.{ParallelTestExecution, Succeeded}
 import uk.gov.hmrc.govukfrontend.examples.FileSystem.{TrueFile, prepareDirStructure}
 
 import scala.concurrent.Future

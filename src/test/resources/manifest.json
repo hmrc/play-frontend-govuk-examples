@@ -104,13 +104,6 @@
     }
   }
 }, {
-  "id" : "charactercount/labelPageHeading",
-  "versions" : {
-    "play" : {
-      "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/charactercount/labelPageHeading.scala.html"
-    }
-  }
-}, {
   "id" : "charactercount/threshold",
   "versions" : {
     "play" : {
@@ -188,13 +181,6 @@
     }
   }
 }, {
-  "id" : "cookiebanner/accepted",
-  "versions" : {
-    "play" : {
-      "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/accepted.scala.html"
-    }
-  }
-}, {
   "id" : "cookiebanner/clientSide",
   "versions" : {
     "play" : {
@@ -223,38 +209,10 @@
     }
   }
 }, {
-  "id" : "cookiebanner/essential",
-  "versions" : {
-    "play" : {
-      "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/essential.scala.html"
-    }
-  }
-}, {
-  "id" : "cookiebanner/essentialNoJs",
-  "versions" : {
-    "play" : {
-      "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/essentialNoJs.scala.html"
-    }
-  }
-}, {
   "id" : "cookiebanner/multipleCookies",
   "versions" : {
     "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/multipleCookies.scala.html"
-    }
-  }
-}, {
-  "id" : "cookiebanner/noJs",
-  "versions" : {
-    "play" : {
-      "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/noJs.scala.html"
-    }
-  }
-}, {
-  "id" : "cookiebanner/rejected",
-  "versions" : {
-    "play" : {
-      "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/cookiebanner/rejected.scala.html"
     }
   }
 }, {
@@ -1438,13 +1396,6 @@
   "versions" : {
     "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/small.scala.html"
-    }
-  }
-}, {
-  "id" : "radios/stacked",
-  "versions" : {
-    "play" : {
-      "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/stacked.scala.html"
     }
   }
 }, {
