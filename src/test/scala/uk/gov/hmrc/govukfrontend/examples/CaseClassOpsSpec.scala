@@ -16,9 +16,10 @@
 
 package uk.gov.hmrc.govukfrontend.examples
 
-import org.scalatest.{Matchers, WordSpec}
+import org.scalatest.wordspec.AnyWordSpec
+import org.scalatest.matchers.should.Matchers
 
-class CaseClassOpsSpec extends WordSpec with Matchers {
+class CaseClassOpsSpec extends AnyWordSpec with Matchers {
 
   sealed trait Abstract {
     val zero: String

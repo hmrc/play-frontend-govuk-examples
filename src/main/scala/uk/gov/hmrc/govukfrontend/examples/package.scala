@@ -127,16 +127,16 @@ package object examples {
     def toDependencyInjectionString: String = standardiseSeq(s"""@$macroName(${prettyPrint(args)})""")
   }
 
-  case class SetBlock(blockName: String, html: Option[TemplateHtml] = None, macroCall: MacroCall)
+  case class SetBlock(blockName: String, html: Option[TemplateHtml] = None, macroCall: Option[MacroCall])
       extends NunjucksTemplateBody {
 
     private val htmlContent = html.fold("")(_.toString + "\n")
 
     override def toString: String =
-      s"""@$blockName = {\n$htmlContent${macroCall.toString}\n}"""
+      s"""@$blockName = {\n$htmlContent${macroCall.getOrElse("").toString}\n}"""
 
     def toDependencyInjectionString: String =
-      s"""@$blockName = {\n$htmlContent${macroCall.toDependencyInjectionString}\n}"""
+      s"""@$blockName = {\n$htmlContent${macroCall.map(_.toDependencyInjectionString).getOrElse("")}\n}"""
   }
 
   case class CallMacro(callMacro: MacroCall, macroCalls: List[MacroCall]) extends NunjucksTemplateBody {

@@ -1,0 +1,41 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukRadios : GovukRadios,
+govukButton : GovukButton)
+
+@()
+
+
+@govukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("Pa fath o fusnes ydych chi?"),
+        classes = "govuk-fieldset__legend--xl",
+        isPageHeading = true
+      ))
+    )),
+    idPrefix = Some("business-type"),
+    name = "business-type",
+    items = Seq(
+      RadioItem(
+        content = Text("Cwmni Cyfyngedig"),
+        value = Some("limited-company")
+      ), 
+      RadioItem(
+        content = Text("Unig fasnachwr"),
+        value = Some("sole-trader")
+      ), 
+      RadioItem(
+        content = Text("Partneriaeth"),
+        value = Some("partnership")
+      ), 
+      RadioItem(
+        content = Text("Ymddiriedolaeth"),
+        value = Some("trust")
+      )
+    ),
+    classes = "govuk-radios"
+  ))
+@govukButton(Button(
+    content = Text("Yn eich blaen")
+  ))

@@ -18,7 +18,8 @@ package uk.gov.hmrc.govukfrontend.examples
 
 import fastparse.Parsed.Success
 import fastparse._
-import org.scalatest.{Matchers, WordSpec}
+import org.scalatest.wordspec.AnyWordSpec
+import org.scalatest.matchers.should.Matchers
 import play.twirl.api.Html
 import uk.gov.hmrc.govukfrontend.examples.NunjucksParser._
 import uk.gov.hmrc.govukfrontend.views.html.components._
@@ -28,7 +29,7 @@ import uk.gov.hmrc.hmrcfrontend.views.viewmodels.pageheading.PageHeading
 
 import scala.collection.mutable.ArrayBuffer
 
-class NunjucksParserSpec extends WordSpec with Matchers {
+class NunjucksParserSpec extends AnyWordSpec with Matchers {
 
   "parse whitespace" should {
     "parse single line whitespace" in {
@@ -797,47 +798,53 @@ class NunjucksParserSpec extends WordSpec with Matchers {
           body = List(
             SetBlock(
               blockName = "emailHtml",
-              macroCall = MacroCall(
-                "govukInput",
-                Input(
-                  id = "contact-by-email",
-                  name = "contact-by-email",
-                  inputType = "email",
-                  label = Label(
-                    content = Text("Email address")
-                  ),
-                  classes = "govuk-!-width-one-third",
-                  attributes = Map("spellcheck" -> "false")
+              macroCall = Some(
+                MacroCall(
+                  "govukInput",
+                  Input(
+                    id = "contact-by-email",
+                    name = "contact-by-email",
+                    inputType = "email",
+                    label = Label(
+                      content = Text("Email address")
+                    ),
+                    classes = "govuk-!-width-one-third",
+                    attributes = Map("spellcheck" -> "false")
+                  )
                 )
               )
             ),
             SetBlock(
               blockName = "phoneHtml",
-              macroCall = MacroCall(
-                "govukInput",
-                Input(
-                  id = "contact-by-phone",
-                  name = "contact-by-phone",
-                  inputType = "tel",
-                  label = Label(
-                    content = Text("Phone number")
-                  ),
-                  classes = "govuk-!-width-one-third"
+              macroCall = Some(
+                MacroCall(
+                  "govukInput",
+                  Input(
+                    id = "contact-by-phone",
+                    name = "contact-by-phone",
+                    inputType = "tel",
+                    label = Label(
+                      content = Text("Phone number")
+                    ),
+                    classes = "govuk-!-width-one-third"
+                  )
                 )
               )
             ),
             SetBlock(
               blockName = "textHtml",
-              macroCall = MacroCall(
-                "govukInput",
-                Input(
-                  id = "contact-by-text",
-                  name = "contact-by-text",
-                  inputType = "tel",
-                  label = Label(
-                    content = Text("Mobile phone number")
-                  ),
-                  classes = "govuk-!-width-one-third"
+              macroCall = Some(
+                MacroCall(
+                  "govukInput",
+                  Input(
+                    id = "contact-by-text",
+                    name = "contact-by-text",
+                    inputType = "tel",
+                    label = Label(
+                      content = Text("Mobile phone number")
+                    ),
+                    classes = "govuk-!-width-one-third"
+                  )
                 )
               )
             ),

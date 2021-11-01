@@ -19,6 +19,8 @@ package uk.gov.hmrc.govukfrontend.examples
 import java.nio.file.{Files, Path, Paths}
 
 import org.scalatest._
+import org.scalatest.wordspec.AsyncWordSpec
+import org.scalatest.matchers.should.Matchers
 import uk.gov.hmrc.govukfrontend.examples.FileSystem.TrueDir
 
 import scala.collection.JavaConverters._

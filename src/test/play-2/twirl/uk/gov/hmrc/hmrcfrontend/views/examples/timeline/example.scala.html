@@ -1,0 +1,31 @@
+@import uk.gov.hmrc.hmrcfrontend.views.html.components._
+
+@this(hmrcTimeline : HmrcTimeline)
+
+@()
+
+
+@exampleContent1 = {
+<p class="govuk-body">We received your return. You claimed you were due a repayment of £50. We are checking your claim.</p>
+
+}
+@exampleContent2 = {
+<p class="govuk-body">We repaid you £50. It will take 3 days for the money to reach your account.</p>
+
+}
+@hmrcTimeline(Timeline(
+    events = Seq(
+      Event(
+        title = "Repayment complete",
+        time = "15 July 2020",
+        content = "exampleContent2",
+        datetime = Some("2020-07-15")
+      ), 
+      Event(
+        title = "Checking your claim",
+        time = "14 July 2020",
+        content = "exampleContent1",
+        datetime = Some("2020-07-14")
+      )
+    )
+  ))

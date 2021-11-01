@@ -1,0 +1,36 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukRadios : GovukRadios,
+govukButton : GovukButton)
+
+@()
+
+
+<h1 class="govuk-heading-xl">Ai dyma’ch busnes?</h1>
+<p class="govuk-body">ABC cyfyngedig</p>
+
+
+@govukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("Ai dyma’ch busnes?"),
+        classes = "govuk-visually-hidden"
+      ))
+    )),
+    idPrefix = Some("is-business"),
+    name = "is-business",
+    items = Seq(
+      RadioItem(
+        content = Text("Iawn"),
+        value = Some("yes")
+      ), 
+      RadioItem(
+        content = Text("Na"),
+        value = Some("no")
+      )
+    ),
+    classes = "govuk-radios--inline"
+  ))
+@govukButton(Button(
+    content = Text("Yn eich blaen")
+  ))

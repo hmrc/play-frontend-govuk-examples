@@ -35,7 +35,7 @@ They do not test the content of the rendered examples.
 Before committing any new changes, ensure they pass by running,
 
 ```shell script
-PLAY_VERSION=2.6 sbt test && PLAY_VERSION=2.7 sbt test
+PLAY_VERSION=2.6 sbt test && PLAY_VERSION=2.7 sbt test && PLAY_VERSION=2.8 sbt test
 ```
 
 ## Regenerating examples and committing changes
