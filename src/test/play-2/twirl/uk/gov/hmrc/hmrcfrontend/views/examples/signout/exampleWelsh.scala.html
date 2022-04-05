@@ -1,4 +1,5 @@
 @import uk.gov.hmrc.hmrcfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.phasebanner.PhaseBanner
 
 @this(hmrcHeader : HmrcHeader)
 
@@ -9,5 +10,6 @@
     serviceName = Some("Enw'r gwasanaeth"),
     serviceUrl = "/",
     language = Cy,
-    signOutHref = Some("?sign-out")
+    signOutHref = Some("?sign-out"),
+    phaseBanner = Some(PhaseBanner())
   ))

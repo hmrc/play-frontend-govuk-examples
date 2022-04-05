@@ -1,10 +1,9 @@
 @import uk.gov.hmrc.hmrcfrontend.views.html.components._
-@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.addtoalist.ListItem
-@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.addtoalist.ItemType
+@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.addtoalist.{ListItem, ItemType}
 
 @this(hmrcAddToAList : HmrcAddToAList)
 
-@()(implicit messages: Messages, request: RequestHeader)
+@()
 
 
 @hmrcAddToAList(AddToAList(
@@ -13,12 +12,12 @@
         name = "Sydney Russell",
         changeUrl = "#",
         removeUrl = "#"
-      ), 
+      ),
       ListItem(
         name = "Michael Cain",
         changeUrl = "#",
         removeUrl = "#"
-      ), 
+      ),
       ListItem(
         name = "Jeremy Winter",
         changeUrl = "#",
