@@ -31,30 +31,6 @@ object LibDependencies {
 
       compile ++ test
     },
-    play26 = {
-      val compile = Seq(
-        "uk.gov.hmrc" %% "play-frontend-hmrc" % s"$playFrontendHmrcVersion-play-26"
-      )
-
-      val test = Seq(
-        "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2",
-        "org.pegdown"             % "pegdown"            % "1.6.0"
-      ).map(_ % s"$IntegrationTest,$Test")
-
-      compile ++ test
-    },
-    play27 = {
-      val compile = Seq(
-        "uk.gov.hmrc" %% "play-frontend-hmrc" % s"$playFrontendHmrcVersion-play-27"
-      )
-
-      val test = Seq(
-        "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.3",
-        "org.pegdown"             % "pegdown"            % "1.6.0"
-      ).map(_ % s"$IntegrationTest,$Test")
-
-      compile ++ test
-    },
     play28 = Seq(
       "uk.gov.hmrc"            %% "play-frontend-hmrc" % s"$playFrontendHmrcVersion-play-28",
       "org.scalatestplus.play" %% "scalatestplus-play" % "5.1.0" % s"$IntegrationTest,$Test"
