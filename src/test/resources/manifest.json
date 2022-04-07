@@ -559,6 +559,13 @@
     }
   }
 }, {
+  "id" : "hmrc/antidumping/example1",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/antidumping/example1.scala.html"
+    }
+  }
+}, {
   "id" : "hmrc/asktheuserfortheirconsent/multipleCheckboxes",
   "versions" : {
     "play" : {
@@ -713,6 +720,83 @@
     }
   }
 }, {
+  "id" : "hmrc/extrastatutoryconcessions/example1",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/extrastatutoryconcessions/example1.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/extrastatutoryconcessions/example2",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/extrastatutoryconcessions/example2.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/forceoflaw/example1",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/forceoflaw/example1.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/forceoflaw/example2",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/forceoflaw/example2.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/forceoflaw/example3",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/forceoflaw/example3.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/forceoflaw/example4",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/forceoflaw/example4.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/forceoflaw/example5",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/forceoflaw/example5.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/forceoflaw/example6",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/forceoflaw/example6.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/governmentgateway/option1",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/governmentgateway/option1.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/governmentgateway/option2",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/governmentgateway/option2.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/governmentgateway/option3",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/governmentgateway/option3.scala.html"
+    }
+  }
+}, {
   "id" : "hmrc/greenbutton/example",
   "versions" : {
     "play" : {
@@ -755,6 +839,13 @@
     }
   }
 }, {
+  "id" : "hmrc/matchanorganisationtoHMRCrecords/businessTypeWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/matchanorganisationtoHMRCrecords/businessTypeWelsh.scala.html"
+    }
+  }
+}, {
   "id" : "hmrc/matchanorganisationtoHMRCrecords/companyRegNumber",
   "versions" : {
     "play" : {
@@ -769,10 +860,24 @@
     }
   }
 }, {
+  "id" : "hmrc/matchanorganisationtoHMRCrecords/companyRegNumberWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/matchanorganisationtoHMRCrecords/companyRegNumberWelsh.scala.html"
+    }
+  }
+}, {
   "id" : "hmrc/matchanorganisationtoHMRCrecords/doYouHaveACompanyRegNumber",
   "versions" : {
     "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/matchanorganisationtoHMRCrecords/doYouHaveACompanyRegNumber.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/matchanorganisationtoHMRCrecords/doYouHaveACompanyRegNumberWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/matchanorganisationtoHMRCrecords/doYouHaveACompanyRegNumberWelsh.scala.html"
     }
   }
 }, {
@@ -783,10 +888,24 @@
     }
   }
 }, {
+  "id" : "hmrc/matchanorganisationtoHMRCrecords/isThisYourBusinessWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/matchanorganisationtoHMRCrecords/isThisYourBusinessWelsh.scala.html"
+    }
+  }
+}, {
   "id" : "hmrc/matchanorganisationtoHMRCrecords/noMatch",
   "versions" : {
     "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/matchanorganisationtoHMRCrecords/noMatch.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/matchanorganisationtoHMRCrecords/noMatchWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/matchanorganisationtoHMRCrecords/noMatchWelsh.scala.html"
     }
   }
 }, {
@@ -878,6 +997,13 @@
   "versions" : {
     "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/pagenotfound/exampleWelsh.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/recognisedoverseaspensionschemesnotificationlist/example",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/recognisedoverseaspensionschemesnotificationlist/example.scala.html"
     }
   }
 }, {
@@ -1119,6 +1245,13 @@
     }
   }
 }, {
+  "id" : "hmrc/signout/exampleWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/signout/exampleWelsh.scala.html"
+    }
+  }
+}, {
   "id" : "hmrc/statustagsintasklistpages/example",
   "versions" : {
     "play" : {
@@ -1179,6 +1312,13 @@
   "versions" : {
     "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/timeline/example.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/timeline/exampleWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/timeline/exampleWelsh.scala.html"
     }
   }
 }, {
@@ -1357,6 +1497,13 @@
     }
   }
 }, {
+  "id" : "radios/conditionalRevealError",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/radios/conditionalRevealError.scala.html"
+    }
+  }
+}, {
   "id" : "radios/default",
   "versions" : {
     "play" : {
@@ -1424,6 +1571,13 @@
   "versions" : {
     "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/summarylist/default.scala.html"
+    }
+  }
+}, {
+  "id" : "summarylist/mixedActions",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/summarylist/mixedActions.scala.html"
     }
   }
 }, {

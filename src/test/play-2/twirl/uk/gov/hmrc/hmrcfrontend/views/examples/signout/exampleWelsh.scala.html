@@ -1,4 +1,7 @@
 @import uk.gov.hmrc.hmrcfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.phasebanner.PhaseBanner
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.content.{HtmlContent, Text}
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.tag.Tag
 
 @this(hmrcHeader : HmrcHeader)
 
@@ -9,5 +12,11 @@
     serviceName = Some("Enw'r gwasanaeth"),
     serviceUrl = "/",
     language = Cy,
-    signOutHref = Some("?sign-out")
+    signOutHref = Some("?sign-out"),
+    phaseBanner = Some(PhaseBanner(
+      tag = Some(Tag(
+        content = Text("alpha")
+      )),
+      content = HtmlContent("""Mae hwn yn wasanaeth newydd ‐ bydd eich <a class='govuk-link' href='#'>adborth</a> yn ein helpu i'w wella.""")
+    ))
   ))

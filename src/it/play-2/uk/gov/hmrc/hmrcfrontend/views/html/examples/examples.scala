@@ -35,6 +35,9 @@ package object examples {
   lazy val addtoalistViewASummary =
     Guice.createInjector().getInstance(classOf[addtoalist.viewASummary])
 
+  lazy val antiDumpingExample =
+    Guice.createInjector().getInstance(classOf[antidumping.example1])
+
   lazy val asktheuserfortheirconsentMultipleCheckboxes =
     Guice.createInjector().getInstance(classOf[asktheuserfortheirconsent.multipleCheckboxes])
 
@@ -76,6 +79,39 @@ package object examples {
 
   lazy val employerpayereferenceLabelError =
     Guice.createInjector().getInstance(classOf[employerpayereference.labelError])
+
+  lazy val extraStatutoryConcessionsExampleOne =
+    Guice.createInjector().getInstance(classOf[extrastatutoryconcessions.example1])
+
+  lazy val extraStatutoryConcessionsExampleTwo =
+    Guice.createInjector().getInstance(classOf[extrastatutoryconcessions.example2])
+
+  lazy val forceoflawExampleOne =
+    Guice.createInjector().getInstance(classOf[forceoflaw.example1])
+
+  lazy val forceoflawExampleTwo =
+    Guice.createInjector().getInstance(classOf[forceoflaw.example2])
+
+  lazy val forceoflawExampleThree =
+    Guice.createInjector().getInstance(classOf[forceoflaw.example3])
+
+  lazy val forceoflawExampleFour =
+    Guice.createInjector().getInstance(classOf[forceoflaw.example4])
+
+  lazy val forceoflawExampleFive =
+    Guice.createInjector().getInstance(classOf[forceoflaw.example5])
+
+  lazy val forceoflawExampleSix =
+    Guice.createInjector().getInstance(classOf[forceoflaw.example6])
+
+  lazy val governmentGatewayOptionOne =
+    Guice.createInjector().getInstance(classOf[governmentgateway.option1])
+
+  lazy val governmentGatewayOptionTwo =
+    Guice.createInjector().getInstance(classOf[governmentgateway.option2])
+
+  lazy val governmentGatewayOptionThree =
+    Guice.createInjector().getInstance(classOf[governmentgateway.option3])
 
   lazy val notificationbadgeNoItems =
     Guice.createInjector().getInstance(classOf[notificationbadge.noItems])

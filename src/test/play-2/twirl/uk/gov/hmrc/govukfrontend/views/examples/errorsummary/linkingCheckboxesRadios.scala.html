@@ -13,7 +13,8 @@ govukCheckboxes : GovukCheckboxes)
         content = Text("Select if you are British, Irish or a citizen of a different country")
       )
     ),
-    title = Text("There is a problem")
+    title = Text("There is a problem"),
+    disableAutoFocus = true
   ))
 @govukCheckboxes(Checkboxes(
     fieldset = Some(Fieldset(

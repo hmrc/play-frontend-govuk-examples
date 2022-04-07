@@ -31,4 +31,5 @@ class govukRadiosIntegrationSpec extends TemplateIntegrationSpec {
   testRendering(GovukFrontend, "radios", "small", radiosSmall.f)
   testRendering(GovukFrontend, "radios", "inline", radiosInline.f)
   testRendering(GovukFrontend, "radios", "withoutHeading", radiosWithoutHeading.f)
+  testRendering(GovukFrontend, "radios", "conditionalRevealError", radiosConditionalRevealError.f)
 }

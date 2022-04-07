@@ -17,13 +17,23 @@
 package uk.gov.hmrc.govukfrontend.views
 package examples
 
+import play.twirl.api.{Html, HtmlFormat}
 import uk.gov.hmrc.govukfrontend.examples.GovukFrontend
 import uk.gov.hmrc.govukfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukHeaderIntegrationSpec extends TemplateIntegrationSpec {
 
-  testRendering(GovukFrontend, "header", "default", headerDefault.f)
-  testRendering(GovukFrontend, "header", "withServiceName", headerWithServiceName.f)
-  testRendering(GovukFrontend, "header", "withServiceNameAndNavigation", headerWithServiceNameAndNavigation.f)
+  testRendering(GovukFrontend, "header", "default", withOverriddenAssetPath(headerDefault.f))
+  testRendering(GovukFrontend, "header", "withServiceName", withOverriddenAssetPath(headerWithServiceName.f))
+  testRendering(
+    GovukFrontend,
+    "header",
+    "withServiceNameAndNavigation",
+    withOverriddenAssetPath(headerWithServiceNameAndNavigation.f)
+  )
+
+  private def withOverriddenAssetPath(render: () => HtmlFormat.Appendable): () => HtmlFormat.Appendable = { () =>
+    Html(render().toString().replace("/assets/govuk/images/", "/assets/images/"))
+  }
 }
