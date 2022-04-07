@@ -154,6 +154,9 @@ package object examples {
   lazy val radiosConditionalReveal =
     Guice.createInjector().getInstance(classOf[radios.conditionalReveal])
 
+  lazy val radiosConditionalRevealError =
+    Guice.createInjector().getInstance(classOf[radios.conditionalRevealError])
+
   lazy val radiosDivider =
     Guice.createInjector().getInstance(classOf[radios.divider])
 
@@ -186,6 +189,9 @@ package object examples {
 
   lazy val summarylistWithoutBorders =
     Guice.createInjector().getInstance(classOf[summarylist.withoutBorders])
+
+  lazy val summarylistMixedActions =
+    Guice.createInjector().getInstance(classOf[summarylist.mixedActions])
 
   lazy val tableDefault =
     Guice.createInjector().getInstance(classOf[table.default])

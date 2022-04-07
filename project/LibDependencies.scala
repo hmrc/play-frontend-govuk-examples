@@ -6,7 +6,7 @@ import sbt.{ModuleID, Test}
 
 object LibDependencies {
 
-  val playFrontendHmrcVersion = "0.79.0"
+  val playFrontendHmrcVersion = "3.11.0"
 
   lazy val libDependencies: Seq[ModuleID] = dependencies(
     shared = {
@@ -27,30 +27,6 @@ object LibDependencies {
         "com.lihaoyi"                  %% "pprint"           % "0.5.3",
         "org.bitbucket.cowwoc"          % "diff-match-patch" % "1.2",
         ws
-      ).map(_ % s"$IntegrationTest,$Test")
-
-      compile ++ test
-    },
-    play26 = {
-      val compile = Seq(
-        "uk.gov.hmrc" %% "play-frontend-hmrc" % s"$playFrontendHmrcVersion-play-26"
-      )
-
-      val test = Seq(
-        "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2",
-        "org.pegdown"             % "pegdown"            % "1.6.0"
-      ).map(_ % s"$IntegrationTest,$Test")
-
-      compile ++ test
-    },
-    play27 = {
-      val compile = Seq(
-        "uk.gov.hmrc" %% "play-frontend-hmrc" % s"$playFrontendHmrcVersion-play-27"
-      )
-
-      val test = Seq(
-        "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.3",
-        "org.pegdown"             % "pegdown"            % "1.6.0"
       ).map(_ % s"$IntegrationTest,$Test")
 
       compile ++ test

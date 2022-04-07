@@ -13,7 +13,8 @@ govukErrorSummary : GovukErrorSummary)
         content = Text("Passport issue date must include a year")
       )
     ),
-    title = Text("There is a problem")
+    title = Text("There is a problem"),
+    disableAutoFocus = true
   ))
 @govukDateInput(DateInput(
     id = "passport-issued",
