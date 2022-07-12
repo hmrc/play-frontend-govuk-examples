@@ -5,15 +5,21 @@ govukButton : GovukButton)
 
 @()
 
+
 <h1 class="govuk-heading-l">What is your Self Assessment Unique Taxpayer Reference (UTR)?</h1>
 
 <p class="govuk-body">You can <a class="govuk-link" href="https://www.gov.uk/find-lost-utr-number">find a lost UTR</a>.</p>
 
+
 @govukInput(Input(
     id = "utr",
     name = "utr",
+    label = Label(
+      classes = "govuk-visually-hidden",
+      content = Text("What is your Self Assessment Unique Taxpayer Reference?")
+    ),
     hint = Some(Hint(
-      content = HtmlContent("""This is 10 numbers, for example 1234567890. It will be on tax returns and other letters about Self Assessment. It may be called ‘reference’, ‘UTR’ or ‘official use’.""")
+      content = Text("This is 10 numbers, for example 1234567890. It will be on tax returns and other letters about Self Assessment. It may be called ‘reference’, ‘UTR’ or ‘official use’.")
     )),
     classes = "govuk-input--width-10"
   ))

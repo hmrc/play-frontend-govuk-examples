@@ -33,33 +33,33 @@
           Action(
             text = "Accept analytics cookies",
             inputType = Some("button")
-          ), 
+          ),
           Action(
             text = "Reject analytics cookies",
             inputType = Some("button")
-          ), 
+          ),
           Action(
             text = "View cookies",
             href = Some("#")
           )
         )),
         hidden = true
-      ), 
+      ),
       Message(
         content = HtmlContent(acceptHtml),
         actions = Some(Seq(
           Action(
-            text = "Hide this message"
+            text = "Hide cookie message"
           )
         )),
         hidden = true,
         role = Some("alert")
-      ), 
+      ),
       Message(
         content = HtmlContent(rejectHtml),
         actions = Some(Seq(
           Action(
-            text = "Hide this message"
+            text = "Hide cookie message"
           )
         )),
         role = Some("alert")

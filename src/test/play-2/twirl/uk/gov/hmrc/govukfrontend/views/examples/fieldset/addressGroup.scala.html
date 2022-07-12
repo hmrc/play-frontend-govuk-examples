@@ -20,7 +20,7 @@ govukFieldset : GovukFieldset)
     id = "address-line-1",
     name = "address-line-1",
     label = Label(
-      content = HtmlContent("""Building and street <span class="govuk-visually-hidden">line 1 of 2</span>""")
+      content = Text("Address line 1")
     ),
     autocomplete = Some("address-line1")
   ))
@@ -28,7 +28,7 @@ govukFieldset : GovukFieldset)
     id = "address-line-2",
     name = "address-line-2",
     label = Label(
-      content = HtmlContent("""<span class="govuk-visually-hidden">Building and street line 2 of 2</span>""")
+      content = Text("Address line 2 (optional)")
     ),
     autocomplete = Some("address-line2")
   ))
@@ -40,14 +40,6 @@ govukFieldset : GovukFieldset)
     ),
     classes = "govuk-!-width-two-thirds",
     autocomplete = Some("address-level2")
-  ))
-@govukInput(Input(
-    id = "address-county",
-    name = "address-county",
-    label = Label(
-      content = Text("County")
-    ),
-    classes = "govuk-!-width-two-thirds"
   ))
 @govukInput(Input(
     id = "address-postcode",
