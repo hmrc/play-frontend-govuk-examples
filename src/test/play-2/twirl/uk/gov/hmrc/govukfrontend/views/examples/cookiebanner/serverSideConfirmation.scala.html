@@ -13,7 +13,7 @@
 
 }
 <form method="POST">
-  
+
 @govukCookieBanner(CookieBanner(
     ariaLabel = Some("Cookies on [name of service]"),
     messages = Seq(
@@ -21,7 +21,7 @@
         content = HtmlContent(acceptHtml),
         actions = Some(Seq(
           Action(
-            text = "Hide this message",
+            text = "Hide cookie message",
             inputType = Some("button"),
             href = Some("#")
           )

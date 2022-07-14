@@ -37,35 +37,35 @@
             inputType = Some("submit"),
             name = Some("cookies"),
             value = Some("accept")
-          ), 
+          ),
           Action(
             text = "Reject additional cookies",
             inputType = Some("submit"),
             name = Some("cookies"),
             value = Some("reject")
-          ), 
+          ),
           Action(
             text = "View cookies",
             href = Some("#")
           )
         )),
         hidden = true
-      ), 
+      ),
       Message(
         content = HtmlContent(acceptHtml),
         actions = Some(Seq(
           Action(
-            text = "Hide this message",
+            text = "Hide cookie message",
             inputType = Some("button"),
             href = Some("#")
           )
         ))
-      ), 
+      ),
       Message(
         content = HtmlContent(rejectedHtml),
         actions = Some(Seq(
           Action(
-            text = "Hide this message",
+            text = "Hide cookie message",
             inputType = Some("button"),
             href = Some("#")
           )
