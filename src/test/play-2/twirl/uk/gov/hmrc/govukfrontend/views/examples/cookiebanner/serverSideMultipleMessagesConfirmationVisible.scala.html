@@ -8,70 +8,70 @@
 
 
 @html = {
-<p class="govuk-body">We use some essential cookies to make this service work.</p>
+  <p class="govuk-body">We use some essential cookies to make this service work.</p>
   <p class="govuk-body">We’d like to set additional cookies so we can remember your settings, understand how people use the service and make improvements.</p>
 
 
 }
 @acceptHtml = {
-<p class="govuk-body">You’ve accepted additional cookies. You can <a class="govuk-link" href="#">change your cookie settings</a> at any time.</p>
+  <p class="govuk-body">You’ve accepted additional cookies. You can <a class="govuk-link" href="#">change your cookie settings</a> at any time.</p>
 
 
 }
 @rejectedHtml = {
-<p class="govuk-body">You’ve rejected additional cookies. You can <a class="govuk-link" href="#">change your cookie settings</a> at any time.</p>
+  <p class="govuk-body">You’ve rejected additional cookies. You can <a class="govuk-link" href="#">change your cookie settings</a> at any time.</p>
 
 
 }
 <form method="POST">
 
 @govukCookieBanner(CookieBanner(
-    ariaLabel = Some("Cookies on [name of service]"),
-    messages = Seq(
-      Message(
-        heading = Text("Cookies on [name of service]"),
-        content = HtmlContent(html),
-        actions = Some(Seq(
-          Action(
-            text = "Accept additional cookies",
-            inputType = Some("submit"),
-            name = Some("cookies"),
-            value = Some("accept")
-          ),
-          Action(
-            text = "Reject additional cookies",
-            inputType = Some("submit"),
-            name = Some("cookies"),
-            value = Some("reject")
-          ),
-          Action(
-            text = "View cookies",
-            href = Some("#")
-          )
-        )),
-        hidden = true
-      ),
-      Message(
-        content = HtmlContent(acceptHtml),
-        actions = Some(Seq(
-          Action(
-            text = "Hide cookie message",
-            inputType = Some("button"),
-            href = Some("#")
-          )
-        ))
-      ),
-      Message(
-        content = HtmlContent(rejectedHtml),
-        actions = Some(Seq(
-          Action(
-            text = "Hide cookie message",
-            inputType = Some("button"),
-            href = Some("#")
-          )
-        )),
-        hidden = true
-      )
+  ariaLabel = Some("Cookies on [name of service]"),
+  messages = Seq(
+    Message(
+      heading = Text("Cookies on [name of service]"),
+      content = HtmlContent(html),
+      actions = Some(Seq(
+        Action(
+          text = "Accept additional cookies",
+          inputType = Some("submit"),
+          name = Some("cookies"),
+          value = Some("accept")
+        ),
+        Action(
+          text = "Reject additional cookies",
+          inputType = Some("submit"),
+          name = Some("cookies"),
+          value = Some("reject")
+        ),
+        Action(
+          text = "View cookies",
+          href = Some("#")
+        )
+      )),
+      hidden = true
+    ),
+    Message(
+      content = HtmlContent(acceptHtml),
+      actions = Some(Seq(
+        Action(
+          text = "Hide cookie message",
+          inputType = Some("button"),
+          href = Some("#")
+        )
+      ))
+    ),
+    Message(
+      content = HtmlContent(rejectedHtml),
+      actions = Some(Seq(
+        Action(
+          text = "Hide cookie message",
+          inputType = Some("button"),
+          href = Some("#")
+        )
+      )),
+      hidden = true
     )
-  ))
+  )
+))
 </form>

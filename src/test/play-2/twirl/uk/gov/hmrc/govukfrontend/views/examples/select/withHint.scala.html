@@ -1,0 +1,60 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukSelect : GovukSelect)
+
+@()
+
+
+@govukSelect(Select(
+    id = "subject",
+    name = "subject",
+    items = Seq(
+      SelectItem(
+        value = Some("choose"),
+        text = "Choose location",
+        selected = true
+      ), 
+      SelectItem(
+        value = Some("eastmidlands"),
+        text = "East Midlands"
+      ), 
+      SelectItem(
+        value = Some("eastofengland"),
+        text = "East of England"
+      ), 
+      SelectItem(
+        value = Some("london"),
+        text = "London"
+      ), 
+      SelectItem(
+        value = Some("northeast"),
+        text = "North East"
+      ), 
+      SelectItem(
+        value = Some("northwest"),
+        text = "North West"
+      ), 
+      SelectItem(
+        value = Some("southeast"),
+        text = "South East"
+      ), 
+      SelectItem(
+        value = Some("southwest"),
+        text = "South West"
+      ), 
+      SelectItem(
+        value = Some("westmidlands"),
+        text = "West Midlands"
+      ), 
+      SelectItem(
+        value = Some("yorkshire"),
+        text = "Yorkshire and the Humber"
+      )
+    ),
+    label = Label(
+      content = Text("Choose location")
+    ),
+    hint = Some(Hint(
+      content = Text("This can be different to where you went before")
+    ))
+  ))
