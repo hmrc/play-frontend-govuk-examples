@@ -1,0 +1,24 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukInput : GovukInput,
+govukButton : GovukButton)
+
+@()
+
+
+@govukInput(Input(
+    id = "eori-number",
+    name = "eori-number",
+    label = Label(
+      isPageHeading = true,
+      classes = "govuk-label--l",
+      content = Text("What is your EORI number?")
+    ),
+    hint = Some(Hint(
+      content = Text("The first 2 letters are the country code, like GB or XI. This is followed by 12 or 15 digits, like GB123456123456.")
+    )),
+    classes = "govuk-input--width-20"
+  ))
+@govukButton(Button(
+    content = Text("Continue")
+  ))

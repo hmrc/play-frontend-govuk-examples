@@ -1,0 +1,32 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukInput : GovukInput,
+govukErrorSummary : GovukErrorSummary)
+
+@()
+
+
+@govukErrorSummary(ErrorSummary(
+    errorList = Seq(
+      ErrorLink(
+        href = Some("#eori-number"),
+        content = Text("Nodwch eich rhif EORI")
+      )
+    ),
+    title = Text("Mae problem wedi codi")
+  ))
+@govukInput(Input(
+    id = "eori-number",
+    name = "eori-number",
+    label = Label(
+      isPageHeading = true,
+      classes = "govuk-label--l",
+      content = Text("Beth yw’ch rhif EORI?")
+    ),
+    hint = Some(Hint(
+      content = Text("Cod y wlad yw’r 2 lythyren gyntaf, megis GB neu XI. Dilynir hyn gan 12 neu 15 digid, megis GB123456123456.")
+    )),
+    errorMessage = Some(ErrorMessage(
+      content = Text("Nodwch eich rhif EORI")
+    ))
+  ))

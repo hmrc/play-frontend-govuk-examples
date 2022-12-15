@@ -80,11 +80,50 @@ package object examples {
   lazy val employerpayereferenceLabelError =
     Guice.createInjector().getInstance(classOf[employerpayereference.labelError])
 
+  lazy val eorinumbersAsk =
+    Guice.createInjector().getInstance(classOf[eorinumbers.ask])
+
+  lazy val eorinumbersAskWelsh =
+    Guice.createInjector().getInstance(classOf[eorinumbers.askWelsh])
+
+  lazy val eorinumbersCheck =
+    Guice.createInjector().getInstance(classOf[eorinumbers.check])
+
+  lazy val eorinumbersCheckWelsh =
+    Guice.createInjector().getInstance(classOf[eorinumbers.checkWelsh])
+
+  lazy val eorinumbersError =
+    Guice.createInjector().getInstance(classOf[eorinumbers.error])
+
+  lazy val eorinumbersErrorWelsh =
+    Guice.createInjector().getInstance(classOf[eorinumbers.errorWelsh])
+
+  lazy val eorinumbersNotValid =
+    Guice.createInjector().getInstance(classOf[eorinumbers.notValid])
+
+  lazy val eorinumbersNotValidWelsh =
+    Guice.createInjector().getInstance(classOf[eorinumbers.notValidWelsh])
+
+  lazy val eorinumbersValid =
+    Guice.createInjector().getInstance(classOf[eorinumbers.valid])
+
+  lazy val eorinumbersValidWelsh =
+    Guice.createInjector().getInstance(classOf[eorinumbers.validWelsh])
+
   lazy val extraStatutoryConcessionsExampleOne =
     Guice.createInjector().getInstance(classOf[extrastatutoryconcessions.example1])
 
   lazy val extraStatutoryConcessionsExampleTwo =
     Guice.createInjector().getInstance(classOf[extrastatutoryconcessions.example2])
+
+  lazy val fileuplodUploadAdditionalFiles =
+    Guice.createInjector().getInstance(classOf[fileupload.uploadAdditionalFiles])
+
+  lazy val fileuploadUploadASingleFile =
+    Guice.createInjector().getInstance(classOf[fileupload.uploadASingleFile])
+
+  lazy val fileuploadUploadInProgress =
+    Guice.createInjector().getInstance(classOf[fileupload.uploadInProgress])
 
   lazy val forceoflawExampleOne =
     Guice.createInjector().getInstance(classOf[forceoflaw.example1])
@@ -112,6 +151,24 @@ package object examples {
 
   lazy val governmentGatewayOptionThree =
     Guice.createInjector().getInstance(classOf[governmentgateway.option3])
+
+  lazy val hidinginformationExampleOne =
+    Guice.createInjector().getInstance(classOf[hidinginformation.example1])
+
+  lazy val hidinginformationExampleOneWelsh =
+    Guice.createInjector().getInstance(classOf[hidinginformation.example1Welsh])
+
+  lazy val hidinginformationExampleTwo =
+    Guice.createInjector().getInstance(classOf[hidinginformation.example2])
+
+  lazy val hidinginformationExampleTwoWelsh =
+    Guice.createInjector().getInstance(classOf[hidinginformation.example2Welsh])
+
+  lazy val hidinginformationExampleThree =
+    Guice.createInjector().getInstance(classOf[hidinginformation.example3])
+
+  lazy val hidinginformationExampleThreeWelsh =
+    Guice.createInjector().getInstance(classOf[hidinginformation.example3Welsh])
 
   lazy val notificationbadgeNoItems =
     Guice.createInjector().getInstance(classOf[notificationbadge.noItems])
@@ -220,6 +277,12 @@ package object examples {
 
   lazy val uniquetaxpayerreferenceSelfAssessment =
     Guice.createInjector().getInstance(classOf[uniquetaxpayerreference.selfAssessment])
+
+  lazy val researchbannerExampleLinear =
+    Guice.createInjector().getInstance(classOf[researchbanner.exampleLinear])
+
+  lazy val researchbannerExampleNonLinear =
+    Guice.createInjector().getInstance(classOf[researchbanner.exampleNonLinear])
 
   lazy val vatregistrationnumberHeading =
     Guice.createInjector().getInstance(classOf[vatregistrationnumber.heading])

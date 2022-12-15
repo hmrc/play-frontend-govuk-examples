@@ -13,8 +13,7 @@ govukCheckboxes : GovukCheckboxes)
         content = Text("Select if you are British, Irish or a citizen of a different country")
       )
     ),
-    title = Text("There is a problem"),
-    disableAutoFocus = true
+    title = Text("There is a problem")
   ))
 @govukCheckboxes(Checkboxes(
     fieldset = Some(Fieldset(
@@ -30,7 +29,6 @@ govukCheckboxes : GovukCheckboxes)
     errorMessage = Some(ErrorMessage(
       content = Text("Select if you are British, Irish or a citizen of a different country")
     )),
-    idPrefix = Some("nationality"),
     name = "nationality",
     items = Seq(
       CheckboxItem(
