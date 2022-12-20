@@ -8,61 +8,61 @@
 
 
 @html = {
-  <p class="govuk-body">We use some essential cookies to make this service work.</p>
+<p class="govuk-body">We use some essential cookies to make this service work.</p>
   <p class="govuk-body">We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
 
 
 }
 @acceptHtml = {
-  <p class="govuk-body">You’ve accepted analytics cookies. You can <a class="govuk-link" href="#">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You’ve accepted analytics cookies. You can <a class="govuk-link" href="#">change your cookie settings</a> at any time.</p>
 
 
 }
 @rejectHtml = {
-  <p class="govuk-body">You’ve rejected analytics cookies. You can <a class="govuk-link" href="#">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You’ve rejected analytics cookies. You can <a class="govuk-link" href="#">change your cookie settings</a> at any time.</p>
 
 
 }
 @govukCookieBanner(CookieBanner(
-  ariaLabel = Some("Cookies on [name of service]"),
-  messages = Seq(
-    Message(
-      heading = Text("Cookies on [name of service]"),
-      content = HtmlContent(html),
-      actions = Some(Seq(
-        Action(
-          text = "Accept analytics cookies",
-          inputType = Some("button")
-        ),
-        Action(
-          text = "Reject analytics cookies",
-          inputType = Some("button")
-        ),
-        Action(
-          text = "View cookies",
-          href = Some("#")
-        )
-      ))
-    ),
-    Message(
-      content = HtmlContent(acceptHtml),
-      actions = Some(Seq(
-        Action(
-          text = "Hide cookie message"
-        )
-      )),
-      hidden = true,
-      role = Some("alert")
-    ),
-    Message(
-      content = HtmlContent(rejectHtml),
-      actions = Some(Seq(
-        Action(
-          text = "Hide cookie message"
-        )
-      )),
-      hidden = true,
-      role = Some("alert")
+    ariaLabel = Some("Cookies on [name of service]"),
+    messages = Seq(
+      Message(
+        heading = Text("Cookies on [name of service]"),
+        content = HtmlContent(html),
+        actions = Some(Seq(
+          Action(
+            text = "Accept analytics cookies",
+            inputType = Some("button")
+          ),
+          Action(
+            text = "Reject analytics cookies",
+            inputType = Some("button")
+          ),
+          Action(
+            text = "View cookies",
+            href = Some("#")
+          )
+        ))
+      ),
+      Message(
+        content = HtmlContent(acceptHtml),
+        actions = Some(Seq(
+          Action(
+            text = "Hide cookie message"
+          )
+        )),
+        hidden = true,
+        role = Some("alert")
+      ),
+      Message(
+        content = HtmlContent(rejectHtml),
+        actions = Some(Seq(
+          Action(
+            text = "Hide cookie message"
+          )
+        )),
+        hidden = true,
+        role = Some("alert")
+      )
     )
-  )
-))
+  ))

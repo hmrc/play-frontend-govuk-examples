@@ -75,15 +75,11 @@ lazy val root = Project(libName, file("."))
   .settings(inConfig(IntegrationTest)(itSettings): _*)
   .settings(inConfig(IntegrationTest)(org.scalafmt.sbt.ScalafmtPlugin.scalafmtConfigSettings))
   .settings(
-    // The following line undoes the inclusion of Twirl templates in the sbt-header sources
+    // The following line removes the Twirl templates from the sbt-header sources
     // enabled by sbt-auto-build. These are generated example templates that we don't want to
     // add licence headers to because it is generated example code we are explicitly inviting
-    // users to copy and paste.
-    //
-    // The mechanism documented here: https://github.com/sbt/sbt-header/tree/v4.1.0#excluding-files
-    // does not work for Twirl templates and even if it did work this issue would
-    // prevent the templates from being compiled: https://github.com/sbt/sbt-header/issues/130
-    unmanagedSources.in(Compile, headerCreate) := sources.in(Compile, unmanagedSources).value
+    // users to copy and paste. Updated to work with sbt-auto-build ^3.5.0.
+    Compile / headerSources --= (Compile / twirlCompileTemplates / sources).value
   )
 
 lazy val itSettings = Defaults.itSettings :+ (unmanagedSourceDirectories += sourceDirectory.value / playDir)
