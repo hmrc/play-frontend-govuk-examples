@@ -16,7 +16,6 @@
     hint = Some(Hint(
       content = Text("You’ll need an account to prove your identity and complete your Self Assessment.")
     )),
-    idPrefix = Some("sign-in"),
     name = "sign-in",
     items = Seq(
       RadioItem(
@@ -25,7 +24,7 @@
         hint = Some(Hint(
           content = Text("You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before.")
         ))
-      ), 
+      ),
       RadioItem(
         content = Text("Sign in with GOV.UK Verify"),
         value = Some("govuk-verify"),

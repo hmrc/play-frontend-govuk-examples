@@ -1,0 +1,24 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukInput : GovukInput,
+govukButton : GovukButton)
+
+@()
+
+
+@govukInput(Input(
+    id = "eori-number",
+    name = "eori-number",
+    label = Label(
+      isPageHeading = true,
+      classes = "govuk-label--l",
+      content = Text("Beth yw’ch rhif EORI?")
+    ),
+    hint = Some(Hint(
+      content = Text("Cod y wlad yw’r 2 lythyren gyntaf, megis GB neu XI. Dilynir hyn gan 12 neu 15 digid, megis GB123456123456.")
+    )),
+    classes = "govuk-input--width-20"
+  ))
+@govukButton(Button(
+    content = Text("Yn eich blaen")
+  ))

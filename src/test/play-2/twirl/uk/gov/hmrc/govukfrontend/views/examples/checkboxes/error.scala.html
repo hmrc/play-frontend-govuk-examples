@@ -19,7 +19,6 @@
     errorMessage = Some(ErrorMessage(
       content = Text("Select if you are British, Irish or a citizen of a different country")
     )),
-    idPrefix = Some("nationality"),
     name = "nationality",
     items = Seq(
       CheckboxItem(
@@ -28,11 +27,11 @@
         hint = Some(Hint(
           content = Text("including English, Scottish, Welsh and Northern Irish")
         ))
-      ), 
+      ),
       CheckboxItem(
         content = Text("Irish"),
         value = "irish"
-      ), 
+      ),
       CheckboxItem(
         content = Text("Citizen of another country"),
         value = "other"

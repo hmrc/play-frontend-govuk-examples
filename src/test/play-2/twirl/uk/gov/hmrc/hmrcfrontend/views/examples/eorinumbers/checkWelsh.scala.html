@@ -1,0 +1,36 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukRadios : GovukRadios,
+govukButton : GovukButton)
+
+@()
+
+
+@govukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("Ai dyma’r rhif EORI rydych chi am ei gofrestru: GB123456123456?"),
+        classes = "govuk-fieldset__legend--l",
+        isPageHeading = true
+      ))
+    )),
+    hint = Some(Hint(
+      content = Text("Dyma’r rhif EORI sydd wedi’i gofrestru i’ch cyfrif ID Porth y Llywodraeth.")
+    )),
+    idPrefix = Some("want-to-register"),
+    name = "want-to-register",
+    items = Seq(
+      RadioItem(
+        content = Text("Iawn"),
+        value = Some("yes")
+      ),
+      RadioItem(
+        content = Text("Na"),
+        value = Some("no")
+      )
+    ),
+    classes = "govuk-radios--inline"
+  ))
+@govukButton(Button(
+    content = Text("Yn eich blaen")
+  ))

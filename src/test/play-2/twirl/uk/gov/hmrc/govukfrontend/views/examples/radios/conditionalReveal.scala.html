@@ -54,19 +54,18 @@ govukInput : GovukInput)
     hint = Some(Hint(
       content = Text("Select one option.")
     )),
-    idPrefix = Some("contact"),
     name = "contact",
     items = Seq(
       RadioItem(
         content = Text("Email"),
         value = Some("email"),
         conditionalHtml = Some(emailHtml)
-      ), 
+      ),
       RadioItem(
         content = Text("Phone"),
         value = Some("phone"),
         conditionalHtml = Some(phoneHtml)
-      ), 
+      ),
       RadioItem(
         content = Text("Text message"),
         value = Some("text"),

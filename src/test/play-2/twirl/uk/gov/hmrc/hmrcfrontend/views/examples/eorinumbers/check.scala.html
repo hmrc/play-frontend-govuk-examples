@@ -1,6 +1,7 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this(govukRadios : GovukRadios)
+@this(govukRadios : GovukRadios,
+govukButton : GovukButton)
 
 @()
 
@@ -8,15 +9,16 @@
 @govukRadios(Radios(
     fieldset = Some(Fieldset(
       legend = Some(Legend(
-        content = Text("Have you changed your name?"),
+        content = Text("Is the EORI number you want to register GB123456123456?"),
         classes = "govuk-fieldset__legend--l",
         isPageHeading = true
       ))
     )),
     hint = Some(Hint(
-      content = Text("This includes changing your last name or spelling your name differently.")
+      content = Text("This is the EORI number that is registered to your Government Gateway ID.")
     )),
-    name = "changed-name",
+    idPrefix = Some("want-to-register"),
+    name = "want-to-register",
     items = Seq(
       RadioItem(
         content = Text("Yes"),
@@ -28,4 +30,7 @@
       )
     ),
     classes = "govuk-radios--inline"
+  ))
+@govukButton(Button(
+    content = Text("Continue")
   ))
