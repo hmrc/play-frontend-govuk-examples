@@ -8,7 +8,7 @@ resolvers ++= Seq(
 
 addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.8.18")
 
-addSbtPlugin("uk.gov.hmrc" % "sbt-auto-build" % "3.8.0")
+addSbtPlugin("uk.gov.hmrc" % "sbt-auto-build" % "3.9.0")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-twirl" % "1.3.15")
 

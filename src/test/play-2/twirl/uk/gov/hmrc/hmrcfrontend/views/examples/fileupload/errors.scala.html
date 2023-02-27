@@ -1,0 +1,234 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukErrorSummary : GovukErrorSummary,
+govukSummaryList : GovukSummaryList,
+govukButton : GovukButton,
+govukTag : GovukTag,
+govukFileUpload : GovukFileUpload,
+govukRadios : GovukRadios)
+
+@()
+
+
+@govukErrorSummary(ErrorSummary(
+    errorList = Seq(
+      ErrorLink(
+        href = Some("#select-error"),
+        content = Text("Select a file")
+      ), 
+      ErrorLink(
+        href = Some("#empty-error"),
+        content = Text("The selected file is empty")
+      ), 
+      ErrorLink(
+        href = Some("#smaller-error"),
+        content = Text("The selected file must be smaller than 100MB")
+      ), 
+      ErrorLink(
+        href = Some("#already-error"),
+        content = Text("The selected file has already been uploaded")
+      ), 
+      ErrorLink(
+        href = Some("#type-error"),
+        content = Text("The selected file must be a JPG, PNG or PDF")
+      ), 
+      ErrorLink(
+        href = Some("#virus-error"),
+        content = Text("The selected file contains a virus — upload a different one")
+      ), 
+      ErrorLink(
+        href = Some("#could-not-error"),
+        content = Text("The selected file could not be uploaded")
+      ), 
+      ErrorLink(
+        href = Some("#supporting-evidence-error"),
+        content = Text("Select yes if you want to add a different type of supporting evidence")
+      )
+    ),
+    title = Text("There is a problem")
+  ))
+<h1 class="govuk-heading-xl">Upload receipts</h1>
+
+<div id="file-upload-1-hint" class="govuk-hint">
+    You can upload your receipt as a scanned copy or photo of the original. The selected file must be smaller than 100MB.
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <table class="govuk-table">
+      <colgroup>
+        <col>
+        <col span="2">
+        <col span="1">
+      </colgroup>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a class="govuk-link" href="#"><strong>receipt1.jpg</strong></a></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">uploaded</strong></td>
+          <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">Remove</a></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" colspan="2">
+            
+@govukFileUpload(FileUpload(
+    name = "select-error",
+    id = "select-error",
+    label = Label(
+      classes = "govuk-visually-hidden",
+      content = Text("Receipt 2")
+    ),
+    errorMessage = Some(ErrorMessage(
+      content = Text("Select a file")
+    ))
+  ))
+</td>
+          <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">Remove</a></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" colspan="2">
+            
+@govukFileUpload(FileUpload(
+    name = "empty-error",
+    id = "empty-error",
+    label = Label(
+      classes = "govuk-visually-hidden",
+      content = Text("Receipt 3")
+    ),
+    errorMessage = Some(ErrorMessage(
+      content = Text("The selected file is empty")
+    ))
+  ))
+</td>
+          <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">Remove</a></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" colspan="2">
+            
+@govukFileUpload(FileUpload(
+    name = "smaller-error",
+    id = "smaller-error",
+    label = Label(
+      classes = "govuk-visually-hidden",
+      content = Text("Receipt 4")
+    ),
+    errorMessage = Some(ErrorMessage(
+      content = Text("The selected file must be smaller than 100MB")
+    ))
+  ))
+</td>
+          <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">Remove</a></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" colspan="2">
+            
+@govukFileUpload(FileUpload(
+    name = "already-error",
+    id = "already-error",
+    label = Label(
+      classes = "govuk-visually-hidden",
+      content = Text("Receipt 5")
+    ),
+    errorMessage = Some(ErrorMessage(
+      content = Text("The selected file has already been uploaded")
+    ))
+  ))
+</td>
+          <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">Remove</a></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" colspan="2">
+            
+@govukFileUpload(FileUpload(
+    name = "type-error",
+    id = "type-error",
+    label = Label(
+      classes = "govuk-visually-hidden",
+      content = Text("Receipt 6")
+    ),
+    errorMessage = Some(ErrorMessage(
+      content = Text("The selected file must be a JPG, PNG or PDF")
+    ))
+  ))
+</td>
+          <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">Remove</a></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" colspan="2">
+            
+@govukFileUpload(FileUpload(
+    name = "virus-error",
+    id = "virus-error",
+    label = Label(
+      classes = "govuk-visually-hidden",
+      content = Text("Receipt 7")
+    ),
+    errorMessage = Some(ErrorMessage(
+      content = Text("The selected file contains a virus — upload a different one")
+    ))
+  ))
+</td>
+          <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">Remove</a></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" colspan="2">
+            
+@govukFileUpload(FileUpload(
+    name = "could-not-error",
+    id = "could-not-error",
+    label = Label(
+      classes = "govuk-visually-hidden",
+      content = Text("Receipt 8")
+    ),
+    errorMessage = Some(ErrorMessage(
+      content = Text("The selected file could not be uploaded")
+    ))
+  ))
+</td>
+          <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">Remove</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    
+@govukButton(Button(
+    classes = "govuk-button--secondary",
+    content = Text("Upload another receipt")
+  ))
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    
+@govukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("Add a different type of supporting evidence to your claim?"),
+        classes = "govuk-fieldset__legend govuk-fieldset__legend--m"
+      ))
+    )),
+    errorMessage = Some(ErrorMessage(
+      content = Text("Select yes if you want to add a different type of supporting evidence")
+    )),
+    name = "add-a-different-type-of-evidence",
+    items = Seq(
+      RadioItem(
+        content = Text("Yes"),
+        value = Some("yes")
+      ), 
+      RadioItem(
+        content = Text("No"),
+        value = Some("no")
+      )
+    )
+  ))
+@govukButton(Button(
+    content = Text("Continue")
+  ))
+</div>
+</div>

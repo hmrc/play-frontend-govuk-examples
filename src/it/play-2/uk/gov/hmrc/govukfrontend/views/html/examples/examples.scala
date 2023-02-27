@@ -155,6 +155,30 @@ package object examples {
   lazy val insettextDefault =
     Guice.createInjector().getInstance(classOf[insettext.default])
 
+  lazy val paginationDefault =
+    Guice.createInjector().getInstance(classOf[pagination.default])
+
+  lazy val paginationEllipses =
+    Guice.createInjector().getInstance(classOf[pagination.ellipses])
+
+  lazy val paginationFirstPage =
+    Guice.createInjector().getInstance(classOf[pagination.firstPage])
+
+  lazy val paginationInPage =
+    Guice.createInjector().getInstance(classOf[pagination.inPage])
+
+  lazy val paginationLabels =
+    Guice.createInjector().getInstance(classOf[pagination.labels])
+
+  lazy val paginationLabels2 =
+    Guice.createInjector().getInstance(classOf[pagination.labels2])
+
+  lazy val paginationLargeNumberOfPages =
+    Guice.createInjector().getInstance(classOf[pagination.largeNumberOfPages])
+
+  lazy val paginationLastPage =
+    Guice.createInjector().getInstance(classOf[pagination.lastPage])
+
   lazy val panelDefault =
     Guice.createInjector().getInstance(classOf[panel.default])
 
@@ -208,6 +232,12 @@ package object examples {
 
   lazy val summarylistMixedActions =
     Guice.createInjector().getInstance(classOf[summarylist.mixedActions])
+
+  lazy val summarylistCardWithActions =
+    Guice.createInjector().getInstance(classOf[summarylist.cardWithActions])
+
+  lazy val summarylistCardWithTitle =
+    Guice.createInjector().getInstance(classOf[summarylist.cardWithTitle])
 
   lazy val tableDefault =
     Guice.createInjector().getInstance(classOf[table.default])

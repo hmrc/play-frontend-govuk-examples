@@ -1,12 +1,8 @@
-@import uk.gov.hmrc.hmrcfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this(hmrcPageHeading : HmrcPageHeading)
+@this()
 
 @()
 
-
-@hmrcPageHeading(PageHeading(
-    text = "What is your name?",
-    section = Some("Personal details"),
-    headingClasses = Some("govuk-heading-l")
-  ))
+<h2 class="govuk-caption-l hmrc-caption-l"><span class="govuk-visually-hidden">This section is </span>Your details</h2>
+<h1 class="govuk-heading-l">What is your name?</h1>

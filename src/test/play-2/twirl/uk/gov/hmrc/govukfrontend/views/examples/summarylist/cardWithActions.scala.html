@@ -1,0 +1,86 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.summarylist.{Card, CardTitle}
+
+@this(govukSummaryList : GovukSummaryList)
+
+@()
+
+
+@govukSummaryList(SummaryList(
+    rows = Seq(
+      SummaryListRow(
+        key = Key(
+          content = Text("Course")
+        ),
+        value = Value(
+          content = HtmlContent("""English (3DMD)<br>PGCE with QTS full time""")
+        )
+      ),
+      SummaryListRow(
+        key = Key(
+          content = Text("Location")
+        ),
+        value = Value(
+          content = HtmlContent("""School name<br>Road, City, SW1 1AA""")
+        )
+      )
+    ),
+    card = Some(Card(
+      title = Some(CardTitle(
+        content = Text("University of Gloucestershire")
+      )),
+      actions = Some(Actions(
+        items = Seq(
+          ActionItem(
+            href = "#",
+            content = Text("Delete choice"),
+            visuallyHiddenText = Some("of University of Gloucestershire")
+          ),
+          ActionItem(
+            href = "#",
+            content = Text("Withdraw"),
+            visuallyHiddenText = Some("from University of Gloucestershire")
+          )
+        )
+      ))
+    ))
+  ))
+@govukSummaryList(SummaryList(
+    rows = Seq(
+      SummaryListRow(
+        key = Key(
+          content = Text("Course")
+        ),
+        value = Value(
+          content = HtmlContent("""English (Q3X1)<br>PGCE with QTS full time""")
+        )
+      ),
+      SummaryListRow(
+        key = Key(
+          content = Text("Location")
+        ),
+        value = Value(
+          content = HtmlContent("""School name<br>Road, City, SW2 1AA""")
+        )
+      )
+    ),
+    card = Some(Card(
+      title = Some(CardTitle(
+        content = Text("University of Bristol")
+      )),
+      actions = Some(Actions(
+        items = Seq(
+          ActionItem(
+            href = "#",
+            content = Text("Delete choice"),
+            visuallyHiddenText = Some("of University of Bristol")
+          ),
+          ActionItem(
+            href = "#",
+            content = Text("Withdraw"),
+            visuallyHiddenText = Some("from University of Bristol")
+          )
+        )
+      ))
+    ))
+  ))

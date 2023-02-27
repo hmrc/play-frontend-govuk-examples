@@ -132,14 +132,32 @@ package object examples {
   lazy val extraStatutoryConcessionsExampleTwo =
     Guice.createInjector().getInstance(classOf[extrastatutoryconcessions.example2])
 
-  lazy val fileuplodUploadAdditionalFiles =
+  lazy val fileuploadAdditionalRow =
+    Guice.createInjector().getInstance(classOf[fileupload.additionalRow])
+
+  lazy val fileuploadErrors =
+    Guice.createInjector().getInstance(classOf[fileupload.errors])
+
+  lazy val fileuploadFixed =
+    Guice.createInjector().getInstance(classOf[fileupload.fixed])
+
+  lazy val fileuploadTypes =
+    Guice.createInjector().getInstance(classOf[fileupload.types])
+
+  lazy val fileuploadQuestion =
+    Guice.createInjector().getInstance(classOf[fileupload.question])
+
+  lazy val fileuploadUploadAdditionalFiles =
     Guice.createInjector().getInstance(classOf[fileupload.uploadAdditionalFiles])
 
   lazy val fileuploadUploadASingleFile =
     Guice.createInjector().getInstance(classOf[fileupload.uploadASingleFile])
 
-  lazy val fileuploadUploadInProgress =
-    Guice.createInjector().getInstance(classOf[fileupload.uploadInProgress])
+  lazy val fileuploadUploaded =
+    Guice.createInjector().getInstance(classOf[fileupload.uploaded])
+
+  lazy val fileuploadUploading =
+    Guice.createInjector().getInstance(classOf[fileupload.uploading])
 
   lazy val forceoflawExampleOne =
     Guice.createInjector().getInstance(classOf[forceoflaw.example1])
@@ -186,6 +204,9 @@ package object examples {
   lazy val hidinginformationExampleThreeWelsh =
     Guice.createInjector().getInstance(classOf[hidinginformation.example3Welsh])
 
+  lazy val matchanorganistionCompanyRegNumber =
+    Guice.createInjector().getInstance(classOf[matchanorganisationtoHMRCrecords.companyRegNumber])
+
   lazy val notificationbadgeNoItems =
     Guice.createInjector().getInstance(classOf[notificationbadge.noItems])
 
@@ -203,6 +224,24 @@ package object examples {
 
   lazy val pageheadingWithSubheading =
     Guice.createInjector().getInstance(classOf[pageheading.withSubheading])
+
+  lazy val pageheadingAsLabelWithSubheading =
+    Guice.createInjector().getInstance(classOf[pageheading.headingAsLabelWithSubheading])
+
+  lazy val pageheadingAsLabelWithSubheadingWelsh =
+    Guice.createInjector().getInstance(classOf[pageheading.headingAsLabelWithSubheadingWelsh])
+
+  lazy val pageheadingLegendsAsPageHeadingsWithSubheading =
+    Guice.createInjector().getInstance(classOf[pageheading.legendsAsPageHeadingsWithSubheading])
+
+  lazy val pageheadingLegendsAsPageHeadingsWithSubheadingWelsh =
+    Guice.createInjector().getInstance(classOf[pageheading.legendsAsPageHeadingsWithSubheadingWelsh])
+
+  lazy val pageheadingLegendsAsPageHeadingsWithSubheadingWelshWithError =
+    Guice.createInjector().getInstance(classOf[pageheading.legendsAsPageHeadingsWithSubheadingWelshWithError])
+
+  lazy val pageheadingLegendsAsPageHeadingsWithSubheadingWithError =
+    Guice.createInjector().getInstance(classOf[pageheading.legendsAsPageHeadingsWithSubheadingWithError])
 
   lazy val pagenotfoundExample =
     Guice.createInjector().getInstance(classOf[pagenotfound.example])

@@ -1,0 +1,17 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukPagination : GovukPagination)
+
+@()
+
+
+@govukPagination(Pagination(
+    previous = Some(PaginationLink(
+      href = "#",
+      labelText = Some("1 of 3")
+    )),
+    next = Some(PaginationLink(
+      href = "#",
+      labelText = Some("3 of 3")
+    ))
+  ))
