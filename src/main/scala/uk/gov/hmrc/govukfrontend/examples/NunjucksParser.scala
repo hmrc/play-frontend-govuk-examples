@@ -126,6 +126,8 @@ object NunjucksParser {
           jsonToMacroCall[NotificationBanner](m, args)
         case (m @ "govukPanel", args)              =>
           jsonToMacroCall[Panel](m, args)
+        case (m @ "govukPagination", args)         =>
+          jsonToMacroCall[Pagination](m, args)
         case (m @ "govukPhaseBanner", args)        =>
           jsonToMacroCall[PhaseBanner](m, args)
         case (m @ "govukRadios", args)             =>

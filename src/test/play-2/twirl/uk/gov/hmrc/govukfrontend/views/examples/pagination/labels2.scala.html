@@ -1,0 +1,17 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukPagination : GovukPagination)
+
+@()
+
+
+@govukPagination(Pagination(
+    previous = Some(PaginationLink(
+      href = "#",
+      labelText = Some("Applying for a provisional lorry or bus licence")
+    )),
+    next = Some(PaginationLink(
+      href = "#",
+      labelText = Some("Driver CPC part 1 test: theory")
+    ))
+  ))

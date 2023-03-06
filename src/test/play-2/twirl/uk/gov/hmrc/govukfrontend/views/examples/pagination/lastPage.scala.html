@@ -1,0 +1,27 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukPagination : GovukPagination)
+
+@()
+
+
+@govukPagination(Pagination(
+    items = Some(Seq(
+      PaginationItem(
+        href = "#",
+        number = Some("1")
+      ), 
+      PaginationItem(
+        href = "#",
+        number = Some("2")
+      ), 
+      PaginationItem(
+        href = "#",
+        number = Some("3"),
+        current = Some(true)
+      )
+    )),
+    previous = Some(PaginationLink(
+      href = "#"
+    ))
+  ))

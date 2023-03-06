@@ -1805,6 +1805,20 @@
     }
   }
 }, {
+  "id" : "summarylist/cardWithActions",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/summarylist/cardWithActions.scala.html"
+    }
+  }
+}, {
+  "id" : "summarylist/cardWithTitle",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/summarylist/cardWithTitle.scala.html"
+    }
+  }
+}, {
   "id" : "summarylist/default",
   "versions" : {
     "play" : {

@@ -1,0 +1,63 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukSummaryList: GovukSummaryList,
+        govukButton : GovukButton,
+        govukTag: GovukTag,
+        govukFileUpload: GovukFileUpload
+)
+
+@()
+
+
+<h1 class="govuk-heading-xl">Upload declaration, receipt and calculation worksheet</h1>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <div id="file-upload-1-hint" class="govuk-hint">
+        You can upload a scanned copy or photo of the original. Each selected file must be smaller than 100MB.
+        </div>
+
+        @govukSummaryList(SummaryList(
+            rows = Seq(
+                SummaryListRow(
+                    key = Key(content = HtmlContent("""<a class="govuk-link" href="#">declaration.jpg</a><div class="govuk-body govuk-!-margin-0">Declaration</div>""")),
+                    value = Value(content = HtmlContent(
+                        govukTag(Tag(content = Text("uploaded"), classes = "govuk-tag--green"))
+                    )),
+                    actions = Some(Actions(
+                        items = Seq(
+                            ActionItem(
+                                href = "#",
+                                content = Text("Remove"),
+                                visuallyHiddenText = Some("declaration.jpg")
+                            )
+                        )
+                    ))
+                )
+            )
+        ))
+
+        @govukFileUpload(FileUpload(
+            id = "file-upload-1",
+            name = "file-upload-1",
+            label = Label(
+                content = Text("Receipt")
+            )
+        ))
+
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+        @govukFileUpload(FileUpload(
+            id = "file-upload-2",
+            name = "file-upload-2",
+            label = Label(
+                content = Text("Calculation worksheet")
+            )
+        ))
+
+        @govukButton(Button(
+            content = Text("Continue")
+        ))
+    </div>
+</div>

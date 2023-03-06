@@ -1,23 +1,26 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
-@this(govukSummaryList: GovukSummaryList,
-        govukButton : GovukButton,
+@this(govukButton : GovukButton,
+        govukFileUpload: GovukFileUpload,
+        govukSummaryList: GovukSummaryList,
         govukTag: GovukTag
 )
 
 @()
 
-<h1 class="govuk-heading-xl">Upload receipts</h1>
-
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <div id="file-upload-1-hint" class="govuk-hint">
-        You can upload your receipt as a scanned copy or photo of the original. The selected file must be smaller than 100MB.
-        </div>
-
-        @govukButton(Button(
-            content = Text("Upload another receipt"),
-            classes = "govuk-button--secondary"
+        @govukFileUpload(FileUpload(
+            id = "file-upload-1",
+            name = "file-upload-1",
+            hint = Some(Hint(
+                content = Text("You can upload your receipt as a scanned copy or photo of the original. The selected file must be smaller than 100MB.")
+            )),
+            label = Label(
+                content = Text("Upload receipts"),
+                classes = "govuk-label--xl",
+                isPageHeading = true
+            )
         ))
 
         @govukSummaryList(SummaryList(
@@ -55,9 +58,6 @@
             )
         ))
 
-        @govukButton(Button(
-            content = Text("Continue")
-        ))
-
-    </div>
+        @govukButton(Button(content = Text("Continue")))
+  </div>
 </div>

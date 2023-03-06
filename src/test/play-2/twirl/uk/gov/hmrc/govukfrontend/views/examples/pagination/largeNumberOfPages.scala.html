@@ -1,0 +1,44 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukPagination : GovukPagination)
+
+@()
+
+
+@govukPagination(Pagination(
+    items = Some(Seq(
+      PaginationItem(
+        href = "#",
+        number = Some("1")
+      ), 
+      PaginationItem(
+        ellipsis = Some(true)
+      ), 
+      PaginationItem(
+        href = "#",
+        number = Some("6")
+      ), 
+      PaginationItem(
+        href = "#",
+        number = Some("7"),
+        current = Some(true)
+      ), 
+      PaginationItem(
+        href = "#",
+        number = Some("8")
+      ), 
+      PaginationItem(
+        ellipsis = Some(true)
+      ), 
+      PaginationItem(
+        href = "#",
+        number = Some("42")
+      )
+    )),
+    previous = Some(PaginationLink(
+      href = "#"
+    )),
+    next = Some(PaginationLink(
+      href = "#"
+    ))
+  ))

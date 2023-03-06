@@ -1,0 +1,40 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukRadios : GovukRadios,
+govukButton : GovukButton)
+
+@()
+
+
+@govukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("Add supporting documents to your claim"),
+        classes = "govuk-fieldset__legend--l",
+        isPageHeading = true
+      ))
+    )),
+    hint = Some(Hint(
+      content = Text("You can repeat this step to add more types of documents to your claim.")
+    )),
+    idPrefix = Some("want-to-register"),
+    name = "want-to-register",
+    items = Seq(
+      RadioItem(
+        content = Text("Declaration"),
+        value = Some("declaration")
+      ), 
+      RadioItem(
+        content = Text("Invoice"),
+        value = Some("invoice")
+      ), 
+      RadioItem(
+        content = Text("Receipt"),
+        value = Some("receipt")
+      )
+    ),
+    classes = "govuk-radios"
+  ))
+@govukButton(Button(
+    content = Text("Continue")
+  ))

@@ -20,18 +20,15 @@ lazy val root = Project(libName, file("."))
     majorVersion := 0,
     scalaVersion := "2.12.13",
     libraryDependencies ++= LibDependencies.libDependencies,
-    resolvers :=
-      Seq(
-        Resolver.jcenterRepo,
-        "HMRC-open-artefacts-maven" at "https://open.artefacts.tax.service.gov.uk/maven2",
-        Resolver.url("HMRC-open-artefacts-ivy", url("https://open.artefacts.tax.service.gov.uk/ivy2"))(
-          Resolver.ivyStylePatterns
-        )
-      ),
+    resolvers += Resolver.jcenterRepo,
+    resolvers += "HMRC-open-artefacts-maven" at "https://open.artefacts.tax.service.gov.uk/maven2",
+    resolvers += Resolver.url("HMRC-open-artefacts-ivy", url("https://open.artefacts.tax.service.gov.uk/ivy2"))(
+      Resolver.ivyStylePatterns
+    ),
     TwirlKeys.templateImports := templateImports,
     PlayCrossCompilation.playCrossCompilationSettings,
     isPublicArtefact := true,
-    (sourceDirectories in (Compile, TwirlKeys.compileTemplates)) +=
+    Compile / TwirlKeys.compileTemplates / sourceDirectories +=
       baseDirectory.value / "src" / "test" / playDir / "twirl",
     updateExampleSources := {
       println("==========")
@@ -44,25 +41,25 @@ lazy val root = Project(libName, file("."))
     generateExamplesManifest := {
       println("==========")
       println("Generating manifest.json...")
-      val manifestFile           = (resourceDirectory in Test).value / "manifest.json"
+      val manifestFile           = (Test / resourceDirectory).value / "manifest.json"
       val examplesDir: File      = baseDirectory.value / "src/test"
       val allExamples: Set[File] = (examplesDir ** "*.scala.html").get.toSet
       generate(allExamples = allExamples, manifestFile = manifestFile)
       println("Task completed")
       manifestFile
     },
-    parallelExecution in sbt.Test := false,
-    playMonitoredFiles ++= (sourceDirectories in (Compile, TwirlKeys.compileTemplates)).value,
-    unmanagedResourceDirectories in Test ++= Seq(baseDirectory(_ / "target/web/public/test").value),
+    sbt.Test / parallelExecution := false,
+    playMonitoredFiles ++= (Compile / TwirlKeys.compileTemplates / sourceDirectories).value,
+    Test / unmanagedResourceDirectories ++= Seq(baseDirectory(_ / "target/web/public/test").value),
     buildInfoKeys ++= Seq[BuildInfoKey](
       "playVersion" -> PlayCrossCompilation.playVersion,
-      sources in (Compile, TwirlKeys.compileTemplates)
+      Compile / TwirlKeys.compileTemplates / sources
     ),
     run := {
       val _ = generateExamplesManifest.value
     },
     scalacOptions += "-verbose",
-    fork in Test := false,
+    Test / fork := false,
     // ***************
     // Use the silencer plugin to suppress warnings from unused imports in compiled twirl templates
     scalacOptions += "-P:silencer:pathFilters=views;routes",

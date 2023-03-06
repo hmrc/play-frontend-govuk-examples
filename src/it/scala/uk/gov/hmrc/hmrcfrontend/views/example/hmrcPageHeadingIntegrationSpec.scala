@@ -25,4 +25,36 @@ class hmrcPageHeadingIntegrationSpec extends TemplateIntegrationSpec {
 
   testRendering(HmrcFrontend, "page-heading", "withoutSubheading", pageheadingWithoutSubheading.f)
   testRendering(HmrcFrontend, "page-heading", "withSubheading", pageheadingWithSubheading.f)
+  testRendering(HmrcFrontend, "page-heading", "headingAsLabelWithSubheading", pageheadingAsLabelWithSubheading.f)
+  testRendering(
+    HmrcFrontend,
+    "page-heading",
+    "headingAsLabelWithSubheadingWelsh",
+    pageheadingAsLabelWithSubheadingWelsh.f
+  )
+  testRendering(
+    HmrcFrontend,
+    "page-heading",
+    "legendsAsPageHeadingsWithSubheading",
+    pageheadingLegendsAsPageHeadingsWithSubheading.f
+  )
+  testRendering(
+    HmrcFrontend,
+    "page-heading",
+    "legendsAsPageHeadingsWithSubheadingWelsh",
+    pageheadingLegendsAsPageHeadingsWithSubheadingWelsh.f
+  )
+  testRendering(
+    HmrcFrontend,
+    "page-heading",
+    "legendsAsPageHeadingsWithSubheadingWelshWithError",
+    pageheadingLegendsAsPageHeadingsWithSubheadingWelshWithError.f
+  )
+  testRendering(
+    HmrcFrontend,
+    "page-heading",
+    "legendsAsPageHeadingsWithSubheadingWithError",
+    pageheadingLegendsAsPageHeadingsWithSubheadingWithError.f
+  )
+
 }

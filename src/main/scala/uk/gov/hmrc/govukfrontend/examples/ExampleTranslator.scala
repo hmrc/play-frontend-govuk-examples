@@ -47,7 +47,9 @@ object ExampleTranslator {
     def getNunjucksExamples: Future[List[TrueFile]] = Future {
       val nunjucksExamples: List[TrueFile] = for {
         file <- srcNunjucksExamplesDir.recursiveContents.toList
-        if file.path.toString.contains(".njk") && !file.path.toString.contains(".md.njk")
+        if file.path.toString.contains(".njk") &&
+          !file.path.toString.contains(".md.njk") &&
+          !file.path.toString.contains("archived")
       } yield file
 
       if (nunjucksExamples.isEmpty)

@@ -28,12 +28,13 @@ class hmrcFileUploadIntegrationSpec extends TemplateIntegrationSpec {
   val request: RequestHeader = FakeRequest()
   val messages: Messages     = MessagesSupport().messages
 
-  testRendering(
-    HmrcFrontend,
-    "file-upload",
-    "uploadAdditionalFiles",
-    () => fileuplodUploadAdditionalFiles.render(messages, request)
-  )
+  testRendering(HmrcFrontend, "file-upload", "additionalRow", fileuploadAdditionalRow.f)
+  testRendering(HmrcFrontend, "file-upload", "errors", fileuploadErrors.f)
+  testRendering(HmrcFrontend, "file-upload", "fixed", fileuploadFixed.f)
+  testRendering(HmrcFrontend, "file-upload", "question", fileuploadQuestion.f)
+  testRendering(HmrcFrontend, "file-upload", "types", fileuploadTypes.f)
   testRendering(HmrcFrontend, "file-upload", "uploadASingleFile", fileuploadUploadASingleFile.f)
-  testRendering(HmrcFrontend, "file-upload", "uploadInProgress", fileuploadUploadInProgress.f)
+  testRendering(HmrcFrontend, "file-upload", "uploadAdditionalFiles", fileuploadUploadAdditionalFiles.f)
+  testRendering(HmrcFrontend, "file-upload", "uploaded", fileuploadUploaded.f)
+  testRendering(HmrcFrontend, "file-upload", "uploading", fileuploadUploading.f)
 }
