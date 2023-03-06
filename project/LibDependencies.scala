@@ -13,7 +13,7 @@ object LibDependencies {
       val compile = Seq(
         "com.typesafe.play" %% "filters-helpers" % PlayVersion.current,
         "org.joda"           % "joda-convert"    % "2.0.2",
-        "com.lihaoyi"       %% "fastparse"       % "2.1.2",
+        "com.lihaoyi"       %% "fastparse"       % "2.1.3",
         "com.typesafe.play" %% "play-test"       % PlayVersion.current
       )
 
@@ -24,7 +24,7 @@ object LibDependencies {
         "org.scalacheck"               %% "scalacheck"       % "1.14.1",
         "com.googlecode.htmlcompressor" % "htmlcompressor"   % "1.5.2",
         "com.github.pathikrit"         %% "better-files"     % "3.8.0",
-        "com.lihaoyi"                  %% "pprint"           % "0.5.3",
+        "com.lihaoyi"                  %% "pprint"           % "0.5.5",
         "org.bitbucket.cowwoc"          % "diff-match-patch" % "1.2",
         ws
       ).map(_ % s"$IntegrationTest,$Test")
