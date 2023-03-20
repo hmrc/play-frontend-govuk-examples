@@ -21,8 +21,8 @@ import uk.gov.hmrc.hmrcfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcResearchBannerIntegrationSpec extends TemplateIntegrationSpec {
-
-  // TODO: Currently disabled as the example in the design-system repo are hardcoded to not use our components
-  // testRendering(HmrcFrontend, "research-banner", "exampleLinear", researchbannerExampleLinear.f)
-  // testRendering(HmrcFrontend, "research-banner", "exampleNonLinear", researchbannerExampleNonLinear.f)
+  testRendering(HmrcFrontend, "research-banner", "exampleLinear", researchbannerExampleLinear.f)
+  testRendering(HmrcFrontend, "research-banner", "exampleNonLinear", researchbannerExampleNonLinear.f)
+  testRendering(HmrcFrontend, "research-banner", "exampleLinearWelsh", researchbannerExampleLinearWelsh.f)
+  testRendering(HmrcFrontend, "research-banner", "exampleNonLinearWelsh", researchbannerExampleNonLinearWelsh.f)
 }

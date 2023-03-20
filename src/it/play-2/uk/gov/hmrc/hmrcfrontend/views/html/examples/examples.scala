@@ -339,6 +339,12 @@ package object examples {
   lazy val researchbannerExampleNonLinear =
     Guice.createInjector().getInstance(classOf[researchbanner.exampleNonLinear])
 
+  lazy val researchbannerExampleLinearWelsh =
+    Guice.createInjector().getInstance(classOf[researchbanner.exampleLinearWelsh])
+
+  lazy val researchbannerExampleNonLinearWelsh =
+    Guice.createInjector().getInstance(classOf[researchbanner.exampleNonLinearWelsh])
+
   lazy val vatregistrationnumberHeading =
     Guice.createInjector().getInstance(classOf[vatregistrationnumber.heading])
 
