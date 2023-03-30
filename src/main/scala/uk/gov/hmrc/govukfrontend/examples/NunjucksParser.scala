@@ -182,7 +182,7 @@ object NunjucksParser {
     // some logic below assumes this will be a javascript (not json) object with each property starting on it's own line
     var nunjucksParamsWithVariablesQuoted = nunjucksParams
       .getOrElse("")
-      .lines
+      .linesIterator
       .toStream
       .map { line =>
         if (
@@ -241,7 +241,7 @@ object NunjucksParser {
         .toStream
         .map { split =>
           if (split.startsWith(">") && split.endsWith("<")) {
-            "'" + split.substring(1, split.length - 1).lines.toStream.mkString(" ") + "'"
+            "'" + split.substring(1, split.length - 1).linesIterator.toStream.mkString(" ") + "'"
           } else split
         }
         .mkString("\n")
