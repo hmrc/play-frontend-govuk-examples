@@ -5,7 +5,7 @@ import sys.process.Process
 val libName = "play-frontend-govuk-examples"
 
 lazy val playDir         = "play-2"
-lazy val silencerVersion = "1.7.2"
+lazy val silencerVersion = "1.7.12"
 
 lazy val IntegrationTest  = config("it") extend Test
 val twirlCompileTemplates =
@@ -18,7 +18,7 @@ lazy val root = Project(libName, file("."))
   .settings(
     name := libName,
     majorVersion := 0,
-    scalaVersion := "2.12.13",
+    scalaVersion := "2.13.8",
     libraryDependencies ++= LibDependencies.libDependencies,
     resolvers += Resolver.jcenterRepo,
     resolvers += "HMRC-open-artefacts-maven" at "https://open.artefacts.tax.service.gov.uk/maven2",
