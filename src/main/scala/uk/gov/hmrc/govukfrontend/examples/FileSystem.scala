@@ -58,7 +58,7 @@ object FileSystem extends Retryable {
   }
   case class TrueDir(path: Path) extends TruePath {
 
-    val recursiveContents: Iterable[TrueFile] =
+    lazy val recursiveContents: Iterable[TrueFile] =
       new Directory(path.toFile).deepFiles.map(f => TrueFile(Paths.get(f.path))).toIterable
 
     def del(): Unit = {
