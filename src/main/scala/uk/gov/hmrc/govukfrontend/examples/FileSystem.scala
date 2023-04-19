@@ -58,8 +58,8 @@ object FileSystem extends Retryable {
   }
   case class TrueDir(path: Path) extends TruePath {
 
-    val recursiveContents: Iterable[TrueFile] =
-      new Directory(path.toFile).deepFiles.map(f => TrueFile(Paths.get(f.path))).toIterable
+    def recursiveContents(): Iterable[TrueFile] =
+      new Directory(path.toFile).deepFiles.map(f => TrueFile(Paths.get(f.path))).iterator.to(Iterable)
 
     def del(): Unit = {
       val cond = s"[$path] directory and children have been deleted within 15 attempts"

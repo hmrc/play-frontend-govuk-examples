@@ -96,7 +96,8 @@ case class CaseClassOps[T <: Product: ClassTag](caseClassObj: T) {
       defaultParamIndex     <-
         """\$lessinit\$greater\$default\$(\d+)""".r
           .findFirstMatchIn(javaMethodName)
-          .toIterable
+          .iterator
+          .to(Iterable)
           .flatMap(_.subgroups)
           .map(_.toInt - 1)
       field: String          = fieldNames(defaultParamIndex)
