@@ -22,7 +22,6 @@ import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.matchers.should.Matchers
 import play.twirl.api.Html
 import uk.gov.hmrc.govukfrontend.examples.NunjucksParser._
-import uk.gov.hmrc.govukfrontend.views.html.components._
 import uk.gov.hmrc.govukfrontend.views.html.components.{Footer => GovukFooter, _}
 import uk.gov.hmrc.hmrcfrontend.views.viewmodels.notificationbadge.NotificationBadge
 import uk.gov.hmrc.hmrcfrontend.views.viewmodels.pageheading.PageHeading

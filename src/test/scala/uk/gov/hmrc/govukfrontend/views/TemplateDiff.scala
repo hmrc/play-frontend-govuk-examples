@@ -18,7 +18,7 @@ package uk.gov.hmrc.govukfrontend.views
 
 import java.nio.file.Path
 import org.bitbucket.cowwoc.diffmatchpatch.DiffMatchPatch
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 
 object TemplateDiff {
 

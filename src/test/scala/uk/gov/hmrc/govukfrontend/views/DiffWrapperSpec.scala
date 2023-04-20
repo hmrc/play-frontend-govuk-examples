@@ -20,7 +20,7 @@ import better.files._
 import org.bitbucket.cowwoc.diffmatchpatch.DiffMatchPatch
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.matchers.should.Matchers
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 
 class DiffWrapperSpec extends AnyWordSpec with Matchers {
 

@@ -46,7 +46,7 @@ class ImplicitsSpec extends AnyWordSpec with Matchers {
         val foo: CaseClassOps[_] = testCaseClass
       } match {
         case Success(_) => succeed
-        case _          => fail
+        case _          => fail()
       }
     }
 
@@ -57,7 +57,7 @@ class ImplicitsSpec extends AnyWordSpec with Matchers {
         val foo: CaseClassOps[_] = TestCaseObject
       } match {
         case Failure(_) => succeed
-        case _          => fail
+        case _          => fail()
       }
     }
 
@@ -67,7 +67,7 @@ class ImplicitsSpec extends AnyWordSpec with Matchers {
         val foo: CaseClassOps[_] = nonCaseClassProduct
       } match {
         case Failure(_) => succeed
-        case _          => fail
+        case _          => fail()
       }
     }
 
@@ -130,21 +130,21 @@ class ImplicitsSpec extends AnyWordSpec with Matchers {
       "return Some(CaseClassOps) for case classes" in {
         testCaseClass.asCaseClassOps match {
           case Some(_: CaseClassOps[_]) => succeed
-          case _                        => fail
+          case _                        => fail()
         }
       }
 
       "return None for case objects" in {
         TestCaseObject.asCaseClassOps match {
           case None => succeed
-          case _    => fail
+          case _    => fail()
         }
       }
 
       "return None otherwise" in {
         nonCaseClassProduct.asCaseClassOps match {
           case None => succeed
-          case _    => fail
+          case _    => fail()
         }
       }
 
