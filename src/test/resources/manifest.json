@@ -1217,6 +1217,76 @@
     }
   }
 }, {
+  "id" : "hmrc/payforatax/bankTransfer",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/payforatax/bankTransfer.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/payforatax/bankTransferWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/payforatax/bankTransferWelsh.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/payforatax/cheque",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/payforatax/cheque.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/payforatax/chequeWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/payforatax/chequeWelsh.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/payforatax/payOnline",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/payforatax/payOnline.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/payforatax/payOnlineWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/payforatax/payOnlineWelsh.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/payforatax/whatYouNeed",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/payforatax/whatYouNeed.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/payforatax/whatYouNeedWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/payforatax/whatYouNeedWelsh.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/payforatax/whenToPay",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/payforatax/whenToPay.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/payforatax/whenToPayWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/payforatax/whenToPayWelsh.scala.html"
+    }
+  }
+}, {
   "id" : "hmrc/recognisedoverseaspensionschemesnotificationlist/example",
   "versions" : {
     "play" : {
@@ -2040,6 +2110,13 @@
   "versions" : {
     "play" : {
       "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textarea/withoutHeading.scala.html"
+    }
+  }
+}, {
+  "id" : "textinput/codeSequence",
+  "versions" : {
+    "play" : {
+      "uri" : "play-2/twirl/uk/gov/hmrc/govukfrontend/views/examples/textinput/codeSequence.scala.html"
     }
   }
 }, {
