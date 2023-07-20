@@ -1,18 +1,29 @@
 package uk.gov.hmrc.govukfrontend.views
 package examples
 
-import uk.gov.hmrc.govukfrontend.examples.GovukFrontend
+import play.api.i18n.Messages
+import play.api.mvc.RequestHeader
+import play.api.test.FakeRequest
+import uk.gov.hmrc.govukfrontend.examples.{GovukFrontend, MessagesSupport}
 import uk.gov.hmrc.govukfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukPaginationIntegrationSpec extends TemplateIntegrationSpec {
 
-  testRendering(GovukFrontend, "pagination", "default", paginationDefault.f)
-  testRendering(GovukFrontend, "pagination", "ellipses", paginationEllipses.f)
-  testRendering(GovukFrontend, "pagination", "firstPage", paginationFirstPage.f)
-  testRendering(GovukFrontend, "pagination", "inPage", paginationInPage.f)
-  testRendering(GovukFrontend, "pagination", "labels", paginationLabels.f)
-  testRendering(GovukFrontend, "pagination", "labels2", paginationLabels2.f)
-  testRendering(GovukFrontend, "pagination", "largeNumberOfPages", paginationLargeNumberOfPages.f)
-  testRendering(GovukFrontend, "pagination", "lastPage", paginationLastPage.f)
+  val request: RequestHeader = FakeRequest()
+  val messages: Messages     = MessagesSupport().messages
+
+  testRendering(GovukFrontend, "pagination", "default", () => paginationDefault.render(messages, request))
+  testRendering(GovukFrontend, "pagination", "ellipses", () => paginationEllipses.render(messages, request))
+  testRendering(GovukFrontend, "pagination", "firstPage", () => paginationFirstPage.render(messages, request))
+  testRendering(GovukFrontend, "pagination", "inPage", () => paginationInPage.render(messages, request))
+  testRendering(GovukFrontend, "pagination", "labels", () => paginationLabels.render(messages, request))
+  testRendering(GovukFrontend, "pagination", "labels2", () => paginationLabels2.render(messages, request))
+  testRendering(
+    GovukFrontend,
+    "pagination",
+    "largeNumberOfPages",
+    () => paginationLargeNumberOfPages.render(messages, request)
+  )
+  testRendering(GovukFrontend, "pagination", "lastPage", () => paginationLastPage.render(messages, request))
 }

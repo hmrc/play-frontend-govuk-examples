@@ -9,44 +9,48 @@ govukRadios : GovukRadios)
 
 @()
 
-
 @govukErrorSummary(ErrorSummary(
+    title = Text("There is a problem"),
     errorList = Seq(
+      ErrorLink(
+        href = Some("#not-uploaded-error"),
+        content = Text("The selected file has not fully uploaded")
+      ),
       ErrorLink(
         href = Some("#select-error"),
         content = Text("Select a file")
-      ), 
+      ),
       ErrorLink(
         href = Some("#empty-error"),
         content = Text("The selected file is empty")
-      ), 
+      ),
       ErrorLink(
         href = Some("#smaller-error"),
         content = Text("The selected file must be smaller than 100MB")
-      ), 
+      ),
       ErrorLink(
         href = Some("#already-error"),
         content = Text("The selected file has already been uploaded")
-      ), 
+      ),
       ErrorLink(
         href = Some("#type-error"),
         content = Text("The selected file must be a JPG, PNG or PDF")
-      ), 
+      ),
       ErrorLink(
         href = Some("#virus-error"),
         content = Text("The selected file contains a virus — upload a different one")
-      ), 
+      ),
       ErrorLink(
         href = Some("#could-not-error"),
         content = Text("The selected file could not be uploaded")
-      ), 
+      ),
       ErrorLink(
-        href = Some("#supporting-evidence-error"),
+        href = Some("#add-a-different-type-of-evidence-error"),
         content = Text("Select yes if you want to add a different type of supporting evidence")
       )
     ),
-    title = Text("There is a problem")
   ))
+
 <h1 class="govuk-heading-xl">Upload receipts</h1>
 
 <div id="file-upload-1-hint" class="govuk-hint">
@@ -54,157 +58,226 @@ govukRadios : GovukRadios)
 </div>
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <table class="govuk-table">
-      <colgroup>
-        <col>
-        <col span="2">
-        <col span="1">
-      </colgroup>
+    <div class="govuk-grid-column-two-thirds">
 
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a class="govuk-link" href="#"><strong>receipt1.jpg</strong></a></td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">uploaded</strong></td>
-          <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">Remove</a></td>
-        </tr>
+        <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
 
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell" colspan="2">
-            
-@govukFileUpload(FileUpload(
-    name = "select-error",
-    id = "select-error",
-    label = Label(
-      classes = "govuk-visually-hidden",
-      content = Text("Receipt 2")
-    ),
-    errorMessage = Some(ErrorMessage(
-      content = Text("Select a file")
-    ))
-  ))
-</td>
-          <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">Remove</a></td>
-        </tr>
+        <div class="govuk-visually-hidden" aria-live="polite" id="statusInformation">1 of 1 files uploaded.</div>
 
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell" colspan="2">
-            
-@govukFileUpload(FileUpload(
-    name = "empty-error",
-    id = "empty-error",
-    label = Label(
-      classes = "govuk-visually-hidden",
-      content = Text("Receipt 3")
-    ),
-    errorMessage = Some(ErrorMessage(
-      content = Text("The selected file is empty")
-    ))
-  ))
-</td>
-          <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">Remove</a></td>
-        </tr>
+        @govukSummaryList(SummaryList(
+          classes = "govuk-summary-list--long-key",
+          rows = Seq(
+            SummaryListRow(
+              key = Key(content = HtmlContent("<a class=\"govuk-link\" href=\"#\">receipt1.jpg</a>")),
+              value = Value(content = HtmlContent(
+                  govukTag(Tag(content = Text("uploaded"), classes = "govuk-tag--green"))
+              )),
+              actions = Some(Actions(
+                items = Seq(
+                  ActionItem(
+                    href = "#",
+                    content = Text("Remove"),
+                    visuallyHiddenText = Some("receipt1.jpg")
+                  )
+                )
+              ))
+            ),
+              SummaryListRow(
+                  key = Key(content = HtmlContent("<div class=\"govuk-form-group govuk-form-group--error\">receipt2.jpg<p id=\"not-uploaded-error\" class=\"govuk-error-message\"><span class=\"govuk-visually-hidden\">Error:</span> The selected file has not fully uploaded</p></div>")),
+                  value = Value(content = HtmlContent(
+                      govukTag(Tag(content = Text("uploading"), classes = "govuk-tag--yellow"))
+                  )),
+                  actions = Some(Actions(
+                      items = Seq(
+                          ActionItem(
+                              href = "#",
+                              content = Text("Remove"),
+                              visuallyHiddenText = Some("receipt2.jpg")
+                          )
+                      )
+                  ))
+              ),
+              SummaryListRow(
+                  key = Key(content = HtmlContent(
+                      govukFileUpload(FileUpload(
+                          id = "select-error",
+                          name = "select-error",
+                          errorMessage = Some(ErrorMessage(content = Text("Select a file"))),
+                          label = Label(
+                              content = Text("receipt3.jpg"),
+                              classes = "govuk-!-font-weight-bold"
+                          )
 
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell" colspan="2">
-            
-@govukFileUpload(FileUpload(
-    name = "smaller-error",
-    id = "smaller-error",
-    label = Label(
-      classes = "govuk-visually-hidden",
-      content = Text("Receipt 4")
-    ),
-    errorMessage = Some(ErrorMessage(
-      content = Text("The selected file must be smaller than 100MB")
-    ))
-  ))
-</td>
-          <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">Remove</a></td>
-        </tr>
+                      ))
+                  )),
+                  value = Value(content = Text("")),
+                  actions = Some(Actions(
+                      items = Seq(
+                          ActionItem(
+                              href = "#",
+                              content = Text("Remove"),
+                              visuallyHiddenText = Some("receipt3.jpg")
+                          )
+                      )
+                  ))
+              ),
+              SummaryListRow(
+                  key = Key(content = HtmlContent(
+                      govukFileUpload(FileUpload(
+                          id = "empty-error",
+                          name = "empty-error",
+                          errorMessage = Some(ErrorMessage(content = Text("The selected file is empty"))),
+                          label = Label(
+                              content = Text("receipt4.jpg"),
+                              classes = "govuk-!-font-weight-bold"
+                          )
 
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell" colspan="2">
-            
-@govukFileUpload(FileUpload(
-    name = "already-error",
-    id = "already-error",
-    label = Label(
-      classes = "govuk-visually-hidden",
-      content = Text("Receipt 5")
-    ),
-    errorMessage = Some(ErrorMessage(
-      content = Text("The selected file has already been uploaded")
-    ))
-  ))
-</td>
-          <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">Remove</a></td>
-        </tr>
+                      ))
+                  )),
+                  value = Value(content = Text("")),
+                  actions = Some(Actions(
+                      items = Seq(
+                          ActionItem(
+                              href = "#",
+                              content = Text("Remove"),
+                              visuallyHiddenText = Some("receipt4.jpg")
+                          )
+                      )
+                  ))
+              ),
+              SummaryListRow(
+                  key = Key(content = HtmlContent(
+                      govukFileUpload(FileUpload(
+                          id = "smaller-error",
+                          name = "smaller-error",
+                          errorMessage = Some(ErrorMessage(content = Text("The selected file must be smaller than 100MB"))),
+                          label = Label(
+                              content = Text("receipt5.jpg"),
+                              classes = "govuk-!-font-weight-bold"
+                          )
 
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell" colspan="2">
-            
-@govukFileUpload(FileUpload(
-    name = "type-error",
-    id = "type-error",
-    label = Label(
-      classes = "govuk-visually-hidden",
-      content = Text("Receipt 6")
-    ),
-    errorMessage = Some(ErrorMessage(
-      content = Text("The selected file must be a JPG, PNG or PDF")
-    ))
-  ))
-</td>
-          <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">Remove</a></td>
-        </tr>
+                      ))
+                  )),
+                  value = Value(content = Text("")),
+                  actions = Some(Actions(
+                      items = Seq(
+                          ActionItem(
+                              href = "#",
+                              content = Text("Remove"),
+                              visuallyHiddenText = Some("receipt5.jpg")
+                          )
+                      )
+                  ))
+              ),
+              SummaryListRow(
+                  key = Key(content = HtmlContent(
+                      govukFileUpload(FileUpload(
+                          id = "already-error",
+                          name = "already-error",
+                          errorMessage = Some(ErrorMessage(content = Text("The selected file has already been uploaded"))),
+                          label = Label(
+                              content = Text("receipt6.jpg"),
+                              classes = "govuk-!-font-weight-bold"
+                          )
 
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell" colspan="2">
-            
-@govukFileUpload(FileUpload(
-    name = "virus-error",
-    id = "virus-error",
-    label = Label(
-      classes = "govuk-visually-hidden",
-      content = Text("Receipt 7")
-    ),
-    errorMessage = Some(ErrorMessage(
-      content = Text("The selected file contains a virus — upload a different one")
-    ))
-  ))
-</td>
-          <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">Remove</a></td>
-        </tr>
+                      ))
+                  )),
+                  value = Value(content = Text("")),
+                  actions = Some(Actions(
+                      items = Seq(
+                          ActionItem(
+                              href = "#",
+                              content = Text("Remove"),
+                              visuallyHiddenText = Some("receipt6.jpg")
+                          )
+                      )
+                  ))
+              ),
+              SummaryListRow(
+                  key = Key(content = HtmlContent(
+                      govukFileUpload(FileUpload(
+                          id = "type-error",
+                          name = "type-error",
+                          errorMessage = Some(ErrorMessage(content = Text("The selected file must be a JPG, PNG or PDF"))),
+                          label = Label(
+                              content = Text("receipt7.jpg"),
+                              classes = "govuk-!-font-weight-bold"
+                          )
 
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell" colspan="2">
-            
-@govukFileUpload(FileUpload(
-    name = "could-not-error",
-    id = "could-not-error",
-    label = Label(
-      classes = "govuk-visually-hidden",
-      content = Text("Receipt 8")
-    ),
-    errorMessage = Some(ErrorMessage(
-      content = Text("The selected file could not be uploaded")
-    ))
-  ))
-</td>
-          <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">Remove</a></td>
-        </tr>
-      </tbody>
-    </table>
+                      ))
+                  )),
+                  value = Value(content = Text("")),
+                  actions = Some(Actions(
+                      items = Seq(
+                          ActionItem(
+                              href = "#",
+                              content = Text("Remove"),
+                              visuallyHiddenText = Some("receipt7.jpg")
+                          )
+                      )
+                  ))
+              ),
+              SummaryListRow(
+                  key = Key(content = HtmlContent(
+                      govukFileUpload(FileUpload(
+                          id = "virus-error",
+                          name = "virus-error",
+                          errorMessage = Some(ErrorMessage(content = Text("The selected file contains a virus — upload a different one"))),
+                          label = Label(
+                              content = Text("receipt8.jpg"),
+                              classes = "govuk-!-font-weight-bold"
+                          )
 
-    
+                      ))
+                  )),
+                  value = Value(content = Text("")),
+                  actions = Some(Actions(
+                      items = Seq(
+                          ActionItem(
+                              href = "#",
+                              content = Text("Remove"),
+                              visuallyHiddenText = Some("receipt8.jpg")
+                          )
+                      )
+                  ))
+              ),
+              SummaryListRow(
+                  key = Key(content = HtmlContent(
+                      govukFileUpload(FileUpload(
+                          id = "could-not-error",
+                          name = "could-not-error",
+                          errorMessage = Some(ErrorMessage(content = Text("The selected file could not be uploaded"))),
+                          label = Label(
+                              content = Text("receipt9.jpg"),
+                              classes = "govuk-!-font-weight-bold"
+                          )
+
+                      ))
+                  )),
+                  value = Value(content = Text("")),
+                  actions = Some(Actions(
+                      items = Seq(
+                          ActionItem(
+                              href = "#",
+                              content = Text("Remove"),
+                              visuallyHiddenText = Some("receipt9.jpg")
+                          )
+                      )
+                  ))
+              )
+          )
+        ))
+
+
+
 @govukButton(Button(
     classes = "govuk-button--secondary",
     content = Text("Upload another receipt")
   ))
+
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-    
+
 @govukRadios(Radios(
     fieldset = Some(Fieldset(
       legend = Some(Legend(
@@ -220,7 +293,7 @@ govukRadios : GovukRadios)
       RadioItem(
         content = Text("Yes"),
         value = Some("yes")
-      ), 
+      ),
       RadioItem(
         content = Text("No"),
         value = Some("no")

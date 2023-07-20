@@ -10,20 +10,28 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Upload receipts</h1>
+
+        <div id="file-upload-1-hint" class="govuk-hint">
+            You can upload your receipt as a scanned copy or photo of the original. The selected file must be smaller than 100MB.
+        </div>
+
+        <p class="govuk-body" aria-live="polite">1 of 2 files uploaded</p>
+
         @govukFileUpload(FileUpload(
             id = "file-upload-1",
             name = "file-upload-1",
-            hint = Some(Hint(
-                content = Text("You can upload your receipt as a scanned copy or photo of the original. The selected file must be smaller than 100MB.")
-            )),
             label = Label(
                 content = Text("Upload receipts"),
-                classes = "govuk-label--xl",
-                isPageHeading = true
+                classes = "govuk-visually-hidden"
             )
         ))
 
+        <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
+
         @govukSummaryList(SummaryList(
+            classes = "govuk-summary-list--long-key",
             rows = Seq(
                 SummaryListRow(
                     key = Key(content = Text("receipt2.jpg")),
@@ -35,7 +43,7 @@
                             ActionItem(
                                 href = "#",
                                 content = Text("Remove"),
-                                visuallyHiddenText = Some("receipt1.jpg")
+                                visuallyHiddenText = Some("receipt2.jpg")
                             )
                         )
                     ))

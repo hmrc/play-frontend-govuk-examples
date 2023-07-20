@@ -15,10 +15,15 @@
     <div class="govuk-grid-column-two-thirds">
 
         <div id="file-upload-1-hint" class="govuk-hint">
-        You can upload a scanned copy or photo of the original. Each selected file must be smaller than 100MB.
+            You can upload a scanned copy or photo of the original. Each selected file must be smaller than 100MB.
         </div>
 
+        <p class="govuk-body" aria-live="polite">1 of 3 files uploaded</p>
+
+        <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
+
         @govukSummaryList(SummaryList(
+            classes = "govuk-summary-list--long-key",
             rows = Seq(
                 SummaryListRow(
                     key = Key(content = HtmlContent("""<a class="govuk-link" href="#">declaration.jpg</a><div class="govuk-body govuk-!-margin-0">Declaration</div>""")),

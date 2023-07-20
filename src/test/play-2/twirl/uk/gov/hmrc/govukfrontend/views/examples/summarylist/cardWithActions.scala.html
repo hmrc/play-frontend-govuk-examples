@@ -1,5 +1,4 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
-@import uk.gov.hmrc.govukfrontend.views.viewmodels.summarylist.{Card, CardTitle}
 
 @this(govukSummaryList : GovukSummaryList)
 
@@ -15,7 +14,7 @@
         value = Value(
           content = HtmlContent("""English (3DMD)<br>PGCE with QTS full time""")
         )
-      ),
+      ), 
       SummaryListRow(
         key = Key(
           content = Text("Location")
@@ -35,7 +34,7 @@
             href = "#",
             content = Text("Delete choice"),
             visuallyHiddenText = Some("of University of Gloucestershire")
-          ),
+          ), 
           ActionItem(
             href = "#",
             content = Text("Withdraw"),
@@ -54,7 +53,7 @@
         value = Value(
           content = HtmlContent("""English (Q3X1)<br>PGCE with QTS full time""")
         )
-      ),
+      ), 
       SummaryListRow(
         key = Key(
           content = Text("Location")
@@ -74,7 +73,7 @@
             href = "#",
             content = Text("Delete choice"),
             visuallyHiddenText = Some("of University of Bristol")
-          ),
+          ), 
           ActionItem(
             href = "#",
             content = Text("Withdraw"),

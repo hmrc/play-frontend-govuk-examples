@@ -24,9 +24,14 @@
             )
         ))
 
-        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <div class="govuk-visually-hidden" aria-live="polite" id="statusInformation">1 of 1 files uploaded.</div>
+
+    <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
 
         @govukSummaryList(SummaryList(
+            classes = "govuk-summary-list--long-key",
             rows = Seq(
                 SummaryListRow(
                     key = Key(content = HtmlContent("""<a class="govuk-link" href="#">declaration.jpg</a><div class="govuk-body govuk-!-margin-0">Declaration</div>""")),
