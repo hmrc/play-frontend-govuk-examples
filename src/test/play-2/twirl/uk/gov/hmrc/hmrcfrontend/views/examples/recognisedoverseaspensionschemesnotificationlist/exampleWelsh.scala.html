@@ -1,0 +1,82 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukTable : GovukTable)
+
+@()
+
+<h2 class="govuk-heading-l">Awstria</h2>
+
+<div class="call-to-action">
+<p class="govuk-body">O 6 Ebrill 2017 ymlaen newidiodd yr anghenion ar gyfer bod yn Gynllun Pensiwn Tramor Cydnabyddedig (ROPS). Bydd angen i chi wirio bod y cynllun rydych yn trosglwyddo iddo ar neu ar ôl y dyddiad hwnnw yn bodloni’r gofynion newydd.</p>
+
+<p class="govuk-body">Ni all CThEF warantu bod y rhain yn Gynlluniau Pensiwn Tramor Cydnabyddedig nac y bydd unrhyw drosglwyddiadau iddynt yn rhydd o dreth yn y DU. Eich cyfrifoldeb chi yw darganfod a oes rhaid i chi dalu treth ar unrhyw drosglwyddiad o gynilion pensiwn. Dysgwch ragor am <a href="https://www.gov.uk/government/collections/overseas-pension-schemes" class="govuk-link">gynlluniau pensiwn tramor</a>.</p>
+</div>
+
+
+@govukTable(Table(
+    rows = Seq(
+      Seq(
+        TableRow(
+          content = Text("APK Pensionskasse AG")
+        ), 
+        TableRow(
+          content = Text("Awstria")
+        )
+      ), 
+      Seq(
+        TableRow(
+          content = Text("Bonus Pensionskassen Aktiengesellschaft")
+        ), 
+        TableRow(
+          content = Text("Awstria")
+        )
+      ), 
+      Seq(
+        TableRow(
+          content = Text("Sozialversicherungspensionskasse AG")
+        ), 
+        TableRow(
+          content = Text("Awstria")
+        )
+      ), 
+      Seq(
+        TableRow(
+          content = Text("VBV-Pensionskasse Aktiengesellschaft")
+        ), 
+        TableRow(
+          content = Text("Awstria")
+        )
+      )
+    ),
+    head = Some(Seq(
+      HeadCell(
+        content = Text("ROPS")
+      ), 
+      HeadCell(
+        content = Text("Gwlad")
+      )
+    ))
+  ))
+<h3 class="govuk-heading-l">Newidiadau ar gyfer Awstria ar 1 Gorffennaf 2018</h3>
+
+
+@govukTable(Table(
+    rows = Seq(
+      Seq(
+        TableRow(
+          content = Text("VBV-Pensionskasse Aktiengesellschaft")
+        ), 
+        TableRow(
+          content = Text("Ychwanegwyd")
+        )
+      )
+    ),
+    head = Some(Seq(
+      HeadCell(
+        content = Text("Enw’r Cynllun Pensiwn Tramor Cydnabyddedig")
+      ), 
+      HeadCell(
+        content = Text("Newid")
+      )
+    ))
+  ))

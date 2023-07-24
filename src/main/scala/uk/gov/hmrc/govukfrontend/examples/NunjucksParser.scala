@@ -102,10 +102,14 @@ object NunjucksParser {
           jsonToMacroCall[DateInput](m, args)
         case (m @ "govukDetails", args)            =>
           jsonToMacroCall[Details](m, args)
+        case (m @ "govukErrorLink", args)          =>
+          jsonToMacroCall[ErrorLink](m, args)
         case (m @ "govukErrorMessage", args)       =>
           jsonToMacroCall[ErrorMessage](m, args)
         case (m @ "govukErrorSummary", args)       =>
           jsonToMacroCall[ErrorSummary](m, args)
+        case (m @ "govukExitThisPage", args)       =>
+          jsonToMacroCall[ExitThisPage](m, args)
         case (m @ "govukFieldset", args)           =>
           jsonToMacroCall[Fieldset](m, args)
         case (m @ "govukFileUpload", args)         =>

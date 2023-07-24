@@ -1,0 +1,20 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukInput : GovukInput)
+
+@()
+
+
+@govukInput(Input(
+    id = "authentication-code",
+    name = "authentication-code",
+    value = Some("NC1701"),
+    label = Label(
+      content = Text("Company authentication code")
+    ),
+    hint = Some(Hint(
+      content = Text("This is on the company incorporation letter sent to the registered office address.")
+    )),
+    classes = "govuk-input--width-5 govuk-input--extra-letter-spacing",
+    spellcheck = Some(false)
+  ))

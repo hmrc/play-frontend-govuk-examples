@@ -15,7 +15,13 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+        <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
+
+        <div class="govuk-visually-hidden" aria-live="polite" id="statusInformation">File uploaded.</div>
+
         @govukSummaryList(SummaryList(
+            classes = "govuk-summary-list--long-key",
             rows = Seq(
                 SummaryListRow(
                     key = Key(content = HtmlContent("""<a class="govuk-link" href="#">receipt1.jpg</a>""")),
@@ -34,6 +40,8 @@
                 )
             )
         ))
+
+        <div class="govuk-visually-hidden" aria-live="polite" id="statusInformation">file uploaded.</div>
 
         @govukButton(Button(
             content = Text("Continue")

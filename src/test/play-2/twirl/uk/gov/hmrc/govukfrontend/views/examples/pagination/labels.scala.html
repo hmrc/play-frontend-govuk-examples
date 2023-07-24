@@ -2,7 +2,7 @@
 
 @this(govukPagination : GovukPagination)
 
-@()
+@()(implicit messages: Messages, request: RequestHeader)
 
 
 @govukPagination(Pagination(

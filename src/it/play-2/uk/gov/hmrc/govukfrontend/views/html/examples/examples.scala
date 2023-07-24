@@ -119,6 +119,12 @@ package object examples {
   lazy val errorsummaryLinkingMultipleFields =
     Guice.createInjector().getInstance(classOf[errorsummary.linkingMultipleFields])
 
+  lazy val exitthispageDefault =
+    Guice.createInjector().getInstance(classOf[exitthispage.default])
+
+  lazy val exitthispageSecondaryLink =
+    Guice.createInjector().getInstance(classOf[exitthispage.secondaryLink])
+
   lazy val fieldsetDefault =
     Guice.createInjector().getInstance(classOf[fieldset.default])
 
@@ -154,6 +160,15 @@ package object examples {
 
   lazy val insettextDefault =
     Guice.createInjector().getInstance(classOf[insettext.default])
+
+  lazy val notificationbannerDefault =
+    Guice.createInjector().getInstance(classOf[notificationbanner.default])
+
+  lazy val notificationbannerSuccess =
+    Guice.createInjector().getInstance(classOf[notificationbanner.success])
+
+  lazy val notificationbannerWholeService =
+    Guice.createInjector().getInstance(classOf[notificationbanner.wholeService])
 
   lazy val paginationDefault =
     Guice.createInjector().getInstance(classOf[pagination.default])

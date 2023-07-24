@@ -2,7 +2,7 @@
 
 @this(govukPagination : GovukPagination)
 
-@()
+@()(implicit messages: Messages, request: RequestHeader)
 
 
 @govukPagination(Pagination(
@@ -10,34 +10,34 @@
       PaginationItem(
         href = "#",
         number = Some("1")
-      ), 
+      ),
       PaginationItem(
         ellipsis = Some(true)
-      ), 
+      ),
       PaginationItem(
         href = "#",
         number = Some("4")
-      ), 
+      ),
       PaginationItem(
         href = "#",
         number = Some("5")
-      ), 
+      ),
       PaginationItem(
         href = "#",
         number = Some("6"),
         current = Some(true)
-      ), 
+      ),
       PaginationItem(
         href = "#",
         number = Some("7")
-      ), 
+      ),
       PaginationItem(
         href = "#",
         number = Some("8")
-      ), 
+      ),
       PaginationItem(
         ellipsis = Some(true)
-      ), 
+      ),
       PaginationItem(
         href = "#",
         number = Some("1000")
