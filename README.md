@@ -54,6 +54,8 @@ git submodule update --init --recursive && \
 git submodule update --remote
 ```
 
+Note: If you are not expecting to update the submodule through the main branch, please inspect the `.gitmodules` file, where each submodules branch has been set.
+
 Alternatively, you can do this via an sbt task, which runs as a prerequisite to example generation:
 
 ```shell script
