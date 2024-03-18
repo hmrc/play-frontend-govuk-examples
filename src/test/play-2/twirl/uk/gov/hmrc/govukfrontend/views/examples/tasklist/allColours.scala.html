@@ -1,0 +1,120 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukTaskList : GovukTaskList)
+
+@()
+
+
+@govukTaskList(TaskList(
+    items = List(
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Task A")
+        ),
+        status = TaskListItemStatus(
+          tag = Some(Tag(
+            content = Text("Grey"),
+            classes = "govuk-tag--grey"
+          ))
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Task B")
+        ),
+        status = TaskListItemStatus(
+          tag = Some(Tag(
+            content = Text("Green"),
+            classes = "govuk-tag--green"
+          ))
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Task C")
+        ),
+        status = TaskListItemStatus(
+          tag = Some(Tag(
+            content = Text("Turquoise"),
+            classes = "govuk-tag--turquoise"
+          ))
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Task D")
+        ),
+        status = TaskListItemStatus(
+          tag = Some(Tag(
+            content = Text("Blue"),
+            classes = "govuk-tag--blue"
+          ))
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Task E")
+        ),
+        status = TaskListItemStatus(
+          tag = Some(Tag(
+            content = Text("Light blue"),
+            classes = "govuk-tag--light-blue"
+          ))
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Task F")
+        ),
+        status = TaskListItemStatus(
+          tag = Some(Tag(
+            content = Text("Purple"),
+            classes = "govuk-tag--purple"
+          ))
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Task G")
+        ),
+        status = TaskListItemStatus(
+          tag = Some(Tag(
+            content = Text("Pink"),
+            classes = "govuk-tag--pink"
+          ))
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Task H")
+        ),
+        status = TaskListItemStatus(
+          tag = Some(Tag(
+            content = Text("Orange"),
+            classes = "govuk-tag--orange"
+          ))
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Task I")
+        ),
+        status = TaskListItemStatus(
+          tag = Some(Tag(
+            content = Text("Yellow"),
+            classes = "govuk-tag--yellow"
+          ))
+        ),
+        href = Some("#")
+      )
+    ),
+    idPrefix = "all-colours"
+  ))

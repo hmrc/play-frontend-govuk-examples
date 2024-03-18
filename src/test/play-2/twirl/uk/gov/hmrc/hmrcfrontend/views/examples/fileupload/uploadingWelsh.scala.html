@@ -1,0 +1,49 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukSummaryList: GovukSummaryList,
+        govukButton : GovukButton,
+        govukTag: GovukTag
+)
+
+@()
+
+<h1 class="govuk-heading-xl">Uwchlwytho derbynebau<</h1>
+
+<div id="file-upload-1-hint" class="govuk-hint">
+    Gallwch uwchlwytho’ch derbynneb fel copi wedi’i sganio neu lun o’r gwreiddiol. Mae’n rhaid i’r ffeil dan sylw fod yn llai na 100 MB.
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-visually-hidden" aria-live="polite" id="statusInformation"></div>
+
+        <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
+
+        @govukSummaryList(SummaryList(
+            classes = "govuk-summary-list--long-key",
+            rows = Seq(
+                SummaryListRow(
+                    key = Key(content = Text("Derbynneb1.jpg")),
+                    value = Value(content = HtmlContent(
+                        govukTag(Tag(content = Text("WRTHI’N UWCHLWYTHO"), classes = "govuk-tag--yellow"))
+                    )),
+                    actions = Some(Actions(
+                        items = Seq(
+                            ActionItem(
+                                href = "#",
+                                content = Text("Dileu"),
+                                visuallyHiddenText = Some("Derbynneb1.jpg")
+                            )
+                        )
+                    ))
+                )
+            )
+        ))
+
+        @govukButton(Button(
+            content = Text("Yn eich blaen")
+        ))
+
+    </div>
+</div>

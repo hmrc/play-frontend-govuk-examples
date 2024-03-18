@@ -16,7 +16,7 @@
     hint = Some(Hint(
       content = Text("You’ll need an account to prove your identity and complete your Self Assessment.")
     )),
-    name = "sign-in",
+    name = "signIn",
     items = Seq(
       RadioItem(
         content = Text("Sign in with Government Gateway"),
@@ -26,10 +26,10 @@
         ))
       ), 
       RadioItem(
-        content = Text("Sign in with GOV.UK Verify"),
-        value = Some("govuk-verify"),
+        content = Text("Sign in with GOV.UK One Login"),
+        value = Some("govuk-one-login"),
         hint = Some(Hint(
-          content = Text("You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.")
+          content = Text("If you don’t have a GOV.UK One Login, you can create one.")
         ))
       )
     )

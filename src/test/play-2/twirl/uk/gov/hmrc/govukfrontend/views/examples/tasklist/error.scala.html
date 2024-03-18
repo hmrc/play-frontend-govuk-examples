@@ -1,0 +1,54 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukTaskList : GovukTaskList)
+
+@()
+
+
+@govukTaskList(TaskList(
+    items = List(
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Contact details")
+        ),
+        status = TaskListItemStatus(
+          content = Text("Completed")
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Project details")
+        ),
+        status = TaskListItemStatus(
+          tag = Some(Tag(
+            content = Text("Incomplete"),
+            classes = "govuk-tag--blue"
+          ))
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Funding required")
+        ),
+        status = TaskListItemStatus(
+          tag = Some(Tag(
+            content = Text("There is a problem"),
+            classes = "govuk-tag--red"
+          ))
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Bank account")
+        ),
+        status = TaskListItemStatus(
+          content = Text("Completed")
+        ),
+        href = Some("#")
+      )
+    ),
+    idPrefix = "application-details"
+  ))

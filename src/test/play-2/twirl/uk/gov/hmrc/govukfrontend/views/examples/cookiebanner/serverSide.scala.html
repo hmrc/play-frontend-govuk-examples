@@ -13,8 +13,6 @@
 
 
 }
-<form method="POST">
-
 @govukCookieBanner(CookieBanner(
     ariaLabel = Some("Cookies on [name of service]"),
     messages = Seq(
@@ -25,14 +23,14 @@
           Action(
             text = "Accept additional cookies",
             inputType = Some("submit"),
-            name = Some("cookies"),
-            value = Some("accept")
+            name = Some("cookies[additional]"),
+            value = Some("yes")
           ),
           Action(
             text = "Reject additional cookies",
             inputType = Some("submit"),
-            name = Some("cookies"),
-            value = Some("reject")
+            name = Some("cookies[additional]"),
+            value = Some("no")
           ),
           Action(
             text = "View cookies",
@@ -42,4 +40,3 @@
       )
     )
   ))
-</form>

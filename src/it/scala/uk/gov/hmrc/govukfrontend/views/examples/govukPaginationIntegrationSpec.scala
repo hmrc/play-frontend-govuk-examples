@@ -17,13 +17,12 @@ class govukPaginationIntegrationSpec extends TemplateIntegrationSpec {
   testRendering(GovukFrontend, "pagination", "ellipses", () => paginationEllipses.render(messages, request))
   testRendering(GovukFrontend, "pagination", "firstPage", () => paginationFirstPage.render(messages, request))
   testRendering(GovukFrontend, "pagination", "inPage", () => paginationInPage.render(messages, request))
-  testRendering(GovukFrontend, "pagination", "labels", () => paginationLabels.render(messages, request))
-  testRendering(GovukFrontend, "pagination", "labels2", () => paginationLabels2.render(messages, request))
+  testRendering(GovukFrontend, "pagination", "lastPage", () => paginationLastPage.render(messages, request))
+  testRendering(GovukFrontend, "pagination", "forListPages", () => paginationForListPages.render(messages, request))
   testRendering(
     GovukFrontend,
     "pagination",
-    "largeNumberOfPages",
-    () => paginationLargeNumberOfPages.render(messages, request)
+    "forContentPages",
+    () => paginationForContentPages.render(messages, request)
   )
-  testRendering(GovukFrontend, "pagination", "lastPage", () => paginationLastPage.render(messages, request))
 }

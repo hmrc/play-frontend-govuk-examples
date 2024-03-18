@@ -38,7 +38,7 @@ govukRadios : GovukRadios)
       ),
       ErrorLink(
         href = Some("#virus-error"),
-        content = Text("The selected file contains a virus — upload a different one")
+        content = Text("The selected file contains a virus")
       ),
       ErrorLink(
         href = Some("#could-not-error"),
@@ -70,7 +70,7 @@ govukRadios : GovukRadios)
             SummaryListRow(
               key = Key(content = HtmlContent("<a class=\"govuk-link\" href=\"#\">receipt1.jpg</a>")),
               value = Value(content = HtmlContent(
-                  govukTag(Tag(content = Text("uploaded"), classes = "govuk-tag--green"))
+                  govukTag(Tag(content = Text("Uploaded"), classes = "govuk-tag--green"))
               )),
               actions = Some(Actions(
                 items = Seq(
@@ -85,7 +85,7 @@ govukRadios : GovukRadios)
               SummaryListRow(
                   key = Key(content = HtmlContent("<div class=\"govuk-form-group govuk-form-group--error\">receipt2.jpg<p id=\"not-uploaded-error\" class=\"govuk-error-message\"><span class=\"govuk-visually-hidden\">Error:</span> The selected file has not fully uploaded</p></div>")),
                   value = Value(content = HtmlContent(
-                      govukTag(Tag(content = Text("uploading"), classes = "govuk-tag--yellow"))
+                      govukTag(Tag(content = Text("Uploading"), classes = "govuk-tag--yellow"))
                   )),
                   actions = Some(Actions(
                       items = Seq(
@@ -222,7 +222,7 @@ govukRadios : GovukRadios)
                       govukFileUpload(FileUpload(
                           id = "virus-error",
                           name = "virus-error",
-                          errorMessage = Some(ErrorMessage(content = Text("The selected file contains a virus — upload a different one"))),
+                          errorMessage = Some(ErrorMessage(content = Text("The selected file contains a virus"))),
                           label = Label(
                               content = Text("receipt8.jpg"),
                               classes = "govuk-!-font-weight-bold"

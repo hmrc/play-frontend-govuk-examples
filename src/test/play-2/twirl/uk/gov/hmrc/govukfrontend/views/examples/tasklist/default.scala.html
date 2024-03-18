@@ -1,0 +1,72 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukTaskList : GovukTaskList)
+
+@()
+
+
+@govukTaskList(TaskList(
+    items = List(
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Company Directors")
+        ),
+        status = TaskListItemStatus(
+          content = Text("Completed")
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Registered company details")
+        ),
+        status = TaskListItemStatus(
+          tag = Some(Tag(
+            content = Text("Incomplete"),
+            classes = "govuk-tag--blue"
+          ))
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Financial history")
+        ),
+        hint = Some(Hint(
+          content = Text("Include 5 years of the company’s relevant financial information.")
+        )),
+        status = TaskListItemStatus(
+          tag = Some(Tag(
+            content = Text("Incomplete"),
+            classes = "govuk-tag--blue"
+          ))
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Business plan")
+        ),
+        status = TaskListItemStatus(
+          tag = Some(Tag(
+            content = Text("Incomplete"),
+            classes = "govuk-tag--blue"
+          ))
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("References")
+        ),
+        status = TaskListItemStatus(
+          tag = Some(Tag(
+            content = Text("Incomplete"),
+            classes = "govuk-tag--blue"
+          ))
+        ),
+        href = Some("#")
+      )
+    ),
+    idPrefix = "company-details"
+  ))

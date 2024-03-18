@@ -1,0 +1,312 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukErrorSummary : GovukErrorSummary,
+        govukSummaryList : GovukSummaryList,
+        govukButton : GovukButton,
+        govukTag : GovukTag,
+        govukFileUpload : GovukFileUpload,
+        govukRadios : GovukRadios)
+
+@()
+
+@govukErrorSummary(ErrorSummary(
+    title = Text("Mae problem wedi codi"),
+    errorList = Seq(
+        ErrorLink(
+            href = Some("#not-uploaded-error"),
+            content = Text("Nid yw’r ffeil dan sylw wedi’i huwchlwytho llawn.")
+        ),
+        ErrorLink(
+            href = Some("#select-error"),
+            content = Text("Dewiswch ffeil")
+        ),
+        ErrorLink(
+            href = Some("#empty-error"),
+            content = Text("Mae’r ffeil dan sylw yn wag")
+        ),
+        ErrorLink(
+            href = Some("#smaller-error"),
+            content = Text("Mae’n rhaid i’r ffeil dan sylw fod yn llai na 100 MB")
+        ),
+        ErrorLink(
+            href = Some("#already-error"),
+            content = Text("Mae’r ffeil dan sylw eisoes wedi’i huwchlwytho")
+        ),
+        ErrorLink(
+            href = Some("#type-error"),
+            content = Text("Mae’n rhaid i’r ffeil dan sylw fod ar ffurf JPG, PNG neu PDF")
+        ),
+        ErrorLink(
+            href = Some("#virus-error"),
+            content = Text("Mae feirws yn y ffeil dan sylw")
+        ),
+        ErrorLink(
+            href = Some("#could-not-error"),
+            content = Text("Nid oedd modd uwchlwytho’r ffeil dan sylw")
+        ),
+        ErrorLink(
+            href = Some("#add-a-different-type-of-evidence-error"),
+            content = Text("Dewiswch ‘Iawn’ os ydych am ychwanegu math gwahanol o dystiolaeth ategol")
+        )
+    ),
+))
+
+<h1 class="govuk-heading-xl">Uwchlwytho derbynebau<</h1>
+
+<div id="file-upload-1-hint" class="govuk-hint">
+    Gallwch uwchlwytho’ch derbynneb fel copi wedi’i sganio neu lun o’r gwreiddiol. Mae’n rhaid i’r ffeil dan sylw fod yn llai na 100 MB.
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
+
+        <div class="govuk-visually-hidden" aria-live="polite" id="statusInformation">1 o 1 ffeil wedi’u huwchlwytho</div>
+
+        @govukSummaryList(SummaryList(
+            classes = "govuk-summary-list--long-key",
+            rows = Seq(
+                SummaryListRow(
+                    key = Key(content = HtmlContent("<a class=\"govuk-link\" href=\"#\">Derbynneb1.jpg</a>")),
+                    value = Value(content = HtmlContent(
+                        govukTag(Tag(content = Text("WEDI’I HUWCHLWYTHO"), classes = "govuk-tag--green"))
+                    )),
+                    actions = Some(Actions(
+                        items = Seq(
+                            ActionItem(
+                                href = "#",
+                                content = Text("Dileu"),
+                                visuallyHiddenText = Some("Derbynneb1.jpg")
+                            )
+                        )
+                    ))
+                ),
+                SummaryListRow(
+                    key = Key(content = HtmlContent("""<div class="govuk-form-group govuk-form-group--error">
+        Derbynneb2.jpg
+            <p id="not-uploaded-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> Nid yw’r ffeil dan sylw wedi’i huwchlwytho llawn.
+            </p>
+        </div>""")),
+                    value = Value(content = HtmlContent(
+                        govukTag(Tag(content = Text("WRTHI’N UWCHLWYTHO"), classes = "govuk-tag--yellow"))
+                    )),
+                    actions = Some(Actions(
+                        items = Seq(
+                            ActionItem(
+                                href = "#",
+                                content = Text("Dileu"),
+                                visuallyHiddenText = Some("Derbynneb2.jpg")
+                            )
+                        )
+                    ))
+                ),
+                SummaryListRow(
+                    key = Key(content = HtmlContent(
+                        govukFileUpload(FileUpload(
+                            id = "select-error",
+                            name = "select-error",
+                            errorMessage = Some(ErrorMessage(content = Text("Dewiswch ffeil"))),
+                            label = Label(
+                                content = Text("Derbynneb3.jpg"),
+                                classes = "govuk-!-font-weight-bold"
+                            )
+
+                        ))
+                    )),
+                    value = Value(content = Text("")),
+                    actions = Some(Actions(
+                        items = Seq(
+                            ActionItem(
+                                href = "#",
+                                content = Text("Dileu"),
+                                visuallyHiddenText = Some("Derbynneb3.jpg")
+                            )
+                        )
+                    ))
+                ),
+                SummaryListRow(
+                    key = Key(content = HtmlContent(
+                        govukFileUpload(FileUpload(
+                            id = "empty-error",
+                            name = "empty-error",
+                            errorMessage = Some(ErrorMessage(content = Text("Mae’r ffeil dan sylw yn wag"))),
+                            label = Label(
+                                content = Text("Derbynneb4.jpg"),
+                                classes = "govuk-!-font-weight-bold"
+                            )
+
+                        ))
+                    )),
+                    value = Value(content = Text("")),
+                    actions = Some(Actions(
+                        items = Seq(
+                            ActionItem(
+                                href = "#",
+                                content = Text("Dileu"),
+                                visuallyHiddenText = Some("Derbynneb4.jpg")
+                            )
+                        )
+                    ))
+                ),
+                SummaryListRow(
+                    key = Key(content = HtmlContent(
+                        govukFileUpload(FileUpload(
+                            id = "smaller-error",
+                            name = "smaller-error",
+                            errorMessage = Some(ErrorMessage(content = Text("Mae’n rhaid i’r ffeil dan sylw fod yn llai na 100 MB"))),
+                            label = Label(
+                                content = Text("Derbynneb5.jpg"),
+                                classes = "govuk-!-font-weight-bold"
+                            )
+
+                        ))
+                    )),
+                    value = Value(content = Text("")),
+                    actions = Some(Actions(
+                        items = Seq(
+                            ActionItem(
+                                href = "#",
+                                content = Text("Dileu"),
+                                visuallyHiddenText = Some("Derbynneb5.jpg")
+                            )
+                        )
+                    ))
+                ),
+                SummaryListRow(
+                    key = Key(content = HtmlContent(
+                        govukFileUpload(FileUpload(
+                            id = "already-error",
+                            name = "already-error",
+                            errorMessage = Some(ErrorMessage(content = Text("Mae’r ffeil dan sylw eisoes wedi’i huwchlwytho"))),
+                            label = Label(
+                                content = Text("Derbynneb6.jpg"),
+                                classes = "govuk-!-font-weight-bold"
+                            )
+
+                        ))
+                    )),
+                    value = Value(content = Text("")),
+                    actions = Some(Actions(
+                        items = Seq(
+                            ActionItem(
+                                href = "#",
+                                content = Text("Dileu"),
+                                visuallyHiddenText = Some("Derbynneb6.jpg")
+                            )
+                        )
+                    ))
+                ),
+                SummaryListRow(
+                    key = Key(content = HtmlContent(
+                        govukFileUpload(FileUpload(
+                            id = "type-error",
+                            name = "type-error",
+                            errorMessage = Some(ErrorMessage(content = Text("Mae’n rhaid i’r ffeil dan sylw fod ar ffurf JPG, PNG neu PDF"))),
+                            label = Label(
+                                content = Text("Derbynneb7.jpg"),
+                                classes = "govuk-!-font-weight-bold"
+                            )
+
+                        ))
+                    )),
+                    value = Value(content = Text("")),
+                    actions = Some(Actions(
+                        items = Seq(
+                            ActionItem(
+                                href = "#",
+                                content = Text("Dileu"),
+                                visuallyHiddenText = Some("Derbynneb7.jpg")
+                            )
+                        )
+                    ))
+                ),
+                SummaryListRow(
+                    key = Key(content = HtmlContent(
+                        govukFileUpload(FileUpload(
+                            id = "virus-error",
+                            name = "virus-error",
+                            errorMessage = Some(ErrorMessage(content = Text("Mae feirws yn y ffeil dan sylw"))),
+                            label = Label(
+                                content = Text("Derbynneb8.jpg"),
+                                classes = "govuk-!-font-weight-bold"
+                            )
+
+                        ))
+                    )),
+                    value = Value(content = Text("")),
+                    actions = Some(Actions(
+                        items = Seq(
+                            ActionItem(
+                                href = "#",
+                                content = Text("Dileu"),
+                                visuallyHiddenText = Some("Derbynneb8.jpg")
+                            )
+                        )
+                    ))
+                ),
+                SummaryListRow(
+                    key = Key(content = HtmlContent(
+                        govukFileUpload(FileUpload(
+                            id = "could-not-error",
+                            name = "could-not-error",
+                            errorMessage = Some(ErrorMessage(content = Text("Nid oedd modd uwchlwytho’r ffeil dan sylw"))),
+                            label = Label(
+                                content = Text("Derbynneb9.jpg"),
+                                classes = "govuk-!-font-weight-bold"
+                            )
+
+                        ))
+                    )),
+                    value = Value(content = Text("")),
+                    actions = Some(Actions(
+                        items = Seq(
+                            ActionItem(
+                                href = "#",
+                                content = Text("Dileu"),
+                                visuallyHiddenText = Some("Derbynneb9.jpg")
+                            )
+                        )
+                    ))
+                )
+            )
+        ))
+
+
+
+        @govukButton(Button(
+            classes = "govuk-button--secondary",
+            content = Text("Uwchlwytho derbynneb arall")
+        ))
+
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+            @govukRadios(Radios(
+                fieldset = Some(Fieldset(
+                    legend = Some(Legend(
+                        content = Text("Ychwanegu math gwahanol o dystiolaeth ategol at eich hawliad?"),
+                        classes = "govuk-fieldset__legend govuk-fieldset__legend--m"
+                    ))
+                )),
+                name = "add-a-different-type-of-evidence",
+                items = Seq(
+                    RadioItem(
+                        content = Text("Ie"),
+                        value = Some("yes")
+                    ),
+                    RadioItem(
+                        content = Text("Na"),
+                        value = Some("no")
+                    )
+                ),
+                errorMessage = Some(ErrorMessage(
+                    content = Text("Dewiswch ‘Iawn’ os ydych am ychwanegu math gwahanol o dystiolaeth ategol")
+                )),
+            ))
+            @govukButton(Button(
+                content = Text("Yn eich blaen")
+            ))
+    </div>
+</div>
