@@ -16,25 +16,27 @@
 
 package uk.gov.hmrc.hmrcfrontend.views.example
 
-import play.api.i18n.Messages
-import play.api.mvc.RequestHeader
-import play.api.test.FakeRequest
 import uk.gov.hmrc.govukfrontend.examples.{HmrcFrontend, MessagesSupport}
 import uk.gov.hmrc.hmrcfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class hmrcFileUploadIntegrationSpec extends TemplateIntegrationSpec {
 
-  val request: RequestHeader = FakeRequest()
-  val messages: Messages     = MessagesSupport().messages
-
   testRendering(HmrcFrontend, "file-upload", "additionalRow", fileuploadAdditionalRow.f)
+  testRendering(HmrcFrontend, "file-upload", "additionalRowWelsh", fileuploadAdditionalRowWelsh.f)
   testRendering(HmrcFrontend, "file-upload", "errors", fileuploadErrors.f)
-  testRendering(HmrcFrontend, "file-upload", "fixed", fileuploadFixed.f)
+  testRendering(HmrcFrontend, "file-upload", "errorsWelsh", fileuploadErrorsWelsh.f)
+  testRendering(HmrcFrontend, "file-upload", "fixedWelsh", fileuploadFixedWelsh.f)
   testRendering(HmrcFrontend, "file-upload", "question", fileuploadQuestion.f)
+  testRendering(HmrcFrontend, "file-upload", "questionWelsh", fileuploadQuestionWelsh.f)
   testRendering(HmrcFrontend, "file-upload", "types", fileuploadTypes.f)
+  testRendering(HmrcFrontend, "file-upload", "typesWelsh", fileuploadTypesWelsh.f)
   testRendering(HmrcFrontend, "file-upload", "uploadASingleFile", fileuploadUploadASingleFile.f)
+  testRendering(HmrcFrontend, "file-upload", "uploadASingleFileWelsh", fileuploadUploadASingleFileWelsh.f)
   testRendering(HmrcFrontend, "file-upload", "uploadAdditionalFiles", fileuploadUploadAdditionalFiles.f)
+  testRendering(HmrcFrontend, "file-upload", "uploadAdditionalFilesWelsh", fileuploadUploadAdditionalFilesWelsh.f)
   testRendering(HmrcFrontend, "file-upload", "uploaded", fileuploadUploaded.f)
+  testRendering(HmrcFrontend, "file-upload", "uploadedWelsh", fileuploadUploadedWelsh.f)
   testRendering(HmrcFrontend, "file-upload", "uploading", fileuploadUploading.f)
+  testRendering(HmrcFrontend, "file-upload", "uploadingWelsh", fileuploadUploadingWelsh.f)
 }

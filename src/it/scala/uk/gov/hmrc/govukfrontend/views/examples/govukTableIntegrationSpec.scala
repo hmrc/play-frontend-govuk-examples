@@ -27,4 +27,5 @@ class govukTableIntegrationSpec extends TemplateIntegrationSpec {
   testRendering(GovukFrontend, "table", "columnWidths", tableColumnWidths.f)
   testRendering(GovukFrontend, "table", "columnWidthsCustomClasses", tableColumnWidthsCustomClasses.f)
   testRendering(GovukFrontend, "table", "numbers", tableNumbers.f)
+  testRendering(GovukFrontend, "table", "lotsOfData", tableLotsOfData.f)
 }

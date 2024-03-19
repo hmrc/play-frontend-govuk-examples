@@ -17,11 +17,7 @@
 package uk.gov.hmrc.govukfrontend.views
 package html
 
-import com.google.inject.{Binder, Guice, Module}
-import play.api.inject.{Binding, bind}
-import play.api.{Application, Configuration, Environment}
-import play.api.inject.guice.GuiceApplicationBuilder
-import uk.gov.hmrc.hmrcfrontend.config.TudorCrownConfig
+import com.google.inject.Guice
 import uk.gov.hmrc.support.TudorCrownModule
 
 package object examples {
@@ -237,6 +233,9 @@ package object examples {
   lazy val selectDefault =
     Guice.createInjector().getInstance(classOf[select.default])
 
+  lazy val selectError =
+    Guice.createInjector().getInstance(classOf[select.error])
+
   lazy val skiplinkDefault =
     Guice.createInjector().getInstance(classOf[skiplink.default])
 
@@ -258,6 +257,9 @@ package object examples {
   lazy val summarylistCardWithTitle =
     Guice.createInjector().getInstance(classOf[summarylist.cardWithTitle])
 
+  lazy val summarylistWithMissingInformation =
+    Guice.createInjector().getInstance(classOf[summarylist.withMissingInformation])
+
   lazy val tableDefault =
     Guice.createInjector().getInstance(classOf[table.default])
 
@@ -269,6 +271,9 @@ package object examples {
 
   lazy val tableNumbers =
     Guice.createInjector().getInstance(classOf[table.numbers])
+
+  lazy val tableLotsOfData =
+    Guice.createInjector().getInstance(classOf[table.lotsOfData])
 
   lazy val tabsDefault =
     Guice.createInjector().getInstance(classOf[tabs.default])
