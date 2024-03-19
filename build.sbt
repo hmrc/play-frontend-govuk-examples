@@ -6,6 +6,8 @@ val libName = "play-frontend-govuk-examples"
 
 lazy val playDir = "play-2"
 
+ThisBuild / scalaVersion := "2.13.18"
+
 lazy val IntegrationTest  = config("it") extend Test
 val twirlCompileTemplates =
   TaskKey[Seq[File]]("twirl-compile-templates", "Compile twirl templates into scala source files")
@@ -25,7 +27,6 @@ lazy val root = Project(libName, file("."))
       Resolver.ivyStylePatterns
     ),
     TwirlKeys.templateImports := templateImports,
-    PlayCrossCompilation.playCrossCompilationSettings,
     isPublicArtefact := true,
     Compile / TwirlKeys.compileTemplates / sourceDirectories +=
       baseDirectory.value / "src" / "test" / playDir / "twirl",
@@ -51,7 +52,6 @@ lazy val root = Project(libName, file("."))
     playMonitoredFiles ++= (Compile / TwirlKeys.compileTemplates / sourceDirectories).value,
     Test / unmanagedResourceDirectories ++= Seq(baseDirectory(_ / "target/web/public/test").value),
     buildInfoKeys ++= Seq[BuildInfoKey](
-      "playVersion" -> PlayCrossCompilation.playVersion,
       Compile / TwirlKeys.compileTemplates / sources
     ),
     run := {

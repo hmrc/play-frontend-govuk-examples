@@ -1,40 +1,31 @@
-import sbt._
-import PlayCrossCompilation.dependencies
-import play.core.PlayVersion
 import play.sbt.PlayImport.ws
-import sbt.{ModuleID, Test}
+import sbt.*
 
 object LibDependencies {
 
   val playFrontendHmrcVersion = "9.0.0"
 
-  lazy val libDependencies: Seq[ModuleID] = dependencies(
-    shared = {
-      val compile = Seq(
-        "com.typesafe.play" %% "filters-helpers" % PlayVersion.current,
-        "org.joda"           % "joda-convert"    % "2.0.2",
-        "com.lihaoyi"       %% "fastparse"       % "2.1.3",
-        "com.typesafe.play" %% "play-test"       % PlayVersion.current
-      )
+  def libDependencies: Seq[ModuleID] = compile ++ test
 
-      val test = Seq(
-        "com.vladsch.flexmark"          % "flexmark-all"     % "0.35.10",
-        "org.scalatest"                %% "scalatest"        % "3.2.9",
-        "org.jsoup"                     % "jsoup"            % "1.11.3",
-        "org.scalacheck"               %% "scalacheck"       % "1.14.1",
-        "com.googlecode.htmlcompressor" % "htmlcompressor"   % "1.5.2",
-        "com.github.pathikrit"         %% "better-files"     % "3.8.0",
-        "com.lihaoyi"                  %% "pprint"           % "0.5.5",
-        "org.bitbucket.cowwoc"          % "diff-match-patch" % "1.2",
-        ws
-      ).map(_ % s"$IntegrationTest,$Test")
-
-      compile ++ test
-    },
-    play28 = Seq(
-      "uk.gov.hmrc"            %% "play-frontend-hmrc-play-28" % s"$playFrontendHmrcVersion",
-      "org.scalatestplus.play" %% "scalatestplus-play"         % "5.1.0" % s"$IntegrationTest,$Test"
-    )
+  private lazy val compile = Seq(
+    "org.playframework" %% "play-filters-helpers"       % "3.0.0",
+    "org.joda"           % "joda-convert"               % "2.0.2",
+    "com.lihaoyi"       %% "fastparse"                  % "2.1.3",
+    "org.playframework" %% "play-test"                  % "3.0.0",
+    "uk.gov.hmrc"       %% "play-frontend-hmrc-play-30" % s"$playFrontendHmrcVersion"
   )
+
+  private lazy val test = Seq(
+    "com.vladsch.flexmark"          % "flexmark-all"       % "0.64.8",
+    "org.scalatest"                %% "scalatest"          % "3.2.9",
+    "org.jsoup"                     % "jsoup"              % "1.11.3",
+    "org.scalacheck"               %% "scalacheck"         % "1.14.1",
+    "com.googlecode.htmlcompressor" % "htmlcompressor"     % "1.5.2",
+    "com.github.pathikrit"         %% "better-files"       % "3.8.0",
+    "com.lihaoyi"                  %% "pprint"             % "0.5.5",
+    "org.bitbucket.cowwoc"          % "diff-match-patch"   % "1.2",
+    "org.scalatestplus.play"       %% "scalatestplus-play" % "7.0.0",
+    ws
+  ).map(_ % s"$IntegrationTest,$Test")
 
 }
