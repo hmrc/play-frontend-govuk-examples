@@ -1,0 +1,68 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukButton : GovukButton,
+        govukFileUpload: GovukFileUpload,
+        govukSummaryList: GovukSummaryList,
+        govukTag: GovukTag
+)
+
+@()
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Uwchlwytho derbynebau</h1>
+
+        <div id="file-upload-1-hint" class="govuk-hint">
+            Gallwch uwchlwytho’ch derbynneb fel copi wedi’i sganio neu lun o’r gwreiddiol. Mae’n rhaid i’r ffeil dan sylw fod yn llai na 100 MB.
+        </div>
+
+        <p class="govuk-body" aria-live="polite">1 o 2 ffeil wedi’u huwchlwytho</p>
+
+        @govukFileUpload(FileUpload(
+            id = "file-upload-1",
+            name = "file-upload-1",
+            label = Label(
+                content = Text("Uwchlwytho derbynebau"),
+                classes = "govuk-visually-hidden"
+            )
+        ))
+
+        <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
+
+        @govukSummaryList(SummaryList(
+            classes = "govuk-summary-list--long-key",
+            rows = Seq(
+                SummaryListRow(
+                    key = Key(Text("Derbynneb2.jpg")),
+                    value = Value(
+                        HtmlContent(govukTag(Tag(
+                            content = Text("WRTHI’N UWCHLWYTHO"),
+                            classes = "govuk-tag--yellow"
+                        )))),
+                    actions = Some(Actions(items = Seq(
+                        ActionItem(
+                            href = "#",
+                            content = Text("Dileu"),
+                            visuallyHiddenText = Some("Derbynneb2.jpg")
+                        )
+                    )))
+                ),
+                SummaryListRow(
+                    key = Key(HtmlContent("""<a class="govuk-link" href="#">Derbynneb1.jpg</a>""")),
+                    value = Value(content = HtmlContent(govukTag(Tag(
+                        content = Text("WEDI’I HUWCHLWYTHO"),
+                        classes = "govuk-tag--green"
+                    )))),
+                    actions = Some(Actions(items = Seq(
+                        ActionItem(
+                            href = "#",
+                            content = Text("Dileu"),
+                            visuallyHiddenText = Some("Derbynneb1.jpg")
+                        )
+                    ))))
+        )))
+
+        @govukButton(Button(content = Text("Yn eich blaen")))
+
+    </div>
+</div>

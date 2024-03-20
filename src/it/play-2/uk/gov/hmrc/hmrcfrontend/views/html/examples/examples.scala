@@ -132,6 +132,24 @@ package object examples {
   lazy val extraStatutoryConcessionsExampleTwo =
     Guice.createInjector().getInstance(classOf[extrastatutoryconcessions.example2])
 
+  lazy val feedbackLink =
+    Guice.createInjector().getInstance(classOf[feedback.link])
+
+  lazy val feedbackLinkWelsh =
+    Guice.createInjector().getInstance(classOf[feedback.linkWelsh])
+
+  lazy val feedbackSurvey =
+    Guice.createInjector().getInstance(classOf[feedback.survey])
+
+  lazy val feedbackSurveyWelsh =
+    Guice.createInjector().getInstance(classOf[feedback.surveyWelsh])
+
+  lazy val feedbackThanks =
+    Guice.createInjector().getInstance(classOf[feedback.thanks])
+
+  lazy val feedbackThanksWelsh =
+    Guice.createInjector().getInstance(classOf[feedback.thanksWelsh])
+
   lazy val fileuploadAdditionalRow =
     Guice.createInjector().getInstance(classOf[fileupload.additionalRow])
 
@@ -158,6 +176,33 @@ package object examples {
 
   lazy val fileuploadUploading =
     Guice.createInjector().getInstance(classOf[fileupload.uploading])
+
+  lazy val fileuploadAdditionalRowWelsh =
+    Guice.createInjector().getInstance(classOf[fileupload.additionalRowWelsh])
+
+  lazy val fileuploadErrorsWelsh =
+    Guice.createInjector().getInstance(classOf[fileupload.errorsWelsh])
+
+  lazy val fileuploadFixedWelsh =
+    Guice.createInjector().getInstance(classOf[fileupload.fixedWelsh])
+
+  lazy val fileuploadTypesWelsh =
+    Guice.createInjector().getInstance(classOf[fileupload.typesWelsh])
+
+  lazy val fileuploadQuestionWelsh =
+    Guice.createInjector().getInstance(classOf[fileupload.questionWelsh])
+
+  lazy val fileuploadUploadAdditionalFilesWelsh =
+    Guice.createInjector().getInstance(classOf[fileupload.uploadAdditionalFilesWelsh])
+
+  lazy val fileuploadUploadASingleFileWelsh =
+    Guice.createInjector().getInstance(classOf[fileupload.uploadASingleFileWelsh])
+
+  lazy val fileuploadUploadedWelsh =
+    Guice.createInjector().getInstance(classOf[fileupload.uploadedWelsh])
+
+  lazy val fileuploadUploadingWelsh =
+    Guice.createInjector().getInstance(classOf[fileupload.uploadingWelsh])
 
   lazy val forceoflawExampleOne =
     Guice.createInjector().getInstance(classOf[forceoflaw.example1])

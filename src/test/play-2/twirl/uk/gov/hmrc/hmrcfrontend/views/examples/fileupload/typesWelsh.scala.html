@@ -1,0 +1,40 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukRadios : GovukRadios,
+govukButton : GovukButton)
+
+@()
+
+
+@govukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("Ychwanegu dogfennau ategol at eich hawliad"),
+        classes = "govuk-fieldset__legend--l",
+        isPageHeading = true
+      ))
+    )),
+    hint = Some(Hint(
+      content = Text("Gallwch ailadrodd y cam hwn i ychwanegu gwahanol fathau o ddogfennau at eich hawliad.")
+    )),
+    idPrefix = Some("want-to-register"),
+    name = "want-to-register",
+    items = Seq(
+      RadioItem(
+        content = Text("Datganiad"),
+        value = Some("declaration")
+      ), 
+      RadioItem(
+        content = Text("Anfoneb"),
+        value = Some("invoice")
+      ), 
+      RadioItem(
+        content = Text("Derbynneb"),
+        value = Some("receipt")
+      )
+    ),
+    classes = "govuk-radios"
+  ))
+@govukButton(Button(
+    content = Text("Yn eich blaen")
+  ))

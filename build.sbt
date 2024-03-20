@@ -25,7 +25,6 @@ lazy val root = Project(libName, file("."))
       Resolver.ivyStylePatterns
     ),
     TwirlKeys.templateImports := templateImports,
-    PlayCrossCompilation.playCrossCompilationSettings,
     isPublicArtefact := true,
     Compile / TwirlKeys.compileTemplates / sourceDirectories +=
       baseDirectory.value / "src" / "test" / playDir / "twirl",
@@ -51,7 +50,6 @@ lazy val root = Project(libName, file("."))
     playMonitoredFiles ++= (Compile / TwirlKeys.compileTemplates / sourceDirectories).value,
     Test / unmanagedResourceDirectories ++= Seq(baseDirectory(_ / "target/web/public/test").value),
     buildInfoKeys ++= Seq[BuildInfoKey](
-      "playVersion" -> PlayCrossCompilation.playVersion,
       Compile / TwirlKeys.compileTemplates / sources
     ),
     run := {

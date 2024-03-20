@@ -29,4 +29,5 @@ class govukSummaryListIntegrationSpec extends TemplateIntegrationSpec {
   testRendering(GovukFrontend, "summary-list", "mixedActions", summarylistMixedActions.f)
   testRendering(GovukFrontend, "summary-list", "cardWithActions", summarylistCardWithActions.f)
   testRendering(GovukFrontend, "summary-list", "cardWithTitle", summarylistCardWithTitle.f)
+  testRendering(GovukFrontend, "summary-list", "withMissingInformation", summarylistWithMissingInformation.f)
 }

@@ -1,0 +1,45 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukTaskList : GovukTaskList)
+
+@()
+
+
+@govukTaskList(TaskList(
+    items = Seq(
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Company details")
+        ),
+        status = TaskListItemStatus(
+          content = Text("Completed")
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Project details")
+        ),
+        status = TaskListItemStatus(
+          tag = Some(Tag(
+            content = Text("Incomplete"),
+            classes = "govuk-tag--blue"
+          ))
+        ),
+        href = Some("#")
+      ),
+      TaskListItem(
+        title = TaskListItemTitle(
+          content = Text("Fund applied to")
+        ),
+        hint = Some(Hint(
+          content = Text("The funds will be announced on 1 April 2022")
+        )),
+        status = TaskListItemStatus(
+          content = Text("Cannot start yet"),
+          classes = "govuk-task-list__status--cannot-start-yet"
+        )
+      )
+    ),
+    idPrefix = "application-details"
+  ))

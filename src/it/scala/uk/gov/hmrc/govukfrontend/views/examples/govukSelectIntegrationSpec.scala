@@ -24,4 +24,5 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukSelectIntegrationSpec extends TemplateIntegrationSpec {
 
   testRendering(GovukFrontend, "select", "default", selectDefault.f)
+  testRendering(GovukFrontend, "select", "error", selectError.f)
 }

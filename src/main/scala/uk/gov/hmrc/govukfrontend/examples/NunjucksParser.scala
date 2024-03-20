@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2024 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -148,6 +148,8 @@ object NunjucksParser {
           jsonToMacroCall[Tabs](m, args)
         case (m @ "govukTag", args)                =>
           jsonToMacroCall[Tag](m, args)
+        case (m @ "govukTaskList", args)           =>
+          jsonToMacroCall[TaskList](m, args)
         case (m @ "govukTextarea", args)           =>
           jsonToMacroCall[Textarea](m, args)
         case (m @ "govukWarningText", args)        =>

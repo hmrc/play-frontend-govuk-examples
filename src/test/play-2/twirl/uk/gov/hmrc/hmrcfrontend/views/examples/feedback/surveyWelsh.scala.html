@@ -1,0 +1,91 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcCharacterCount
+@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.charactercount.{CharacterCount => HCharacterCount}
+@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.language.Cy
+
+@this(
+        govukRadios: GovukRadios,
+        hmrcCharacterCount: HmrcCharacterCount,
+        govukButton: GovukButton
+)
+
+@()(implicit messages: Messages, request: RequestHeader)
+
+<h1 class="govuk-heading-xl">Rhoi adborth</h1>
+
+<p class="govuk-body">Rydym yn defnyddio’ch adborth i wella ein gwasanaethau. I ddeall eich adborth yn well, efallai y byddwn yn ei gysylltu â gwybodaeth arall sydd gennym amdanoch, megis eich rhywedd a’ch oedran.</p>
+
+<p class="govuk-body">Gweler <a class="govuk-link" href="https://www.gov.uk/government/publications/data-protection-act-dpa-information-hm-revenue-and-customs-hold-about-you/data-protection-act-dpa-information-hm-revenue-and-customs-hold-about-you" rel="noreferrer noopener" target="_blank">Hysbysiad Preifatrwydd CThEF (yn agor tab newydd)</a> i gael gwybod sut yr ydym yn casglu, defnyddio a diogelu’ch gwybodaeth bersonol.</p>
+
+<p class="govuk-body">Mae’r arolwg hwn yn cynnwys 4 cwestiwn dewisol.</p>
+
+<form action="/form-handler" method="post" novalidate>
+    @govukRadios(Radios(
+        name = "able",
+        fieldset = Some(Fieldset(
+            legend = Some(Legend(
+                content = Text("A oeddech wedi gallu gwneud yr hyn yr oedd angen i chi ei wneud heddiw?"),
+                isPageHeading = false,
+                classes = "govuk-fieldset__legend--m"
+            ))
+        )),
+        items = Seq(
+            RadioItem(value = Some("yes"), content = Text("Iawn"), id = Some("able-yes")),
+            RadioItem(value = Some("no"), content = Text("Na"), id = Some("able-no"))
+        )
+    ))
+
+    @govukRadios(Radios(
+        name = "howEasyScore",
+        fieldset = Some(Fieldset(
+            legend = Some(Legend(
+                content = Text("Pa mor hawdd oedd hi i wneud yr hyn yr oedd angen i chi ei wneud heddiw?"),
+                isPageHeading = false,
+                classes = "govuk-fieldset__legend--m"
+            ))
+        )),
+        items = Seq(
+            RadioItem(value = Some("VeryEasy"), content = Text("Hawdd iawn"), id = Some("howEasyQuestion-VeryEasy")),
+            RadioItem(value = Some("Easy"), content = Text("Hawdd"), id = Some("howEasyQuestion-Easy")),
+            RadioItem(value = Some("Moderate"), content = Text("Ddim yn hawdd nac yn anodd"), id = Some("howEasyQuestion-Moderate")),
+            RadioItem(value = Some("Difficult"), content = Text("Anodd"), id = Some("howEasyQuestion-Difficult")),
+            RadioItem(value = Some("VeryDifficult"), content = Text("Anodd iawn"), id = Some("howEasyQuestion-VeryDifficult"))
+        )
+    ))
+
+    @hmrcCharacterCount(HCharacterCount(
+        name = "moreDetail",
+        id = "whyGiveScore",
+        maxLength = Some(1000),
+        language = Cy,
+        label = Label(
+            content = Text("Pam y gwnaethoch roi’r ateb hwn?"),
+            classes = "govuk-label--m",
+            isPageHeading =  false
+        ),
+        hint = Some(Hint(
+            content = Text("Peidiwch â nodi gwybodaeth bersonol, megis eich rhif Yswiriant Gwladol, eich Cyfeirnod Unigryw y Trethdalwr, eich cyfeiriad neu’ch rhif ffôn yn y blwch hwn. Sylwer – ni allwn ymateb i sylwadau’n unigol, ond mi ydym yn defnyddio’ch adborth i helpu i wella ein gwasanaethau.")
+        ))
+    ))
+
+    @govukRadios(Radios(
+        name = "howDoYouFeelScore",
+        fieldset = Some(Fieldset(
+            legend = Some(Legend(
+                content = Text("Yn gyffredinol, beth oedd eich barn am y gwasanaeth a gawsoch heddiw?"),
+                isPageHeading = false,
+                classes = "govuk-fieldset__legend--m"
+            ))
+        )),
+        items = Seq(
+            RadioItem(value = Some("VerySatisfied"), content = Text("Bodlon iawn"), id = Some("howDoYouFeelQuestion-VerySatisfied")),
+            RadioItem(value = Some("Satisfied"), content = Text("Bodlon"), id = Some("howDoYouFeelQuestion-Satisfied")),
+            RadioItem(value = Some("Moderate"), content = Text("Ddim yn fodlon nac yn anfodlon"), id = Some("howDoYouFeelQuestion-Moderate")),
+            RadioItem(value = Some("Dissatisfied"), content = Text("Anfodlon"), id = Some("howDoYouFeelQuestion-Dissatisfied")),
+            RadioItem(value = Some("VeryDissatisfied"), content = Text("Anfodlon iawn"), id = Some("howDoYouFeelQuestion-VeryDissatisfied"))
+        )
+    ))
+
+    @govukButton(Button(content = Text("Anfon adborth")))
+
+</form>

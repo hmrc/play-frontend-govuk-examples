@@ -18,6 +18,7 @@ package uk.gov.hmrc.govukfrontend.views
 package html
 
 import com.google.inject.Guice
+import uk.gov.hmrc.support.TudorCrownModule
 
 package object examples {
 
@@ -29,6 +30,9 @@ package object examples {
 
   lazy val backlinkDefault =
     Guice.createInjector().getInstance(classOf[backlink.default])
+
+  lazy val backlinkInverse =
+    Guice.createInjector().getInstance(classOf[backlink.inverse])
 
   lazy val breadcrumbsDefault =
     Guice.createInjector().getInstance(classOf[breadcrumbs.default])
@@ -149,14 +153,13 @@ package object examples {
   lazy val footerWithNavigation =
     Guice.createInjector().getInstance(classOf[footer.withNavigation])
 
-  lazy val headerDefault =
-    Guice.createInjector().getInstance(classOf[header.default])
+  lazy val headerDefault = Guice.createInjector(TudorCrownModule()).getInstance(classOf[header.default])
 
   lazy val headerWithServiceName =
-    Guice.createInjector().getInstance(classOf[header.withServiceName])
+    Guice.createInjector(TudorCrownModule()).getInstance(classOf[header.withServiceName])
 
   lazy val headerWithServiceNameAndNavigation =
-    Guice.createInjector().getInstance(classOf[header.withServiceNameAndNavigation])
+    Guice.createInjector(TudorCrownModule()).getInstance(classOf[header.withServiceNameAndNavigation])
 
   lazy val insettextDefault =
     Guice.createInjector().getInstance(classOf[insettext.default])
@@ -182,17 +185,14 @@ package object examples {
   lazy val paginationInPage =
     Guice.createInjector().getInstance(classOf[pagination.inPage])
 
-  lazy val paginationLabels =
-    Guice.createInjector().getInstance(classOf[pagination.labels])
-
-  lazy val paginationLabels2 =
-    Guice.createInjector().getInstance(classOf[pagination.labels2])
-
-  lazy val paginationLargeNumberOfPages =
-    Guice.createInjector().getInstance(classOf[pagination.largeNumberOfPages])
-
   lazy val paginationLastPage =
     Guice.createInjector().getInstance(classOf[pagination.lastPage])
+
+  lazy val paginationForContentPages =
+    Guice.createInjector().getInstance(classOf[pagination.forContentPages])
+
+  lazy val paginationForListPages =
+    Guice.createInjector().getInstance(classOf[pagination.forListPages])
 
   lazy val panelDefault =
     Guice.createInjector().getInstance(classOf[panel.default])
@@ -233,6 +233,9 @@ package object examples {
   lazy val selectDefault =
     Guice.createInjector().getInstance(classOf[select.default])
 
+  lazy val selectError =
+    Guice.createInjector().getInstance(classOf[select.error])
+
   lazy val skiplinkDefault =
     Guice.createInjector().getInstance(classOf[skiplink.default])
 
@@ -254,6 +257,9 @@ package object examples {
   lazy val summarylistCardWithTitle =
     Guice.createInjector().getInstance(classOf[summarylist.cardWithTitle])
 
+  lazy val summarylistWithMissingInformation =
+    Guice.createInjector().getInstance(classOf[summarylist.withMissingInformation])
+
   lazy val tableDefault =
     Guice.createInjector().getInstance(classOf[table.default])
 
@@ -266,11 +272,29 @@ package object examples {
   lazy val tableNumbers =
     Guice.createInjector().getInstance(classOf[table.numbers])
 
+  lazy val tableLotsOfData =
+    Guice.createInjector().getInstance(classOf[table.lotsOfData])
+
   lazy val tabsDefault =
     Guice.createInjector().getInstance(classOf[tabs.default])
 
   lazy val tagDefault =
     Guice.createInjector().getInstance(classOf[tag.default])
+
+  lazy val tasklistDefault =
+    Guice.createInjector().getInstance(classOf[tasklist.default])
+
+  lazy val tasklistAllColours =
+    Guice.createInjector().getInstance(classOf[tasklist.allColours])
+
+  lazy val tasklistCannotStartYet =
+    Guice.createInjector().getInstance(classOf[tasklist.cannotStartYet])
+
+  lazy val tasklistError =
+    Guice.createInjector().getInstance(classOf[tasklist.error])
+
+  lazy val tasklistInProgress =
+    Guice.createInjector().getInstance(classOf[tasklist.inProgress])
 
   lazy val textareaDefault =
     Guice.createInjector().getInstance(classOf[textarea.default])

@@ -8,7 +8,9 @@ govukButton : GovukButton)
 
 <h1 class="govuk-heading-l">Beth yw’ch Cyfeirnod Unigryw y Trethdalwr ar gyfer Treth Gorfforaeth (UTR)?</h1>
 
-<p class="govuk-body">Gallwch <a class="govuk-link" rel="noreferrer noopener" target="_blank" href="https://www.gov.uk/dod-o-hyd-i-utr-sydd-ar-goll">ddod o hyd i UTR sydd ar goll (yn agor tab newydd)</a>.</p>
+<p class="govuk-body">Gall eich UTR fod yn 10 neu’n 13 digid o hyd. Bydd i’w weld ar Ffurflenni Treth a llythyrau eraill ynghylch Treth Gorfforaeth. Efallai y cyfeirir ato gan ddefnyddio’r geiriau ‘cyfeirnod’, ‘UTR’ neu ‘defnydd swyddogol’.</p>
+
+<p class="govuk-body"><a class="govuk-link" rel="noreferrer noopener" target="_blank" href="https://www.tax.service.gov.uk/ask-for-copy-of-your-corporation-tax-utr">Gofynnwch am gopi o’ch UTR ar gyfer Treth Gorfforaeth (yn agor tab newydd)</a></p>
 
 
 @govukInput(Input(
@@ -18,9 +20,6 @@ govukButton : GovukButton)
       classes = "govuk-visually-hidden",
       content = Text("Beth yw’ch Cyfeirnod Unigryw y Trethdalwr ar gyfer Treth Gorfforaeth?")
     ),
-    hint = Some(Hint(
-      content = HtmlContent("""Mae hwn yn cynnwys 10 rhif, er enghraifft 1234567890. Bydd i’w weld ar Ffurflenni Treth a llythyrau eraill ynghylch Treth Gorfforaeth. Efallai y cyfeirir ato gan ddefnyddio’r geiriau ‘cyfeirnod’, ‘UTR’ neu ‘defnydd swyddogol’.""")
-    )),
     classes = "govuk-input--width-10"
   ))
 @govukButton(Button(
