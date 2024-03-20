@@ -6,8 +6,6 @@ val libName = "play-frontend-govuk-examples"
 
 lazy val playDir = "play-2"
 
-ThisBuild / scalaVersion := "2.13.18"
-
 lazy val IntegrationTest  = config("it") extend Test
 val twirlCompileTemplates =
   TaskKey[Seq[File]]("twirl-compile-templates", "Compile twirl templates into scala source files")
