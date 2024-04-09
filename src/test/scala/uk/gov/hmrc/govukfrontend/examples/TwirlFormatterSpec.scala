@@ -50,7 +50,7 @@ class TwirlFormatterSpec extends AnyWordSpec with Matchers {
           |
           |@this(govukBackLink: GovukBackLink)
           |
-          |@()
+          |@()(implicit messages:Messages, request: RequestHeader)
           |@govukBackLink(BackLink(href = "#", content = Text( "Back")))""".stripMargin
 
       val gouvukBackLinkParsed = fastparse.parse(gouvukBackLinkNunjucks, NunjucksParser.nunjucksParser(_))

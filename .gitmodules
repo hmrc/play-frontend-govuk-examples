@@ -1,6 +1,8 @@
 [submodule "govuk-design-system"]
 	path = govuk-design-system
 	url = https://github.com/alphagov/govuk-design-system.git
+	branch = main
 [submodule "hmrc-design-system"]
 	path = hmrc-design-system
 	url = https://github.com/hmrc/design-system.git
+	branch = main

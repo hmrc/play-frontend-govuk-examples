@@ -94,6 +94,22 @@ Additionally, there is an issue with a hardcoded asset path in the Nunjucks for 
 with integration testing. There is a helper function in the `govukHeaderIntegrationSpec` to align the assets path at 
 this time.
 
+### Sequence diagram
+
+The Twirl examples are generated from files in the latest versions of the [design-system](https://github.com/hmrc/design-system) 
+and [govuk-design-system](https://github.com/alphagov/govuk-design-system) repos. `play-frontend-govuk-examples` does not
+require any other services to be running for example generation.
+
+```mermaid
+    sequenceDiagram
+        play-frontend-govuk-examples->>Github: updateExamples <br> update Git submodules in local dir
+        play-frontend-govuk-examples->>design-system (HMRC): generateExamples <br> retrieve examples from local dir
+        design-system (HMRC)-->>play-frontend-govuk-examples: 
+        play-frontend-govuk-examples->>govuk-design-system: generateExamples <br> retrieve examples from local dir
+        govuk-design-system-->>play-frontend-govuk-examples: 
+        play-frontend-govuk-examples->>play-frontend-govuk-examples: parses Nunjucks from design systems<br>to Twirl and writes to local dir
+```
+
 ### Integration testing
 
 The integration tests, check that the generated Twirl examples generate the same markup as the Nunjucks 

@@ -17,7 +17,6 @@
 package uk.gov.hmrc.govukfrontend.examples
 
 import java.nio.file.{Files, Path, Paths}
-
 import org.scalatest.wordspec.AsyncWordSpec
 import org.scalatest.matchers.should.Matchers
 import uk.gov.hmrc.govukfrontend.examples.FileSystem.TrueDir
@@ -30,6 +29,8 @@ class ExampleTranslatorTest extends AsyncWordSpec with Matchers {
   "ExampleTranslator" should {
 
     "generate Twirl examples" in {
+
+      import ConfigFromReference._
 
       val currentDir: String = System.getProperty("user.dir")
       val srcDir             = s"$currentDir/govuk-design-system/src/components"
@@ -44,13 +45,19 @@ class ExampleTranslatorTest extends AsyncWordSpec with Matchers {
         .flatMap { _ =>
           assert(Directory(destDir).exists)
 
-          val noOfNunjucksFiles = countFiles(Paths.get(srcDir), "index.njk")
+          val noOfNunjucksFiles = countFiles(Paths.get(srcDir), "index.njk", excludedExamples)
           val noOfTwirlFiles    = countFiles(Paths.get(destDir, PlayVersions.Play2().toString), ".*.scala.html")
+
           noOfNunjucksFiles shouldBe noOfTwirlFiles
         }
     }
   }
 
-  private def countFiles(path: Path, file: String) =
-    Files.walk(path).iterator().asScala.filter(Files.isRegularFile(_)).count(_.getFileName.toString matches file)
+  private def countFiles(path: Path, file: String, exclusions: List[String] = Nil) =
+    Files
+      .walk(path)
+      .iterator()
+      .asScala
+      .filter(Files.isRegularFile(_))
+      .count(path => path.getFileName.toString.matches(file) && !exclusions.exists(path.toString.contains))
 }
