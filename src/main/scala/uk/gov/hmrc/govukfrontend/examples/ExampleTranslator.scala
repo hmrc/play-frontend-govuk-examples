@@ -17,7 +17,6 @@
 package uk.gov.hmrc.govukfrontend.examples
 
 import java.nio.file.Paths
-
 import fastparse.NoWhitespace._
 import fastparse.Parsed.{Success => PSuccess}
 import fastparse._
@@ -36,6 +35,8 @@ case object HmrcFrontend extends ExampleType
 
 object ExampleTranslator {
 
+  import ConfigFromReference._
+
   case class Draft(content: String, path: TrueFile)
 
   def translateTwirlExamples(
@@ -49,7 +50,7 @@ object ExampleTranslator {
         file <- srcNunjucksExamplesDir.recursiveContents().toList
         if file.path.toString.contains(".njk") &&
           !file.path.toString.contains(".md.njk") &&
-          !file.path.toString.contains("archived")
+          !excludedExamples.exists(file.path.toString.contains)
       } yield file
 
       if (nunjucksExamples.isEmpty)

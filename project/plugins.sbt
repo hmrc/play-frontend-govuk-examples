@@ -8,6 +8,6 @@ resolvers ++= Seq(
 
 addSbtPlugin("org.playframework" % "sbt-plugin" % "3.0.2")
 
-addSbtPlugin("uk.gov.hmrc" % "sbt-auto-build" % "3.20.0")
+addSbtPlugin("uk.gov.hmrc" % "sbt-auto-build" % "3.21.0")
 
 addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.0")

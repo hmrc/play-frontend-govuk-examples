@@ -18,23 +18,27 @@ package uk.gov.hmrc.govukfrontend.examples
 
 object TwirlFormatter {
 
+  import ConfigFromReference._
+
   def format(parsed: NunjucksTemplate): String = {
     val importStatement: String =
       if (parsed.imports.isEmpty) Import().toString else parsed.imports.map(_.toString).toSet.mkString("\n")
 
-    (importStatement :: play26ParameterList(parsed.imports) :: parsed.prelim.fold("")(
+    (importStatement :: parameterList(parsed.imports, requiresMessagesImport(parsed.body)) :: parsed.prelim.fold("")(
       _.toString
     ) :: injectingDependencies(parsed.body))
       .map(_.toString)
       .mkString("\n")
   }
 
-  private def play26ParameterList(imports: List[Import]) = {
+  private def parameterList(imports: List[Import], addMessagesImport: Boolean) = {
     val dependencyInjections = imports.map(_.toDependencyInjectionString).mkString(",\n")
+    val parameters           = if (addMessagesImport) "@()(implicit messages: Messages, request: RequestHeader)" else "@()"
+
     s"""
        |@this($dependencyInjections)
        |
-       |@()
+       |$parameters
        |""".stripMargin
   }
 
@@ -44,4 +48,7 @@ object TwirlFormatter {
     case m: SetBlock  => m.toDependencyInjectionString
     case o            => o.toString
   }
+
+  private def requiresMessagesImport(body: List[NunjucksTemplateBody]): Boolean =
+    body.exists(template => componentsRequiringMessages.exists(template.toString.contains))
 }

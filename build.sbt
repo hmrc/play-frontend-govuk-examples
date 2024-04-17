@@ -17,7 +17,7 @@ lazy val root = Project(libName, file("."))
   .settings(
     name := libName,
     majorVersion := 0,
-    scalaVersion := "2.13.8",
+    scalaVersion := "2.13.12",
     libraryDependencies ++= LibDependencies.libDependencies,
     resolvers += Resolver.jcenterRepo,
     resolvers += "HMRC-open-artefacts-maven" at "https://open.artefacts.tax.service.gov.uk/maven2",
@@ -97,7 +97,7 @@ lazy val updateExampleSources = taskKey[Unit]("Update source example repositorie
   * src/test/play-XX/twirl/uk/gov/hmrc/govukfrontend/views/examples and
   * src/test/play-XX/twirl/uk/gov/hmrc/hmrcfrontend/views/examples appropriately,
   * where XX designates the relevant Play versions. Currently implemented for
-  * Play 2.6 and Play 2.7.
+  * Play 3.0
   *
   * Run this task in the sbt console via <code>generateExamples</code>.
   */

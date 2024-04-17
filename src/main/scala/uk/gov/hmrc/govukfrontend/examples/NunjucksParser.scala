@@ -23,6 +23,7 @@ import play.twirl.api.Html
 import uk.gov.hmrc.govukfrontend.examples.AsJson._
 import uk.gov.hmrc.govukfrontend.views.html.components.{Header => GovukHeader, Footer => GovukFooter, CharacterCount => GovukCharacterCount, _}
 import uk.gov.hmrc.hmrcfrontend.views.html.components._
+import uk.gov.hmrc.hmrcfrontend.views.html.components.{CharacterCount => HfCharacterCount}
 
 object NunjucksParser {
 
@@ -178,6 +179,10 @@ object NunjucksParser {
           jsonToMacroCall[Timeline](m, args)
         case (m @ "hmrcTimeoutDialog", args)       =>
           jsonToMacroCall[TimeoutDialog](m, args)
+        case (m @ "hmrcUserResearchBanner", args)  =>
+          jsonToMacroCall[UserResearchBanner](m, args)
+        case (m @ "hmrcCharacterCount", args)      =>
+          jsonToMacroCall[HfCharacterCount](m, args)
       }
 
   import scala.reflect.runtime.universe._
@@ -189,7 +194,7 @@ object NunjucksParser {
     var nunjucksParamsWithVariablesQuoted = nunjucksParams
       .getOrElse("")
       .linesIterator
-      .toStream
+      .to(LazyList)
       .map { line =>
         if (
           (line matches """\s*(html|content)\s*:\s*([^"][A-z0-9])+\s*,?$""") ||
@@ -244,7 +249,7 @@ object NunjucksParser {
     if (nunjucksParamsWithVariablesQuoted contains "MULTI_LINE_STRING") {
       nunjucksParamsWithVariablesQuoted = nunjucksParamsWithVariablesQuoted
         .split("MULTI_LINE_STRING")
-        .toStream
+        .to(LazyList)
         .map { split =>
           if (split.startsWith(">") && split.endsWith("<")) {
             "'" + split.substring(1, split.length - 1).linesIterator.toStream.mkString(" ") + "'"
