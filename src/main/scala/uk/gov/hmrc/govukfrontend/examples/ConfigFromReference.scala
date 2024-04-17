@@ -18,7 +18,7 @@ package uk.gov.hmrc.govukfrontend.examples
 
 import com.typesafe.config.ConfigFactory
 
-import scala.util.Try
+import scala.jdk.CollectionConverters.ListHasAsScala
 
 object ConfigFromReference {
 
@@ -26,16 +26,10 @@ object ConfigFromReference {
 
   val componentsRequiringMessages: List[String] = listStringFromConfigKey("components.messages")
 
-  private def listStringFromConfigKey(configKey: String): List[String] = {
-    val configString = Try(
-      ConfigFactory
-        .defaultReference()
-        .getString(configKey)
-    ).toOption
-
-    configString
-      .getOrElse("")
-      .split(",")
+  private def listStringFromConfigKey(configKey: String): List[String] =
+    ConfigFactory
+      .defaultReference()
+      .getStringList(configKey)
+      .asScala
       .toList
-  }
 }
