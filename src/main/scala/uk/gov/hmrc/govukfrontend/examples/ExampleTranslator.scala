@@ -22,7 +22,7 @@ import fastparse.Parsed.{Success => PSuccess}
 import fastparse._
 import uk.gov.hmrc.govukfrontend.examples.FileSystem.{TrueDir, TrueFile, prepareDirStructure}
 import uk.gov.hmrc.govukfrontend.examples.NunjucksParser.nunjucksParser
-import uk.gov.hmrc.govukfrontend.examples.PlayVersions.{Play2, PlayVersion}
+import uk.gov.hmrc.govukfrontend.examples.PlayVersions.{Play3, PlayVersion}
 
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.{Failure, Success, Try}
@@ -116,7 +116,7 @@ object ExampleTranslator {
               ex =>
                 Success(
                   playVersion match {
-                    case Play2() => TwirlFormatter.format(ex)
+                    case Play3() => TwirlFormatter.format(ex)
                   }
                 ),
               e => {
@@ -155,7 +155,7 @@ object ExampleTranslator {
 
       val dirClearing: Future[Unit] =
         Future {
-          TrueDir(destTwirlExamplesDirPath.path.resolve(Play2.toString())).del()
+          TrueDir(destTwirlExamplesDirPath.path.resolve(Play3.toString())).del()
         }
       val dirCreation: Future[Unit] = draftsToBe.flatMap(files => prepareDirStructure(files.map(_.path)))
 

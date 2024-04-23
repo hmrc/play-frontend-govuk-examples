@@ -19,7 +19,7 @@ object Versions {
       o.playVersionedExamples
         .sortBy(_.playVersion)
         .map { example =>
-          s"play${if (example.playVersion == 2) "" else example.playVersion}" -> Json.toJsObject(example.ref)
+          s"play" -> Json.toJsObject(example.ref)
         }
         .toMap
     )
