@@ -8,9 +8,9 @@ object ExamplesManifestGenerator {
     * sbt task implementation that generates a <code>manifest.json</code> with references to the example files which can be used by the
     * Govuk Design System browser extension [[https://github.com/hmrc/play-frontend-govuk-extension]]
     *
-    * It collects all the examples in the folder [[src/test/play-26/twirl/uk/gov/hmrc/govukfrontend/views/examples]]
+    * It collects all the examples in the folder [[src/test/play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples]]
     * and generates a <code>manifest.json</code> file in the folder
-    * [[src/test/resources]]which contains the location of each play-26 example
+    * [[src/test/resources]]which contains the location of each play-3 example
     * provided by x-govuk-component-renderer.
     *
     * To exclude an example from the manifest include a Twirl comment with the following contents

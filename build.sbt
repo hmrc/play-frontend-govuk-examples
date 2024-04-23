@@ -4,7 +4,7 @@ import sys.process.Process
 
 val libName = "play-frontend-govuk-examples"
 
-lazy val playDir = "play-2"
+lazy val playDir = "play-3"
 
 lazy val IntegrationTest  = config("it") extend Test
 val twirlCompileTemplates =
