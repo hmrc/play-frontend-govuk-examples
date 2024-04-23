@@ -1,0 +1,36 @@
+@import uk.gov.hmrc.hmrcfrontend.views.html.components._
+
+@this(hmrcAddToAList : HmrcAddToAList)
+
+@()(implicit messages: Messages, request: RequestHeader)
+
+
+@hmrcAddToAList(AddToAList(
+    itemList = Seq(
+      ListItem(
+        name = "Sydney Russell",
+        changeUrl = "#",
+        removeUrl = "#"
+      ),
+      ListItem(
+        name = "Michael Cain",
+        changeUrl = "#",
+        removeUrl = "#"
+      ),
+      ListItem(
+        name = "Jeremy Winter",
+        changeUrl = "#",
+        removeUrl = "#"
+      ),
+      ListItem(
+        name = "Elizabeth Kean",
+        changeUrl = "#",
+        removeUrl = "#"
+      )
+    ),
+    itemType = Some(ItemType(
+      singular = "director",
+      plural = "directors"
+    )),
+    hintText = Some("You must tell us about all your directors.")
+  ))

@@ -1,0 +1,131 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.html.components._
+@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.charactercount.CharacterCount
+
+@this(govukRadios : GovukRadios,
+govukCharacterCount : GovukCharacterCount,
+hmrcCharacterCount : HmrcCharacterCount,
+govukButton : GovukButton)
+
+@()(implicit messages: Messages, request: RequestHeader)
+
+
+<h1 class="govuk-heading-xl">Give feedback</h1>
+
+<p class="govuk-body">We use your feedback to improve our services. To better understand it, we may link your feedback to other information we hold about you, like gender and age.</p>
+
+<p class="govuk-body">See the <a class="govuk-link" href="https://www.gov.uk/government/publications/data-protection-act-dpa-information-hm-revenue-and-customs-hold-about-you/data-protection-act-dpa-information-hm-revenue-and-customs-hold-about-you" rel="noreferrer noopener" target="_blank">HMRC Privacy Notice (opens in new tab)</a> for details about how we collect, use, protect and secure your personal information.</p>
+
+<p class="govuk-body">This survey has 4 optional questions.</p>
+
+<form action="/form-handler" method="post" novalidate>
+  
+@govukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("Were you able to do what you needed to do today?"),
+        classes = "govuk-fieldset__legend--m"
+      ))
+    )),
+    name = "able",
+    items = Seq(
+      RadioItem(
+        content = Text("Yes"),
+        id = Some("able-yes"),
+        value = Some("yes")
+      ), 
+      RadioItem(
+        content = Text("No"),
+        id = Some("able-no"),
+        value = Some("no")
+      )
+    )
+  ))
+@govukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("How easy was it for you to do what you needed to do today?"),
+        classes = "govuk-fieldset__legend--m"
+      ))
+    )),
+    name = "howEasyScore",
+    items = Seq(
+      RadioItem(
+        content = Text("Very easy"),
+        id = Some("howEasyQuestion-VeryEasy"),
+        value = Some("VeryEasy")
+      ), 
+      RadioItem(
+        content = Text("Easy"),
+        id = Some("howEasyQuestion-Easy"),
+        value = Some("Easy")
+      ), 
+      RadioItem(
+        content = Text("Neither easy or difficult"),
+        id = Some("howEasyQuestion-Moderate"),
+        value = Some("Moderate")
+      ), 
+      RadioItem(
+        content = Text("Difficult"),
+        id = Some("howEasyQuestion-Difficult"),
+        value = Some("Difficult")
+      ), 
+      RadioItem(
+        content = Text("Very difficult"),
+        id = Some("howEasyQuestion-VeryDifficult"),
+        value = Some("VeryDifficult")
+      )
+    )
+  ))
+@hmrcCharacterCount(CharacterCount(
+    id = "whyGiveScore",
+    name = "moreDetail",
+    maxLength = Some(1000),
+    label = Label(
+      classes = "govuk-label--m",
+      content = Text("Why did you give this answer?")
+    ),
+    hint = Some(Hint(
+      content = Text("Please do not enter personal information such as your National Insurance number, Unique Tax Reference or address or telephone number in this box. Please note we are unable to reply to comments individually but we do use your feedback to help improve our services.")
+    ))
+  ))
+@govukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("Overall, how did you feel about the service you received today?"),
+        classes = "govuk-fieldset__legend--m"
+      ))
+    )),
+    name = "howDoYouFeelScore",
+    items = Seq(
+      RadioItem(
+        content = Text("Very satisfied"),
+        id = Some("howDoYouFeelQuestion-VerySatisfied"),
+        value = Some("VerySatisfied")
+      ), 
+      RadioItem(
+        content = Text("Satisfied"),
+        id = Some("howDoYouFeelQuestion-Satisfied"),
+        value = Some("Satisfied")
+      ), 
+      RadioItem(
+        content = Text("Neither satisfied or dissatisfied"),
+        id = Some("howDoYouFeelQuestion-Moderate"),
+        value = Some("Moderate")
+      ), 
+      RadioItem(
+        content = Text("Dissatisfied"),
+        id = Some("howDoYouFeelQuestion-Dissatisfied"),
+        value = Some("Dissatisfied")
+      ), 
+      RadioItem(
+        content = Text("Very dissatisfied"),
+        id = Some("howDoYouFeelQuestion-VeryDissatisfied"),
+        value = Some("VeryDissatisfied")
+      )
+    )
+  ))
+@govukButton(Button(
+    content = Text("Send feedback")
+  ))
+</form>

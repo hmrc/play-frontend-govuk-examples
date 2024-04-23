@@ -1,0 +1,36 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukCookieBanner : GovukCookieBanner)
+
+@()
+
+
+@html = {
+<p class="govuk-body">We use some essential cookies to make this service work.</p>
+  <p class="govuk-body">We’d like to set additional cookies so we can remember your settings, understand how people use the service and make improvements.</p>
+
+
+}
+@govukCookieBanner(CookieBanner(
+    ariaLabel = Some("Cookies on [name of service]"),
+    messages = Seq(
+      Message(
+        heading = Text("Cookies on [name of service]"),
+        content = HtmlContent(html),
+        actions = Some(Seq(
+          Action(
+            text = "Accept additional cookies",
+            inputType = Some("button")
+          ), 
+          Action(
+            text = "Reject additional cookies",
+            inputType = Some("button")
+          ), 
+          Action(
+            text = "View cookies",
+            href = Some("#")
+          )
+        ))
+      )
+    )
+  ))

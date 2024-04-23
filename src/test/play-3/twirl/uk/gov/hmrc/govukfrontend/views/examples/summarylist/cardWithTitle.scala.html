@@ -1,0 +1,221 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukSummaryList : GovukSummaryList)
+
+@()
+
+
+@govukSummaryList(SummaryList(
+    rows = Seq(
+      SummaryListRow(
+        key = Key(
+          content = Text("Age")
+        ),
+        value = Value(
+          content = HtmlContent("38")
+        ),
+        actions = Some(Actions(
+          items = Seq(
+            ActionItem(
+              href = "#",
+              content = Text("Change"),
+              visuallyHiddenText = Some("age")
+            )
+          )
+        ))
+      ), 
+      SummaryListRow(
+        key = Key(
+          content = Text("Nationality")
+        ),
+        value = Value(
+          content = HtmlContent("""UK national resident in UK""")
+        ),
+        actions = Some(Actions(
+          items = Seq(
+            ActionItem(
+              href = "#",
+              content = Text("Change"),
+              visuallyHiddenText = Some("nationality")
+            )
+          )
+        ))
+      ), 
+      SummaryListRow(
+        key = Key(
+          content = Text("Working situation")
+        ),
+        value = Value(
+          content = HtmlContent("""Part time – less than 30 hours a week""")
+        ),
+        actions = Some(Actions(
+          items = Seq(
+            ActionItem(
+              href = "#",
+              content = Text("Change"),
+              visuallyHiddenText = Some("working situation")
+            )
+          )
+        ))
+      )
+    ),
+    card = Some(Card(
+      title = Some(CardTitle(
+        content = Text("Lead tenant")
+      ))
+    ))
+  ))
+@govukSummaryList(SummaryList(
+    rows = Seq(
+      SummaryListRow(
+        key = Key(
+          content = Text("Details known")
+        ),
+        value = Value(
+          content = HtmlContent("Yes")
+        ),
+        actions = Some(Actions(
+          items = Seq(
+            ActionItem(
+              href = "#",
+              content = Text("Change"),
+              visuallyHiddenText = Some("whether details are known")
+            )
+          )
+        ))
+      ), 
+      SummaryListRow(
+        key = Key(
+          content = Text("Relationship to lead tenant")
+        ),
+        value = Value(
+          content = HtmlContent("Partner")
+        ),
+        actions = Some(Actions(
+          items = Seq(
+            ActionItem(
+              href = "#",
+              content = Text("Change"),
+              visuallyHiddenText = Some("relationship to lead tenant")
+            )
+          )
+        ))
+      ), 
+      SummaryListRow(
+        key = Key(
+          content = Text("Age")
+        ),
+        value = Value(
+          content = HtmlContent("42")
+        ),
+        actions = Some(Actions(
+          items = Seq(
+            ActionItem(
+              href = "#",
+              content = Text("Change"),
+              visuallyHiddenText = Some("age")
+            )
+          )
+        ))
+      ), 
+      SummaryListRow(
+        key = Key(
+          content = Text("Working situation")
+        ),
+        value = Value(
+          content = HtmlContent("""Unable to work because of long-term sickness or disability""")
+        ),
+        actions = Some(Actions(
+          items = Seq(
+            ActionItem(
+              href = "#",
+              content = Text("Change"),
+              visuallyHiddenText = Some("working situation")
+            )
+          )
+        ))
+      )
+    ),
+    card = Some(Card(
+      title = Some(CardTitle(
+        content = Text("Person 2")
+      ))
+    ))
+  ))
+@govukSummaryList(SummaryList(
+    rows = Seq(
+      SummaryListRow(
+        key = Key(
+          content = Text("Details known")
+        ),
+        value = Value(
+          content = HtmlContent("Yes")
+        ),
+        actions = Some(Actions(
+          items = Seq(
+            ActionItem(
+              href = "#",
+              content = Text("Change"),
+              visuallyHiddenText = Some("whether details are known")
+            )
+          )
+        ))
+      ), 
+      SummaryListRow(
+        key = Key(
+          content = Text("Relationship to lead tenant")
+        ),
+        value = Value(
+          content = HtmlContent("Child")
+        ),
+        actions = Some(Actions(
+          items = Seq(
+            ActionItem(
+              href = "#",
+              content = Text("Change"),
+              visuallyHiddenText = Some("relationship to lead tenant")
+            )
+          )
+        ))
+      ), 
+      SummaryListRow(
+        key = Key(
+          content = Text("Age")
+        ),
+        value = Value(
+          content = HtmlContent("7")
+        ),
+        actions = Some(Actions(
+          items = Seq(
+            ActionItem(
+              href = "#",
+              content = Text("Change"),
+              visuallyHiddenText = Some("age")
+            )
+          )
+        ))
+      ), 
+      SummaryListRow(
+        key = Key(
+          content = Text("Working situation")
+        ),
+        value = Value(
+          content = HtmlContent("""Child under 16""")
+        ),
+        actions = Some(Actions(
+          items = Seq(
+            ActionItem(
+              href = "#",
+              content = Text("Change"),
+              visuallyHiddenText = Some("working situation")
+            )
+          )
+        ))
+      )
+    ),
+    card = Some(Card(
+      title = Some(CardTitle(
+        content = Text("Person 3")
+      ))
+    ))
+  ))
