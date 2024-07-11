@@ -1,0 +1,64 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukButton : GovukButton,
+govukInput : GovukInput)
+
+@()
+
+
+<h1 class="govuk-heading-l">Enter your address</h1>
+
+
+@govukInput(Input(
+    id = "organisation",
+    name = "organisation",
+    label = Label(
+      content = Text("Organisation (optional)")
+    )
+  ))
+@govukInput(Input(
+    id = "line1",
+    name = "line1",
+    label = Label(
+      content = Text("Address line 1")
+    )
+  ))
+@govukInput(Input(
+    id = "line2",
+    name = "line2",
+    label = Label(
+      content = Text("Address line 2 (optional)")
+    )
+  ))
+@govukInput(Input(
+    id = "town-city",
+    name = "town-city",
+    label = Label(
+      content = Text("Town or city")
+    )
+  ))
+@govukInput(Input(
+    id = "county",
+    name = "county",
+    label = Label(
+      content = Text("County (optional)")
+    )
+  ))
+@govukInput(Input(
+    id = "postcode",
+    name = "postcode",
+    label = Label(
+      content = Text("Postcode")
+    ),
+    classes = "govuk-input--width-10"
+  ))
+@govukInput(Input(
+    id = "country",
+    name = "country",
+    label = Label(
+      content = Text("Country")
+    )
+  ))
+@govukButton(Button(
+    content = Text("Continue")
+  ))

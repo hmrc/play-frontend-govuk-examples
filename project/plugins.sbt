@@ -6,8 +6,8 @@ resolvers ++= Seq(
   "Typesafe Releases" at "https://repo.typesafe.com/typesafe/releases/"
 )
 
-addSbtPlugin("org.playframework" % "sbt-plugin" % "3.0.2")
+addSbtPlugin("org.playframework" % "sbt-plugin" % "3.0.3")
 
-addSbtPlugin("uk.gov.hmrc" % "sbt-auto-build" % "3.21.0")
+addSbtPlugin("uk.gov.hmrc" % "sbt-auto-build" % "3.22.0")
 
 addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.0")

@@ -1,0 +1,35 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukButton : GovukButton,
+govukInput : GovukInput)
+
+@()
+
+
+<h1 class="govuk-heading-l">Find your address</h1>
+
+
+@govukInput(Input(
+    id = "postcode",
+    name = "postcode",
+    label = Label(
+      content = Text("Postcode")
+    ),
+    classes = "govuk-input--width-10"
+  ))
+<p class="govuk-body"><a class="govuk-link" href="#">Enter the address manually</a></p>
+
+
+@govukInput(Input(
+    id = "property",
+    name = "property",
+    label = Label(
+      content = Text("Property name or number (optional)")
+    ),
+    hint = Some(Hint(
+      content = Text("For example, The Mill, 116 or Flat 37a.")
+    ))
+  ))
+@govukButton(Button(
+    content = Text("Continue")
+  ))
