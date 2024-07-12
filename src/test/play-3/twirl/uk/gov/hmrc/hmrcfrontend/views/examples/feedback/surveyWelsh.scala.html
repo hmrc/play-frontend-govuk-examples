@@ -1,8 +1,9 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 @import uk.gov.hmrc.hmrcfrontend.views.html.components._
-@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.charactercount.{CharacterCount => HFCharacterCount}
+@import uk.gov.hmrc.hmrcfrontend.views.viewmodels.charactercount.CharacterCount
 
 @this(govukRadios : GovukRadios,
+govukCharacterCount : GovukCharacterCount,
 hmrcCharacterCount : HmrcCharacterCount,
 govukButton : GovukButton)
 
@@ -76,7 +77,7 @@ govukButton : GovukButton)
       )
     )
   ))
-@hmrcCharacterCount(HFCharacterCount(
+@hmrcCharacterCount(CharacterCount(
     id = "whyGiveScore",
     name = "moreDetail",
     maxLength = Some(1000),
