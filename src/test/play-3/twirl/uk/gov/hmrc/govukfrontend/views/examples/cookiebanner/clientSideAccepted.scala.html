@@ -1,6 +1,4 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
-@import uk.gov.hmrc.govukfrontend.views.viewmodels.cookiebanner.Message
-@import uk.gov.hmrc.govukfrontend.views.viewmodels.cookiebanner.Action
 
 @this(govukCookieBanner : GovukCookieBanner)
 
@@ -33,18 +31,18 @@
           Action(
             text = "Accept analytics cookies",
             inputType = Some("button")
-          ),
+          ), 
           Action(
             text = "Reject analytics cookies",
             inputType = Some("button")
-          ),
+          ), 
           Action(
             text = "View cookies",
             href = Some("#")
           )
         )),
         hidden = true
-      ),
+      ), 
       Message(
         content = HtmlContent(acceptHtml),
         actions = Some(Seq(
@@ -54,7 +52,7 @@
           )
         )),
         role = Some("alert")
-      ),
+      ), 
       Message(
         content = HtmlContent(rejectHtml),
         actions = Some(Seq(

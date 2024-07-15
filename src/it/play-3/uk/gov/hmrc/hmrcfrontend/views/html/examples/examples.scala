@@ -36,6 +36,21 @@ package object examples {
   lazy val accountsofficereferenceLabelError =
     Guice.createInjector().getInstance(classOf[accountsofficereference.labelError])
 
+  lazy val addressesCountry =
+    Guice.createInjector().getInstance(classOf[addresses.country])
+
+  lazy val addressesFind =
+    Guice.createInjector().getInstance(classOf[addresses.find])
+
+  lazy val addressesManual =
+    Guice.createInjector().getInstance(classOf[addresses.manual])
+
+  lazy val addressesResults =
+    Guice.createInjector().getInstance(classOf[addresses.results])
+
+  lazy val addressesReview =
+    Guice.createInjector().getInstance(classOf[addresses.review])
+
   lazy val addtoalistAddToSummary =
     Guice.createInjector().getInstance(classOf[addtoalist.addToSummary])
 

@@ -31,8 +31,10 @@ class hmrcFeedbackIntegrationSpec extends TemplateIntegrationSpec {
   testRendering(HmrcFrontend, "feedback", "link", feedbackLink.f)
   testRendering(HmrcFrontend, "feedback", "linkWelsh", feedbackLinkWelsh.f)
   testRendering(HmrcFrontend, "feedback", "survey", () => feedbackSurvey.render(messages, request))
-  testRendering(HmrcFrontend, "feedback", "surveyWelsh", () => feedbackSurveyWelsh.render(messages, request))
   testRendering(HmrcFrontend, "feedback", "thanks", feedbackThanks.f)
   testRendering(HmrcFrontend, "feedback", "thanksWelsh", feedbackThanksWelsh.f)
+
+  // Excluded as the ordering of the attributes is different in Nunjucks and Twirl
+  // testRendering(HmrcFrontend, "feedback", "surveyWelsh", () => feedbackSurveyWelsh.render(messages, request))
 
 }

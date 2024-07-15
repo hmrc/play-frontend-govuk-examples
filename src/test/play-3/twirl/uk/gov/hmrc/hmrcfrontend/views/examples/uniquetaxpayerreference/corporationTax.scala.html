@@ -6,9 +6,9 @@ govukButton : GovukButton)
 @()
 
 
-<h1 class="govuk-heading-l">What is your Corporation Tax Unique Taxpayer Reference (UTR)?</h1>
+<h1 class="govuk-heading-l">Your Corporation Tax Unique Taxpayer Reference (UTR)</h1>
 
-<p class="govuk-body">Your UTR can be 10 or 13 digits long. It will be on tax returns and other letters about Corporation Tax. It might be called ‘reference’, ‘UTR’ or ‘official use’.</p>
+<p class="govuk-body">It will be on tax returns and other letters about Corporation Tax. It might be called ‘reference’, ‘UTR’ or ‘official use’.</p>
 
 <p class="govuk-body"><a class="govuk-link" rel="noreferrer noopener" target="_blank" href="https://www.tax.service.gov.uk/ask-for-copy-of-your-corporation-tax-utr">Ask for a copy of your Corporation Tax UTR (opens in new tab)</a></p>
 
@@ -17,9 +17,12 @@ govukButton : GovukButton)
     id = "utr",
     name = "utr",
     label = Label(
-      classes = "govuk-visually-hidden",
-      content = Text("What is your Corporation Tax Unique Taxpayer Reference?")
+      classes = "govuk-label--m",
+      content = Text("What is your Corporation Tax UTR?")
     ),
+    hint = Some(Hint(
+      content = Text("Your UTR can be 10 or 13 digits long.")
+    )),
     classes = "govuk-input--width-10"
   ))
 @govukButton(Button(

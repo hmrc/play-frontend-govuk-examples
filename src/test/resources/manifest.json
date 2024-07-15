@@ -524,6 +524,41 @@
     }
   }
 }, {
+  "id" : "hmrc/addresses/country",
+  "versions" : {
+    "play" : {
+      "uri" : "play-3/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addresses/country.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/addresses/find",
+  "versions" : {
+    "play" : {
+      "uri" : "play-3/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addresses/find.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/addresses/manual",
+  "versions" : {
+    "play" : {
+      "uri" : "play-3/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addresses/manual.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/addresses/results",
+  "versions" : {
+    "play" : {
+      "uri" : "play-3/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addresses/results.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/addresses/review",
+  "versions" : {
+    "play" : {
+      "uri" : "play-3/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/addresses/review.scala.html"
+    }
+  }
+}, {
   "id" : "hmrc/addtoalist/addToSummary",
   "versions" : {
     "play" : {

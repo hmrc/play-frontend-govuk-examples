@@ -1,0 +1,23 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukButton : GovukButton)
+
+@()
+
+
+<h1 class="govuk-heading-xl">Review and confirm</h1>
+
+<p class="govuk-body">
+  18 Warwick Gardens<br />
+  Worthing<br />
+  BN11 1PE<br />
+  United Kingdom
+</p>
+
+<p class="govuk-body"><a class="govuk-link" href="#">Edit address</a></p>
+
+  
+@govukButton(Button(
+    content = Text("Confirm address")
+  ))
+</form>
