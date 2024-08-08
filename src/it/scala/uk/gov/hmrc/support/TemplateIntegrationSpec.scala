@@ -68,8 +68,8 @@ abstract class TemplateIntegrationSpec
       twirlOutputHtml match {
 
         case Success(twirlOutputHtml)                      =>
-          val preProcessedTwirlHtml    = preProcess(twirlOutputHtml)
-          val preProcessedNunjucksHtml = preProcess(nunJucksOutputHtml)
+          val preProcessedTwirlHtml    = preProcess(normaliseHtml(twirlOutputHtml))
+          val preProcessedNunjucksHtml = preProcess(normaliseHtml(nunJucksOutputHtml))
           val prop                     = preProcessedTwirlHtml == preProcessedNunjucksHtml
 
           if (!prop) {
