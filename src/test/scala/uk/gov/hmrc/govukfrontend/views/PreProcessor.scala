@@ -28,8 +28,6 @@ import javax.xml.transform.TransformerFactory._
 import javax.xml.transform.dom.DOMSource
 import javax.xml.transform.stream.StreamResult
 
-
-
 trait PreProcessor {
 
   private lazy val compressor = new HtmlCompressor()
