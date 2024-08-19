@@ -20,6 +20,14 @@ import com.googlecode.htmlcompressor.compressor.HtmlCompressor
 import com.googlecode.htmlcompressor.compressor.HtmlCompressor.ALL_TAGS
 import org.jsoup.parser.Parser
 
+import org.jsoup.Jsoup
+import org.jsoup.helper.W3CDom
+
+import java.io.StringWriter
+import javax.xml.transform.TransformerFactory._
+import javax.xml.transform.dom.DOMSource
+import javax.xml.transform.stream.StreamResult
+
 trait PreProcessor {
 
   private lazy val compressor = new HtmlCompressor()
@@ -44,4 +52,12 @@ trait PreProcessor {
     * @return String
     */
   def preProcess(html: String): String = parseAndCompressHtml(html: String)
+
+  def normaliseHtml(html: String): String = {
+    val w3cDom      = new W3CDom().fromJsoup(Jsoup.parse(html))
+    val writer      = new StringWriter()
+    val transformer = newInstance().newTransformer()
+    transformer.transform(new DOMSource(w3cDom), new StreamResult(writer))
+    writer.toString
+  }
 }
