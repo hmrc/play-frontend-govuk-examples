@@ -11,7 +11,7 @@ examples showing how to use them with the Twirl library
 [play-frontend-hmrc](https://github.com/hmrc/play-frontend-hmrc), which contains Play / Scala / Twirl implementations of
 [govuk-frontend](https://github.com/alphagov/govuk-frontend) and [hmrc-frontend](https://github.com/hmrc/hmrc-frontend)
 
-***Examples generation is currently broken with Java 21 due to the deprecation of the Nashorn engine. When generating locally, you will need your Java version to be lower than Java 15***
+***Examples generation is currently broken with Java 21 due to the deprecation of the Nashorn engine. When generating locally, you will need your Java version to be lower than Java 15.***
 
 ## Interface for Chrome extension
 
