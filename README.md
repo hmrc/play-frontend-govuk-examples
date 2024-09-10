@@ -120,7 +120,7 @@ First, clone and start up https://www.github.com/hmrc/x-govuk-component-renderer
 the instructions in the README. Then run,
 
 ```shell script
-sbt it:test
+sbt it/test
 ```
 
 For each example, the integration tests,

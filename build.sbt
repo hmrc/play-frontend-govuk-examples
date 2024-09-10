@@ -1,3 +1,4 @@
+import uk.gov.hmrc.DefaultBuildSettings
 import ExamplesManifestGenerator.generate
 import play.sbt.PlayImport.PlayKeys._
 import sys.process.Process
@@ -6,19 +7,23 @@ val libName = "play-frontend-govuk-examples"
 
 lazy val playDir = "play-3"
 
-lazy val IntegrationTest  = config("it") extend Test
 val twirlCompileTemplates =
   TaskKey[Seq[File]]("twirl-compile-templates", "Compile twirl templates into scala source files")
+
+lazy val sharedSettings = Seq(
+  libraryDependencies ++= LibDependencies.libDependencies,
+  majorVersion := 0,
+  scalaVersion := "2.13.12"
+)
 
 lazy val root = Project(libName, file("."))
   .enablePlugins(PlayScala, SbtTwirl)
   .disablePlugins(PlayLayoutPlugin)
-  .configs(IntegrationTest)
   .settings(
     name := libName,
     majorVersion := 0,
     scalaVersion := "2.13.12",
-    libraryDependencies ++= LibDependencies.libDependencies,
+    sharedSettings,
     resolvers += Resolver.jcenterRepo,
     resolvers += "HMRC-open-artefacts-maven" at "https://open.artefacts.tax.service.gov.uk/maven2",
     resolvers += Resolver.url("HMRC-open-artefacts-ivy", url("https://open.artefacts.tax.service.gov.uk/ivy2"))(
@@ -58,8 +63,6 @@ lazy val root = Project(libName, file("."))
     scalacOptions += "-verbose",
     Test / fork := false
   )
-  .settings(inConfig(IntegrationTest)(itSettings): _*)
-  .settings(inConfig(IntegrationTest)(org.scalafmt.sbt.ScalafmtPlugin.scalafmtConfigSettings))
   .settings(
     // The following line removes the Twirl templates from the sbt-header sources
     // enabled by sbt-auto-build. These are generated example templates that we don't want to
@@ -67,8 +70,6 @@ lazy val root = Project(libName, file("."))
     // users to copy and paste. Updated to work with sbt-auto-build ^3.5.0.
     Compile / headerSources --= (Compile / twirlCompileTemplates / sources).value
   )
-
-lazy val itSettings = Defaults.itSettings :+ (unmanagedSourceDirectories += sourceDirectory.value / playDir)
 
 lazy val templateImports: Seq[String] = Seq(
   "_root_.play.twirl.api.Html",
@@ -117,3 +118,9 @@ fullRunTask(
   * Run this task in the sbt console via <code>generateExamples</code>.
   */
 lazy val generateExamplesManifest = taskKey[File]("Generate Twirl examples manifest.json file")
+
+lazy val it = project
+  .enablePlugins(PlayScala)
+  .dependsOn(root % "test->test")
+  .settings(DefaultBuildSettings.itSettings())
+  .settings(sharedSettings)
