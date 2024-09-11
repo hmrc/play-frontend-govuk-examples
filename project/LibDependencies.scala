@@ -26,6 +26,6 @@ object LibDependencies {
     "org.bitbucket.cowwoc"          % "diff-match-patch"   % "1.2",
     "org.scalatestplus.play"       %% "scalatestplus-play" % "7.0.0",
     ws
-  ).map(_ % s"$IntegrationTest,$Test")
+  ).map(_ % s"$Test")
 
 }
