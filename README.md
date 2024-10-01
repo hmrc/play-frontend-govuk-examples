@@ -96,6 +96,10 @@ Additionally, there is an issue with a hardcoded asset path in the Nunjucks for 
 with integration testing. There is a helper function in the `govukHeaderIntegrationSpec` to align the assets path at 
 this time.
 
+### Components that require Messages
+
+If a component requires Messages, you will need to add this to `src/main/resources/reference.conf` under the messages list. Once you've done this, you should generate the examples once added, which will ensure the implicit messages is added to the right place in the generated template.
+
 ### Sequence diagram
 
 The Twirl examples are generated from files in the latest versions of the [design-system](https://github.com/hmrc/design-system) 
