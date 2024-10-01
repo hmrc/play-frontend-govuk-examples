@@ -1,0 +1,11 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukServiceNavigation : GovukServiceNavigation)(implicit messages: Messages, request: RequestHeader)
+
+@()
+
+
+@govukServiceNavigation(ServiceNavigation(
+    serviceName = Some("Service name"),
+    serviceUrl = Some("#")
+  ))

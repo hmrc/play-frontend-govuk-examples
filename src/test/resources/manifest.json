@@ -1973,6 +1973,20 @@
     }
   }
 }, {
+  "id" : "hmrc/uniquetaxpayerreference/partnership",
+  "versions" : {
+    "play" : {
+      "uri" : "play-3/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/partnership.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/uniquetaxpayerreference/partnershipWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-3/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/uniquetaxpayerreference/partnershipWelsh.scala.html"
+    }
+  }
+}, {
   "id" : "hmrc/uniquetaxpayerreference/selfAssessment",
   "versions" : {
     "play" : {
@@ -2229,6 +2243,34 @@
   "versions" : {
     "play" : {
       "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/select/withHint.scala.html"
+    }
+  }
+}, {
+  "id" : "servicenavigation/default",
+  "versions" : {
+    "play" : {
+      "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/servicenavigation/default.scala.html"
+    }
+  }
+}, {
+  "id" : "servicenavigation/withGovukHeader",
+  "versions" : {
+    "play" : {
+      "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/servicenavigation/withGovukHeader.scala.html"
+    }
+  }
+}, {
+  "id" : "servicenavigation/withServiceName",
+  "versions" : {
+    "play" : {
+      "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/servicenavigation/withServiceName.scala.html"
+    }
+  }
+}, {
+  "id" : "servicenavigation/withServiceNameAndNavigation",
+  "versions" : {
+    "play" : {
+      "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/servicenavigation/withServiceNameAndNavigation.scala.html"
     }
   }
 }, {
