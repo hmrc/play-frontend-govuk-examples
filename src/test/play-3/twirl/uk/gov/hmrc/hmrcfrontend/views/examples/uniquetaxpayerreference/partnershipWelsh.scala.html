@@ -1,0 +1,27 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukInput : GovukInput,
+govukButton : GovukButton)
+
+@()
+
+
+<h1 class="govuk-heading-l">Cyfeirnod Unigryw y Trethdalwr (UTR) eich Partneriaeth</h1>
+
+<p class="govuk-body">Bydd i’w weld yn eich Cyfrif Treth Busnes, yn ap CThEF, neu ar Ffurflenni Treth a dogfennau eraill oddi wrth CThEF. Efallai y cyfeirir ato gan ddefnyddio’r geiriau ‘cyfeirnod’, ‘UTR’ neu ‘defnydd swyddogol’.</p>
+
+<p class="govuk-body"><a class="govuk-link" rel="noreferrer noopener" target="_blank" href="https://www.gov.uk/find-utr-number">Sut i ddod o hyd i’ch UTR (yn agor tab newydd)</a></p>
+
+
+@govukInput(Input(
+    id = "utr",
+    name = "utr",
+    label = Label(
+      classes = "govuk-label--m",
+      content = Text("Beth yw UTR eich Partneriaeth?")
+    ),
+    classes = "govuk-input--width-10"
+  ))
+@govukButton(Button(
+    content = Text("Yn eich blaen")
+  ))

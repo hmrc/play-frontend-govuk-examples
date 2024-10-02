@@ -139,6 +139,8 @@ object NunjucksParser {
           jsonToMacroCall[Radios](m, args)
         case (m @ "govukSelect", args)             =>
           jsonToMacroCall[Select](m, args)
+        case (m @ "govukServiceNavigation", args)  =>
+          jsonToMacroCall[ServiceNavigation](m, args)
         case (m @ "govukSkipLink", args)           =>
           jsonToMacroCall[SkipLink](m, args)
         case (m @ "govukSummaryList", args)        =>

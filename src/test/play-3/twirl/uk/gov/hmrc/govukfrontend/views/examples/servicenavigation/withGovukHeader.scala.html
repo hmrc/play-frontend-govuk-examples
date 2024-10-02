@@ -1,0 +1,28 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukHeader : GovukHeader,
+govukServiceNavigation : GovukServiceNavigation)
+
+@()(implicit messages: Messages, request: RequestHeader)
+
+
+@govukHeader(Header(
+    classes = "govuk-header--full-width-border"
+  ))
+@govukServiceNavigation(ServiceNavigation(
+    navigation = Seq(
+      ServiceNavigationItem(
+        content = Text("Navigation item 1"),
+        href = "#"
+      ), 
+      ServiceNavigationItem(
+        content = Text("Navigation item 2"),
+        href = "#",
+        active = true
+      ), 
+      ServiceNavigationItem(
+        content = Text("Navigation item 3"),
+        href = "#"
+      )
+    )
+  ))

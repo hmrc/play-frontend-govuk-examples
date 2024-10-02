@@ -236,6 +236,18 @@ package object examples {
   lazy val selectError =
     Guice.createInjector().getInstance(classOf[select.error])
 
+  lazy val serviceNavigationDefault =
+    Guice.createInjector().getInstance(classOf[servicenavigation.default])
+
+  lazy val serviceNavigationWithGovukHeader =
+    Guice.createInjector(TudorCrownModule()).getInstance(classOf[servicenavigation.withGovukHeader])
+
+  lazy val serviceNavigationWithServiceName =
+    Guice.createInjector().getInstance(classOf[servicenavigation.withServiceName])
+
+  lazy val serviceNavigationWithServiceNameAndNavigation =
+    Guice.createInjector().getInstance(classOf[servicenavigation.withServiceNameAndNavigation])
+
   lazy val skiplinkDefault =
     Guice.createInjector().getInstance(classOf[skiplink.default])
 
