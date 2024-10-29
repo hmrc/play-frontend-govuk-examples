@@ -18,7 +18,7 @@ govukButton : GovukButton)
 <p class="govuk-body">This survey has 4 optional questions.</p>
 
 <form action="/form-handler" method="post" novalidate>
-
+  
 @govukRadios(Radios(
     fieldset = Some(Fieldset(
       legend = Some(Legend(
@@ -32,7 +32,7 @@ govukButton : GovukButton)
         content = Text("Yes"),
         id = Some("able-yes"),
         value = Some("yes")
-      ),
+      ), 
       RadioItem(
         content = Text("No"),
         id = Some("able-no"),
@@ -53,22 +53,22 @@ govukButton : GovukButton)
         content = Text("Very easy"),
         id = Some("howEasyQuestion-VeryEasy"),
         value = Some("VeryEasy")
-      ),
+      ), 
       RadioItem(
         content = Text("Easy"),
         id = Some("howEasyQuestion-Easy"),
         value = Some("Easy")
-      ),
+      ), 
       RadioItem(
         content = Text("Neither easy or difficult"),
         id = Some("howEasyQuestion-Moderate"),
         value = Some("Moderate")
-      ),
+      ), 
       RadioItem(
         content = Text("Difficult"),
         id = Some("howEasyQuestion-Difficult"),
         value = Some("Difficult")
-      ),
+      ), 
       RadioItem(
         content = Text("Very difficult"),
         id = Some("howEasyQuestion-VeryDifficult"),
@@ -101,22 +101,22 @@ govukButton : GovukButton)
         content = Text("Very satisfied"),
         id = Some("howDoYouFeelQuestion-VerySatisfied"),
         value = Some("VerySatisfied")
-      ),
+      ), 
       RadioItem(
         content = Text("Satisfied"),
         id = Some("howDoYouFeelQuestion-Satisfied"),
         value = Some("Satisfied")
-      ),
+      ), 
       RadioItem(
         content = Text("Neither satisfied or dissatisfied"),
         id = Some("howDoYouFeelQuestion-Moderate"),
         value = Some("Moderate")
-      ),
+      ), 
       RadioItem(
         content = Text("Dissatisfied"),
         id = Some("howDoYouFeelQuestion-Dissatisfied"),
         value = Some("Dissatisfied")
-      ),
+      ), 
       RadioItem(
         content = Text("Very dissatisfied"),
         id = Some("howDoYouFeelQuestion-VeryDissatisfied"),

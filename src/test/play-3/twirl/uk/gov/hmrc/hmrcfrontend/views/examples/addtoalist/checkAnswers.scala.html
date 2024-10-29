@@ -11,7 +11,7 @@ govukButton : GovukButton)
 
       <h1 class="govuk-heading-l">Check your answers</h1>
 
-
+      
 @govukSummaryList(SummaryList(
     rows = Seq(
       SummaryListRow(
@@ -30,7 +30,7 @@ govukButton : GovukButton)
             )
           )
         ))
-      ),
+      ), 
       SummaryListRow(
         key = Key(
           content = Text("What is Elizabeth Kean’s date of birth?")
@@ -47,7 +47,7 @@ govukButton : GovukButton)
             )
           )
         ))
-      ),
+      ), 
       SummaryListRow(
         key = Key(
           content = Text("Does Elizabeth Kean have a National Insurance number?")
@@ -64,7 +64,7 @@ govukButton : GovukButton)
             )
           )
         ))
-      ),
+      ), 
       SummaryListRow(
         key = Key(
           content = Text("National Insurance number")
@@ -89,7 +89,7 @@ govukButton : GovukButton)
 
         <input type="hidden" name="answers-checked" value="true">
 
-
+        
 @govukButton(Button(
     content = Text("Continue")
   ))
