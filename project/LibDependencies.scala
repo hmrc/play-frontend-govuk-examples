@@ -8,11 +8,13 @@ object LibDependencies {
   def libDependencies: Seq[ModuleID] = compile ++ test
 
   private lazy val compile = Seq(
-    "org.playframework" %% "play-filters-helpers"       % "3.0.0",
-    "org.joda"           % "joda-convert"               % "2.0.2",
-    "com.lihaoyi"       %% "fastparse"                  % "2.1.3",
-    "org.playframework" %% "play-test"                  % "3.0.0",
-    "uk.gov.hmrc"       %% "play-frontend-hmrc-play-30" % s"$playFrontendHmrcVersion"
+    // Was removed from core Java from v15 onwards, used by NunjucksParser
+    "org.openjdk.nashorn" % "nashorn-core"               % "15.6",
+    "org.playframework"  %% "play-filters-helpers"       % "3.0.0",
+    "org.joda"            % "joda-convert"               % "2.0.2",
+    "com.lihaoyi"        %% "fastparse"                  % "2.1.3",
+    "org.playframework"  %% "play-test"                  % "3.0.0",
+    "uk.gov.hmrc"        %% "play-frontend-hmrc-play-30" % s"$playFrontendHmrcVersion"
   )
 
   private lazy val test = Seq(
