@@ -17,13 +17,20 @@
 package uk.gov.hmrc.govukfrontend.views
 package examples
 
-import uk.gov.hmrc.govukfrontend.examples.GovukFrontend
+import play.api.i18n.Messages
+import play.api.mvc.RequestHeader
+import play.api.test.FakeRequest
+import uk.gov.hmrc.govukfrontend.examples.{GovukFrontend, MessagesSupport}
 import uk.gov.hmrc.govukfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukErrorSummaryIntegrationSpec extends TemplateIntegrationSpec {
 
+  val request: RequestHeader = FakeRequest()
+  val messages: Messages     = MessagesSupport().messages
+
   testRendering(GovukFrontend, "error-summary", "default", errorsummaryDefault.f)
+  testRendering(GovukFrontend, "error-summary", "fullPageExample", () => errorsummaryFullPageExample.render(messages, request))
   testRendering(GovukFrontend, "error-summary", "linking", errorsummaryLinking.f)
   testRendering(GovukFrontend, "error-summary", "linkingCheckboxesRadios", errorsummaryLinkingCheckboxesRadios.f)
   testRendering(GovukFrontend, "error-summary", "linkingMultipleFields", errorsummaryLinkingMultipleFields.f)

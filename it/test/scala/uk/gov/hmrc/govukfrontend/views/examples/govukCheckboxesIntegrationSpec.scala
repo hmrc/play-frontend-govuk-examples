@@ -28,4 +28,7 @@ class govukCheckboxesIntegrationSpec extends TemplateIntegrationSpec {
   testRendering(GovukFrontend, "checkboxes", "error", checkboxesError.f)
   testRendering(GovukFrontend, "checkboxes", "hint", checkboxesHint.f)
   testRendering(GovukFrontend, "checkboxes", "small", checkboxesSmall.f)
+  testRendering(GovukFrontend, "checkboxes", "withNoneOption", checkboxesWithNoneOption.f)
+  testRendering(GovukFrontend, "checkboxes", "withNoneOptionInError", checkboxesWithNoneOptionInError.f)
+  testRendering(GovukFrontend, "checkboxes", "withoutHeading", checkboxesWithoutHeading.f)
 }
