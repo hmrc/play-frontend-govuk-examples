@@ -23,7 +23,9 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukButtonIntegrationSpec extends TemplateIntegrationSpec {
 
+  testRendering(GovukFrontend, "button", "buttonGroup", buttonButtonGroup.f)
   testRendering(GovukFrontend, "button", "default", buttonDefault.f)
+  testRendering(GovukFrontend, "button", "disabled", buttonDisabled.f)
   testRendering(GovukFrontend, "button", "preventDoubleClick", buttonPreventDoubleClick.f)
   testRendering(GovukFrontend, "button", "secondary", buttonSecondary.f)
   testRendering(GovukFrontend, "button", "secondaryCombo", buttonSecondaryCombo.f)

@@ -26,4 +26,7 @@ class govukDateInputIntegrationSpec extends TemplateIntegrationSpec {
   testRendering(GovukFrontend, "date-input", "default", dateinputDefault.f)
   testRendering(GovukFrontend, "date-input", "dateOfBirth", dateinputDateOfBirth.f)
   testRendering(GovukFrontend, "date-input", "error", dateinputError.f)
+  testRendering(GovukFrontend, "date-input", "errorSingle", dateinputErrorSingle.f)
+  testRendering(GovukFrontend, "date-input", "withoutHeading", dateinputWithoutHeading.f)
+
 }

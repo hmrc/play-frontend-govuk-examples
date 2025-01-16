@@ -37,6 +37,15 @@ package object examples {
   lazy val breadcrumbsDefault =
     Guice.createInjector().getInstance(classOf[breadcrumbs.default])
 
+  lazy val breadcrumbsCollapseMobile =
+    Guice.createInjector().getInstance(classOf[breadcrumbs.collapseMobile])
+
+  lazy val breadcrumbsInverse =
+    Guice.createInjector().getInstance(classOf[breadcrumbs.inverse])
+
+  lazy val buttonButtonGroup =
+    Guice.createInjector().getInstance(classOf[button.buttonGroup])
+
   lazy val buttonDefault =
     Guice.createInjector().getInstance(classOf[button.default])
 
@@ -88,6 +97,15 @@ package object examples {
   lazy val checkboxesSmall =
     Guice.createInjector().getInstance(classOf[checkboxes.small])
 
+  lazy val checkboxesWithNoneOption =
+    Guice.createInjector().getInstance(classOf[checkboxes.withNoneOption])
+
+  lazy val checkboxesWithNoneOptionInError =
+    Guice.createInjector().getInstance(classOf[checkboxes.withNoneOptionInError])
+
+  lazy val checkboxesWithoutHeading =
+    Guice.createInjector().getInstance(classOf[checkboxes.withoutHeading])
+
   lazy val dateinputDefault =
     Guice.createInjector().getInstance(classOf[dateinput.default])
 
@@ -96,6 +114,12 @@ package object examples {
 
   lazy val dateinputError =
     Guice.createInjector().getInstance(classOf[dateinput.error])
+
+  lazy val dateinputErrorSingle =
+    Guice.createInjector().getInstance(classOf[dateinput.errorSingle])
+
+  lazy val dateinputWithoutHeading =
+    Guice.createInjector().getInstance(classOf[dateinput.withoutHeading])
 
   lazy val detailsDefault      =
     Guice.createInjector().getInstance(classOf[details.default])
@@ -113,6 +137,9 @@ package object examples {
 
   lazy val errorsummaryDefault =
     Guice.createInjector().getInstance(classOf[errorsummary.default])
+
+  lazy val errorsummaryFullPageExample =
+    Guice.createInjector().getInstance(classOf[errorsummary.fullPageExample])
 
   lazy val errorsummaryLinking =
     Guice.createInjector().getInstance(classOf[errorsummary.linking])

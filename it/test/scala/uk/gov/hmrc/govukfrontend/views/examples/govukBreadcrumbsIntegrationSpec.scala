@@ -17,11 +17,19 @@
 package uk.gov.hmrc.govukfrontend.views
 package examples
 
-import uk.gov.hmrc.govukfrontend.examples.GovukFrontend
+import play.api.i18n.Messages
+import play.api.mvc.RequestHeader
+import play.api.test.FakeRequest
+import uk.gov.hmrc.govukfrontend.examples.{GovukFrontend, MessagesSupport}
 import uk.gov.hmrc.govukfrontend.views.html.examples._
 import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukBreadcrumbsIntegrationSpec extends TemplateIntegrationSpec {
 
-  testRendering(GovukFrontend, "breadcrumbs", "default", breadcrumbsDefault.f)
+  val request: RequestHeader = FakeRequest()
+  val messages: Messages     = MessagesSupport().messages
+
+  testRendering(GovukFrontend, "breadcrumbs", "collapseMobile", () => breadcrumbsCollapseMobile.render(messages, request))
+  testRendering(GovukFrontend, "breadcrumbs", "default", () => breadcrumbsDefault.render(messages, request))
+  testRendering(GovukFrontend, "breadcrumbs", "inverse", () => breadcrumbsInverse.render(messages, request))
 }
