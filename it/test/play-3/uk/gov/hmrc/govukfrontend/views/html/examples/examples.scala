@@ -18,7 +18,7 @@ package uk.gov.hmrc.govukfrontend.views
 package html
 
 import com.google.inject.Guice
-import uk.gov.hmrc.support.TudorCrownModule
+import uk.gov.hmrc.support.ConfigurationModule
 
 package object examples {
 
@@ -169,24 +169,24 @@ package object examples {
     Guice.createInjector().getInstance(classOf[fileupload.error])
 
   lazy val footerDefault =
-    Guice.createInjector().getInstance(classOf[footer.default])
+    Guice.createInjector(ConfigurationModule()).getInstance(classOf[footer.default])
 
   lazy val footerFull =
-    Guice.createInjector().getInstance(classOf[footer.full])
+    Guice.createInjector(ConfigurationModule()).getInstance(classOf[footer.full])
 
   lazy val footerWithMeta =
-    Guice.createInjector().getInstance(classOf[footer.withMeta])
+    Guice.createInjector(ConfigurationModule()).getInstance(classOf[footer.withMeta])
 
   lazy val footerWithNavigation =
-    Guice.createInjector().getInstance(classOf[footer.withNavigation])
+    Guice.createInjector(ConfigurationModule()).getInstance(classOf[footer.withNavigation])
 
-  lazy val headerDefault = Guice.createInjector(TudorCrownModule()).getInstance(classOf[header.default])
+  lazy val headerDefault = Guice.createInjector(ConfigurationModule()).getInstance(classOf[header.default])
 
   lazy val headerWithServiceName =
-    Guice.createInjector(TudorCrownModule()).getInstance(classOf[header.withServiceName])
+    Guice.createInjector(ConfigurationModule()).getInstance(classOf[header.withServiceName])
 
   lazy val headerWithServiceNameAndNavigation =
-    Guice.createInjector(TudorCrownModule()).getInstance(classOf[header.withServiceNameAndNavigation])
+    Guice.createInjector(ConfigurationModule()).getInstance(classOf[header.withServiceNameAndNavigation])
 
   lazy val insettextDefault =
     Guice.createInjector().getInstance(classOf[insettext.default])
@@ -267,7 +267,7 @@ package object examples {
     Guice.createInjector().getInstance(classOf[servicenavigation.default])
 
   lazy val serviceNavigationWithGovukHeader =
-    Guice.createInjector(TudorCrownModule()).getInstance(classOf[servicenavigation.withGovukHeader])
+    Guice.createInjector(ConfigurationModule()).getInstance(classOf[servicenavigation.withGovukHeader])
 
   lazy val serviceNavigationWithServiceName =
     Guice.createInjector().getInstance(classOf[servicenavigation.withServiceName])

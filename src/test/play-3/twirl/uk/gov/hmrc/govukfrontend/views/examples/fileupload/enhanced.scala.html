@@ -1,0 +1,15 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukFileUpload : GovukFileUpload)
+
+@()
+
+
+@govukFileUpload(FileUpload(
+    name = "fileUpload1",
+    id = "file-upload-1",
+    label = Label(
+      content = Text("Upload a file")
+    ),
+    javascript = Some(true)
+  ))

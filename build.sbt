@@ -13,7 +13,7 @@ val twirlCompileTemplates =
 lazy val sharedSettings = Seq(
   libraryDependencies ++= LibDependencies.libDependencies,
   majorVersion := 0,
-  scalaVersion := "2.13.12"
+  scalaVersion := "2.13.16"
 )
 
 lazy val root = Project(libName, file("."))
@@ -24,7 +24,6 @@ lazy val root = Project(libName, file("."))
     majorVersion := 0,
     scalaVersion := "2.13.12",
     sharedSettings,
-    resolvers += Resolver.jcenterRepo,
     resolvers += "HMRC-open-artefacts-maven" at "https://open.artefacts.tax.service.gov.uk/maven2",
     resolvers += Resolver.url("HMRC-open-artefacts-ivy", url("https://open.artefacts.tax.service.gov.uk/ivy2"))(
       Resolver.ivyStylePatterns
