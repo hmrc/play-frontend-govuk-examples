@@ -6,15 +6,16 @@ govukButton : GovukButton)
 @()
 
 
-<h1 class="govuk-heading-l">What is your company registration number?</h1>
+<h1 class="govuk-heading-l">Company registration number</h1>
 
 <p class="govuk-body">You can <a class="govuk-link" href="https://find-and-update.company-information.service.gov.uk/" rel="noreferrer noopener" target="_blank">search Companies House for your company registration number (opens in new tab)</a>.</p>
 
-
+<form action="/form-handler" method="post" novalidate>
+  
 @govukInput(Input(
     id = "company-registration-number",
     label = Label(
-      classes = "govuk-visually-hidden",
+      classes = "govuk-label--m",
       content = Text("What is your company registration number?")
     ),
     hint = Some(Hint(
@@ -25,3 +26,4 @@ govukButton : GovukButton)
 @govukButton(Button(
     content = Text("Continue")
   ))
+</form>

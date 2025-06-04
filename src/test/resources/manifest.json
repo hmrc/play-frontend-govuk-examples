@@ -405,6 +405,13 @@
     }
   }
 }, {
+  "id" : "fileupload/enhanced",
+  "versions" : {
+    "play" : {
+      "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/fileupload/enhanced.scala.html"
+    }
+  }
+}, {
   "id" : "fileupload/error",
   "versions" : {
     "play" : {
