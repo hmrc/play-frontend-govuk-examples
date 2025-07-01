@@ -32,6 +32,7 @@ class govukHeaderIntegrationSpec extends TemplateIntegrationSpec {
     "withServiceNameAndNavigation",
     withOverriddenAssetPath(headerWithServiceNameAndNavigation.f)
   )
+  testRendering(GovukFrontend, "header", "withoutBrandRefresh", withOverriddenAssetPath(headerWithoutBrandRefresh.f))
 
   private def withOverriddenAssetPath(render: () => HtmlFormat.Appendable): () => HtmlFormat.Appendable = { () =>
     Html(render().toString().replace("/assets/govuk/images/", "/assets/images/"))

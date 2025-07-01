@@ -8,9 +8,9 @@ govukButton : GovukButton)
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
-      <h1 class="govuk-heading-xl">Change Elizabeth Keen’s details</h1>
+      <h1 class="govuk-heading-l">Change Elizabeth Keen’s details</h1>
 
-      
+
 @govukSummaryList(SummaryList(
     rows = Seq(
       SummaryListRow(
@@ -29,7 +29,7 @@ govukButton : GovukButton)
             )
           )
         ))
-      ), 
+      ),
       SummaryListRow(
         key = Key(
           content = Text("What is Elizabeth Kean’s date of birth?")
@@ -46,7 +46,7 @@ govukButton : GovukButton)
             )
           )
         ))
-      ), 
+      ),
       SummaryListRow(
         key = Key(
           content = Text("Does Elizabeth Kean have a National Insurance number?")
@@ -63,7 +63,7 @@ govukButton : GovukButton)
             )
           )
         ))
-      ), 
+      ),
       SummaryListRow(
         key = Key(
           content = Text("National Insurance number")
@@ -88,7 +88,7 @@ govukButton : GovukButton)
 
         <input type="hidden" name="answers-checked" value="true">
 
-        
+
 @govukButton(Button(
     content = Text("Continue")
   ))

@@ -6,27 +6,33 @@ govukButton : GovukButton)
 @()
 
 
-<h1 class="govuk-heading-xl">Choose your address</h1>
+<h1 class="govuk-heading-l">Choose your address</h1>
 
 <p class="govuk-body"><a class="govuk-link" href="#">Enter the address manually</a></p>
 
 <form action="/form-handler" method="post" novalidate>
   
 @govukRadios(Radios(
+    fieldset = Some(Fieldset(
+      legend = Some(Legend(
+        content = Text("What is your address?"),
+        classes = "govuk-fieldset__legend--m"
+      ))
+    )),
     name = "results",
     items = Seq(
       RadioItem(
-        content = Text("1 Warwick Gardens, Worthing, BN11 1PE"),
+        content = Text("1 Arundel Mews, Worthing, BN11 5RG"),
         id = Some("1"),
         value = Some("1")
       ), 
       RadioItem(
-        content = Text("2a Warwick Gardens, Worthing, BN11 1PE"),
+        content = Text("2a Arundel Mews, Worthing, BN11 5RG"),
         id = Some("2a"),
         value = Some("2a")
       ), 
       RadioItem(
-        content = Text("Flat 1, 3 Warwick Gardens, Worthing, BN11 1PE"),
+        content = Text("Flat 1, 3 Arundel Mews, Worthing, BN11 5RG"),
         id = Some("Flat 1, 3"),
         value = Some("Flat 1, 3")
       )
