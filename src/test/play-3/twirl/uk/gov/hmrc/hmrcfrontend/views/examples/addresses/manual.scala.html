@@ -1,14 +1,22 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
 @this(govukButton : GovukButton,
-govukInput : GovukInput)
+govukInput : GovukInput,
+govukFieldset : GovukFieldset)
 
 @()
 
 
-<h1 class="govuk-heading-l">Enter your address</h1>
+@govukFieldset(Fieldset(
+    legend = Some(Legend(
+      content = Text("Enter your address"),
+      classes = "govuk-fieldset__legend--l",
+      isPageHeading = true
+    )),
+    html = html
+  ))
 
-
+@html = {
 @govukInput(Input(
     id = "organisation",
     name = "organisation",
@@ -21,7 +29,8 @@ govukInput : GovukInput)
     name = "line1",
     label = Label(
       content = Text("Address line 1")
-    )
+    ),
+    autocomplete = Some("address-line1")
   ))
 @govukInput(Input(
     id = "line2",
@@ -62,3 +71,4 @@ govukInput : GovukInput)
 @govukButton(Button(
     content = Text("Continue")
   ))
+}

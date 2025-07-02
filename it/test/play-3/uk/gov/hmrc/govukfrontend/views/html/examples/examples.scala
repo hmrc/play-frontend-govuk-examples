@@ -180,6 +180,9 @@ package object examples {
   lazy val footerWithNavigation =
     Guice.createInjector(ConfigurationModule()).getInstance(classOf[footer.withNavigation])
 
+  lazy val footerWithoutBrandRefresh =
+    Guice.createInjector(ConfigurationModule()).getInstance(classOf[footer.withoutBrandRefresh])
+
   lazy val headerDefault = Guice.createInjector(ConfigurationModule()).getInstance(classOf[header.default])
 
   lazy val headerWithServiceName =
@@ -187,6 +190,10 @@ package object examples {
 
   lazy val headerWithServiceNameAndNavigation =
     Guice.createInjector(ConfigurationModule()).getInstance(classOf[header.withServiceNameAndNavigation])
+
+  lazy val headerWithoutBrandRefresh =
+    Guice.createInjector(ConfigurationModule()).getInstance(classOf[header.withoutBrandRefresh])
+
 
   lazy val insettextDefault =
     Guice.createInjector().getInstance(classOf[insettext.default])
@@ -274,6 +281,9 @@ package object examples {
 
   lazy val serviceNavigationWithServiceNameAndNavigation =
     Guice.createInjector().getInstance(classOf[servicenavigation.withServiceNameAndNavigation])
+
+  lazy val serviceNavigationWithoutBrandRefresh =
+    Guice.createInjector().getInstance(classOf[servicenavigation.withoutBrandRefresh])
 
   lazy val skiplinkDefault =
     Guice.createInjector().getInstance(classOf[skiplink.default])

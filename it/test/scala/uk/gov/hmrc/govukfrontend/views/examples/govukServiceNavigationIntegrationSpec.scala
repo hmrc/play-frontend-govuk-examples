@@ -32,4 +32,5 @@ class govukServiceNavigationIntegrationSpec extends TemplateIntegrationSpec {
   testRendering(GovukFrontend, "service-navigation", "withGovukHeader", () => serviceNavigationWithGovukHeader.render(messages, request))
   testRendering(GovukFrontend, "service-navigation", "withServiceName", () => serviceNavigationWithServiceName.render(messages, request))
   testRendering(GovukFrontend, "service-navigation", "withServiceNameAndNavigation", () => serviceNavigationWithServiceNameAndNavigation.render(messages, request))
+  testRendering(GovukFrontend, "service-navigation", "withoutBrandRefresh", () => serviceNavigationWithoutBrandRefresh.render(messages, request))
 }
