@@ -15,11 +15,9 @@ govukInput : GovukInput)
     label = Label(
       content = Text("Postcode")
     ),
-    classes = "govuk-input--width-10"
+    classes = "govuk-input--width-10",
+    autocomplete = Some("postal-code")
   ))
-<p class="govuk-body"><a class="govuk-link" href="#">Enter the address manually</a></p>
-
-
 @govukInput(Input(
     id = "property",
     name = "property",
@@ -30,6 +28,9 @@ govukInput : GovukInput)
       content = Text("For example, The Mill, 116 or Flat 37a.")
     ))
   ))
+<p class="govuk-body"><a class="govuk-link" href="#">Enter the address manually</a></p>
+
+
 @govukButton(Button(
     content = Text("Continue")
   ))

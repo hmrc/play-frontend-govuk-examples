@@ -15,7 +15,8 @@ govukInput : GovukInput)
       isPageHeading = true,
       classes = "govuk-label--l",
       content = Text("Select your country")
-    )
+    ),
+    autocomplete = Some("country-name")
   ))
 @govukButton(Button(
     content = Text("Continue")
