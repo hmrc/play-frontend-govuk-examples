@@ -22,7 +22,8 @@ govukFieldset : GovukFieldset)
     name = "organisation",
     label = Label(
       content = Text("Organisation (optional)")
-    )
+    ),
+    autocomplete = Some("organization")
   ))
 @govukInput(Input(
     id = "line1",
@@ -37,14 +38,16 @@ govukFieldset : GovukFieldset)
     name = "line2",
     label = Label(
       content = Text("Address line 2 (optional)")
-    )
+    ),
+    autocomplete = Some("address-line2")
   ))
 @govukInput(Input(
     id = "town-city",
     name = "town-city",
     label = Label(
       content = Text("Town or city")
-    )
+    ),
+    autocomplete = Some("address-level2")
   ))
 @govukInput(Input(
     id = "county",
@@ -59,14 +62,16 @@ govukFieldset : GovukFieldset)
     label = Label(
       content = Text("Postcode")
     ),
-    classes = "govuk-input--width-10"
+    classes = "govuk-input--width-10",
+    autocomplete = Some("postal-code")
   ))
 @govukInput(Input(
     id = "country",
     name = "country",
     label = Label(
       content = Text("Country")
-    )
+    ),
+    autocomplete = Some("country-name")
   ))
 @govukButton(Button(
     content = Text("Continue")
