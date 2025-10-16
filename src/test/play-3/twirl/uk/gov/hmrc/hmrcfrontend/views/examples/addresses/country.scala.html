@@ -1,296 +1,818 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 
 @this(govukButton : GovukButton,
-  govukSelect: GovukSelect
-)
+govukSelect : GovukSelect)
 
 @()
 
-<form action="#" method="get" novalidate>
 
+<form action="#" method="get" novalidate>
+  
 @govukSelect(Select(
-  id = "location-picker-select",
-  name = "location-picker-select",
-  items = Seq(
-      SelectItem(Some(""), "Select country or territory"),
-      SelectItem(Some("AF-Afghanistan"), "Afghanistan"),
-      SelectItem(Some("AX-Aland_Islands"), "Aland Islands"),
-      SelectItem(Some("AL-Albania"), "Albania"),
-      SelectItem(Some("DZ-Algeria"), "Algeria"),
-      SelectItem(Some("AS-American_Samoa"), "American Samoa"),
-      SelectItem(Some("AD-Andorra"), "Andorra"),
-      SelectItem(Some("AO-Angola"), "Angola"),
-      SelectItem(Some("AI-Anguilla"), "Anguilla"),
-      SelectItem(Some("AQ-Antarctica"), "Antarctica"),
-      SelectItem(Some("AG-Antigua_and_Barbuda"), "Antigua and Barbuda"),
-      SelectItem(Some("AR-Argentina"), "Argentina"),
-      SelectItem(Some("AM-Armenia"), "Armenia"),
-      SelectItem(Some("AW-Aruba"), "Aruba"),
-      SelectItem(Some("AU-Australia"), "Australia"),
-      SelectItem(Some("AT-Austria"), "Austria"),
-      SelectItem(Some("AZ-Azerbaijan"), "Azerbaijan"),
-      SelectItem(Some("BH-Bahrain"), "Bahrain"),
-      SelectItem(Some("BD-Bangladesh"), "Bangladesh"),
-      SelectItem(Some("BB-Barbados"), "Barbados"),
-      SelectItem(Some("BY-Belarus"), "Belarus"),
-      SelectItem(Some("BE-Belgium"), "Belgium"),
-      SelectItem(Some("BZ-Belize"), "Belize"),
-      SelectItem(Some("BJ-Benin"), "Benin"),
-      SelectItem(Some("BM-Bermuda"), "Bermuda"),
-      SelectItem(Some("BT-Bhutan"), "Bhutan"),
-      SelectItem(Some("BO-Bolivia"), "Bolivia"),
-      SelectItem(Some("BQ-Bonaire,_Sint_Eustatius_and_Saba"), "Bonaire, Sint Eustatius and Saba"),
-      SelectItem(Some("BA-Bosnia_and_Herzegovina"), "Bosnia and Herzegovina"),
-      SelectItem(Some("BW-Botswana"), "Botswana"),
-      SelectItem(Some("BV-Bouvet_Island"), "Bouvet Island"),
-      SelectItem(Some("BR-Brazil"), "Brazil"),
-      SelectItem(Some("IO-British_Indian_Ocean_Territory"), "British Indian Ocean Territory"),
-      SelectItem(Some("VG-British_Virgin_Islands"), "British Virgin Islands"),
-      SelectItem(Some("BN-Brunei"), "Brunei"),
-      SelectItem(Some("BG-Bulgaria"), "Bulgaria"),
-      SelectItem(Some("BF-Burkina_Faso"), "Burkina Faso"),
-      SelectItem(Some("BI-Burundi"), "Burundi"),
-      SelectItem(Some("KH-Cambodia"), "Cambodia"),
-      SelectItem(Some("CM-Cameroon"), "Cameroon"),
-      SelectItem(Some("CA-Canada"), "Canada"),
-      SelectItem(Some("CV-Cape_Verde"), "Cape Verde"),
-      SelectItem(Some("KY-Cayman_Islands"), "Cayman Islands"),
-      SelectItem(Some("CF-Central_African_Republic"), "Central African Republic"),
-      SelectItem(Some("TD-Chad"), "Chad"),
-      SelectItem(Some("CL-Chile"), "Chile"),
-      SelectItem(Some("CN-China"), "China"),
-      SelectItem(Some("CX-Christmas_Island"), "Christmas Island"),
-      SelectItem(Some("CC-Cocos_(Keeling)_Islands_(the)"), "Cocos (Keeling) Islands (the)"),
-      SelectItem(Some("CO-Colombia"), "Colombia"),
-      SelectItem(Some("KM-Comoros"), "Comoros"),
-      SelectItem(Some("CG-Congo"), "Congo"),
-      SelectItem(Some("CD-Congo_(Democratic_Republic)"), "Congo (Democratic Republic)"),
-      SelectItem(Some("CK-Cook_Islands_(the)"), "Cook Islands (the)"),
-      SelectItem(Some("CR-Costa_Rica"), "Costa Rica"),
-      SelectItem(Some("HR-Croatia"), "Croatia"),
-      SelectItem(Some("CU-Cuba"), "Cuba"),
-      SelectItem(Some("CW-Curacao"), "Curacao"),
-      SelectItem(Some("CY-Cyprus"), "Cyprus"),
-      SelectItem(Some("CZ-Czechia"), "Czechia"),
-      SelectItem(Some("DK-Denmark"), "Denmark"),
-      SelectItem(Some("DJ-Djibouti"), "Djibouti"),
-      SelectItem(Some("DM-Dominica"), "Dominica"),
-      SelectItem(Some("DO-Dominican_Republic"), "Dominican Republic"),
-      SelectItem(Some("TL-East_Timor"), "East Timor"),
-      SelectItem(Some("EC-Ecuador"), "Ecuador"),
-      SelectItem(Some("EG-Egypt"), "Egypt"),
-      SelectItem(Some("SV-El_Salvador"), "El Salvador"),
-      SelectItem(Some("GQ-Equatorial_Guinea"), "Equatorial Guinea"),
-      SelectItem(Some("ER-Eritrea"), "Eritrea"),
-      SelectItem(Some("EE-Estonia"), "Estonia"),
-      SelectItem(Some("SZ-Eswatini"), "Eswatini"),
-      SelectItem(Some("SZ-Swaziland"), "Swaziland"),
-      SelectItem(Some("ET-Ethiopia"), "Ethiopia"),
-      SelectItem(Some("FK-Falkland_Islands"), "Falkland Islands"),
-      SelectItem(Some("FO-Faroe_Islands_(the)"), "Faroe Islands (the)"),
-      SelectItem(Some("FJ-Fiji"), "Fiji"),
-      SelectItem(Some("FI-Finland"), "Finland"),
-      SelectItem(Some("FR-France"), "France"),
-      SelectItem(Some("GF-French_Guiana"), "French Guiana"),
-      SelectItem(Some("PF-French_Polynesia"), "French Polynesia"),
-      SelectItem(Some("TF-French_Southern_Territories_(the)"), "French Southern Territories (the)"),
-      SelectItem(Some("GA-Gabon"), "Gabon"),
-      SelectItem(Some("GE-Georgia"), "Georgia"),
-      SelectItem(Some("DE-Germany"), "Germany"),
-      SelectItem(Some("GH-Ghana"), "Ghana"),
-      SelectItem(Some("GI-Gibraltar"), "Gibraltar"),
-      SelectItem(Some("GR-Greece"), "Greece"),
-      SelectItem(Some("GL-Greenland"), "Greenland"),
-      SelectItem(Some("GD-Grenada"), "Grenada"),
-      SelectItem(Some("GP-Guadeloupe"), "Guadeloupe"),
-      SelectItem(Some("GU-Guam"), "Guam"),
-      SelectItem(Some("GT-Guatemala"), "Guatemala"),
-      SelectItem(Some("GG-Guernsey"), "Guernsey"),
-      SelectItem(Some("GN-Guinea"), "Guinea"),
-      SelectItem(Some("GW-Guinea-Bissau"), "Guinea-Bissau"),
-      SelectItem(Some("GY-Guyana"), "Guyana"),
-      SelectItem(Some("HT-Haiti"), "Haiti"),
-      SelectItem(Some("HM-Heard_Island_and_McDonald_Islands"), "Heard Island and McDonald Islands"),
-      SelectItem(Some("HN-Honduras"), "Honduras"),
-      SelectItem(Some("HK-Hong_Kong"), "Hong Kong"),
-      SelectItem(Some("HU-Hungary"), "Hungary"),
-      SelectItem(Some("IS-Iceland"), "Iceland"),
-      SelectItem(Some("IN-India"), "India"),
-      SelectItem(Some("ID-Indonesia"), "Indonesia"),
-      SelectItem(Some("IR-Iran"), "Iran"),
-      SelectItem(Some("IQ-Iraq"), "Iraq"),
-      SelectItem(Some("IE-Ireland"), "Ireland"),
-      SelectItem(Some("IM-Isle_of_Man"), "Isle of Man"),
-      SelectItem(Some("IL-Israel"), "Israel"),
-      SelectItem(Some("IT-Italy"), "Italy"),
-      SelectItem(Some("CI-Ivory_Coast"), "Ivory Coast"),
-      SelectItem(Some("CI-Cote_d'Ivoire"), "Cote d'Ivoire"),
-      SelectItem(Some("JM-Jamaica"), "Jamaica"),
-      SelectItem(Some("JP-Japan"), "Japan"),
-      SelectItem(Some("JE-Jersey"), "Jersey"),
-      SelectItem(Some("JO-Jordan"), "Jordan"),
-      SelectItem(Some("KZ-Kazakhstan"), "Kazakhstan"),
-      SelectItem(Some("KE-Kenya"), "Kenya"),
-      SelectItem(Some("KI-Kiribati"), "Kiribati"),
-      SelectItem(Some("XK-Kosovo"), "Kosovo"),
-      SelectItem(Some("KW-Kuwait"), "Kuwait"),
-      SelectItem(Some("KG-Kyrgyzstan"), "Kyrgyzstan"),
-      SelectItem(Some("LA-Laos"), "Laos"),
-      SelectItem(Some("LV-Latvia"), "Latvia"),
-      SelectItem(Some("LB-Lebanon"), "Lebanon"),
-      SelectItem(Some("LS-Lesotho"), "Lesotho"),
-      SelectItem(Some("LR-Liberia"), "Liberia"),
-      SelectItem(Some("LY-Libya"), "Libya"),
-      SelectItem(Some("LI-Liechtenstein"), "Liechtenstein"),
-      SelectItem(Some("LT-Lithuania"), "Lithuania"),
-      SelectItem(Some("LU-Luxembourg"), "Luxembourg"),
-      SelectItem(Some("MO-Macao"), "Macao"),
-      SelectItem(Some("MG-Madagascar"), "Madagascar"),
-      SelectItem(Some("MW-Malawi"), "Malawi"),
-      SelectItem(Some("MY-Malaysia"), "Malaysia"),
-      SelectItem(Some("MV-Maldives"), "Maldives"),
-      SelectItem(Some("ML-Mali"), "Mali"),
-      SelectItem(Some("MT-Malta"), "Malta"),
-      SelectItem(Some("MH-Marshall_Islands"), "Marshall Islands"),
-      SelectItem(Some("MQ-Martinique"), "Martinique"),
-      SelectItem(Some("MR-Mauritania"), "Mauritania"),
-      SelectItem(Some("MU-Mauritius"), "Mauritius"),
-      SelectItem(Some("YT-Mayotte"), "Mayotte"),
-      SelectItem(Some("MX-Mexico"), "Mexico"),
-      SelectItem(Some("FM-Micronesia"), "Micronesia"),
-      SelectItem(Some("MD-Moldova"), "Moldova"),
-      SelectItem(Some("MC-Monaco"), "Monaco"),
-      SelectItem(Some("MN-Mongolia"), "Mongolia"),
-      SelectItem(Some("ME-Montenegro"), "Montenegro"),
-      SelectItem(Some("MS-Montserrat"), "Montserrat"),
-      SelectItem(Some("MA-Morocco"), "Morocco"),
-      SelectItem(Some("MZ-Mozambique"), "Mozambique"),
-      SelectItem(Some("MM-Myanmar_(Burma)"), "Myanmar (Burma)"),
-      SelectItem(Some("NA-Namibia"), "Namibia"),
-      SelectItem(Some("NR-Nauru"), "Nauru"),
-      SelectItem(Some("NP-Nepal"), "Nepal"),
-      SelectItem(Some("NL-Netherlands"), "Netherlands"),
-      SelectItem(Some("NL-Holland"), "Holland"),
-      SelectItem(Some("NC-New_Caledonia"), "New Caledonia"),
-      SelectItem(Some("NZ-New_Zealand"), "New Zealand"),
-      SelectItem(Some("NI-Nicaragua"), "Nicaragua"),
-      SelectItem(Some("NE-Niger"), "Niger"),
-      SelectItem(Some("NG-Nigeria"), "Nigeria"),
-      SelectItem(Some("NU-Niue"), "Niue"),
-      SelectItem(Some("NF-Norfolk_Island"), "Norfolk Island"),
-      SelectItem(Some("MP-Northern_Mariana_Islands_(the)"), "Northern Mariana Islands (the)"),
-      SelectItem(Some("KP-North_Korea"), "North Korea"),
-      SelectItem(Some("MK-North_Macedonia"), "North Macedonia"),
-      SelectItem(Some("NO-Norway"), "Norway"),
-      SelectItem(Some("OM-Oman"), "Oman"),
-      SelectItem(Some("PK-Pakistan"), "Pakistan"),
-      SelectItem(Some("PW-Palau"), "Palau"),
-      SelectItem(Some("PS-Occupied_Palestinian_Territories"), "Occupied Palestinian Territories"),
-      SelectItem(Some("PA-Panama"), "Panama"),
-      SelectItem(Some("PG-Papua_New_Guinea"), "Papua New Guinea"),
-      SelectItem(Some("PY-Paraguay"), "Paraguay"),
-      SelectItem(Some("PE-Peru"), "Peru"),
-      SelectItem(Some("PH-Philippines"), "Philippines"),
-      SelectItem(Some("PN-Pitcairn,_Henderson,_Ducie_and_Oeno_Islands"), "Pitcairn, Henderson, Ducie and Oeno Islands"),
-      SelectItem(Some("PL-Poland"), "Poland"),
-      SelectItem(Some("PT-Portugal"), "Portugal"),
-      SelectItem(Some("PR-Puerto_Rico"), "Puerto Rico"),
-      SelectItem(Some("QA-Qatar"), "Qatar"),
-      SelectItem(Some("RE-Reunion"), "Reunion"),
-      SelectItem(Some("RO-Romania"), "Romania"),
-      SelectItem(Some("RU-Russia"), "Russia"),
-      SelectItem(Some("RW-Rwanda"), "Rwanda"),
-      SelectItem(Some("BL-Saint_Bartholemy"), "Saint Bartholemy"),
-      SelectItem(Some("MF-Saint_Martin_(French_part)"), "Saint Martin (French part)"),
-      SelectItem(Some("PM-Saint_Pierre_and_Miquelon"), "Saint Pierre and Miquelon"),
-      SelectItem(Some("WS-Samoa"), "Samoa"),
-      SelectItem(Some("SM-San_Marino"), "San Marino"),
-      SelectItem(Some("ST-Sao_Tome_and_Principe"), "Sao Tome and Principe"),
-      SelectItem(Some("SA-Saudi_Arabia"), "Saudi Arabia"),
-      SelectItem(Some("SN-Senegal"), "Senegal"),
-      SelectItem(Some("RS-Serbia"), "Serbia"),
-      SelectItem(Some("SC-Seychelles"), "Seychelles"),
-      SelectItem(Some("SL-Sierra_Leone"), "Sierra Leone"),
-      SelectItem(Some("SG-Singapore"), "Singapore"),
-      SelectItem(Some("SX-Sint_Maarten_(Dutch_part)"), "Sint Maarten (Dutch part)"),
-      SelectItem(Some("SK-Slovakia"), "Slovakia"),
-      SelectItem(Some("SI-Slovenia"), "Slovenia"),
-      SelectItem(Some("SB-Solomon_Islands"), "Solomon Islands"),
-      SelectItem(Some("SO-Somalia"), "Somalia"),
-      SelectItem(Some("ZA-South_Africa"), "South Africa"),
-      SelectItem(Some("GS-South_Georgia_and_South_Sandwich_Islands"), "South Georgia and South Sandwich Islands"),
-      SelectItem(Some("KR-South_Korea"), "South Korea"),
-      SelectItem(Some("SS-South_Sudan"), "South Sudan"),
-      SelectItem(Some("ES-Spain"), "Spain"),
-      SelectItem(Some("LK-Sri_Lanka"), "Sri Lanka"),
-      SelectItem(Some("SH-St_Helena,_Ascension_and_Tristan_da_Cunha"), "St Helena, Ascension and Tristan da Cunha"),
-      SelectItem(Some("KN-St_Kitts_and_Nevis"), "St Kitts and Nevis"),
-      SelectItem(Some("LC-St_Lucia"), "St Lucia"),
-      SelectItem(Some("VC-St_Vincent"), "St Vincent"),
-      SelectItem(Some("SD-Sudan"), "Sudan"),
-      SelectItem(Some("SR-Suriname"), "Suriname"),
-      SelectItem(Some("SJ-Svalbard_and_Jan_Mayen"), "Svalbard and Jan Mayen"),
-      SelectItem(Some("SE-Sweden"), "Sweden"),
-      SelectItem(Some("CH-Switzerland"), "Switzerland"),
-      SelectItem(Some("SY-Syria"), "Syria"),
-      SelectItem(Some("TW-Taiwan"), "Taiwan"),
-      SelectItem(Some("TJ-Tajikistan"), "Tajikistan"),
-      SelectItem(Some("TZ-Tanzania"), "Tanzania"),
-      SelectItem(Some("TH-Thailand"), "Thailand"),
-      SelectItem(Some("BS-The_Bahamas"), "The Bahamas"),
-      SelectItem(Some("GM-The_Gambia"), "The Gambia"),
-      SelectItem(Some("TG-Togo"), "Togo"),
-      SelectItem(Some("TK-Tokelau"), "Tokelau"),
-      SelectItem(Some("TO-Tonga"), "Tonga"),
-      SelectItem(Some("TT-Trinidad_and_Tobago"), "Trinidad and Tobago"),
-      SelectItem(Some("TN-Tunisia"), "Tunisia"),
-      SelectItem(Some("TR-Turkey"), "Turkey"),
-      SelectItem(Some("TM-Turkmenistan"), "Turkmenistan"),
-      SelectItem(Some("TC-Turks_and_Caicos_Islands"), "Turks and Caicos Islands"),
-      SelectItem(Some("TV-Tuvalu"), "Tuvalu"),
-      SelectItem(Some("UG-Uganda"), "Uganda"),
-      SelectItem(Some("UA-Ukraine"), "Ukraine"),
-      SelectItem(Some("AE-United_Arab_Emirates"), "United Arab Emirates"),
-      SelectItem(Some("GB-United_Kingdom"), "United Kingdom"),
-      SelectItem(Some("GB-England"), "England"),
-      SelectItem(Some("GB-Wales"), "Wales"),
-      SelectItem(Some("GB-Scotland"), "Scotland"),
-      SelectItem(Some("GB-Northern_Ireland"), "Northern Ireland"),
-      SelectItem(Some("GB-Great_Britain"), "Great Britain"),
-      SelectItem(Some("GB-UK"), "UK"),
-      SelectItem(Some("US-United_States"), "United States"),
-      SelectItem(Some("US-USA"), "USA"),
-      SelectItem(Some("US-U.S.A."), "U.S.A."),
-      SelectItem(Some("US-US"), "US"),
-      SelectItem(Some("US-U.S."), "U.S."),
-      SelectItem(Some("US-America"), "America"),
-      SelectItem(Some("UM-United_States_Minor_Outlying_Islands_(the)"), "United States Minor Outlying Islands (the)"),
-      SelectItem(Some("UY-Uruguay"), "Uruguay"),
-      SelectItem(Some("UZ-Uzbekistan"), "Uzbekistan"),
-      SelectItem(Some("VU-Vanuatu"), "Vanuatu"),
-      SelectItem(Some("VA-Vatican_City"), "Vatican City"),
-      SelectItem(Some("VA-Holy_See"), "Holy See"),
-      SelectItem(Some("VE-Venezuela"), "Venezuela"),
-      SelectItem(Some("VN-Vietnam"), "Vietnam"),
-      SelectItem(Some("VI-Virgin_Islands_(U.S.)"), "Virgin Islands (U.S.)"),
-      SelectItem(Some("WF-Wallis_and_Futuna"), "Wallis and Futuna"),
-      SelectItem(Some("EH-Western_Sahara*"), "Western Sahara*"),
-      SelectItem(Some("YE-Yemen"), "Yemen"),
-      SelectItem(Some("ZM-Zambia"), "Zambia"),
-      SelectItem(Some("ZW-Zimbabwe"), "Zimbabwe")
-  ),
-  label = Label(
-    isPageHeading = true,
-    classes = "govuk-label--l",
-    content = Text("Select your country")
-  ),
-  attributes = Map(
-    "data-show-all-values" -> "false",
-    "data-auto-select" -> "false",
-    "data-default-value" -> "",
-    "data-module" -> "hmrc-accessible-autocomplete"
-  )
-))
+    id = "location-picker-select",
+    name = "location-picker-select",
+    items = Seq(
+      SelectItem(
+        value = Some(""),
+        text = "Select country or territory"
+      ), 
+      SelectItem(
+        value = Some("AF-Afghanistan"),
+        text = "Afghanistan"
+      ), 
+      SelectItem(
+        value = Some("AL-Albania"),
+        text = "Albania"
+      ), 
+      SelectItem(
+        value = Some("DZ-Algeria"),
+        text = "Algeria"
+      ), 
+      SelectItem(
+        value = Some("AD-Andorra"),
+        text = "Andorra"
+      ), 
+      SelectItem(
+        value = Some("AO-Angola"),
+        text = "Angola"
+      ), 
+      SelectItem(
+        value = Some("AG-Antigua_and_Barbuda"),
+        text = "Antigua and Barbuda"
+      ), 
+      SelectItem(
+        value = Some("AR-Argentina"),
+        text = "Argentina"
+      ), 
+      SelectItem(
+        value = Some("AM-Armenia"),
+        text = "Armenia"
+      ), 
+      SelectItem(
+        value = Some("AU-Australia"),
+        text = "Australia"
+      ), 
+      SelectItem(
+        value = Some("AT-Austria"),
+        text = "Austria"
+      ), 
+      SelectItem(
+        value = Some("AZ-Azerbaijan"),
+        text = "Azerbaijan"
+      ), 
+      SelectItem(
+        value = Some("BH-Bahrain"),
+        text = "Bahrain"
+      ), 
+      SelectItem(
+        value = Some("BD-Bangladesh"),
+        text = "Bangladesh"
+      ), 
+      SelectItem(
+        value = Some("BB-Barbados"),
+        text = "Barbados"
+      ), 
+      SelectItem(
+        value = Some("BY-Belarus"),
+        text = "Belarus"
+      ), 
+      SelectItem(
+        value = Some("BE-Belgium"),
+        text = "Belgium"
+      ), 
+      SelectItem(
+        value = Some("BZ-Belize"),
+        text = "Belize"
+      ), 
+      SelectItem(
+        value = Some("BJ-Benin"),
+        text = "Benin"
+      ), 
+      SelectItem(
+        value = Some("BT-Bhutan"),
+        text = "Bhutan"
+      ), 
+      SelectItem(
+        value = Some("BO-Bolivia"),
+        text = "Bolivia"
+      ), 
+      SelectItem(
+        value = Some("BA-Bosnia_and_Herzegovina"),
+        text = "Bosnia and Herzegovina"
+      ), 
+      SelectItem(
+        value = Some("BW-Botswana"),
+        text = "Botswana"
+      ), 
+      SelectItem(
+        value = Some("BR-Brazil"),
+        text = "Brazil"
+      ), 
+      SelectItem(
+        value = Some("BN-Brunei"),
+        text = "Brunei"
+      ), 
+      SelectItem(
+        value = Some("BG-Bulgaria"),
+        text = "Bulgaria"
+      ), 
+      SelectItem(
+        value = Some("BF-Burkina_Faso"),
+        text = "Burkina Faso"
+      ), 
+      SelectItem(
+        value = Some("BI-Burundi"),
+        text = "Burundi"
+      ), 
+      SelectItem(
+        value = Some("KH-Cambodia"),
+        text = "Cambodia"
+      ), 
+      SelectItem(
+        value = Some("CM-Cameroon"),
+        text = "Cameroon"
+      ), 
+      SelectItem(
+        value = Some("CA-Canada"),
+        text = "Canada"
+      ), 
+      SelectItem(
+        value = Some("CV-Cape_Verde"),
+        text = "Cape Verde"
+      ), 
+      SelectItem(
+        value = Some("CF-Central_African_Republic"),
+        text = "Central African Republic"
+      ), 
+      SelectItem(
+        value = Some("TD-Chad"),
+        text = "Chad"
+      ), 
+      SelectItem(
+        value = Some("CL-Chile"),
+        text = "Chile"
+      ), 
+      SelectItem(
+        value = Some("CN-China"),
+        text = "China"
+      ), 
+      SelectItem(
+        value = Some("CO-Colombia"),
+        text = "Colombia"
+      ), 
+      SelectItem(
+        value = Some("KM-Comoros"),
+        text = "Comoros"
+      ), 
+      SelectItem(
+        value = Some("CG-Congo"),
+        text = "Congo"
+      ), 
+      SelectItem(
+        value = Some("CD-Congo_(Democratic_Republic)"),
+        text = "Congo (Democratic Republic)"
+      ), 
+      SelectItem(
+        value = Some("CR-Costa_Rica"),
+        text = "Costa Rica"
+      ), 
+      SelectItem(
+        value = Some("HR-Croatia"),
+        text = "Croatia"
+      ), 
+      SelectItem(
+        value = Some("CU-Cuba"),
+        text = "Cuba"
+      ), 
+      SelectItem(
+        value = Some("CY-Cyprus"),
+        text = "Cyprus"
+      ), 
+      SelectItem(
+        value = Some("CZ-Czechia"),
+        text = "Czechia"
+      ), 
+      SelectItem(
+        value = Some("DK-Denmark"),
+        text = "Denmark"
+      ), 
+      SelectItem(
+        value = Some("DJ-Djibouti"),
+        text = "Djibouti"
+      ), 
+      SelectItem(
+        value = Some("DM-Dominica"),
+        text = "Dominica"
+      ), 
+      SelectItem(
+        value = Some("DO-Dominican_Republic"),
+        text = "Dominican Republic"
+      ), 
+      SelectItem(
+        value = Some("TL-East_Timor"),
+        text = "East Timor"
+      ), 
+      SelectItem(
+        value = Some("EC-Ecuador"),
+        text = "Ecuador"
+      ), 
+      SelectItem(
+        value = Some("EG-Egypt"),
+        text = "Egypt"
+      ), 
+      SelectItem(
+        value = Some("SV-El_Salvador"),
+        text = "El Salvador"
+      ), 
+      SelectItem(
+        value = Some("GQ-Equatorial_Guinea"),
+        text = "Equatorial Guinea"
+      ), 
+      SelectItem(
+        value = Some("ER-Eritrea"),
+        text = "Eritrea"
+      ), 
+      SelectItem(
+        value = Some("EE-Estonia"),
+        text = "Estonia"
+      ), 
+      SelectItem(
+        value = Some("SZ-Eswatini"),
+        text = "Eswatini"
+      ), 
+      SelectItem(
+        value = Some("ET-Ethiopia"),
+        text = "Ethiopia"
+      ), 
+      SelectItem(
+        value = Some("FJ-Fiji"),
+        text = "Fiji"
+      ), 
+      SelectItem(
+        value = Some("FI-Finland"),
+        text = "Finland"
+      ), 
+      SelectItem(
+        value = Some("FR-France"),
+        text = "France"
+      ), 
+      SelectItem(
+        value = Some("GA-Gabon"),
+        text = "Gabon"
+      ), 
+      SelectItem(
+        value = Some("GE-Georgia"),
+        text = "Georgia"
+      ), 
+      SelectItem(
+        value = Some("DE-Germany"),
+        text = "Germany"
+      ), 
+      SelectItem(
+        value = Some("GH-Ghana"),
+        text = "Ghana"
+      ), 
+      SelectItem(
+        value = Some("GR-Greece"),
+        text = "Greece"
+      ), 
+      SelectItem(
+        value = Some("GD-Grenada"),
+        text = "Grenada"
+      ), 
+      SelectItem(
+        value = Some("GT-Guatemala"),
+        text = "Guatemala"
+      ), 
+      SelectItem(
+        value = Some("GN-Guinea"),
+        text = "Guinea"
+      ), 
+      SelectItem(
+        value = Some("GW-Guinea-Bissau"),
+        text = "Guinea-Bissau"
+      ), 
+      SelectItem(
+        value = Some("GY-Guyana"),
+        text = "Guyana"
+      ), 
+      SelectItem(
+        value = Some("HT-Haiti"),
+        text = "Haiti"
+      ), 
+      SelectItem(
+        value = Some("HN-Honduras"),
+        text = "Honduras"
+      ), 
+      SelectItem(
+        value = Some("HU-Hungary"),
+        text = "Hungary"
+      ), 
+      SelectItem(
+        value = Some("IS-Iceland"),
+        text = "Iceland"
+      ), 
+      SelectItem(
+        value = Some("IN-India"),
+        text = "India"
+      ), 
+      SelectItem(
+        value = Some("ID-Indonesia"),
+        text = "Indonesia"
+      ), 
+      SelectItem(
+        value = Some("IR-Iran"),
+        text = "Iran"
+      ), 
+      SelectItem(
+        value = Some("IQ-Iraq"),
+        text = "Iraq"
+      ), 
+      SelectItem(
+        value = Some("IE-Ireland"),
+        text = "Ireland"
+      ), 
+      SelectItem(
+        value = Some("IL-Israel"),
+        text = "Israel"
+      ), 
+      SelectItem(
+        value = Some("IT-Italy"),
+        text = "Italy"
+      ), 
+      SelectItem(
+        value = Some("CI-Ivory_Coast"),
+        text = "Ivory Coast"
+      ), 
+      SelectItem(
+        value = Some("JM-Jamaica"),
+        text = "Jamaica"
+      ), 
+      SelectItem(
+        value = Some("JP-Japan"),
+        text = "Japan"
+      ), 
+      SelectItem(
+        value = Some("JO-Jordan"),
+        text = "Jordan"
+      ), 
+      SelectItem(
+        value = Some("KZ-Kazakhstan"),
+        text = "Kazakhstan"
+      ), 
+      SelectItem(
+        value = Some("KE-Kenya"),
+        text = "Kenya"
+      ), 
+      SelectItem(
+        value = Some("KI-Kiribati"),
+        text = "Kiribati"
+      ), 
+      SelectItem(
+        value = Some("XK-Kosovo"),
+        text = "Kosovo"
+      ), 
+      SelectItem(
+        value = Some("KW-Kuwait"),
+        text = "Kuwait"
+      ), 
+      SelectItem(
+        value = Some("KG-Kyrgyzstan"),
+        text = "Kyrgyzstan"
+      ), 
+      SelectItem(
+        value = Some("LA-Laos"),
+        text = "Laos"
+      ), 
+      SelectItem(
+        value = Some("LV-Latvia"),
+        text = "Latvia"
+      ), 
+      SelectItem(
+        value = Some("LB-Lebanon"),
+        text = "Lebanon"
+      ), 
+      SelectItem(
+        value = Some("LS-Lesotho"),
+        text = "Lesotho"
+      ), 
+      SelectItem(
+        value = Some("LR-Liberia"),
+        text = "Liberia"
+      ), 
+      SelectItem(
+        value = Some("LY-Libya"),
+        text = "Libya"
+      ), 
+      SelectItem(
+        value = Some("LI-Liechtenstein"),
+        text = "Liechtenstein"
+      ), 
+      SelectItem(
+        value = Some("LT-Lithuania"),
+        text = "Lithuania"
+      ), 
+      SelectItem(
+        value = Some("LU-Luxembourg"),
+        text = "Luxembourg"
+      ), 
+      SelectItem(
+        value = Some("MG-Madagascar"),
+        text = "Madagascar"
+      ), 
+      SelectItem(
+        value = Some("MW-Malawi"),
+        text = "Malawi"
+      ), 
+      SelectItem(
+        value = Some("MY-Malaysia"),
+        text = "Malaysia"
+      ), 
+      SelectItem(
+        value = Some("MV-Maldives"),
+        text = "Maldives"
+      ), 
+      SelectItem(
+        value = Some("ML-Mali"),
+        text = "Mali"
+      ), 
+      SelectItem(
+        value = Some("MT-Malta"),
+        text = "Malta"
+      ), 
+      SelectItem(
+        value = Some("MH-Marshall_Islands"),
+        text = "Marshall Islands"
+      ), 
+      SelectItem(
+        value = Some("MR-Mauritania"),
+        text = "Mauritania"
+      ), 
+      SelectItem(
+        value = Some("MU-Mauritius"),
+        text = "Mauritius"
+      ), 
+      SelectItem(
+        value = Some("MX-Mexico"),
+        text = "Mexico"
+      ), 
+      SelectItem(
+        value = Some("FM-Federated_States_of_Micronesia"),
+        text = "Federated States of Micronesia"
+      ), 
+      SelectItem(
+        value = Some("MD-Moldova"),
+        text = "Moldova"
+      ), 
+      SelectItem(
+        value = Some("MC-Monaco"),
+        text = "Monaco"
+      ), 
+      SelectItem(
+        value = Some("MN-Mongolia"),
+        text = "Mongolia"
+      ), 
+      SelectItem(
+        value = Some("ME-Montenegro"),
+        text = "Montenegro"
+      ), 
+      SelectItem(
+        value = Some("MA-Morocco"),
+        text = "Morocco"
+      ), 
+      SelectItem(
+        value = Some("MZ-Mozambique"),
+        text = "Mozambique"
+      ), 
+      SelectItem(
+        value = Some("MM-Myanmar_(Burma)"),
+        text = "Myanmar (Burma)"
+      ), 
+      SelectItem(
+        value = Some("NA-Namibia"),
+        text = "Namibia"
+      ), 
+      SelectItem(
+        value = Some("NR-Nauru"),
+        text = "Nauru"
+      ), 
+      SelectItem(
+        value = Some("NP-Nepal"),
+        text = "Nepal"
+      ), 
+      SelectItem(
+        value = Some("NL-Netherlands"),
+        text = "Netherlands"
+      ), 
+      SelectItem(
+        value = Some("NZ-New_Zealand"),
+        text = "New Zealand"
+      ), 
+      SelectItem(
+        value = Some("NI-Nicaragua"),
+        text = "Nicaragua"
+      ), 
+      SelectItem(
+        value = Some("NE-Niger"),
+        text = "Niger"
+      ), 
+      SelectItem(
+        value = Some("NG-Nigeria"),
+        text = "Nigeria"
+      ), 
+      SelectItem(
+        value = Some("KP-North_Korea"),
+        text = "North Korea"
+      ), 
+      SelectItem(
+        value = Some("MK-North_Macedonia"),
+        text = "North Macedonia"
+      ), 
+      SelectItem(
+        value = Some("NO-Norway"),
+        text = "Norway"
+      ), 
+      SelectItem(
+        value = Some("OM-Oman"),
+        text = "Oman"
+      ), 
+      SelectItem(
+        value = Some("PK-Pakistan"),
+        text = "Pakistan"
+      ), 
+      SelectItem(
+        value = Some("PW-Palau"),
+        text = "Palau"
+      ), 
+      SelectItem(
+        value = Some("PS-Palestine"),
+        text = "Palestine"
+      ), 
+      SelectItem(
+        value = Some("PA-Panama"),
+        text = "Panama"
+      ), 
+      SelectItem(
+        value = Some("PG-Papua_New_Guinea"),
+        text = "Papua New Guinea"
+      ), 
+      SelectItem(
+        value = Some("PY-Paraguay"),
+        text = "Paraguay"
+      ), 
+      SelectItem(
+        value = Some("PE-Peru"),
+        text = "Peru"
+      ), 
+      SelectItem(
+        value = Some("PH-Philippines"),
+        text = "Philippines"
+      ), 
+      SelectItem(
+        value = Some("PL-Poland"),
+        text = "Poland"
+      ), 
+      SelectItem(
+        value = Some("PT-Portugal"),
+        text = "Portugal"
+      ), 
+      SelectItem(
+        value = Some("QA-Qatar"),
+        text = "Qatar"
+      ), 
+      SelectItem(
+        value = Some("RO-Romania"),
+        text = "Romania"
+      ), 
+      SelectItem(
+        value = Some("RU-Russia"),
+        text = "Russia"
+      ), 
+      SelectItem(
+        value = Some("RW-Rwanda"),
+        text = "Rwanda"
+      ), 
+      SelectItem(
+        value = Some("KN-St_Kitts_and_Nevis"),
+        text = "St Kitts and Nevis"
+      ), 
+      SelectItem(
+        value = Some("LC-St_Lucia"),
+        text = "St Lucia"
+      ), 
+      SelectItem(
+        value = Some("VC-St_Vincent"),
+        text = "St Vincent"
+      ), 
+      SelectItem(
+        value = Some("WS-Samoa"),
+        text = "Samoa"
+      ), 
+      SelectItem(
+        value = Some("SM-San_Marino"),
+        text = "San Marino"
+      ), 
+      SelectItem(
+        value = Some("ST-Sao_Tome_and_Principe"),
+        text = "Sao Tome and Principe"
+      ), 
+      SelectItem(
+        value = Some("SA-Saudi_Arabia"),
+        text = "Saudi Arabia"
+      ), 
+      SelectItem(
+        value = Some("SN-Senegal"),
+        text = "Senegal"
+      ), 
+      SelectItem(
+        value = Some("RS-Serbia"),
+        text = "Serbia"
+      ), 
+      SelectItem(
+        value = Some("SC-Seychelles"),
+        text = "Seychelles"
+      ), 
+      SelectItem(
+        value = Some("SL-Sierra_Leone"),
+        text = "Sierra Leone"
+      ), 
+      SelectItem(
+        value = Some("SG-Singapore"),
+        text = "Singapore"
+      ), 
+      SelectItem(
+        value = Some("SK-Slovakia"),
+        text = "Slovakia"
+      ), 
+      SelectItem(
+        value = Some("SI-Slovenia"),
+        text = "Slovenia"
+      ), 
+      SelectItem(
+        value = Some("SB-Solomon_Islands"),
+        text = "Solomon Islands"
+      ), 
+      SelectItem(
+        value = Some("SO-Somalia"),
+        text = "Somalia"
+      ), 
+      SelectItem(
+        value = Some("ZA-South_Africa"),
+        text = "South Africa"
+      ), 
+      SelectItem(
+        value = Some("KR-South_Korea"),
+        text = "South Korea"
+      ), 
+      SelectItem(
+        value = Some("SS-South_Sudan"),
+        text = "South Sudan"
+      ), 
+      SelectItem(
+        value = Some("ES-Spain"),
+        text = "Spain"
+      ), 
+      SelectItem(
+        value = Some("LK-Sri_Lanka"),
+        text = "Sri Lanka"
+      ), 
+      SelectItem(
+        value = Some("SD-Sudan"),
+        text = "Sudan"
+      ), 
+      SelectItem(
+        value = Some("SR-Suriname"),
+        text = "Suriname"
+      ), 
+      SelectItem(
+        value = Some("SE-Sweden"),
+        text = "Sweden"
+      ), 
+      SelectItem(
+        value = Some("CH-Switzerland"),
+        text = "Switzerland"
+      ), 
+      SelectItem(
+        value = Some("SY-Syria"),
+        text = "Syria"
+      ), 
+      SelectItem(
+        value = Some("TJ-Tajikistan"),
+        text = "Tajikistan"
+      ), 
+      SelectItem(
+        value = Some("TZ-Tanzania"),
+        text = "Tanzania"
+      ), 
+      SelectItem(
+        value = Some("TH-Thailand"),
+        text = "Thailand"
+      ), 
+      SelectItem(
+        value = Some("BS-The_Bahamas"),
+        text = "The Bahamas"
+      ), 
+      SelectItem(
+        value = Some("GM-The_Gambia"),
+        text = "The Gambia"
+      ), 
+      SelectItem(
+        value = Some("TG-Togo"),
+        text = "Togo"
+      ), 
+      SelectItem(
+        value = Some("TO-Tonga"),
+        text = "Tonga"
+      ), 
+      SelectItem(
+        value = Some("TT-Trinidad_and_Tobago"),
+        text = "Trinidad and Tobago"
+      ), 
+      SelectItem(
+        value = Some("TN-Tunisia"),
+        text = "Tunisia"
+      ), 
+      SelectItem(
+        value = Some("TR-Turkey"),
+        text = "Turkey"
+      ), 
+      SelectItem(
+        value = Some("TM-Turkmenistan"),
+        text = "Turkmenistan"
+      ), 
+      SelectItem(
+        value = Some("TV-Tuvalu"),
+        text = "Tuvalu"
+      ), 
+      SelectItem(
+        value = Some("UG-Uganda"),
+        text = "Uganda"
+      ), 
+      SelectItem(
+        value = Some("UA-Ukraine"),
+        text = "Ukraine"
+      ), 
+      SelectItem(
+        value = Some("AE-United_Arab_Emirates"),
+        text = "United Arab Emirates"
+      ), 
+      SelectItem(
+        value = Some("GB-United_Kingdom"),
+        text = "United Kingdom"
+      ), 
+      SelectItem(
+        value = Some("US-United_States"),
+        text = "United States"
+      ), 
+      SelectItem(
+        value = Some("UY-Uruguay"),
+        text = "Uruguay"
+      ), 
+      SelectItem(
+        value = Some("UZ-Uzbekistan"),
+        text = "Uzbekistan"
+      ), 
+      SelectItem(
+        value = Some("VU-Vanuatu"),
+        text = "Vanuatu"
+      ), 
+      SelectItem(
+        value = Some("VA-Vatican_City"),
+        text = "Vatican City"
+      ), 
+      SelectItem(
+        value = Some("VE-Venezuela"),
+        text = "Venezuela"
+      ), 
+      SelectItem(
+        value = Some("VN-Vietnam"),
+        text = "Vietnam"
+      ), 
+      SelectItem(
+        value = Some("YE-Yemen"),
+        text = "Yemen"
+      ), 
+      SelectItem(
+        value = Some("ZM-Zambia"),
+        text = "Zambia"
+      ), 
+      SelectItem(
+        value = Some("ZW-Zimbabwe"),
+        text = "Zimbabwe"
+      )
+    ),
+    label = Label(
+      isPageHeading = true,
+      classes = "govuk-label--l",
+      content = Text("Select your country")
+    ),
+    attributes = Map(
+      "data-show-all-values" -> "false", 
+      "data-auto-select" -> "false", 
+      "data-default-value" -> "", 
+      "data-module" -> "hmrc-accessible-autocomplete"
+    )
+  ))
 @govukButton(Button(
     content = Text("Continue")
   ))
