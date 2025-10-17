@@ -18,7 +18,7 @@ govukButton : GovukButton)
 <p class="govuk-body">Mae’r arolwg hwn yn cynnwys 4 cwestiwn dewisol.</p>
 
 <form action="/form-handler" method="post" novalidate>
-  
+
 @govukRadios(Radios(
     fieldset = Some(Fieldset(
       legend = Some(Legend(
@@ -32,7 +32,7 @@ govukButton : GovukButton)
         content = Text("Iawn"),
         id = Some("able-yes"),
         value = Some("yes")
-      ), 
+      ),
       RadioItem(
         content = Text("Na"),
         id = Some("able-no"),
@@ -53,22 +53,22 @@ govukButton : GovukButton)
         content = Text("Hawdd iawn"),
         id = Some("howEasyQuestion-VeryEasy"),
         value = Some("VeryEasy")
-      ), 
+      ),
       RadioItem(
         content = Text("Hawdd"),
         id = Some("howEasyQuestion-Easy"),
         value = Some("Easy")
-      ), 
+      ),
       RadioItem(
         content = Text("Ddim yn hawdd nac yn anodd"),
         id = Some("howEasyQuestion-Moderate"),
         value = Some("Moderate")
-      ), 
+      ),
       RadioItem(
         content = Text("Anodd"),
         id = Some("howEasyQuestion-Difficult"),
         value = Some("Difficult")
-      ), 
+      ),
       RadioItem(
         content = Text("Anodd iawn"),
         id = Some("howEasyQuestion-VeryDifficult"),
@@ -102,22 +102,22 @@ govukButton : GovukButton)
         content = Text("Bodlon iawn"),
         id = Some("howDoYouFeelQuestion-VerySatisfied"),
         value = Some("VerySatisfied")
-      ), 
+      ),
       RadioItem(
         content = Text("Bodlon"),
         id = Some("howDoYouFeelQuestion-Satisfied"),
         value = Some("Satisfied")
-      ), 
+      ),
       RadioItem(
         content = Text("Ddim yn fodlon nac yn anfodlon"),
         id = Some("howDoYouFeelQuestion-Moderate"),
         value = Some("Moderate")
-      ), 
+      ),
       RadioItem(
         content = Text("Anfodlon"),
         id = Some("howDoYouFeelQuestion-Dissatisfied"),
         value = Some("Dissatisfied")
-      ), 
+      ),
       RadioItem(
         content = Text("Anfodlon iawn"),
         id = Some("howDoYouFeelQuestion-VeryDissatisfied"),

@@ -21,8 +21,15 @@ import play.api.Configuration
 import uk.gov.hmrc.hmrcfrontend.config.{TudorCrownConfig, RebrandConfig}
 
 case class ConfigurationModule() extends Module {
+
+  // As of version v5.13.0, govuk-frontend still has rebrand NOT enabled by default, so disabling in play-frontend-hmrc
+  // is required for integration testing against the govuk-frontend examples
+  val itTestConfiguration: Configuration = Configuration.from(Map(
+    "play-frontend-hmrc.useRebrand" -> false
+  ))
+
   override def configure(binder: Binder): Unit = {
-    binder.bind(classOf[TudorCrownConfig]).toInstance(TudorCrownConfig(Configuration.empty))
-    binder.bind(classOf[RebrandConfig]).toInstance(RebrandConfig(Configuration.empty))
+    binder.bind(classOf[TudorCrownConfig]).toInstance(new TudorCrownConfig(itTestConfiguration))
+    binder.bind(classOf[RebrandConfig]).toInstance(new RebrandConfig(itTestConfiguration))
   }
 }
