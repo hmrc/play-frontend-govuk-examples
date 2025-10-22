@@ -1,11 +1,17 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.html.components.implicits._
 @import uk.gov.hmrc.hmrcfrontend.views.html.components._
+@import play.api.Configuration
 
-@this(hmrcLanguageSelect : HmrcLanguageSelect)
+@this(
+        govukServiceNavigation: GovukServiceNavigation,
+        hmrcServiceNavigationLanguageSelect: HmrcServiceNavigationLanguageSelect
+)
 
-@()
+@()(implicit messages: Messages, configuration: Configuration)
 
-
-@hmrcLanguageSelect(LanguageSelect(
-    language = Cy,
-    languageLinks = En -> "?en", Cy -> "?cy"
-))
+@govukServiceNavigation(ServiceNavigation(
+    serviceName = Some("Enw’r gwasanaethcy"),
+    serviceUrl = Some("#"),
+    classes = "hmrc-service-navigation--with-language-select"
+).withLanguageToggle())
