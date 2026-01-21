@@ -1,10 +1,10 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.fileupload.FileUploadMultipleFilesMessages
 
 @this(govukButton : GovukButton,
         govukFileUpload : GovukFileUpload)
 
 @()
-
 
 <div class="govuk-form-group">
 
@@ -18,7 +18,17 @@
         ),
         hint = Some(Hint(
             content = Text("Gallwch uwchlwytho’ch derbynneb fel copi wedi’i sganio neu lun o’r gwreiddiol. Mae’n rhaid i’r ffeil dan sylw fod yn llai na 100 MB.")
-        ))
+        )),
+        chooseFilesButtonText = Some("Dewis ffeil"),
+        dropInstructionText = Some("neu ollwng ffeil"),
+        noFileChosenText = Some("Dim ffeil wedi’i dewis"),
+        multipleFilesChosenText = Some(FileUploadMultipleFilesMessages(
+            one = "%{count} ffeil wedi’i dewis",
+            other = "%{count} o ffeiliau wedi’u dewis"
+        )),
+        enteredDropZoneText = Some("Yn y man gollwng"),
+        leftDropZoneText = Some("Wedi gadael y man gollwng"),
+        javascript = Some(true)
     ))
 </div>
 

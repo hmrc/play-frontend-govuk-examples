@@ -7,18 +7,19 @@ govukFileUpload : GovukFileUpload)
 
 
 <div class="govuk-form-group">
-  
+
 @govukFileUpload(FileUpload(
     name = "file-upload-1",
     id = "file-upload-1",
+    hint = Some(Hint(
+        content = Text("You can upload your receipt as a scanned copy or photo of the original. The selected file must be smaller than 100MB.")
+    )),
     label = Label(
       isPageHeading = true,
       classes = "govuk-label--l",
       content = Text("Upload receipt")
     ),
-    hint = Some(Hint(
-      content = Text("You can upload your receipt as a scanned copy or photo of the original. The selected file must be smaller than 100MB.")
-    ))
+    javascript = Some(true)
   ))
 </div>
 

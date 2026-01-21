@@ -1,0 +1,19 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukInput : GovukInput)
+
+@()
+
+
+@govukInput(Input(
+    id = "postcode",
+    name = "postcode",
+    label = Label(
+      content = Text("Cod post")
+    ),
+    errorMessage = Some(ErrorMessage(
+      content = Text("Mae’n rhaid i’r cod post dim ond cynnwys y llythrennau a i z, y rhifau 0 i 9 a bylchau")
+    )),
+    classes = "govuk-input--width-10",
+    autocomplete = Some("postal-code")
+  ))

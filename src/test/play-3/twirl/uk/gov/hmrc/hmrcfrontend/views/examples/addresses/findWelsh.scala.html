@@ -1,0 +1,36 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukButton : GovukButton,
+govukInput : GovukInput)
+
+@()
+
+
+<h1 class="govuk-heading-l">Chwilio am eich cyfeiriad</h1>
+
+
+@govukInput(Input(
+    id = "postcode",
+    name = "postcode",
+    label = Label(
+      content = Text("Cod post")
+    ),
+    classes = "govuk-input--width-10",
+    autocomplete = Some("postal-code")
+  ))
+@govukInput(Input(
+    id = "property",
+    name = "property",
+    label = Label(
+      content = Text("Enw neu rif yr eiddo (dewisol)")
+    ),
+    hint = Some(Hint(
+      content = Text("Er enghraifft, Tegfan, 116 neu Fflat 37a.")
+    ))
+  ))
+<p class="govuk-body"><a class="govuk-link" href="#">Nodwch y cyfeiriad â llaw</a></p>
+
+
+@govukButton(Button(
+    content = Text("Parhau")
+  ))

@@ -3,7 +3,7 @@ import sbt.*
 
 object LibDependencies {
 
-  val playFrontendHmrcVersion = "12.18.0"
+  val playFrontendHmrcVersion = "12.28.0"
 
   def libDependencies: Seq[ModuleID] = compile ++ test
 

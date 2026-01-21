@@ -1,0 +1,19 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukInput : GovukInput)
+
+@()
+
+
+@govukInput(Input(
+    id = "postcode",
+    name = "postcode",
+    label = Label(
+      content = Text("Cod post")
+    ),
+    errorMessage = Some(ErrorMessage(
+      content = Text("Nid oedd modd i ni ddod o hyd i unrhyw gyfeiriadau ar gyfer cod post hynny. Nodwch god post sy’n hysbys, neu nodwch y cyfeiriad â llaw.")
+    )),
+    classes = "govuk-input--width-10",
+    autocomplete = Some("postal-code")
+  ))

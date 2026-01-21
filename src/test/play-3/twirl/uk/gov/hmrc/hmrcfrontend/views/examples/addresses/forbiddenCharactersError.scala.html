@@ -1,0 +1,19 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+@this(govukInput : GovukInput)
+
+@()
+
+
+@govukInput(Input(
+    id = "postcode",
+    name = "postcode",
+    label = Label(
+      content = Text("Postcode")
+    ),
+    errorMessage = Some(ErrorMessage(
+      content = Text("Postcode can only contain letters a to z, numbers 0 to 9 or spaces")
+    )),
+    classes = "govuk-input--width-10",
+    autocomplete = Some("postal-code")
+  ))
