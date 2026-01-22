@@ -270,6 +270,9 @@ package object examples {
   lazy val selectError =
     Guice.createInjector().getInstance(classOf[select.error])
 
+  lazy val selectWithHint =
+    Guice.createInjector().getInstance(classOf[select.withHint])
+
   lazy val serviceNavigationDefault =
     Guice.createInjector().getInstance(classOf[servicenavigation.default])
 
@@ -312,6 +315,9 @@ package object examples {
   lazy val tableDefault =
     Guice.createInjector().getInstance(classOf[table.default])
 
+  lazy val tableCaptionL =
+    Guice.createInjector().getInstance(classOf[table.captionL])
+
   lazy val tableColumnWidths =
     Guice.createInjector().getInstance(classOf[table.columnWidths])
 
@@ -327,8 +333,17 @@ package object examples {
   lazy val tabsDefault =
     Guice.createInjector().getInstance(classOf[tabs.default])
 
+  lazy val tagAllColours =
+    Guice.createInjector().getInstance(classOf[tag.allColours])
+
+  lazy val tagColouredTags =
+    Guice.createInjector().getInstance(classOf[tag.colouredTags])
+
   lazy val tagDefault =
     Guice.createInjector().getInstance(classOf[tag.default])
+
+  lazy val tagMultipleTags =
+    Guice.createInjector().getInstance(classOf[tag.multipleTags])
 
   lazy val tasklistDefault =
     Guice.createInjector().getInstance(classOf[tasklist.default])
@@ -351,8 +366,17 @@ package object examples {
   lazy val textareaError =
     Guice.createInjector().getInstance(classOf[textarea.error])
 
+  lazy val textareaWithoutHeading =
+    Guice.createInjector().getInstance(classOf[textarea.withoutHeading])
+
   lazy val textareaSpecifyingRows =
     Guice.createInjector().getInstance(classOf[textarea.specifyingRows])
+
+  lazy val textinputCodeSequence =
+    Guice.createInjector().getInstance(classOf[textinput.codeSequence])
+
+  lazy val textinputDecimalInput =
+    Guice.createInjector().getInstance(classOf[textinput.decimalInput])
 
   lazy val textinputDefault =
     Guice.createInjector().getInstance(classOf[textinput.default])
@@ -372,8 +396,26 @@ package object examples {
   lazy val textinputInputHintText =
     Guice.createInjector().getInstance(classOf[textinput.inputHintText])
 
+  lazy val textinputInputPrefix =
+    Guice.createInjector().getInstance(classOf[textinput.inputPrefix])
+
+  lazy val textinputInputPrefixSuffix =
+    Guice.createInjector().getInstance(classOf[textinput.inputPrefixSuffix])
+
+  lazy val textinputInputPrefixSuffixError =
+    Guice.createInjector().getInstance(classOf[textinput.inputPrefixSuffixError])
+
   lazy val textinputInputSpellcheckDisabled =
     Guice.createInjector().getInstance(classOf[textinput.inputSpellcheckDisabled])
+
+  lazy val textinputInputSuffix =
+    Guice.createInjector().getInstance(classOf[textinput.inputSuffix])
+
+  lazy val textinputNumberInput =
+    Guice.createInjector().getInstance(classOf[textinput.numberInput])
+
+  lazy val textinputWithoutHeading =
+    Guice.createInjector().getInstance(classOf[textinput.withoutHeading])
 
   lazy val warningtextDefault =
     Guice.createInjector().getInstance(classOf[warningtext.default])
