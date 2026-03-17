@@ -24,9 +24,6 @@ package object examples {
   lazy val greenbuttonExample =
     Guice.createInjector().getInstance(classOf[greenbutton.example])
 
-  lazy val accountmenuExample =
-    Guice.createInjector().getInstance(classOf[accountmenu.example])
-
   lazy val accountsofficereferenceHeading =
     Guice.createInjector().getInstance(classOf[accountsofficereference.heading])
 
