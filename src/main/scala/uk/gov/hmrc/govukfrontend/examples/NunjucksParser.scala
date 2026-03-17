@@ -163,12 +163,8 @@ object NunjucksParser {
           jsonToMacroCall[AddToAList](m, args)
         case (m @ "hmrcNotificationBadge", args)   =>
           jsonToMacroCall[NotificationBadge](m, args)
-        case (m @ "hmrcAccountMenu", args)         =>
-          jsonToMacroCall[AccountMenu](m, args)
         case (m @ "hmrcBanner", args)              =>
           jsonToMacroCall[Banner](m, args)
-        case (m @ "hmrcCurrencyInput", args)       =>
-          jsonToMacroCall[CurrencyInput](m, args)
         case (m @ "hmrcHeader", args)              =>
           jsonToMacroCall[Header](m, args)
         case (m @ "hmrcInternalHeader", args)      =>

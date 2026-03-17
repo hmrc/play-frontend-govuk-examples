@@ -3,18 +3,19 @@ import sbt.*
 
 object LibDependencies {
 
-  val playFrontendHmrcVersion = "12.28.0"
+  private val playFrontendHmrcVersion = "13.0.0"
+  private val playVersion = "3.0.10"
 
   def libDependencies: Seq[ModuleID] = compile ++ test
 
   private lazy val compile = Seq(
     // Was removed from core Java from v15 onwards, used by NunjucksParser
     "org.openjdk.nashorn" % "nashorn-core"               % "15.6",
-    "org.playframework"  %% "play-filters-helpers"       % "3.0.0",
+    "org.playframework"  %% "play-filters-helpers"       % playVersion,
     "org.joda"            % "joda-convert"               % "2.0.2",
     "com.lihaoyi"        %% "fastparse"                  % "2.1.3",
-    "org.playframework"  %% "play-test"                  % "3.0.0",
-    "uk.gov.hmrc"        %% "play-frontend-hmrc-play-30" % s"$playFrontendHmrcVersion"
+    "org.playframework"  %% "play-test"                  % playVersion,
+    "uk.gov.hmrc"        %% "play-frontend-hmrc-play-30" % playFrontendHmrcVersion
   )
 
   private lazy val test = Seq(
