@@ -18,7 +18,6 @@ package uk.gov.hmrc.govukfrontend.views
 package html
 
 import com.google.inject.Guice
-import uk.gov.hmrc.support.ConfigurationModule
 
 package object examples {
 
@@ -169,31 +168,18 @@ package object examples {
     Guice.createInjector().getInstance(classOf[fileupload.error])
 
   lazy val footerDefault =
-    Guice.createInjector(ConfigurationModule()).getInstance(classOf[footer.default])
+    Guice.createInjector().getInstance(classOf[footer.default])
 
   lazy val footerFull =
-    Guice.createInjector(ConfigurationModule()).getInstance(classOf[footer.full])
+    Guice.createInjector().getInstance(classOf[footer.full])
 
   lazy val footerWithMeta =
-    Guice.createInjector(ConfigurationModule()).getInstance(classOf[footer.withMeta])
+    Guice.createInjector().getInstance(classOf[footer.withMeta])
 
   lazy val footerWithNavigation =
-    Guice.createInjector(ConfigurationModule()).getInstance(classOf[footer.withNavigation])
+    Guice.createInjector().getInstance(classOf[footer.withNavigation])
 
-  lazy val footerWithoutBrandRefresh =
-    Guice.createInjector(ConfigurationModule()).getInstance(classOf[footer.withoutBrandRefresh])
-
-  lazy val headerDefault = Guice.createInjector(ConfigurationModule()).getInstance(classOf[header.default])
-
-  lazy val headerWithServiceName =
-    Guice.createInjector(ConfigurationModule()).getInstance(classOf[header.withServiceName])
-
-  lazy val headerWithServiceNameAndNavigation =
-    Guice.createInjector(ConfigurationModule()).getInstance(classOf[header.withServiceNameAndNavigation])
-
-  lazy val headerWithoutBrandRefresh =
-    Guice.createInjector(ConfigurationModule()).getInstance(classOf[header.withoutBrandRefresh])
-
+  lazy val headerDefault = Guice.createInjector().getInstance(classOf[header.default])
 
   lazy val insettextDefault =
     Guice.createInjector().getInstance(classOf[insettext.default])
@@ -273,17 +259,11 @@ package object examples {
   lazy val serviceNavigationDefault =
     Guice.createInjector().getInstance(classOf[servicenavigation.default])
 
-  lazy val serviceNavigationWithGovukHeader =
-    Guice.createInjector(ConfigurationModule()).getInstance(classOf[servicenavigation.withGovukHeader])
-
   lazy val serviceNavigationWithServiceName =
     Guice.createInjector().getInstance(classOf[servicenavigation.withServiceName])
 
   lazy val serviceNavigationWithServiceNameAndNavigation =
     Guice.createInjector().getInstance(classOf[servicenavigation.withServiceNameAndNavigation])
-
-  lazy val serviceNavigationWithoutBrandRefresh =
-    Guice.createInjector().getInstance(classOf[servicenavigation.withoutBrandRefresh])
 
   lazy val skiplinkDefault =
     Guice.createInjector().getInstance(classOf[skiplink.default])

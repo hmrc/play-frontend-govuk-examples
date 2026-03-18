@@ -27,5 +27,4 @@ class govukFooterIntegrationSpec extends TemplateIntegrationSpec {
   testRendering(GovukFrontend, "footer", "full", footerFull.f)
   testRendering(GovukFrontend, "footer", "withMeta", footerWithMeta.f)
   testRendering(GovukFrontend, "footer", "withNavigation", footerWithNavigation.f)
-  testRendering(GovukFrontend, "footer", "withoutBrandRefresh", footerWithoutBrandRefresh.f)
 }

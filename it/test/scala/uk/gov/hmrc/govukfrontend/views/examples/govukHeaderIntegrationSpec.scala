@@ -25,14 +25,6 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukHeaderIntegrationSpec extends TemplateIntegrationSpec {
 
   testRendering(GovukFrontend, "header", "default", withOverriddenAssetPath(headerDefault.f))
-  testRendering(GovukFrontend, "header", "withServiceName", withOverriddenAssetPath(headerWithServiceName.f))
-  testRendering(
-    GovukFrontend,
-    "header",
-    "withServiceNameAndNavigation",
-    withOverriddenAssetPath(headerWithServiceNameAndNavigation.f)
-  )
-  testRendering(GovukFrontend, "header", "withoutBrandRefresh", withOverriddenAssetPath(headerWithoutBrandRefresh.f))
 
   private def withOverriddenAssetPath(render: () => HtmlFormat.Appendable): () => HtmlFormat.Appendable = { () =>
     Html(render().toString().replace("/assets/govuk/images/", "/assets/images/"))
