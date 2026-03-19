@@ -23,5 +23,8 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukTagIntegrationSpec extends TemplateIntegrationSpec {
 
+  testRendering(GovukFrontend, "tag", "allColours", tagAllColours.f)
+  testRendering(GovukFrontend, "tag", "colouredTags", tagColouredTags.f)
   testRendering(GovukFrontend, "tag", "default", tagDefault.f)
+  testRendering(GovukFrontend, "tag", "multipleTags", tagMultipleTags.f)
 }
