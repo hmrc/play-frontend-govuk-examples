@@ -19,7 +19,7 @@ package uk.gov.hmrc.govukfrontend.examples
 import play.api.{Configuration, Environment}
 import play.api.http.HttpConfiguration
 import play.api.i18n.{DefaultLangs, DefaultMessagesApiProvider, Lang, Messages, MessagesApi}
-import play.api.mvc.MessagesRequest
+import play.api.mvc.{Cookie, MessagesRequest}
 import play.api.test.FakeRequest
 
 case class MessagesSupport() {
@@ -40,5 +40,7 @@ case class MessagesSupport() {
     ).get
   }
 
-  val messages: Messages = new MessagesRequest(FakeRequest(), messagesApi).messages
+  val messages: Messages      = new MessagesRequest(FakeRequest(), messagesApi).messages
+  val welshMessages: Messages =
+    new MessagesRequest(FakeRequest().withCookies(Cookie("PLAY_LANG", "cy")), messagesApi).messages
 }
