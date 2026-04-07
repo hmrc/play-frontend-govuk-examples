@@ -75,6 +75,30 @@ package object examples {
   lazy val asktheuserfortheirconsentYesNoQuestion =
     Guice.createInjector().getInstance(classOf[asktheuserfortheirconsent.yesNoQuestion])
 
+  lazy val caseworkerguidancebannerDataEntry =
+    Guice.createInjector().getInstance(classOf[caseworkerguidancebanner.dataEntry])
+
+  lazy val caseworkerguidancebannerDataEntryWelsh =
+    Guice.createInjector().getInstance(classOf[caseworkerguidancebanner.dataEntryWelsh])
+
+  lazy val caseworkerguidancebannerDocumentation =
+    Guice.createInjector().getInstance(classOf[caseworkerguidancebanner.documentation])
+
+  lazy val caseworkerguidancebannerDocumentationWelsh =
+    Guice.createInjector().getInstance(classOf[caseworkerguidancebanner.documentationWelsh])
+
+  lazy val caseworkerguidancebannerMultipleInstructions =
+    Guice.createInjector().getInstance(classOf[caseworkerguidancebanner.multipleInstructions])
+
+  lazy val caseworkerguidancebannerMultipleInstructionsWelsh =
+    Guice.createInjector().getInstance(classOf[caseworkerguidancebanner.multipleInstructionsWelsh])
+
+  lazy val caseworkerguidancebannerSecurity =
+    Guice.createInjector().getInstance(classOf[caseworkerguidancebanner.security])
+
+  lazy val caseworkerguidancebannerSecurityWelsh =
+    Guice.createInjector().getInstance(classOf[caseworkerguidancebanner.securityWelsh])
+
   lazy val confirmedidentityExample =
     Guice.createInjector().getInstance(classOf[confirmedidentity.example])
 

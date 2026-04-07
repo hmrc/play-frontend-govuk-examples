@@ -762,10 +762,24 @@
     }
   }
 }, {
+  "id" : "hmrc/caseworkerguidancebanner/dataEntryWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-3/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/caseworkerguidancebanner/dataEntryWelsh.scala.html"
+    }
+  }
+}, {
   "id" : "hmrc/caseworkerguidancebanner/documentation",
   "versions" : {
     "play" : {
       "uri" : "play-3/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/caseworkerguidancebanner/documentation.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/caseworkerguidancebanner/documentationWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-3/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/caseworkerguidancebanner/documentationWelsh.scala.html"
     }
   }
 }, {
@@ -776,10 +790,24 @@
     }
   }
 }, {
+  "id" : "hmrc/caseworkerguidancebanner/multipleInstructionsWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-3/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/caseworkerguidancebanner/multipleInstructionsWelsh.scala.html"
+    }
+  }
+}, {
   "id" : "hmrc/caseworkerguidancebanner/security",
   "versions" : {
     "play" : {
       "uri" : "play-3/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/caseworkerguidancebanner/security.scala.html"
+    }
+  }
+}, {
+  "id" : "hmrc/caseworkerguidancebanner/securityWelsh",
+  "versions" : {
+    "play" : {
+      "uri" : "play-3/twirl/uk/gov/hmrc/hmrcfrontend/views/examples/caseworkerguidancebanner/securityWelsh.scala.html"
     }
   }
 }, {

@@ -7,5 +7,5 @@
 @()(implicit messages: Messages)
 
 @hmrcCaseworkerBanner(CaseworkerBanner(
-    content = Text("Use HMRC records to complete this page. Do not request this information from the user.")
+    content = HtmlContent(Html("""<a class="govuk-link caseworker-guidance-banner__link" rel="noopener noreferrer" href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank">Arweiniad Rheoli Dyledion (yn agor tab newydd)</a>"""))
 ))
