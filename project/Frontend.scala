@@ -51,6 +51,7 @@ object Frontend {
       "accountsofficereference"       -> "accountsOfficeReference",
       "addtoalist"                    -> "addToAList",
       "asktheuserfortheirconsent"     -> "askTheUserForTheirConsent",
+      "caseworkerbanner"              -> "caseworkerBanner",
       "currencyinput"                 -> "currencyInput",
       "confirmedidentity"             -> "confirmedIdentity",
       "couldnotconfirmidentity"       -> "couldNotConfirmIdentity",

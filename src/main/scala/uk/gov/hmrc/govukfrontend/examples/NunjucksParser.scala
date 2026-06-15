@@ -181,6 +181,8 @@ object NunjucksParser {
           jsonToMacroCall[UserResearchBanner](m, args)
         case (m @ "hmrcCharacterCount", args)      =>
           jsonToMacroCall[HfCharacterCount](m, args)
+        case (m @ "hmrcCaseworkerBanner", args)    =>
+          jsonToMacroCall[CaseworkerBanner](m, args)
       }
 
   import scala.reflect.runtime.universe._
