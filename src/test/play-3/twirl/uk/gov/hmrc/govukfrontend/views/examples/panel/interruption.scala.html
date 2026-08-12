@@ -1,0 +1,26 @@
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.panel.{PanelActions, PanelItem}
+
+@this(govukPanel : GovukPanel)
+
+@()
+
+
+@govukPanel(Panel(
+    classes = "govuk-panel--interruption",
+    title = Text("Is your age correct?"),
+    content = HtmlContent("""<p class="govuk-body">You entered your age as <strong>109</strong>.</p>"""),
+    actions = Some(PanelActions(
+      items = Seq(
+        PanelItem(
+          text = "Yes, this is correct",
+          panelItemType = Some("button"),
+          href = Some("#")
+        ),
+        PanelItem(
+          text = "No, change my age",
+          href = Some("#")
+        )
+      )
+    ))
+))
