@@ -454,13 +454,6 @@
     }
   }
 }, {
-  "id" : "genericheader/default",
-  "versions" : {
-    "play" : {
-      "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/genericheader/default.scala.html"
-    }
-  }
-}, {
   "id" : "header/default",
   "versions" : {
     "play" : {
