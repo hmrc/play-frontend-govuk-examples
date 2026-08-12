@@ -24,4 +24,5 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukPanelIntegrationSpec extends TemplateIntegrationSpec {
 
   testRendering(GovukFrontend, "panel", "default", panelDefault.f)
+  testRendering(GovukFrontend, "panel", "interruption", panelInterruption.f)
 }

@@ -217,6 +217,9 @@ package object examples {
   lazy val panelDefault =
     Guice.createInjector().getInstance(classOf[panel.default])
 
+  lazy val panelInterruption =
+    Guice.createInjector().getInstance(classOf[panel.interruption])
+
   lazy val phasebannerDefault =
     Guice.createInjector().getInstance(classOf[phasebanner.default])
 
