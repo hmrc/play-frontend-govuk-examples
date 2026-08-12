@@ -23,11 +23,19 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 
 class govukTextInputIntegrationSpec extends TemplateIntegrationSpec {
 
+  testRendering(GovukFrontend, "text-input", "codeSequence", textinputCodeSequence.f)
+  testRendering(GovukFrontend, "text-input", "decimalInput", textinputDecimalInput.f)
   testRendering(GovukFrontend, "text-input", "default", textinputDefault.f)
   testRendering(GovukFrontend, "text-input", "error", textinputError.f)
   testRendering(GovukFrontend, "text-input", "inputAutocompleteAttribute", textinputInputAutocompleteAttribute.f)
   testRendering(GovukFrontend, "text-input", "inputFixedWidth", textinputInputFixedWidth.f)
   testRendering(GovukFrontend, "text-input", "inputFluidWidth", textinputInputFluidWidth.f)
   testRendering(GovukFrontend, "text-input", "inputHintText", textinputInputHintText.f)
+  testRendering(GovukFrontend, "text-input", "inputPrefix", textinputInputPrefix.f)
+  testRendering(GovukFrontend, "text-input", "inputPrefixSuffix", textinputInputPrefixSuffix.f)
+  testRendering(GovukFrontend, "text-input", "inputPrefixSuffixError", textinputInputPrefixSuffixError.f)
   testRendering(GovukFrontend, "text-input", "inputSpellcheckDisabled", textinputInputSpellcheckDisabled.f)
+  testRendering(GovukFrontend, "text-input", "inputSuffix", textinputInputSuffix.f)
+  testRendering(GovukFrontend, "text-input", "numberInput", textinputNumberInput.f)
+  testRendering(GovukFrontend, "text-input", "withoutHeading", textinputWithoutHeading.f)
 }

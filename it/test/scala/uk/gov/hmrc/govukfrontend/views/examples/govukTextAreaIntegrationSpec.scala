@@ -26,4 +26,5 @@ class govukTextAreaIntegrationSpec extends TemplateIntegrationSpec {
   testRendering(GovukFrontend, "textarea", "default", textareaDefault.f)
   testRendering(GovukFrontend, "textarea", "error", textareaError.f)
   testRendering(GovukFrontend, "textarea", "specifyingRows", textareaSpecifyingRows.f)
+  testRendering(GovukFrontend, "textarea", "withoutHeading", textareaWithoutHeading.f)
 }
