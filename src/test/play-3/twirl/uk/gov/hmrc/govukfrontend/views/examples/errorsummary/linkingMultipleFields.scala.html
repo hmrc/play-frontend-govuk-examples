@@ -21,17 +21,15 @@ govukErrorSummary : GovukErrorSummary)
     items = Seq(
       InputItem(
         name = "day",
-        value = Some("5"),
-        classes = "govuk-input--width-2"
-      ), 
+        value = Some("5")
+      ),
       InputItem(
         name = "month",
-        value = Some("12"),
-        classes = "govuk-input--width-2"
-      ), 
+        value = Some("12")
+      ),
       InputItem(
         name = "year",
-        classes = "govuk-input--width-4 govuk-input--error"
+        error = Some(true)
       )
     ),
     errorMessage = Some(ErrorMessage(
@@ -43,5 +41,5 @@ govukErrorSummary : GovukErrorSummary)
         classes = "govuk-fieldset__legend--l",
         isPageHeading = true
       ))
-    ))
+    )),
   ))
