@@ -24,6 +24,7 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukTableIntegrationSpec extends TemplateIntegrationSpec {
 
   testRendering(GovukFrontend, "table", "default", tableDefault.f)
+  testRendering(GovukFrontend, "table", "captionL", tableCaptionL.f)
   testRendering(GovukFrontend, "table", "columnWidths", tableColumnWidths.f)
   testRendering(GovukFrontend, "table", "columnWidthsCustomClasses", tableColumnWidthsCustomClasses.f)
   testRendering(GovukFrontend, "table", "numbers", tableNumbers.f)

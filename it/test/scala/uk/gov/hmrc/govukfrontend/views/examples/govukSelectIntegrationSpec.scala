@@ -25,4 +25,5 @@ class govukSelectIntegrationSpec extends TemplateIntegrationSpec {
 
   testRendering(GovukFrontend, "select", "default", selectDefault.f)
   testRendering(GovukFrontend, "select", "error", selectError.f)
+  testRendering(GovukFrontend, "select", "withHint", selectWithHint.f)
 }
