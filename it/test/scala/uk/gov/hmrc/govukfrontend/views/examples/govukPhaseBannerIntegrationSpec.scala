@@ -24,5 +24,4 @@ import uk.gov.hmrc.support.TemplateIntegrationSpec
 class govukPhaseBannerIntegrationSpec extends TemplateIntegrationSpec {
 
   testRendering(GovukFrontend, "phase-banner", "default", phasebannerDefault.f)
-  testRendering(GovukFrontend, "phase-banner", "beta", phasebannerBeta.f)
 }

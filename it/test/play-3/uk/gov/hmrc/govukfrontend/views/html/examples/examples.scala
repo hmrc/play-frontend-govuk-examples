@@ -223,9 +223,6 @@ package object examples {
   lazy val phasebannerDefault =
     Guice.createInjector().getInstance(classOf[phasebanner.default])
 
-  lazy val phasebannerBeta =
-    Guice.createInjector().getInstance(classOf[phasebanner.beta])
-
   lazy val radiosDefault =
     Guice.createInjector().getInstance(classOf[radios.default])
 
