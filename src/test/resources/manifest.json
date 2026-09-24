@@ -2295,13 +2295,6 @@
     }
   }
 }, {
-  "id" : "phasebanner/beta",
-  "versions" : {
-    "play" : {
-      "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/phasebanner/beta.scala.html"
-    }
-  }
-}, {
   "id" : "phasebanner/default",
   "versions" : {
     "play" : {
