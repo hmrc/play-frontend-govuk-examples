@@ -391,13 +391,6 @@
     }
   }
 }, {
-  "id" : "feedback/default",
-  "versions" : {
-    "play" : {
-      "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/feedback/default.scala.html"
-    }
-  }
-}, {
   "id" : "fieldset/addressGroup",
   "versions" : {
     "play" : {
@@ -458,13 +451,6 @@
   "versions" : {
     "play" : {
       "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/footer/withNavigation.scala.html"
-    }
-  }
-}, {
-  "id" : "genericheader/default",
-  "versions" : {
-    "play" : {
-      "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/genericheader/default.scala.html"
     }
   }
 }, {
@@ -2225,27 +2211,6 @@
     }
   }
 }, {
-  "id" : "languagenavigation/afterH1",
-  "versions" : {
-    "play" : {
-      "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/languagenavigation/afterH1.scala.html"
-    }
-  }
-}, {
-  "id" : "languagenavigation/default",
-  "versions" : {
-    "play" : {
-      "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/languagenavigation/default.scala.html"
-    }
-  }
-}, {
-  "id" : "languagenavigation/inverse",
-  "versions" : {
-    "play" : {
-      "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/languagenavigation/inverse.scala.html"
-    }
-  }
-}, {
   "id" : "notificationbanner/default",
   "versions" : {
     "play" : {
@@ -2327,13 +2292,6 @@
   "versions" : {
     "play" : {
       "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/panel/interruption.scala.html"
-    }
-  }
-}, {
-  "id" : "phasebanner/beta",
-  "versions" : {
-    "play" : {
-      "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/phasebanner/beta.scala.html"
     }
   }
 }, {
@@ -2435,13 +2393,6 @@
     }
   }
 }, {
-  "id" : "servicenavigation/withInlineEndSlot",
-  "versions" : {
-    "play" : {
-      "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/servicenavigation/withInlineEndSlot.scala.html"
-    }
-  }
-}, {
   "id" : "servicenavigation/withServiceName",
   "versions" : {
     "play" : {
@@ -2453,13 +2404,6 @@
   "versions" : {
     "play" : {
       "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/servicenavigation/withServiceNameAndNavigation.scala.html"
-    }
-  }
-}, {
-  "id" : "servicenavigation/withSlots",
-  "versions" : {
-    "play" : {
-      "uri" : "play-3/twirl/uk/gov/hmrc/govukfrontend/views/examples/servicenavigation/withSlots.scala.html"
     }
   }
 }, {
