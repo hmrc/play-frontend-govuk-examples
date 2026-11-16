@@ -1,4 +1,5 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.charactercount.WordsCountType
 
 @this(govukCharacterCount : GovukCharacterCount)
 
@@ -8,10 +9,11 @@
 @govukCharacterCount(CharacterCount(
     id = "word-count",
     name = "wordCount",
-    maxWords = Some(150),
+    maxLength = Some(150),
     label = Label(
       isPageHeading = true,
       classes = "govuk-label--l",
       content = Text("Enter a job description")
-    )
+    ),
+    countType = Some(WordsCountType)
   ))
